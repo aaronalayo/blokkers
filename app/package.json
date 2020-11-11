@@ -1,8 +1,8 @@
 {
   "name": "blokkers",
   "version": "1.0.0",
-  "description": "Blokkers API to sell designer posters",
-  "main": "app.js",
+  "description": "Blokkers API to sell design posters",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,13 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/aaronalayo/blokkers.git"
   },
-  "author": "Maria Ilieva, Aaron Alayo",
+  "author": "Maria Ilieva / Aaron ALAYO",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aaronalayo/blokkers/issues"
   },
   "homepage": "https://github.com/aaronalayo/blokkers#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "cross-env": "^7.0.2",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0"
   }
 }
