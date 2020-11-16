@@ -25,7 +25,6 @@
   "homepage": "https://github.com/aaronalayo/blokkers#readme",
   "dependencies": {
     "cross-env": "^7.0.2",
-    "dot-env": "0.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.2.0",

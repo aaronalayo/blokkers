@@ -1,10 +1,11 @@
 '--unhandled-rejections=strict'
 const { knexSnakeCaseMappers} = require('objection');
 
+
 const dotenv = require('dotenv');
 dotenv.config();
 
-
+console.log(process.env.PGUSER)
 module.exports = {
   
   development: {

@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const express = require("express");
 const app = express();
 const server = require("http").createServer(app);
@@ -24,6 +27,7 @@ app.get("*", function (req, res) {
   console.log(req);
   res.send("Page doesnt exist", 404);
 });
+
 
 
 

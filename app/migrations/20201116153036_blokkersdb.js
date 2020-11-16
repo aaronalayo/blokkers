@@ -1,9 +1,9 @@
 
 exports.up = function(knex) {
     return knex.schema
-    .createTable('roles',(table)=>{
-        table.uuid('role_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
-        table.string('role').unique().notNullable();
+    .createTable('posters',(table)=>{
+        table.uuid('poster_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
+        table.string('format').unique().notNullable();
   
     })
 };
