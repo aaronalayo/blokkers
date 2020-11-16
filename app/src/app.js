@@ -11,17 +11,19 @@ app.use(express.urlencoded({ extended: false })); //to get response fromm
 // parse application/json
 app.use(express.json()); //to sumit form
 
+app.set('trust proxy', true);
+
+app.use(express.static(__dirname + "/public"));
 
 
+app.get("/", async (req, res) => {
+  res.status(200).send("Hello");
+});
 
-
-
-app.get("/test", async (req, res) => {
-    res.status(200).send("Hello");
-  });
-
-
-
+app.get("*", function (req, res) {
+  console.log(req);
+  res.send("Page doesnt exist", 404);
+});
 
 
 
