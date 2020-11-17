@@ -1,11 +1,12 @@
 '--unhandled-rejections=strict'
 const { knexSnakeCaseMappers} = require('objection');
 
+const fs = require('fs');
 
 const dotenv = require('dotenv');
 dotenv.config();
 
-console.log(process.env.PGUSER)
+
 module.exports = {
   
   development: {
@@ -20,7 +21,13 @@ module.exports = {
       ssl: process.env.PGSSLMODE,
       ssl: {
         rejectUnauthorized: false
-      }
+      },
+      // ssl: {
+      //   ca: fs.readFileSync(__dirname + "/server-ca.pem"),
+      //   cert: fs.readFileSync(__dirname + '/client-cert.pem'),
+      //   key: fs.readFileSync(__dirname + '/client-key.pem')
+      // }
+      // }
     },
     ...knexSnakeCaseMappers()
   }
