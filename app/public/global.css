@@ -123,35 +123,55 @@
 
 #nav-bar {
     overflow: hidden;
-    background-color: #333;
+    background-color:white;
     position: relative;
  }
+
+.menu-toggle{
+    position: relative;
+    width: 20%;
+    z-index: 9;
+}
   
-#menu {
+.menu-toggle #menu{
     display: none;
 }
 
 #menu-toggle a {
     color: rgb(211, 7, 7);
+}
+.menu-toggle a {
+    color: black;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    text-align: left;
+    font-size: 14px;
     display: block;
+    list-style: none;
+    padding-left: 30%;
   }
   
-#menu-toggle a.icon {
-    background: black;
+.menu-toggle a.icon {
+    background: white;
     display: block;
-    color: #333;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-  }
-  
-#menu-toggle a:hover {
-    background-color: rgb(197, 35, 35);
     color: black;
+    position: inherit;
+    padding-left: 30%;
+    padding-top: 5%;
   }
   
-
+/* .menu-toggle a:hover {
+    background-color: #ddd;
+    color: black;
+  } */
   
+#hamburger{
+    width: fit-content;
+}
+
+hr{
+    width:15%;
+    text-align:left;
+    margin-left:30%;
+    size: 5pt;
+}

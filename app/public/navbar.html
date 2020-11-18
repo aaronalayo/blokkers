@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="global.css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
@@ -13,17 +14,22 @@
 
 <body>
     <nav role="navigation" id="nav-bar"> 
-        <div id="menu-toggle">
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
+        <div class="menu-toggle">
+            <a></a>
+            <a id="hamburger" href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars" style="font-size:24px"></i>
               </a>
-            <ul id="menu">
+            <div id="menu">
                 <a href="#"><li>Home</li></a>
+                <hr>
                 <a href="#"><li>Inspiration</li></a>
+                <hr>
                 <a href="#"><li>About</li></a>
+                <hr>
                 <a href="#"><li>Contact</li></a>
+                <hr>
                 <a href="#"><li>Create your poster</li></a>
-              </ul>
+            </div>
 
         </div>
         
