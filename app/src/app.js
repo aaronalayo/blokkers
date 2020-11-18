@@ -21,15 +21,16 @@ const fs = require('fs');
 
 const navbar = fs.readFileSync("./public/navbar.html", "utf8");
 const homePage = fs.readFileSync("./public/homepage.html", "utf8");
+const footer = fs.readFileSync("./public/footer.html", "utf8");
 
 
-app.get("/", async (req, res) => {
-  return res.send(navbar + homePage);
+app.get("/", (req, res) => {
+  return res.send(navbar + homePage + footer);
 });
 
-app.get("*", function (req, res) {
-  console.log(req);
-  res.status(404).send("<h1>Page doesnt exist<h1>", 404);
+app.get("*", (req, res) => {
+
+  res.status(404).send("<h1>Page doesnt exist<h1>");
 });
 
 
