@@ -20,9 +20,44 @@
 
 
 }
-.top {
+#scroll {
+    max-width: 10%;
+    max-height: 5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-weight: lighter;
+    font-size: 1rem;
+    
+  }
+  #scroll_icon {
+    max-width: 5%;
+    max-height: 5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  
+  
+  }
+.mail {
     position: relative;
     padding-bottom: 3em;
+    padding-right: 2em;
+    color: black;
+    text-decoration: none;
+}
+.scroll {
+    position: relative;
+    padding-bottom:4em;
+    padding-left: 5em;
 
 }
 .bottom {
@@ -79,9 +114,7 @@
     font-style: normal;
 
 }
-.top {
-    font-family: 'khularegular' ;
-}
+
 #centered{
     padding-right: 25%;
     padding-left: 25%;
@@ -99,7 +132,7 @@
 }
 
 #menu-toggle a {
-    color: white;
+    color: rgb(211, 7, 7);
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
@@ -116,7 +149,9 @@
   }
   
 #menu-toggle a:hover {
-    background-color: #ddd;
+    background-color: rgb(197, 35, 35);
     color: black;
   }
+  
+
   

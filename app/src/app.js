@@ -1,12 +1,10 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
+
 const express = require("express");
 const app = express();
 const server = require("http").createServer(app);
 
 const helmet = require("helmet");
-app.use(helmet());
+app.use(helmet.xssFilter());
 
 // parse application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false })); //to get response fromm
@@ -25,7 +23,7 @@ const footer = fs.readFileSync("./public/footer.html", "utf8");
 
 
 app.get("/", (req, res) => {
-  return res.send(navbar + homePage + footer);
+  return res.send(navbar + homePage);
 });
 
 app.get("*", (req, res) => {
