@@ -17,10 +17,14 @@ app.use(express.json()); //to sumit form
 app.set('trust proxy', true);
 
 app.use(express.static(__dirname + "/public"));
+const fs = require('fs');
+
+const navbar = fs.readFileSync("./public/navbar.html", "utf8");
+const homePage = fs.readFileSync("./public/homepage.html", "utf8");
 
 
 app.get("/", async (req, res) => {
-  res.status(200).send("Hello");
+  return res.send(navbar + homePage);
 });
 
 app.get("*", function (req, res) {
