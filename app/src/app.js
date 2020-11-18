@@ -5,8 +5,8 @@ const express = require("express");
 const app = express();
 const server = require("http").createServer(app);
 
-const helmet = require("helmet");
-app.use(helmet());
+// const helmet = require("helmet");
+// app.use(helmet());
 
 // parse application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false })); //to get response fromm
