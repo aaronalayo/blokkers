@@ -16,7 +16,7 @@ app.use(express.json()); //to sumit form
 
 app.set('trust proxy', true);
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static("public"));
 const fs = require('fs');
 
 const navbar = fs.readFileSync("./public/navbar.html", "utf8");
