@@ -25,7 +25,7 @@ app.get("/", async (req, res) => {
 
 app.get("*", function (req, res) {
   console.log(req);
-  res.send("Page doesnt exist", 404);
+  res.status(404).send("<h1>Page doesnt exist<h1>", 404);
 });
 
 
