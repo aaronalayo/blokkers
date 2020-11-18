@@ -1,9 +1,84 @@
-#logo_img{  
-    max-width: 100%;
-    max-height: 100%;
+#logo_img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
-#centered{
-    padding-right: 25%;
-    padding-left: 25%;
+#centered {
+  padding-right: 25%;
+  padding-left: 25%;
+}
+#insta_logo {
+  max-width: 5%;
+  max-height: 5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+
+}
+.top {
+    position: relative;
+    padding-bottom: 3em;
+
+}
+.bottom {
+   position: absolute;
+}
+
+@font-face {
+    font-family: 'khulabold';
+    src: url('khula-bold-webfont.woff2') format('woff2'),
+         url('khula-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'khulaextrabold';
+    src: url('khula-extrabold-webfont.woff2') format('woff2'),
+         url('khula-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'khulalight';
+    src: url('khula-light-webfont.woff2') format('woff2'),
+         url('khula-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'khularegular';
+    src: url('khula-regular-webfont.woff2') format('woff2'),
+         url('khula-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'khulasemibold';
+    src: url('khula-semibold-webfont.woff2') format('woff2'),
+         url('khula-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.top {
+    font-family: 'khularegular' ;
 }
