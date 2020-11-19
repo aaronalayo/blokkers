@@ -9,7 +9,7 @@
 
 <div class="centered">
     <div id="myScroll">
-        <h2 id="scroll" class="scroll">Scroll to explore</h2>
+
     </div>
 </div>
 
@@ -22,14 +22,23 @@
 var counter=0;
         $(window).scroll(function () {
             if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
-                appendData();
+                appendData()
             }
             function appendData() {
-            var html = '';
- 
-                html += '<img id="inspiration_img" src="images/Alberte_ny.jpg">';
-                $('#myScroll').append(html);
-			
-        }
+                
+                // $('#logo_img').fadeOut(5)
+                // $('#scroll').fadeOut(5)
+                // $('#scroll_icon').fadeOut(5)
+                window.location.href ="/inspirations";
+
+            }
+     
+            counter++;
+
+   
+
+   
+            
         });
   </script>
+ 

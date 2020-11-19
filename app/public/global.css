@@ -33,8 +33,8 @@
   font-size: 1rem;
 }
 #scroll_icon {
-  max-width: 5%;
-  max-height: 5%;
+  max-width: 3%;
+  max-height: 3%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -159,18 +159,22 @@ hr {
   size: 5pt;
   border-top: 2px solid black;
 }
+
+#inspiration_img {
+
+display: block;
+
+  margin-left: 10%;
+
+margin-right:auto ;
+  max-width:40%;
+  max-height: 60%;
+}
 #elementToMove {
-  position: absolute;
   bottom: 0;
-  -webkit-transition: bottom 0.5s ease;
+  position: absolute;
+  -webkit-transition: bottom 1s ease;
   transition: bottom 1s ease;
 
-  display: block;
-}
-#inspiration_img {
-  max-width: 50%;
-  max-height: 50%;
-  display: inherit;
-  margin-right: auto;
-  margin-left: auto;
+
 }
