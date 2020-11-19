@@ -20,11 +20,24 @@ const fs = require('fs');
 const navbar = fs.readFileSync("./public/navbar.html", "utf8");
 const homePage = fs.readFileSync("./public/homepage.html", "utf8");
 const footer = fs.readFileSync("./public/footer.html", "utf8");
-
+const inspirationsPage = fs.readFileSync("./public/inspirations.html", "utf8");
 
 app.get("/", (req, res) => {
   return res.send(navbar + homePage);
 });
+
+app.get("/inspirations", (req, res) => {
+  console.log('here')
+  return res.send(navbar + inspirationsPage + footer);
+});
+
+
+
+
+
+
+
+
 
 app.get("*", (req, res) => {
 
@@ -33,7 +46,9 @@ app.get("*", (req, res) => {
 
 
 
+// const inspirationRoute = require('./routes/inspiratons.js');
 
+// app.use(inspirationRoute);
 
 
 

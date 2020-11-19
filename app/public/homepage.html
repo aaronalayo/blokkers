@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <div id="centered">
         <img id="logo_img" src="images/Blokkers_logo.png">
@@ -8,3 +9,38 @@
     </div>
 </body>
 </html>
+
+
+
+<script type="text/javascript">
+    // $(document).ready(function(){                
+    //       $(window).bind('scroll',fetchMore);
+    //  });
+  
+    //  fetchMore = function (){
+    //      if ( $(window).scroll() == $(document).height()-$(window).height()){
+    //    
+    //          $(window).unbind('scroll',fetchMore);
+    //           $.get('/inspirations.html',
+    //           function(data) {
+    //              if(data.length<10){
+    //                   $(data).insertBefore($('#placeholder'));
+    //                   $(window).bind('scroll',fetchMore);
+    //              }
+    //           });
+    //       }
+    //  }
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+                console.log($(window).scrollTop() + $(window).height(), $(document).height())
+                // $(location).attr('href','/inspirations')
+                $(window).slideUp(1000, function () {
+
+                    $(window).attr('location', '/inspirations').slideUp(1000);
+
+
+                });
+            }
+        });
+  </script>
