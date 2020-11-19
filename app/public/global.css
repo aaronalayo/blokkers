@@ -170,7 +170,6 @@ hr {
   max-width: 50%;
   max-height: 50%;
   display: inherit;
-
+  margin-right: auto;
   margin-left: auto;
-  /* margin-right: auto; */
 }

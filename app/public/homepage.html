@@ -1,46 +1,34 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div id="centered">
+    <img id="logo_img" src="images/Blokkers_logo.png">
+</div>
+<div id="centered">
+    <h2 id="scroll" class="scroll">Scroll to explore</h2>
+    <img class="bottom" id="scroll_icon" src="images/PngItem_483857.png">
+</div>
 
-    <div id="centered">
-        <img id="logo_img" src="images/Blokkers_logo.png">
+<div id="centered">
+    <div id="myScroll">
     </div>
-    <div id="centered">
-        <h2 id="scroll" class="scroll">Scroll to explore</h2>
-        <img class="bottom" id="scroll_icon" src="images/PngItem_483857.png">
-    </div>
+</div>
+
 </body>
 </html>
 
 
 
 <script type="text/javascript">
-    // $(document).ready(function(){                
-    //       $(window).bind('scroll',fetchMore);
-    //  });
-  
-    //  fetchMore = function (){
-    //      if ( $(window).scroll() == $(document).height()-$(window).height()){
-    //    
-    //          $(window).unbind('scroll',fetchMore);
-    //           $.get('/inspirations.html',
-    //           function(data) {
-    //              if(data.length<10){
-    //                   $(data).insertBefore($('#placeholder'));
-    //                   $(window).bind('scroll',fetchMore);
-    //              }
-    //           });
-    //       }
-    //  }
-
+var counter=0;
         $(window).scroll(function () {
             if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
-                console.log($(window).scrollTop() + $(window).height(), $(document).height())
-                // $(location).attr('href','/inspirations')
-                $(window).show(500, function () {
-
-                    // $(window).attr('location', '/inspirations').slideUp(1000);
-                    location.href='/inspirations'
-
-                });
+                appendData();
             }
+            function appendData() {
+            var html = '';
+ 
+                html += '<img id="inspiration_img" src="images/Alberte_ny.jpg">';
+                $('#myScroll').append(html);
+			
+        }
         });
   </script>
