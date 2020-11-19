@@ -30,11 +30,11 @@
   left: 0;
   right: 0;
   font-weight: lighter;
+  text-align: center;
   font-size: 1rem;
 }
 #scroll_icon {
-  max-width: 3%;
-  max-height: 3%;
+  max-height: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -42,6 +42,8 @@
   bottom: 0;
   left: 0;
   right: 0;
+  text-align: center;
+  font-size: 120px;
 }
 .mail {
   position: relative;
@@ -52,8 +54,7 @@
 }
 .scroll {
   position: relative;
-  padding-bottom: 4em;
-  padding-left: 5em;
+  padding-bottom: 5em;
 }
 .bottom {
   position: absolute;
@@ -138,7 +139,7 @@
   background: white;
   display: block;
   color: black;
-  position: inherit;
+  position: absolute;
   padding-left: 30%;
   padding-top: 5%;
 }
@@ -180,9 +181,11 @@ margin-right:auto ;
 }
 
 
-.fa-shopping-bag{
-  width: fit-content;
+.shopping-bag{
   position: absolute;
-  padding: 14px 16px;
   color: black;
+  padding-top: 3%;
+  padding-left: 90%;
+  display: block;
+  width: fit-content;
 }
