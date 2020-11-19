@@ -33,6 +33,12 @@
             </div>
 
         </div>
+        <div>
+          <a></a>
+          <a class="icon">
+              <i class="fas fa-shopping-bag" style="font-size:24px"></i>
+            </a>
+        </div>
         
     </nav>
 
@@ -40,9 +46,9 @@
       function myFunction() {
         var x = document.getElementById("menu");
         if (x.style.display === "block") {
-          x.style.display = "none";
+           $("#menu").slideUp(800);
         } else {
-          x.style.display = "block";
+           $("#menu").slideDown(800);
         }
       }
   </script>
