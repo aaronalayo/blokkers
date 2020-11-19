@@ -35,10 +35,10 @@
             if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
                 console.log($(window).scrollTop() + $(window).height(), $(document).height())
                 // $(location).attr('href','/inspirations')
-                $(window).slideUp(1000, function () {
+                $(window).show(500, function () {
 
-                    $(window).attr('location', '/inspirations').slideUp(1000);
-
+                    // $(window).attr('location', '/inspirations').slideUp(1000);
+                    location.href='/inspirations'
 
                 });
             }

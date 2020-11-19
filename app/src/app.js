@@ -6,11 +6,8 @@ const server = require("http").createServer(app);
 const helmet = require("helmet");
 app.use(helmet.xssFilter());
 
-// parse application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: false })); //to get response fromm
-
-// parse application/json
-app.use(express.json()); //to sumit form
+app.use(express.urlencoded({ extended: false })); 
+app.use(express.json()); 
 
 app.set('trust proxy', true);
 
@@ -27,7 +24,6 @@ app.get("/", (req, res) => {
 });
 
 app.get("/inspirations", (req, res) => {
-  console.log('here')
   return res.send(navbar + inspirationsPage + footer);
 });
 

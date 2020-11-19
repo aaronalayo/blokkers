@@ -2,13 +2,7 @@
   max-width: 100%;
   max-height: 100%;
 }
-#inspiration_img {
-  max-width: 40%;
-  max-height: 40%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 #centered {
   padding-right: 25%;
   padding-left: 25%;
@@ -181,4 +175,19 @@ hr{
     text-align:left;
     margin-left:30%;
     size: 5pt;
+}
+#elementToMove{
+  position:absolute;
+  bottom:0;
+  -webkit-transition: bottom 0.5s ease;
+        transition: bottom 0.5s ease;
+
+
+}
+#inspiration_img {
+  max-width: 40%;
+  max-height: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
