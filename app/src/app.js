@@ -18,6 +18,7 @@ const navbar = fs.readFileSync("./public/navbar.html", "utf8");
 const homePage = fs.readFileSync("./public/homepage.html", "utf8");
 const footer = fs.readFileSync("./public/footer.html", "utf8");
 const inspirationsPage = fs.readFileSync("./public/inspirations.html", "utf8");
+const createposterPage = fs.readFileSync("./public/createposter.html", "utf8");
 
 app.get("/", (req, res) => {
   return res.send(navbar + homePage);
@@ -25,6 +26,10 @@ app.get("/", (req, res) => {
 
 app.get("/inspirations", (req, res) => {
   return res.send(navbar+ inspirationsPage + footer);
+});
+
+app.get("/create", (req, res) => {
+  return res.send(navbar + createposterPage + footer);
 });
 
 

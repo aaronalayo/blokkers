@@ -189,3 +189,13 @@ margin-right:auto ;
   display: block;
   width: fit-content;
 }
+
+#choose-size p{
+  text-align: center;
+}
+
+#choose-size span{
+  margin: 15px;
+  font-size: 25px;
+  font-weight: bold;
+}
