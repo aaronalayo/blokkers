@@ -17,177 +17,160 @@
   bottom: 0;
   left: 0;
   right: 0;
-
-
 }
 #scroll {
-    max-width: 10%;
-    max-height: 5%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    font-weight: lighter;
-    font-size: 1rem;
-    
-  }
-  #scroll_icon {
-    max-width: 5%;
-    max-height: 5%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  
-  
-  }
+  max-width: 10%;
+  max-height: 5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-weight: lighter;
+  font-size: 1rem;
+}
+#scroll_icon {
+  max-width: 5%;
+  max-height: 5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 .mail {
-    position: relative;
-    padding-bottom: 3em;
-    padding-right: 2em;
-    color: black;
-    text-decoration: none;
+  position: relative;
+  padding-bottom: 3em;
+  padding-right: 2em;
+  color: black;
+  text-decoration: none;
 }
 .scroll {
-    position: relative;
-    padding-bottom:4em;
-    padding-left: 5em;
-
+  position: relative;
+  padding-bottom: 4em;
+  padding-left: 5em;
 }
 .bottom {
-   position: absolute;
+  position: absolute;
 }
 
 @font-face {
-    font-family: 'khulabold';
-    src: url('khula-bold-webfont.woff2') format('woff2'),
-         url('khula-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: "khulabold";
+  src: url("khula-bold-webfont.woff2") format("woff2"),
+    url("khula-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-
 
 @font-face {
-    font-family: 'khulaextrabold';
-    src: url('khula-extrabold-webfont.woff2') format('woff2'),
-         url('khula-extrabold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: "khulaextrabold";
+  src: url("khula-extrabold-webfont.woff2") format("woff2"),
+    url("khula-extrabold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-
 
 @font-face {
-    font-family: 'khulalight';
-    src: url('khula-light-webfont.woff2') format('woff2'),
-         url('khula-light-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: "khulalight";
+  src: url("khula-light-webfont.woff2") format("woff2"),
+    url("khula-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-
 
 @font-face {
-    font-family: 'khularegular';
-    src: url('khula-regular-webfont.woff2') format('woff2'),
-         url('khula-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: "khularegular";
+  src: url("khula-regular-webfont.woff2") format("woff2"),
+    url("khula-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-
-
-
 
 @font-face {
-    font-family: 'khulasemibold';
-    src: url('khula-semibold-webfont.woff2') format('woff2'),
-         url('khula-semibold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: "khulasemibold";
+  src: url("khula-semibold-webfont.woff2") format("woff2"),
+    url("khula-semibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-#centered{
-    padding-right: 25%;
-    padding-left: 25%;
-    padding-top: 10%;
+#centered {
+  padding-right: 25%;
+  padding-left: 25%;
+  padding-top: 10%;
 }
 
 #nav-bar {
-    overflow: hidden;
-    background-color:white;
-    position: relative;
-    
- }
-
-.menu-toggle{
-    position: relative;
-    width: 20%;
-    z-index: 9;
+  overflow: hidden;
+  background-color: white;
+  position: relative;
 }
-  
-.menu-toggle #menu{
-    display: none;
+
+.menu-toggle {
+  position: relative;
+  width: 20%;
+  z-index: 9;
+}
+
+.menu-toggle #menu {
+  display: none;
 }
 
 #menu-toggle a {
-    color: rgb(211, 7, 7);
+  color: rgb(211, 7, 7);
 }
 .menu-toggle a {
-    color: black;
-    padding: 14px 16px;
-    text-decoration: none;
-    text-align: left;
-    font-size: 14px;
-    display: block;
-    list-style: none;
-    padding-left: 30%;
-  }
-  
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-align: left;
+  font-size: 14px;
+  display: block;
+  list-style: none;
+  padding-left: 30%;
+}
+
 .menu-toggle a.icon {
-    background: white;
-    display: block;
-    color: black;
-    position: inherit;
-    padding-left: 30%;
-    padding-top: 5%;
-  }
-  
+  background: white;
+  display: block;
+  color: black;
+  position: inherit;
+  padding-left: 30%;
+  padding-top: 5%;
+}
+
 /* .menu-toggle a:hover {
     background-color: #ddd;
     color: black;
   } */
-  
-#hamburger{
-    width: fit-content;
+
+#hamburger {
+  width: fit-content;
 }
 
-hr{
-    width:15%;
-    text-align:left;
-    margin-left:30%;
-    size: 5pt;
+hr {
+  width: 15%;
+  text-align: left;
+  margin-left: 30%;
+  size: 5pt;
 }
-#elementToMove{
-  position:absolute;
-  bottom:0;
+#elementToMove {
+  position: absolute;
+  bottom: 0;
   -webkit-transition: bottom 0.5s ease;
-        transition: bottom 0.5s ease;
+  transition: bottom 1s ease;
 
-
+  display: block;
 }
 #inspiration_img {
-  max-width: 40%;
-  max-height: 40%;
-  display: block;
+  max-width: 50%;
+  max-height: 50%;
+  display: inherit;
+
   margin-left: auto;
-  margin-right: auto;
+  /* margin-right: auto; */
 }
