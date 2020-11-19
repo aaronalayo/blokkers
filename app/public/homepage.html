@@ -4,7 +4,9 @@
 </div>
 <div class="centered">
     <h2 id="scroll" class="scroll">Scroll to explore</h2>
-    <img class="bottom" id="scroll_icon" src="images/PngItem_483857.png">
+
+        <img class="bottom" id="scroll_icon" src="images/PngItem_483857.png" onclick="appendData()" >
+    
 </div>
 
 <div class="centered">
@@ -16,29 +18,24 @@
 </body>
 </html>
 
-
+<script type="text/javascript">
+function appendData() {
+    document.getElementById( "scroll_icon" )
+        window.location.href ="/inspirations";
+    }
+  
+</script>
 
 <script type="text/javascript">
-var counter=0;
         $(window).scroll(function () {
             if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
                 appendData()
             }
             function appendData() {
-                
-                // $('#logo_img').fadeOut(5)
-                // $('#scroll').fadeOut(5)
-                // $('#scroll_icon').fadeOut(5)
                 window.location.href ="/inspirations";
 
             }
-     
-            counter++;
-
-   
-
-   
-            
         });
+
   </script>
- 
+
