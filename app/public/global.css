@@ -238,3 +238,13 @@ hr {
   to {opacity: 1}
 }
 
+
+#choose-size p{
+  text-align: center;
+}
+
+#choose-size span{
+  margin: 15px;
+  font-size: 25px;
+  font-weight: bold;
+}
