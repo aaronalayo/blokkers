@@ -280,3 +280,9 @@ hr {
   font-size: 25px;
   font-weight: bold;
 }
+
+@media only screen and (max-device-width: 1920px) {
+  .mail {
+    padding-bottom: 3em;
+  }
+}
