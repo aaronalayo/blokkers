@@ -333,6 +333,14 @@ hr {
   border-width: 0 0 2px;
 }
 
+@media only screen and (min-device-width: 2160px) {
+  .mail {
+    padding-bottom: 5em;
+  }
+  #tableposter {
+    margin-right: 42.5%;
+} 
+}
 
 @media only screen and (max-device-width: 1920px) {
   .mail {
@@ -345,6 +353,7 @@ hr {
   }
   #tableposter img{
     width: 4.5em;
+    
   }
 }
 
