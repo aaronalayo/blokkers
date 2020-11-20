@@ -218,7 +218,7 @@ hr {
   text-align: left;
   margin-left: 30%;
   size: 5pt;
-  border: 1px solid black;
+  border: 0.6px solid black;
 }
 
 .inspiration_img {
@@ -293,23 +293,36 @@ float: right;
 
 
 #tableposter {
-margin-top: 1%;
-margin-right: 7%;
+margin-top: 2%;
+margin-right: 40%;
 float: right;
 border: none;
 display: block;
 border-collapse: collapse;
 }
-td, tr{
+#tableposter td, tr{
   padding: 0;
 
 }
+#tablealfabet td, tr{
+  padding: 1.5em;
+
+}
 #tableposter img{
-  width:100px;
+  width:8em;
   display: block;
 }
 
-
+#tablealfabet {
+  margin-top: 6%;
+  margin-left: 10%;
+float: left;
+border: none;
+display: block;
+border-collapse: collapse;
+font-weight: bold;
+font-size: 120%;
+}
 
 
 
