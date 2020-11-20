@@ -1,5 +1,5 @@
 
-<body style="background-color:coral;">
+
     <!-- <div class="centered"> -->
         <!-- <div>
             <i class="fa fa-angle-up" id="scroll_icon_up" onclick="appendData()"></i>
@@ -80,14 +80,17 @@
     }
     </script>
     <script type="text/javascript">
-        $(window).scroll(function () {
-            if ($(window).scrollTop() + $(window).height() <= $(document).height()) {
+        $(window).scrollTop(function () {
+            if ($(window).scrollTop() + $(window).height() <= $(document).height()-200) {
                 scrollUp()
             }
             function scrollUp() {
                 window.location.href = "/";
     
             }
+
         });
-    
+        $(window).on('afterunload', function(){
+  $(window).scrollTop(0);
+});
     </script>
