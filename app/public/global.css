@@ -9,7 +9,7 @@
 }
 
 #insta_logo {
-  max-width: 5%;
+  max-width: 100%;
   max-height: 5%;
   display: block;
   margin-left: auto;
@@ -100,10 +100,10 @@
 }
 .mail {
   position: relative;
-  padding-bottom: 3em;
-  padding-right: 2em;
+  padding-bottom: 2em;
   color: black;
   text-decoration: none;
+  text-align: center;
 }
 .scrollUp {
   position: relative;
