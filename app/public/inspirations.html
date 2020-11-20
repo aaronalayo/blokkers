@@ -1,6 +1,12 @@
 
 <body style="background-color:coral;">
+    <!-- <div class="centered"> -->
+        <!-- <div>
+            <i class="fa fa-angle-up" id="scroll_icon_up" onclick="appendData()"></i>
 
+        </div> -->
+        <!-- <h2 id="scroll_up" class="scrollUP">Scroll up</h2> -->
+    <!-- </div> -->
 <div class="centered">
     <div id="elementToMove">
         <div class="mySlides fade">
@@ -43,8 +49,6 @@
 <script type="text/javascript">
     setTimeout(function () {
         document.getElementById('elementToMove').style.bottom = '10%';
-
-
     }, 100);
 
 </script>
@@ -74,4 +78,16 @@
       slides[slideIndex-1].style.display = "block";  
 
     }
+    </script>
+    <script type="text/javascript">
+        $(window).scroll(function () {
+            if ($(window).scrollTop() + $(window).height() <= $(document).height()) {
+                scrollUp()
+            }
+            function scrollUp() {
+                window.location.href = "/";
+    
+            }
+        });
+    
     </script>

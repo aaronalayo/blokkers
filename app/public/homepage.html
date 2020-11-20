@@ -3,8 +3,8 @@
     <img id="logo_img" src="images/Blokkers_logo.png">
 </div>
 <div class="centered">
-    <h2 id="scroll" class="scroll">Scroll to explore</h2>
-    <i class="fa fa-angle-down" id="scroll_icon" onclick="appendData()"></i>
+    <h2 id="scroll" class="scrollDown">Scroll to explore</h2>
+    <i class="fa fa-angle-down" id="scroll_icon" onclick="scrollDown()"></i>
 </div>
 
 <div class="centered">
@@ -17,7 +17,7 @@
 </html>
 
 <script type="text/javascript">
-function appendData() {
+function scrollDown() {
     document.getElementById( "scroll_icon" )
         window.location.href ="/inspirations";
     }
@@ -26,14 +26,17 @@ function appendData() {
 
 <script type="text/javascript">
     $(window).scroll(function () {
-        if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
-            appendData()
+        if ($(window).scrollTop() + $(window).height() >= $(document).height()-200) {
+            scrollDown()
         }
-        function appendData() {
+        function scrollDown() {
             window.location.href = "/inspirations";
 
         }
     });
+    $(window).on('beforeunload', function(){
+  $(window).scrollTop(0);
+});
 
 </script>
 
