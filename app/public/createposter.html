@@ -34,45 +34,45 @@
 
     <table id='tablealfabet'>
         <tr>
-            <td>A</td>
-            <td>B</td>
-            <td>C</td>
-            <td>D</td>
-            <td>E</td>
+            <td id="a" onclick="addLetter(this)">A</td>
+            <td id="b" onclick="addLetter(this)">B</td>
+            <td id="c" onclick="addLetter(this)">C</td>
+            <td id="d" onclick="addLetter(this)">D</td>
+            <td id="e" onclick="addLetter(this)">E</td>
         </tr>
         <tr>
-            <td>F</td>
-            <td>G</td>
-            <td>H</td>
-            <td>I</td>
-            <td>J</td>
+            <td id="f" onclick="addLetter(this)">F</td>
+            <td id="g" onclick="addLetter(this)">G</td>
+            <td id="h" onclick="addLetter(this)">H</td>
+            <td id="i" onclick="addLetter(this)">I</td>
+            <td id="j" onclick="addLetter(this)">J</td>
         </tr>
         <tr>
-            <td>K</td>
-            <td>L</td>
-            <td>M</td>
-            <td>N</td>
-            <td>O</td>
+            <td id="k" onclick="addLetter(this)">K</td>
+            <td id="l" onclick="addLetter(this)">L</td>
+            <td id="m" onclick="addLetter(this)">M</td>
+            <td id="n" onclick="addLetter(this)">N</td>
+            <td id="o" onclick="addLetter(this)">O</td>
         </tr>
         <tr>
-            <td>P</td>
-            <td>Q</td>
-            <td>R</td>
-            <td>S</td>
-            <td>T</td>
+            <td id="p" onclick="addLetter(this)">P</td>
+            <td id="q" onclick="addLetter(this)">Q</td>
+            <td id="r" onclick="addLetter(this)">R</td>
+            <td id="s" onclick="addLetter(this)">S</td>
+            <td id="t" onclick="addLetter(this)">T</td>
         </tr>
         <tr>
-            <td>U</td>
-            <td>V</td>
-            <td>W</td>
-            <td>X</td>
-            <td>Y</td>
+            <td id="u" onclick="addLetter(this)">U</td>
+            <td id="v" onclick="addLetter(this)">V</td>
+            <td id="w" onclick="addLetter(this)">W</td>
+            <td id="x" onclick="addLetter(this)">X</td>
+            <td id="y" onclick="addLetter(this)">Y</td>
         </tr>
         <tr>
-            <td>Z</td>
-            <td>Æ</td>
-            <td>Ø</td>
-            <td>Å</td>
+            <td id="z" onclick="addLetter(this)">Z</td>
+            <td id="ae" onclick="addLetter(this)">Æ</td>
+            <td id="o/" onclick="addLetter(this)">Ø</td>
+            <td id="ao" onclick="addLetter(this)">Å</td>
             <td>-</td>
         </tr>
                 
@@ -175,5 +175,11 @@
         else if($("#a2").is(':checked')){
             $("#a3").prop("checked", true);
         }
+    }
+
+    function addLetter(id){
+       var letter = $(id).text();
+       $("#name").val($("#name").val() + letter);
+       $(id).addClass("circle");
     }
 </script>
