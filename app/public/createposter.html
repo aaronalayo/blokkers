@@ -3,11 +3,21 @@
         <p>Choose the size</p>
         
         <p>
-            <span><i class="fa fa-angle-left"></i></span>
-            <span>A1</span>
-            <span>A2</span>
-            <span>A3</span>
-            <span><i class="fa fa-angle-right"></i></span>
+            <span><i onclick="changeSizeLeft()" class="fa fa-angle-left"></i></span>
+            <span class="radiowrapper" id="wrap3">
+                <input type="radio" name="size" value ="a3" id="a3">
+                <label for="a3">A3</label>
+            </span>
+            <span class="radiowrapper" id="wrap2">
+                    <input type="radio" name="size" value ="a2" id="a2" checked>
+                    <label for="a2">A2</label>
+            </span>
+            
+            <span class="radiowrapper" id="wrap1">
+                <input type="radio" name="size" value ="a1" id="a1">
+                <label for="a1">A1</label>
+            </span>
+            <span><i onclick="changeSizeRight()" class="fa fa-angle-right"></i></span>
         </p>
         
     </div>
@@ -94,3 +104,21 @@
         }
     };
 </script> -->
+<script>
+    function changeSizeRight(){
+        if($("#a3").is(':checked')){
+            $("#a2").prop("checked", true);
+        }
+        else if($("#a2").is(':checked')){
+            $("#a1").prop("checked", true);
+        }
+    }
+    function changeSizeLeft(){
+        if($("#a1").is(':checked')){
+            $("#a2").prop("checked", true);
+        }
+        else if($("#a2").is(':checked')){
+            $("#a3").prop("checked", true);
+        }
+    }
+</script>

@@ -271,7 +271,9 @@ hr {
   to {opacity: 1}
 }
 
-
+#choose-size{
+  padding-top: 5%;
+}
 #choose-size p{
   text-align: center;
 }
@@ -322,3 +324,29 @@ td, tr{
     padding-bottom: 2em;
   }
 }
+
+.radiowrapper input[type="radio"] {
+  visibility:hidden;
+  display: none;
+  width:0;
+}
+
+.radiowrapper label{
+  cursor: pointer;
+}
+
+.radiowrapper label:hover {
+  font-weight:bold;
+}
+
+.radiowrapper input[type = "radio"]:checked+label {
+  border-radius: 20px;
+  border-color:	#C0C0C0;
+  background-color:	#C0C0C0;
+  color:white;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
