@@ -204,10 +204,11 @@
   padding-top: 5%;
 }
 
-/* .menu-toggle a:hover {
-    background-color: #ddd;
-    color: black;
-  } */
+.menu-toggle a:hover {
+    /* background-color: #ddd;
+    color: black; */
+    cursor: pointer;
+}
 
 #hamburger {
   width: fit-content;
@@ -285,27 +286,26 @@ hr {
 }
 
 #canvas {
-margin-top: 1%;
-margin-right: 7%;
-float: right;
-
+  margin-top: 1%;
+  margin-right: 7%;
+  float: right;
 }
 
 
 #tableposter {
-margin-top: 2%;
-margin-right: 40%;
-float: right;
-border: none;
-display: block;
-border-collapse: collapse;
+  margin-top: 2%;
+  margin-right: 40%;
+  float: right;
+  border: none;
+  display: block;
+  border-collapse: collapse;
 }
 #tableposter td, tr{
   padding: 0;
 
 }
 #tablealfabet td, tr{
-  padding: 1.5em;
+  padding: 1em;
 
 }
 #tableposter img{
@@ -314,17 +314,24 @@ border-collapse: collapse;
 }
 
 #tablealfabet {
-  margin-top: 6%;
-  margin-left: 10%;
-float: left;
-border: none;
-display: block;
-border-collapse: collapse;
-font-weight: bold;
-font-size: 120%;
+  margin-top: 2%;
+  float: left;
+  border: none;
+  display: block;
+  border-collapse: collapse;
+  font-weight: bold;
+  font-size: 110%;
 }
 
+#write_name{
+  margin-left: 10%;
+}
 
+#write_name p, input{
+  margin-left: 1em;
+  outline: 0;
+  border-width: 0 0 2px;
+}
 
 
 @media only screen and (max-device-width: 1920px) {
@@ -335,6 +342,9 @@ font-size: 120%;
 @media (-webkit-min-device-pixel-ratio: 1.1){
   .mail {
     padding-bottom: 2em;
+  }
+  #tableposter img{
+    width: 4.5em;
   }
 }
 
