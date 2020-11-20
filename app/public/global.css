@@ -282,6 +282,36 @@ hr {
   font-weight: bold;
 }
 
+#canvas {
+margin-top: 1%;
+margin-right: 7%;
+float: right;
+
+}
+
+
+#tableposter {
+margin-top: 1%;
+margin-right: 7%;
+float: right;
+border: none;
+display: block;
+border-collapse: collapse;
+}
+td, tr{
+  padding: 0;
+
+}
+#tableposter img{
+  width:100px;
+  display: block;
+}
+
+
+
+
+
+
 @media only screen and (max-device-width: 1920px) {
   .mail {
     padding-bottom: 3em;
