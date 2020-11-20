@@ -1,20 +1,77 @@
 
-
-
+<body style="background-color:coral;">
 
 <div class="centered">
     <div id="elementToMove">
-
-        <img id="inspiration_img" src="images/Alberte_ny.jpg">
+        <div class="mySlides fade">
+        <img class="inspiration_img" id="img1" src="images/Alberte_ny.jpg">
     </div>
-
+    <div class="mySlides fade">
+        <img class="inspiration_img" id="img1" src="images/Bertil_ny.jpg">
+    </div>
+    </div>
 </div>
 
-</body>
-<script type="text/javascript">
 
-setTimeout(function(){
-         document.getElementById('elementToMove').style.bottom = '10%'; 
-     },100);
+    
+<div class="center-left">
+    <i class="fa fa-angle-left" id="scroll_icon_left" onclick="plusSlides(1)" ></i>
+</div>
+
+<div class="center-right">
+    <i class="fa fa-angle-right" id="scroll_icon_right" onclick="plusSlides(-1)"></i>
+</div>
+
+
+</body>
+<!-- <script type="text/javascript">
+    function move() {
+        // document.getElementById( "scroll_icon_right" )
+        $(document).ready(function () {
+            $("#img1").animate({ marginLeft: "10px" }, 1000);
+            $("#img1").fadeOut()
+
+            // $("#elementToMove").replaceWith('<img class="inspiration_img" id="img2" src="images/Bertil_ny.jpg">')
+
+        });
+
+
+        // $('#inspiration_img').animate({right:'0px'},1200)
+    }
+
+</script> -->
+<script type="text/javascript">
+    setTimeout(function () {
+        document.getElementById('elementToMove').style.bottom = '10%';
+
+
+    }, 100);
 
 </script>
+
+<script type="text/javascript">
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+      }
+
+      
+      slides[slideIndex-1].style.display = "block";  
+
+    }
+    </script>
