@@ -11,6 +11,10 @@
 </head>
 
 <body>
+  <div id="inner_container">
+    <div id="outer_container">
+    </div>
+    <div>
     <nav role="navigation" id="nav-bar"> 
         <div class="menu-toggle">
             <a id="hamburger" href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -46,7 +50,21 @@
         } else {
            $("#menu").slideDown(800);
         }
+       
       }
+
   </script>
+
+
+<script>
+
+  document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    // close modal here
+    document.getElementById("menu").style.display = "none";
+
+  }
+})
+</script>
 
 

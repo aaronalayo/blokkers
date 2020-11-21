@@ -21,10 +21,7 @@ function scrollDown() {
     document.getElementById( "scroll_icon" )
         window.location.href ="/inspirations";
     }
-  
-</script>
 
-<script type="text/javascript">
     $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() >= $(document).height()-200) {
             scrollDown()
@@ -35,7 +32,7 @@ function scrollDown() {
         }
     });
     $(window).on('beforeunload', function(){
-  $(window).scrollTop(0);
+    $(window).scrollTop(0);
 });
 
 </script>

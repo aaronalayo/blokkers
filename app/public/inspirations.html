@@ -30,30 +30,11 @@
 
 
 </body>
-<!-- <script type="text/javascript">
-    function move() {
-        // document.getElementById( "scroll_icon_right" )
-        $(document).ready(function () {
-            $("#img1").animate({ marginLeft: "10px" }, 1000);
-            $("#img1").fadeOut()
 
-            // $("#elementToMove").replaceWith('<img class="inspiration_img" id="img2" src="images/Bertil_ny.jpg">')
-
-        });
-
-
-        // $('#inspiration_img').animate({right:'0px'},1200)
-    }
-
-</script> -->
 <script type="text/javascript">
     setTimeout(function () {
         document.getElementById('elementToMove').style.bottom = '10%';
     }, 100);
-
-</script>
-
-<script type="text/javascript">
     var slideIndex = 1;
     showSlides(slideIndex);
     
@@ -73,24 +54,25 @@
       for (i = 0; i < slides.length; i++) {
           slides[i].style.display = "none";  
       }
-
-      
       slides[slideIndex-1].style.display = "block";  
-
     }
-    </script>
-    <script type="text/javascript">
-        $(window).scrollTop(function () {
-            if ($(window).scrollTop() + $(window).height() <= $(document).height()-200) {
-                scrollUp()
+
+</script>
+<script type="text/javascript">
+    function scrollTop() {
+        document.getElementById( "scroll_icon" )
+            window.location.href ="/create";
+        }
+    
+        $(window).scroll(function () {
+            if ($(window).scrollTop(0,0)) {
+                scrollTop()
             }
-            function scrollUp() {
-                window.location.href = "/";
+            function scrollTop() {
+                window.location.href = "/create";
     
             }
-
         });
-        $(window).on('afterunload', function(){
-  $(window).scrollTop(0);
-});
+
+    
     </script>
