@@ -33,7 +33,6 @@ scrollbar-width: none;  /* Firefox */
 }
 
 #insta_logo {
-  max-width: 5%;
   max-height: 5%;
   display: block;
   margin-left: auto;
@@ -196,16 +195,16 @@ scrollbar-width: none;  /* Firefox */
 
 .menu-toggle {
   position: absolute;
-  width: 14%;
+  width: 15%;
   padding-top: 2%;
   z-index: 9;
-  background-color: transparent;
 }
 
 .menu-toggle #menu {
   display: none;
   position: relative;
   margin-top: 30%;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .menu-toggle a {
@@ -317,7 +316,7 @@ hr {
 
 
 #tableposter {
-  margin-top: 2%;
+  margin-top: 3%;
   margin-right: 40%;
   float: right;
   border: none;
@@ -326,6 +325,7 @@ hr {
 }
 #tableposter td, tr{
   padding: 0;
+  cursor: pointer;
 
 }
 #tablealfabet td, tr{
@@ -353,6 +353,8 @@ hr {
 
 #write_name{
   margin-left: 10%;
+  width: fit-content;
+  position: fixed;
 }
 
 #write_name p, input{
@@ -367,13 +369,13 @@ hr {
   }
   #tableposter {
     margin-right: 42.5%;
+  }
+
 } 
 .inspiration_img{
   margin-right: 25%;
   max-width: 55%;
   max-height: 65%;
-}
-
 }
 
 @media only screen and (max-device-width: 1920px) {
@@ -387,7 +389,12 @@ hr {
   }
   #tableposter img{
     width: 4.5em;
-    
+  }
+  #tablealfabet td, tr {
+    padding: 0.8em;
+  }
+  #tablealfabet{
+    font-size: 100%;
   }
 }
 
@@ -427,3 +434,16 @@ hr {
   padding-bottom:10px;
 }
 
+#done_button{
+  margin-left: 1em;
+  background-color:	black;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 40%;
+  cursor: pointer;
+}
