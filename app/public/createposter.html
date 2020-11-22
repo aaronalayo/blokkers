@@ -73,64 +73,69 @@
         </tr>
         <tr>
             <td id="z" onclick="addLetter(this)">Z</td>
-            <td id="ae" onclick="addLetter(this)">Æ</td>
-            <td id="o/" onclick="addLetter(this)">Ø</td>
-            <td id="ao" onclick="addLetter(this)">Å</td>
+            <td id="æ" onclick="addLetter(this)">Æ</td>
+            <td id="ø" onclick="addLetter(this)">Ø</td>
+            <td id="å" onclick="addLetter(this)">Å</td>
             <td>-</td>
         </tr>
                 
     </table>
+    <div>
+        <button id="done_button" onclick="addCircles()">Done</button>
+    </div>
+    
 </div>
 
 
+<div>
+    <table id='tableposter'>
+        <tr>
+            <td>
+                <img src="/images/Alfabet/a/A1.jpg" >
+            </td>
 
-<table id='tableposter'>
-    <tr>
-        <td>
-            <img src="/images/Alfabet/a/A1.jpg" >
-        </td>
-
-        <td>
-            <img src="/images/Alfabet/l/L1.jpg">
-        </td>
-        <td>
-            <img src="/images/Alfabet/b/B1.jpg">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <img src="/images/Alfabet/e/E1.jpg">
-        </td>
-        <td>
-            <img src="/images/Alfabet/r/R1.jpg">
-        </td>
-        <td>
-            <img src="/images/Alfabet/t/T1.jpg">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <img src="/images/Alfabet/e/E1.jpg">
-        </td>
-        <td>
-            <img src="/images/Alfabet/a/A1.jpg" >
-        </td>
-        <td>
-            <img src="/images/Alfabet/l/L1.jpg">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <img src="/images/Alfabet/b/B3.jpg">
-        </td>
-        <td>
-            <img src="/images/Alfabet/e/E1.jpg">
-        </td>
-        <td>
-            <img src="/images/Alfabet/r/R1.jpg">
-        </td>
-    </tr>
-</table>
+            <td>
+                <img src="/images/Alfabet/l/L1.jpg">
+            </td>
+            <td>
+                <img src="/images/Alfabet/b/B1.jpg">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="/images/Alfabet/e/E1.jpg">
+            </td>
+            <td>
+                <img src="/images/Alfabet/r/R1.jpg">
+            </td>
+            <td>
+                <img src="/images/Alfabet/t/T1.jpg">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="/images/Alfabet/e/E1.jpg">
+            </td>
+            <td>
+                <img src="/images/Alfabet/a/A1.jpg" >
+            </td>
+            <td>
+                <img src="/images/Alfabet/l/L1.jpg">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="/images/Alfabet/b/B3.jpg">
+            </td>
+            <td>
+                <img src="/images/Alfabet/e/E1.jpg">
+            </td>
+            <td>
+                <img src="/images/Alfabet/r/R1.jpg">
+            </td>
+        </tr>
+    </table>
+</div>
 <script>
     function changeSizeRight(){
         if($("#a3").is(':checked')){
@@ -152,6 +157,22 @@
     function addLetter(id){
        var letter = $(id).text();
        $("#name").val($("#name").val() + letter);
-       $(id).addClass("circle");
+    //    $(id).addClass("circle");
+    }
+
+    function addCircles(){
+        var elements = document.getElementsByClassName("circle");
+        console.log(elements);
+        for(var i = 0; i <elements.length; i++){
+            $(elements[i]).removeClass("circle");
+            console.log(elements[i]);
+        }
+        const name = $("#name").val();
+        var id;
+        for (var i = 0; i < name.length; i++) {
+            id = name.charAt(i).toLowerCase();
+           // console.log(id);
+            $("#" + id).addClass("circle");
+        }
     }
 </script>
