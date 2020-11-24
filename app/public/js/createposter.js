@@ -137,5 +137,3 @@ function getName() {
                 $('#tableposter').append('</tr>');     
            
             }
-
-

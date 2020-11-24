@@ -1,4 +1,42 @@
+@font-face {
+  font-family: 'khulabold';
+  src: url("./css/fonts/khula-bold-webfont.woff2") format("woff2"),
+    url("./css/fonts/khula-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: "khulaextrabold";
+  src: url("./css/fonts/khula-extrabold-webfont.woff2") format("woff2"),
+    url("./css/fonts/khula-extrabold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "khulalight";
+  src: url("./css/fonts/khula-light-webfont.woff2") format("woff2"),
+    url("./css/fonts/khula-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "khularegular";
+  src: url("./css/fonts/khula-regular-webfont.woff2") format("woff2"),
+    url("./css/fonts/khula-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "khulasemibold";
+  src: url("./css/fonts/khula-semibold-webfont.woff2") format("woff2"),
+    url("./css/fonts/khula-semibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -310,25 +348,30 @@ hr {
   border: none;
   display: block;
   border-collapse: collapse;
-  font-family: 'khularegular';
+  font-family: 'khulabold';
   font-size: 110%;
 }
 
 #write_name{
   margin-left: 10%;
-  font-family: 'khularegular';
+  font-weight: bold;
+  font-size: 120%;
+  font-family: 'khulabold';
   width: fit-content;
   position: fixed;
 }
 
 #write_name p, input{
+    /* font-size: 200%; */
   margin-left: 1em;
   outline: 0;
   border-width: 0 0 2px;
-  
   background-color: transparent;
+  font-family: 'khulabold';
+
 
 }
+
 
 @media only screen and (min-device-width: 2160px) {
   .mail {
@@ -404,45 +447,7 @@ hr {
 
 
 
-@font-face {
-  font-family: 'khulabold';
-  src: url("./css/fonts/khula-bold-webfont.woff2") format("woff2"),
-    url("./css/fonts/khula-bold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: "khulaextrabold";
-  src: url("./css/fonts/khula-extrabold-webfont.woff2") format("woff2"),
-    url("./css/fonts/khula-extrabold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "khulalight";
-  src: url("./css/fonts/khula-light-webfont.woff2") format("woff2"),
-    url("./css/fonts/khula-light-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "khularegular";
-  src: url("./css/fonts/khula-regular-webfont.woff2") format("woff2"),
-    url("./css/fonts/khula-regular-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "khulasemibold";
-  src: url("./css/fonts/khula-semibold-webfont.woff2") format("woff2"),
-    url("./css/fonts/khula-semibold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
 #done_button{
   margin-left: 1em;
   background-color:	rgb(168, 168, 168);
@@ -457,6 +462,10 @@ hr {
   border-radius: 40%;
   cursor: pointer;
 }
-/* img {
+#tableposter td{
+  pointer-events: auto;
+}
+img {
+
   pointer-events: none;
-} */
+}
