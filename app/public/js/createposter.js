@@ -48,90 +48,55 @@ function addCircles(){
 // });
 //     }
 
+function createTable(){
+  var k = 0;
+  for(var i=0; i<=3; i++){
+    $('#tableposter').append('<tr>');
+    for(var j = k; j<= k + 2; j++){
+      $('#tableposter').append(`<td id=${j+1}>`);
+      console.log((j+1));
+    }
+    $('#tableposter').append('<tr>');
+    k=k+3;
+  }
+}
 function getName() {
     let name = $("#name").val().toLowerCase();
     const letters = name.split('');
     while(name.length < 13){
         for(var i =0; i <= letters.length-1; i++){
-            name += letters[i];
-            
+            name += letters[i];   
+      }  
+  }
+  $('#tableposter').html(''); //clear the table
+  createTable();
+  var k = 0;
+  for(var i=0; i<=3; i++){
+    $('#tableposter').append('<tr>');
+    for(var j=k; j<=k + 2; j++){ //fill the table
+      switch(name[j]) {
+          case 'å':
+              //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/AA1.jpg">` + '</td>');
+              $("#" + (j+1)).append(`<img  src="/images/Alfabet/${name[j]}/AA1.jpg">`);
+            break;
+          case 'æ':
+            $("#" + (j+1)).append(`<img  src="/images/Alfabet/${name[j]}/AE1.jpg">`);
+              //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/AE1.jpg">` + '</td>');
+            break;
+            case 'ø':
+              $("#" + (j+1)).append(`<img  src="/images/Alfabet/${name[j]}/OE1.jpg">`);
+              //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/OE1.jpg">` + '</td>');
+            break;
+          default:
+            $("#" + (j+1)).append(`<img  src="/images/Alfabet/${name[j]}/${name[j].toUpperCase()}1.jpg">`);
+              //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/${name[j].toUpperCase()}1.jpg">` + '</td>');
+              console.log((j+1));
+        }
+        
     }
-    
+    $('#tableposter').append('<tr>');
+    k = k+3;
+  }
 }
-    $('#tableposter').html(''); //clear the table
-                 $('#tableposter').append('<tr>');
-                    
-                    for(var i=0; i<=2; i++){ //fill the table
-                        switch(name[i]) {
-                            case 'å':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AA1.jpg">` + '</td>');
-                              break;
-                            case 'æ':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AE1.jpg">` + '</td>');
-                              break;
-                              case 'ø':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/OE1.jpg">` + '</td>');
-                              break;
-                            default:
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/${name[i].toUpperCase()}1.jpg">` + '</td>');
-                          }
-                    }
-                $('#tableposter').append('</tr>');      
-                $('#tableposter').append('<tr>');
-                    for(var i=3; i<=5; i++){ //fill the table
-                        switch(name[i]) {
-                            case 'å':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AA1.jpg">` + '</td>');
-                              break;
-                            case 'æ':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AE1.jpg">` + '</td>');
-                              break;
-                              case 'ø':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/OE1.jpg">` + '</td>');
-                              break;
-                            default:
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/${name[i].toUpperCase()}1.jpg">` + '</td>');
-                          } 
-                    }
-                $('#tableposter').append('</tr>');      
-              
-                $('#tableposter').append('<tr>');
-                    for(var i=6; i<=8; i++){ //fill the table
-                        switch(name[i]) {
-                            case 'å':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AA1.jpg">` + '</td>');
-                              break;
-                            case 'æ':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AE1.jpg">` + '</td>');
-                              break;
-                              case 'ø':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/OE1.jpg">` + '</td>');
-                              break;
-                            default:
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/${name[i].toUpperCase()}1.jpg">` + '</td>');
-                          }
-                
-                    }
-                $('#tableposter').append('</tr>');    
-                $('#tableposter').append('<tr>');
-                    for(var i=9; i<=11; i++){ //fill the table
-
-                        switch(name[i]) {
-                            case 'å':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AA1.jpg">` + '</td>');
-                              break;
-                            case 'æ':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AE1.jpg">` + '</td>');
-                              break;
-                              case 'ø':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/OE1.jpg">` + '</td>');
-                              break;
-                            default:
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/${name[i].toUpperCase()}1.jpg">` + '</td>');
-                          }
-                    }
-                $('#tableposter').append('</tr>');     
-           
-            }
 
 

@@ -130,6 +130,7 @@ scrollbar-width: none;  /* Firefox */
   color: black;
   text-decoration: none;
   text-align: center;
+  width: fit-content;
 }
 
 .scrollUp {
