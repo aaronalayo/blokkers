@@ -23,13 +23,17 @@ function addLetter(id){
 }
 
 function addCircles(){
-    $(".circle").each(function() {
-      $(this).removeClass("circle");
-    });
+    var elements = document.getElementsByClassName("circle");
+    console.log(elements);
+    for(var i = 0; i <elements.length; i++){
+        $(elements[i]).removeClass("circle");
+        console.log(elements[i]);
+    }
     const name = $("#name").val();
     var id;
     for (var i = 0; i < name.length; i++) {
         id = name.charAt(i).toLowerCase();
+       // console.log(id);
         $("#" + id).addClass("circle");
     }
 }
