@@ -52,16 +52,57 @@ function addCircles(){
 // });
 //     }
 
+function createTable(){
+  var k = 0;
+  for(var i=0; i<=3; i++){
+    $('#tableposter').append('<tr>');
+    for(var j = k; j<= k + 2; j++){
+      $('#tableposter').append(`<td id=${j+1}>`);
+      console.log((j+1));
+    }
+    $('#tableposter').append('<tr>');
+    k=k+3;
+  }
+}
 function getName() {
     let name = $("#name").val().toLowerCase();
     const letters = name.split('');
     while(name.length < 13){
         for(var i =0; i <= letters.length-1; i++){
-            name += letters[i];
-            
+            name += letters[i];   
+      }  
+  }
+  $('#tableposter').html(''); //clear the table
+  createTable();
+  var k = 0;
+  for(var i=0; i<=3; i++){
+    $('#tableposter').append('<tr>');
+    for(var j=k; j<=k + 2; j++){ //fill the table
+      switch(name[j]) {
+          case 'å':
+              //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/AA1.jpg">` + '</td>');
+              $("#" + (j+1)).append(`<img  src="/images/Alfabet/${name[j]}/AA1.jpg">`);
+            break;
+          case 'æ':
+            $("#" + (j+1)).append(`<img  src="/images/Alfabet/${name[j]}/AE1.jpg">`);
+              //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/AE1.jpg">` + '</td>');
+            break;
+            case 'ø':
+              $("#" + (j+1)).append(`<img  src="/images/Alfabet/${name[j]}/OE1.jpg">`);
+              //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/OE1.jpg">` + '</td>');
+            break;
+          default:
+            $("#" + (j+1)).append(`<img  src="/images/Alfabet/${name[j]}/${name[j].toUpperCase()}1.jpg">`);
+              //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/${name[j].toUpperCase()}1.jpg">` + '</td>');
+              console.log((j+1));
+        }
+        
     }
-    
+    $('#tableposter').append('<tr>');
+    k = k+3;
+  }
 }
+<<<<<<< HEAD
     $('#tableposter').html(''); //clear the table
                  $('#tableposter').append('<tr>');
                     
@@ -137,3 +178,7 @@ function getName() {
                 $('#tableposter').append('</tr>');     
            
             }
+=======
+
+
+>>>>>>> 4e1e0230c5b256d9ac904e668df7801191352317
