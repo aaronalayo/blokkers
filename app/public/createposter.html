@@ -81,62 +81,57 @@
                 
     </table>
     <div>
-        <button id="done_button" onclick="addCircles()">Done</button>
+        <button id="done_button" onclick="addCircles(), getName()">Done</button>
     </div>
     
 </div>
 
 
 <div>
+
     <table id='tableposter'>
-        <tr>
-            <td>
-                <img src="/images/Alfabet/a/A1.jpg" >
+        <!-- <tr>
+            <td id="img1">
+                
             </td>
 
-            <td>
-                <img src="/images/Alfabet/l/L1.jpg">
+            <td id="img2">
+                
             </td>
-            <td>
-                <img src="/images/Alfabet/b/B1.jpg">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img src="/images/Alfabet/e/E1.jpg">
-            </td>
-            <td>
-                <img src="/images/Alfabet/r/R1.jpg">
-            </td>
-            <td>
-                <img src="/images/Alfabet/t/T1.jpg">
+            <td id="img3">
+             
             </td>
         </tr>
         <tr>
-            <td>
-                <img src="/images/Alfabet/e/E1.jpg">
+            <td id="img4">
+              
             </td>
-            <td>
-                <img src="/images/Alfabet/a/A1.jpg" >
+            <td id="img5">
+                
             </td>
-            <td>
-                <img src="/images/Alfabet/l/L1.jpg">
+            <td id="img6">
+      
             </td>
         </tr>
         <tr>
-            <td>
-                <img src="/images/Alfabet/b/B3.jpg">
+            <td id='img7'>
             </td>
-            <td>
-                <img src="/images/Alfabet/e/E1.jpg">
+            <td id='img8'>
             </td>
-            <td>
-                <img src="/images/Alfabet/r/R1.jpg">
+            <td id='img9'>
             </td>
         </tr>
+        <tr>
+            <td id='img10'>
+            </td>
+            <td id='img11'>
+            </td>
+            <td id='img12'>
+            </td>
+        </tr> -->
     </table>
 </div>
-<script>
+<!-- <script>
     function changeSizeRight(){
         if($("#a3").is(':checked')){
             $("#a2").prop("checked", true);
@@ -175,4 +170,57 @@
             $("#" + id).addClass("circle");
         }
     }
-</script>
+
+//     function getName() {
+//         const name = $("#name").val().toLowerCase();
+//           $.post("/create", { name: name });
+        
+
+//         }
+
+//     function putImage() {
+//         $.get( "http://localhost:2000/create", function( data ) {
+//             // $( "img1" ).html( data );
+//             console.log(data)
+// });
+//     }
+    
+    function getName() {
+        let name = $("#name").val().toLowerCase();
+        const letters = name.split('');
+        while(name.length < 13){
+            for(var i =0; i <= letters.length-1; i++){
+                name += letters[i];
+        }
+        
+    }
+        $('#tableposter').html(''); //clear the table
+                     $('#tableposter').append('<tr>');
+                        
+                        for(var i=0; i<=2; i++){ //fill the table
+
+                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/${name[i].toUpperCase()}1.jpg">` + '</td>');
+                        }
+                    $('#tableposter').append('</tr>');      
+                    $('#tableposter').append('<tr>');
+                        for(var i=3; i<=5; i++){ //fill the table
+                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/${name[i].toUpperCase()}2.jpg">` + '</td>'); 
+                        }
+                    $('#tableposter').append('</tr>');      
+                  
+                    $('#tableposter').append('<tr>');
+                        for(var i=6; i<=8; i++){ //fill the table
+                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/${name[i].toUpperCase()}3.jpg">` + '</td>'); 
+                    
+                        }
+                    $('#tableposter').append('</tr>');    
+                    $('#tableposter').append('<tr>');
+                        for(var i=9; i<=11; i++){ //fill the table
+
+                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/${name[i].toUpperCase()}1.jpg">` + '</td>'); 
+                        }
+                    $('#tableposter').append('</tr>');     
+               
+                }
+
+</script> -->

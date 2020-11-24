@@ -310,13 +310,13 @@ hr {
   border: none;
   display: block;
   border-collapse: collapse;
-  font-family: 'khulaextrabold';
+  font-family: 'khularegular';
   font-size: 110%;
 }
 
 #write_name{
   margin-left: 10%;
-  font-family: 'khulalight';
+  font-family: 'khularegular';
   width: fit-content;
   position: fixed;
 }
@@ -325,6 +325,9 @@ hr {
   margin-left: 1em;
   outline: 0;
   border-width: 0 0 2px;
+  
+  background-color: transparent;
+
 }
 
 @media only screen and (min-device-width: 2160px) {
@@ -442,7 +445,8 @@ hr {
 }
 #done_button{
   margin-left: 1em;
-  background-color:	black;
+  background-color:	rgb(168, 168, 168);
+
   border: none;
   color: white;
   padding: 10px;
@@ -453,3 +457,6 @@ hr {
   border-radius: 40%;
   cursor: pointer;
 }
+/* img {
+  pointer-events: none;
+} */

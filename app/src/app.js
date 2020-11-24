@@ -47,9 +47,9 @@ app.get("*", (req, res) => {
 
 
 
-// const inspirationRoute = require('./routes/inspiratons.js');
+const createRoute = require('./routes/create.js');
 
-// app.use(inspirationRoute);
+app.use(createRoute);
 
 
 
