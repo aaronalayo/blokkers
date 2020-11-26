@@ -57,7 +57,7 @@ function createTable(){
   for(var i=0; i<=3; i++){
     $('#tableposter').append('<tr>');
     for(var j = k; j<= k + 2; j++){
-      $('#tableposter').append(`<td id=${j+1}>`);
+      $('#tableposter').append(`<td id=${j+1} onclick=changeColor(this)>`);
       console.log((j+1));
     }
     $('#tableposter').append('<tr>');
@@ -102,83 +102,7 @@ function getName() {
     k = k+3;
   }
 }
-<<<<<<< HEAD
-    $('#tableposter').html(''); //clear the table
-                 $('#tableposter').append('<tr>');
-                    
-                    for(var i=0; i<=2; i++){ //fill the table
-                        switch(name[i]) {
-                            case 'å':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AA1.jpg">` + '</td>');
-                              break;
-                            case 'æ':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AE1.jpg">` + '</td>');
-                              break;
-                              case 'ø':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/OE1.jpg">` + '</td>');
-                              break;
-                            default:
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/${name[i].toUpperCase()}1.jpg">` + '</td>');
-                          }
-                    }
-                $('#tableposter').append('</tr>');      
-                $('#tableposter').append('<tr>');
-                    for(var i=3; i<=5; i++){ //fill the table
-                        switch(name[i]) {
-                            case 'å':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AA1.jpg">` + '</td>');
-                              break;
-                            case 'æ':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AE1.jpg">` + '</td>');
-                              break;
-                              case 'ø':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/OE1.jpg">` + '</td>');
-                              break;
-                            default:
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/${name[i].toUpperCase()}1.jpg">` + '</td>');
-                          } 
-                    }
-                $('#tableposter').append('</tr>');      
-              
-                $('#tableposter').append('<tr>');
-                    for(var i=6; i<=8; i++){ //fill the table
-                        switch(name[i]) {
-                            case 'å':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AA1.jpg">` + '</td>');
-                              break;
-                            case 'æ':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AE1.jpg">` + '</td>');
-                              break;
-                              case 'ø':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/OE1.jpg">` + '</td>');
-                              break;
-                            default:
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/${name[i].toUpperCase()}1.jpg">` + '</td>');
-                          }
-                
-                    }
-                $('#tableposter').append('</tr>');    
-                $('#tableposter').append('<tr>');
-                    for(var i=9; i<=11; i++){ //fill the table
 
-                        switch(name[i]) {
-                            case 'å':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AA1.jpg">` + '</td>');
-                              break;
-                            case 'æ':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/AE1.jpg">` + '</td>');
-                              break;
-                              case 'ø':
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/OE1.jpg">` + '</td>');
-                              break;
-                            default:
-                                $('#tableposter').append(`<td id=img${i}>` + `<img  src="/images/Alfabet/${name[i]}/${name[i].toUpperCase()}1.jpg">` + '</td>');
-                          }
-                    }
-                $('#tableposter').append('</tr>');     
-           
-            }
-=======
-
-
->>>>>>> 4e1e0230c5b256d9ac904e668df7801191352317
+function changeColor(id){
+    document.getElementsById('#tableposter')
+}

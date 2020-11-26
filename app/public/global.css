@@ -123,45 +123,8 @@ scrollbar-width: none;  /* Firefox */
   text-align: center;
   font-size: 120px;
 }
-#scroll_icon_up {
-  max-height: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 120px;
-}
-#scroll_icon_right {
-  max-height: 100%;
-  display: block;
-  margin-left: auto;
-  position: absolute;
 
-  right: 8%;
-  text-align: right;
-  font-size: 120px;
-}
-#scroll_icon_left {
-  max-height: 100%;
-  display: block;
-  margin-right: auto;
-  position: absolute;
-  left: 7%;
-  text-align: left;
-  font-size: 120px;
-}
-.center-right {
-  float: right;
-  padding-top: 10%;
-}
-.center-left {
-  float: left;
-  padding-top: 10%;
-}
+
 .mail {
   position: relative;
   padding-bottom: 2em;
@@ -171,11 +134,11 @@ scrollbar-width: none;  /* Firefox */
   width: fit-content;
 }
 
-.scrollUp {
+/* .scrollUp {
   position: relative;
   padding-top: 5em;
 
-}
+} */
 .scrollDown {
   position: relative;
   padding-bottom: 5em;
@@ -196,7 +159,7 @@ scrollbar-width: none;  /* Firefox */
 
 #nav-bar {
   overflow: hidden;
-  background-color: white;
+  background-color: transparent;
 }
 
 .menu-toggle {
@@ -252,15 +215,40 @@ hr {
   border: 0.6px solid black;
 }
 
-.inspiration_img {
+/*inspiration css*/
+#icon_right {
+  max-height: 100%;
   display: block;
-  margin-left: 12%;
-  margin-right: auto;
-  max-width: 35%;
-  max-height: 35%;
+  margin-left: auto;
+  position: absolute;
+
+  right: 8%;
+  text-align: right;
+  font-size: 120px;
 }
+#icon_left {
+  max-height: 100%;
+  display: block;
+  margin-right: auto;
+  position: absolute;
+  left: 7%;
+  text-align: left;
+  font-size: 120px;
+}
+.center-right {
+  float: right;
+  padding-top: 10%;
+}
+.center-left {
+  float: left;
+  padding-top: 10%;
+}
+
 #elementToMove {
-  bottom: 0;
+  right: 0%;
+  top: 0;
+  bottom:0%;
+ 
   position: absolute;
   -webkit-transition: bottom 1s ease;
   transition: bottom 1s ease;
@@ -274,6 +262,18 @@ hr {
   transition: right 2s ease;
   display: block;
 }
+.mySlides.fade{
+  width: 2560px;
+  height: 1100px;
+}
+.inspiration_img {
+ 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 2560px;
+  height: 1305px;
+} 
 .shopping-bag {
   position: absolute;
   color: black;
@@ -383,16 +383,21 @@ hr {
   }
 
 } 
-.inspiration_img{
-  margin-right: 25%;
-  max-width: 55%;
-  max-height: 65%;
-}
+
 
 @media only screen and (max-device-width: 1920px) {
   .mail {
     padding-bottom: 3em;
   }
+  .mySlides.fade{
+    width: 1920px;
+    height: 800px;
+  }
+  .inspiration_img {
+
+    width: 1920px;
+    height: 945px;
+  } 
 }
 @media (-webkit-min-device-pixel-ratio: 1.1){
   .mail {
