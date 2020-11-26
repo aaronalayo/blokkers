@@ -359,7 +359,7 @@ hr {
   font-size: 120%;
   font-family: 'khulabold';
   width: fit-content;
-  position: fixed;
+  position: absolute;
 }
 
 #write_name p, input{
@@ -381,6 +381,11 @@ hr {
   #tableposter {
     margin-right: 42.5%;
   }
+  .inspiration_img{
+    margin-right: 25%;
+    max-width: 55%;
+    max-height: 65%;
+  }
 
 } 
 
@@ -401,7 +406,7 @@ hr {
 }
 @media (-webkit-min-device-pixel-ratio: 1.1){
   .mail {
-    padding-bottom: 2em;
+    padding-bottom: 1.5em;
   }
   #tableposter img{
     width: 4.5em;
@@ -410,6 +415,9 @@ hr {
     padding: 0.8em;
   }
   #tablealfabet{
+    font-size: 100%;
+  }
+  #write_name {
     font-size: 100%;
   }
 }

@@ -17,18 +17,14 @@
 </html>
 
 <script type="text/javascript">
-function scrollDown() {
-    document.getElementById( "scroll_icon" )
+    function scrollDown() {
+        document.getElementById( "scroll_icon" )
         window.location.href ="/inspirations";
     }
 
     $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() >= $(document).height()-200) {
             scrollDown()
-        }
-        function scrollDown() {
-            window.location.href = "/inspirations";
-
         }
     });
     // $(window).on('beforeunload', function(){
