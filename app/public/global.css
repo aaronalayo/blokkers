@@ -271,7 +271,7 @@ hr {
   margin-right: auto;
   width: 100%;
   height: 100%;
-  /* object-fit: contain; */
+  object-fit: cover;
 }
 .shopping-bag {
   position: absolute;
@@ -280,6 +280,7 @@ hr {
   padding-left: 90%;
   display: block;
   width: fit-content;
+  z-index: 8;
 }
 
 /* Fading animation */
@@ -365,7 +366,7 @@ tr {
   font-size: 120%;
   font-family: "khulabold";
   width: fit-content;
-  position: fixed;
+  position: absolute;
 }
 
 #write_name p,
@@ -385,7 +386,14 @@ input {
   #tableposter {
     margin-right: 42.5%;
   }
-}
+  .inspiration_img{
+    margin-right: 25%;
+    max-width: 55%;
+    max-height: 65%;
+  }
+
+} 
+
 
 @media only screen and (max-device-width: 1920px) {
   .mail {
@@ -403,7 +411,7 @@ input {
 }
 @media (-webkit-min-device-pixel-ratio: 1.1) {
   .mail {
-    padding-bottom: 2em;
+    padding-bottom: 1.5em;
   }
   #tableposter img {
     width: 4.5em;
@@ -413,6 +421,9 @@ input {
     padding: 0.8em;
   }
   #tablealfabet {
+    font-size: 100%;
+  }
+  #write_name {
     font-size: 100%;
   }
 }

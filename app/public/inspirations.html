@@ -10,7 +10,7 @@
 <div class="centered">
     <!-- <div id="elementToMove"> -->
         <div class="mySlides fade">
-        <img class="inspiration_img" id="img1" src="images/agnete.jpg">
+        <img class="inspiration_img" id="img1" src="images/blokkers_newsize_agnete.jpg">
     </div>
     <div class="mySlides fade">
         <img class="inspiration_img" id="img2" src="images/August kopi.jpg">
@@ -60,7 +60,8 @@
       for (i = 0; i < slides.length; i++) {
           slides[i].style.display = "none";  
       }
-      slides[slideIndex-1].style.display = "block";  
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 2000);  
     }
 
 
