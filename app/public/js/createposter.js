@@ -57,7 +57,7 @@ function createTable(){
   for(var i=0; i<=3; i++){
     $('#tableposter').append('<tr>');
     for(var j = k; j<= k + 2; j++){
-      $('#tableposter').append(`<td id=${j+1} onclick=changeColor(this)>`);
+      $('#tableposter').append(`<td id=${j+1} onclick=showColor(this.id)>`);
       console.log((j+1));
     }
     $('#tableposter').append('<tr>');
@@ -81,14 +81,14 @@ function getName() {
       switch(name[j]) {
           case 'å':
               //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/AA1.jpg">` + '</td>');
-              $("#" + (j+1)).append(`<img  src="/images/Alfabet/${name[j]}/AA1.jpg">`);
+              $("#" + (j+1)).append(`<img  src="/images/Alfabet/aa/AA1.jpg">`);
             break;
           case 'æ':
-            $("#" + (j+1)).append(`<img  src="/images/Alfabet/${name[j]}/AE1.jpg">`);
+            $("#" + (j+1)).append(`<img  src="/images/Alfabet/ae/AE1.jpg">`);
               //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/AE1.jpg">` + '</td>');
             break;
             case 'ø':
-              $("#" + (j+1)).append(`<img  src="/images/Alfabet/${name[j]}/OE1.jpg">`);
+              $("#" + (j+1)).append(`<img  src="/images/Alfabet/oe/OE1.jpg">`);
               //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/OE1.jpg">` + '</td>');
             break;
           default:
@@ -103,6 +103,34 @@ function getName() {
   }
 }
 
+function showColor(id){
+  $('#colourtable').html('');
+    var src = document.getElementById(id).childNodes[0].src;
+    var parts = src.split('/');
+    var lastSegment = parts.pop();
+
+    console.log(parts[parts.length - 1]);
+    for(var i = 0; i<= 2; i++){
+      switch(parts[parts.length - 1]){
+        case 'å':
+              $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/Alfabet/${parts[parts.length - 1]}/AA${i+1}.jpg" >` + '</td>');    
+            break;
+          case 'æ':
+              $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/Alfabet/${parts[parts.length - 1]}/AE${i+1}.jpg">` + '</td>');
+            break;
+            case 'ø':
+              $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/Alfabet/${parts[parts.length - 1]}/OE${i+1}.jpg">` + '</td>');
+            break;
+          default:
+            $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/Alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1].toUpperCase())}${i+1}.jpg">` + '</td>');
+      }
+    }
+}
+
 function changeColor(id){
-    document.getElementsById('#tableposter')
+  var parts = id.split('-');
+  var lastSegment = parts.pop();
+  $("#" + lastSegment).empty();
+  var src = document.getElementById(id).childNodes[0].src;
+  $("#" + lastSegment).append(`<img  src=${src}>`);
 }

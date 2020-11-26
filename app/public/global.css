@@ -325,12 +325,22 @@ hr {
 
 #tableposter {
   margin-top: 3%;
-  margin-right: 40%;
-  float: right;
+  margin-left: 40%;
+  float: left;
   border: none;
   display: block;
   border-collapse: collapse;
 }
+
+#colourtable {
+  margin-top: 10%;
+  margin-right: 15%;
+  float: right;
+  border: none;
+  display: block;
+  /* border-collapse: collapse; */
+}
+
 #tableposter td,
 tr {
   padding: 0;
@@ -347,6 +357,10 @@ tr {
 
 #tableposter img {
   width: 8em;
+  display: block;
+}
+#colourtable img {
+  width: 5em;
   display: block;
 }
 
