@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/inspirations", (req, res) => {
-  return res.send(navbar+ inspirationsPage + footer);
+  return res.send(navbar+ inspirationsPage);
 });
 
 app.get("/create", (req, res) => {
