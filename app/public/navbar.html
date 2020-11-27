@@ -19,10 +19,11 @@
     <div>
     <nav role="navigation" id="nav-bar"> 
         <div class="menu-toggle">
-            <a id="hamburger" href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <a id="hamburger" class="icon" onclick="openNav()">
                 <i class="fa fa-bars" style="font-size:24px"></i>
               </a>
-            <div id="menu">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <a href="/"><li>Home</li></a>
                 <hr>
                 <a href="/inspirations"><li>Inspirations</li></a>
@@ -44,7 +45,7 @@
         
     </nav>
 
-    <script>
+<script>
       function myFunction() {
         var x = document.getElementById("menu");
         if (x.style.display === "block") {
@@ -55,18 +56,22 @@
        
       }
 
-  </script>
-
-
-<script>
-
   document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    // close modal here
-    document.getElementById("menu").style.display = "none";
+    if (event.key === 'Escape') {
+      // close modal here
+      document.getElementById("menu").style.display = "none";
 
+    }
+  })
+
+  function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
   }
-})
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  
 </script>
 
 

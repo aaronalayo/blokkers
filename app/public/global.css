@@ -163,12 +163,12 @@ html {
   z-index: 9;
 }
 
-.menu-toggle #menu {
+/* .menu-toggle #menu {
   display: none;
   position: relative;
   margin-top: 30%;
   background: rgba(255, 255, 255, 0.9);
-}
+} */
 
 .menu-toggle a {
   color: black;
@@ -201,11 +201,11 @@ html {
 }
 
 hr {
-  width: 1.5em;
+  width: 2.5em;
   text-align: left;
-  margin-left: 50%;
   size: 5pt;
   border: 0.6px solid black;
+  margin-inline-start: 15%;
 }
 
 /*inspiration css*/
@@ -525,4 +525,34 @@ input {
 }
 img {
   pointer-events: none;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: whitesmoke;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
 }
