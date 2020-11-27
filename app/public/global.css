@@ -334,7 +334,7 @@ hr {
 
 #colourtable {
   margin-top: 10%;
-  margin-right: 15%;
+  margin-right: 11%;
   float: right;
   border: none;
   display: block;
@@ -360,7 +360,7 @@ tr {
   display: block;
 }
 #colourtable img {
-  width: 5em;
+  width: 9em;
   display: block;
 }
 
@@ -380,7 +380,7 @@ tr {
   font-size: 120%;
   font-family: "khulabold";
   width: fit-content;
-  position: absolute;
+  position: absolute ;
 }
 
 #write_name p,
@@ -390,7 +390,7 @@ input {
   outline: 0;
   border-width: 0 0 2px;
   background-color: transparent;
-  font-family: "khulabold";
+  font-family: "khulaextrabold";
 }
 
 @media only screen and (min-device-width: 2160px) {
@@ -399,13 +399,40 @@ input {
   }
   #tableposter {
     margin-right: 42.5%;
+    margin-top: 3%;
+    margin-left: 42.5%;
   }
-  .inspiration_img{
-    margin-right: 25%;
-    max-width: 55%;
-    max-height: 65%;
+  #tableposter img {
+    width: 8em;
+    display: block;
+  }
+  mySlides.fade {
+    position: absolute;
+    top:0;
+    right: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    /* display: block; */
+    width: 100%;
+    height: 100%;
+  }
+  .inspiration_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
+  #colourtable {
+    margin-top: -15%;
+    margin-right: 11%;
+    float: right;
+    border: none;
+    display: block;
+    /* border-collapse: collapse; */
+  }
 } 
 
 
