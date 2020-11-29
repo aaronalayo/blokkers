@@ -37,6 +37,165 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'nunitoblack';
+  src: url('./css/fonts/nunito-black-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-black-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'nunitoblack_italic';
+  src: url('./css/fonts/nunito-blackitalic-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-blackitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'nunitobold';
+  src: url('./css/fonts/nunito-bold-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'nunitobold_italic';
+  src: url('./css/fonts/nunito-bolditalic-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-bolditalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'nunitoextrabold';
+  src: url('./css/fonts/nunito-extrabold-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-extrabold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'nunitoextrabold_italic';
+  src: url('./css/fonts/nunito-extrabolditalic-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-extrabolditalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'nunitoextralight';
+  src: url('./css/fonts/nunito-extralight-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-extralight-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'nunitoextralight_italic';
+  src: url('./css/fonts/nunito-extralightitalic-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-extralightitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'nunitoitalic';
+  src: url('./css/fonts/nunito-italic-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'nunitolight';
+  src: url('./css/fonts/nunito-light-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'nunitolight_italic';
+  src: url('./css/fonts/nunito-lightitalic-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-lightitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'nunitoregular';
+  src: url('./css/fonts/nunito-regular-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+@font-face {
+  font-family: 'nunitosemibold';
+  src: url('./css/fonts/nunito-semibold-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'nunitosemibold_italic';
+  src: url('./css/fonts/nunito-semibolditalic-webfont.woff2') format('woff2'),
+       url('./css/fonts/nunito-semibolditalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -179,7 +338,7 @@ html {
   display: block;
   list-style: none;
   padding-left: 50%;
-  font-family: "khulalight";
+  font-family: "nunitoblack";
 }
 
 .menu-toggle a.icon {
@@ -314,7 +473,7 @@ hr {
 }
 #choose-size p {
   text-align: center;
-  font-family: "khulalight";
+  font-family: "nunitolight";
 }
 
 #choose-size span {
@@ -331,14 +490,45 @@ hr {
   display: block;
   border-collapse: collapse;
 }
+#posterfooter{
+  margin-left: 41.6%;
+  margin-top: 20%;
+  padding-top: 5%;
+ 
+  font-size: 25px;
+  font-family: "nunitolight";
 
+
+}
+
+
+#choosecolor{
+  top: 33%;
+  right: 10%;
+  position: absolute;
+  margin-bottom: 5%;
+  margin-right: 10%;
+  float: right;
+  font-family: "nunitolight";
+
+}
 #colourtable {
   margin-top: 10%;
-  margin-right: 11%;
+  margin-right: 8%;
   float: right;
   border: none;
   display: block;
   /* border-collapse: collapse; */
+}
+#chooseletter{
+  top: 55%;
+  right: 7.65%;
+  position: absolute;
+  margin-bottom: 5%;
+  margin-right: 9%;
+  float: right;
+  font-family: "nunitolight";
+
 }
 
 #tableposter td,
@@ -360,7 +550,7 @@ tr {
   display: block;
 }
 #colourtable img {
-  width: 9em;
+  width: 8em;
   display: block;
 }
 
@@ -370,7 +560,7 @@ tr {
   border: none;
   display: block;
   border-collapse: collapse;
-  font-family: "khulabold";
+  font-family: "nunitobold";
   font-size: 110%;
 }
 
@@ -378,7 +568,7 @@ tr {
   margin-left: 10%;
   font-weight: bold;
   font-size: 120%;
-  font-family: "khulabold";
+  font-family: "nunitobold";
   width: fit-content;
   position: absolute ;
 }
@@ -390,7 +580,7 @@ input {
   outline: 0;
   border-width: 0 0 2px;
   background-color: transparent;
-  font-family: "khulaextrabold";
+  font-family: "nunitoextrabold";
 }
 
 @media only screen and (min-device-width: 2160px) {
@@ -406,7 +596,7 @@ input {
     width: 8em;
     display: block;
   }
-  mySlides.fade {
+  .mySlides.fade {
     position: absolute;
     top:0;
     right: 0%;
@@ -440,15 +630,10 @@ input {
   .mail {
     padding-bottom: 3em;
   }
-  /* .mySlides.fade{
-    width: 1920px;
-    height: 800px;
+  #chooseletter{
+    top: 60%;
   }
-  .inspiration_img {
 
-    width: 1920px;
-    height: 945px;
-  }  */
 }
 @media (-webkit-min-device-pixel-ratio: 1.1) {
   .mail {
@@ -506,7 +691,7 @@ input {
   padding-bottom: 10px;
 }
 
-#done_button {
+/* #next_button {
   margin-left: 1em;
   background-color: rgb(168, 168, 168);
 
@@ -519,7 +704,7 @@ input {
   font-size: 16px;
   border-radius: 40%;
   cursor: pointer;
-}
+} */
 #tableposter td {
   pointer-events: auto;
 }
@@ -556,3 +741,16 @@ img {
   font-size: 36px;
   margin-left: 50px;
 }
+
+
+button.mbtn {
+  padding:0.6em 2em;
+  border-radius: 8px;
+  color:#fff;
+  background-color:#c0c0c0;
+  font-size:1.1em;
+  border:0;
+  cursor:pointer;
+  margin:1em;
+}
+

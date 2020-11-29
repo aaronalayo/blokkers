@@ -27,10 +27,19 @@ function addCircles(){
     $(this).removeClass("circle");
   });
   const name = $("#name").val();
+  
   var id;
   for (var i = 0; i < name.length; i++) {
       id = name.charAt(i).toLowerCase();
       $("#" + id).addClass("circle");
+  }
+}
+function validateForm() {
+  var name = $("#name").val();
+  console.log(name)
+  if (name == "") {
+    alert("Name must be filled out");
+    return false;
   }
 }
 
@@ -49,6 +58,7 @@ function addCircles(){
 //     }
 
 function createTable(){
+  
   var k = 0;
   for(var i=0; i<=3; i++){
     $('#tableposter').append('<tr>');
@@ -68,8 +78,11 @@ function getName() {
             name += letters[i];   
       }  
   }
+  $('#posterfooter').html('');
+
   $('#tableposter').html(''); //clear the table
   $('#colourtable').html(''); //clear the table
+  $('choosecolor').html('');
   createTable();
   var k = 0;
   for(var i=0; i<=3; i++){
@@ -98,17 +111,24 @@ function getName() {
     $('#tableposter').append('<tr>');
     k = k+3;
   }
+  $('#posterfooter').append(`<p>Click on the letters to change the colors</p>`);
 }
 
 function showColor(id){
   $('#colourtable').html('');
+  $('#choosecolor').html('');
+  $('#chooseletter').html('');
     var src = document.getElementById(id).childNodes[0].src;
     var parts = src.split('/');
     var lastSegment = parts.pop();
 
     console.log(parts[parts.length - 1]);
+    
+ 
     for(var i = 0; i<= 3; i++){
+ 
       switch(parts[parts.length - 1]){
+       
         case 'å':
               $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/aa${i+1}.png" >` + '</td>');    
             break;
@@ -119,15 +139,24 @@ function showColor(id){
               $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/oe${i+1}.png">` + '</td>');
             break;
           default:
+            
             $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${i+1}.png">` + '</td>');
+
       }
+    
     }
+     $('#choosecolor').append(`<p>Choose your color</p>`);
+
+    
+    $('#chooseletter').append(`<p>Click on the letters to change the colors</p>`);
 }
 
 function changeColor(id){
+  
   var parts = id.split('-');
   var lastSegment = parts.pop();
   $("#" + lastSegment).empty();
   var src = document.getElementById(id).childNodes[0].src;
+ 
   $("#" + lastSegment).append(`<img  src=${src}>`);
 }
