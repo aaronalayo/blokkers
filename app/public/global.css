@@ -642,7 +642,46 @@ input {
     padding-bottom: 3em;
   }
   #chooseletter{
-    top: 60%;
+    top: 65.5%;
+    right: 6.65%;
+
+  }
+
+  #colourtable {
+    margin-top: -23.5%;
+    margin-right: 8%;
+    
+    /* border-collapse: collapse; */
+  }
+  #posterfooter{
+    margin-left: 38.5%;
+    margin-top: 28%;
+    padding-top: 5%;
+   
+    /* font-size: 25px; */
+    /* font-family: "nunitolight"; */
+  
+  
+  }
+  #choosecolor{
+    top: 45%;
+    right: 10%;
+
+    /* margin-bottom: 10%; */
+    margin-right: 10%;
+   
+  
+  }
+  
+  
+  #done_button{
+    top: 70%;
+    right: 10.5%;
+  
+  }
+
+  .fas{
+    size: 1em;
   }
 
 }

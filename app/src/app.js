@@ -29,7 +29,7 @@ app.get("/inspirations", (req, res) => {
 });
 
 app.get("/create", (req, res) => {
-  return res.send(navbar + createposterPage + footer);
+  return res.send(navbar + createposterPage );
 });
 
 
