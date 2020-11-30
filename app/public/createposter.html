@@ -20,7 +20,7 @@
                 <input type="radio" name="size" value ="a1" id="a1">
                 <label for="a1">A1</label>
             </span>
-            <span><i onclick="changeSizeRight()" class="fa fa-angle-right"></i></span>
+            <span><i onclick="changeSizeRight()" class="fa fa-angle-right" ></i></span>
         </p>
         
     </div>
@@ -29,11 +29,16 @@
     
 </div>
 
+
+
 <div id="write_name">
     <div>
         <p>Write name</p>
-        <input id="name" >
+        <!-- <form id="formName" name="formName" action="#" onsubmit="validateForm()"> -->
+        <input id="name"  type='text' name ='name'> <i class="fas fa-backspace fa-2x" style="color: rgb(158, 158, 158);" onclick="onPressBackspace()"></i>
+        
     </div>
+
 
     <table id='tablealfabet'>
         <tr>
@@ -76,14 +81,14 @@
             <td id="æ" onclick="addLetter(this)">Æ</td>
             <td id="ø" onclick="addLetter(this)">Ø</td>
             <td id="å" onclick="addLetter(this)">Å</td>
-            <td>-</td>
+            <td id="-" onclick="addLetter(this)">-</td>
         </tr>
                 
     </table>
     <div>
-        <button class="mbtn blue" type="submit" value="submit"  id="next_button" onclick="addCircles(), getName(), validateForm()">Next</button>
+        <button type="submit" name="next" value="Next"  class="mbtn blue"  id="next_button" onclick="validateForm()">Next</button>
     </div>
-    
+</form>
 </div>
 
 
@@ -110,6 +115,6 @@
 <div id="chooseletter">
 
 </div>
-<div id="donebutton">
+<div id="done_button">
 
 </div>

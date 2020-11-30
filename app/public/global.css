@@ -478,8 +478,10 @@ hr {
 
 #choose-size span {
   margin: 15px;
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 35px;
+  /* font-weight: bold; */
+  font-family: "nunitoextrabold";
+
 }
 
 #tableposter {
@@ -529,6 +531,15 @@ hr {
   float: right;
   font-family: "nunitolight";
 
+}
+#done_button{
+  top: 60%;
+  right: 11%;
+  position: absolute;
+  margin-bottom: 5%;
+  margin-right: 9%;
+  float: right;
+  font-family: "nunitoblack";
 }
 
 #tableposter td,
@@ -752,5 +763,6 @@ button.mbtn {
   border:0;
   cursor:pointer;
   margin:1em;
+  font-family: "nunitoblack";
 }
 

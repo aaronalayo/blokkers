@@ -22,6 +22,16 @@ function addLetter(id){
 //    $(id).addClass("circle");
 }
 
+function validateForm() {
+  var empt = document.getElementById('name').value
+  if (empt == ""){
+  alert("Please enter a name");
+
+} else {
+  addCircles(), getName()
+}
+}
+
 function addCircles(){
   $(".circle").each(function() {
     $(this).removeClass("circle");
@@ -34,14 +44,7 @@ function addCircles(){
       $("#" + id).addClass("circle");
   }
 }
-function validateForm() {
-  var name = $("#name").val();
-  console.log(name)
-  if (name == "") {
-    alert("Name must be filled out");
-    return false;
-  }
-}
+
 
     // function sendName() {
     //     const name = $("#name").val().toLowerCase();
@@ -101,6 +104,10 @@ function getName() {
               $("#" + (j+1)).append(`<img  src="/images/alfabet/oe/oe1.png">`);
               //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/OE1.jpg">` + '</td>');
             break;
+            case '-':
+              $("#" + (j+1)).append(`<img  src="/images/alfabet/-/-1.png">`);
+              //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/OE1.jpg">` + '</td>');
+            break;
           default:
             $("#" + (j+1)).append(`<img  src="/images/alfabet/${name[j]}/${name[j]}1.png">`);
               //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/${name[j].toUpperCase()}1.jpg">` + '</td>');
@@ -138,6 +145,9 @@ function showColor(id){
             case 'ø':
               $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/oe${i+1}.png">` + '</td>');
             break;
+            case '-':
+              $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/-${i+1}.png">` + '</td>');
+            break;
           default:
             
             $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${i+1}.png">` + '</td>');
@@ -149,6 +159,7 @@ function showColor(id){
 
     
     $('#chooseletter').append(`<p>Click on the letters to change the colors</p>`);
+    $('#done_button').append(`<button class="mbtn blue" type="submit" value="submit"  id="done_button">Done</button>`)
 }
 
 function changeColor(id){
@@ -159,4 +170,9 @@ function changeColor(id){
   var src = document.getElementById(id).childNodes[0].src;
  
   $("#" + lastSegment).append(`<img  src=${src}>`);
-}
+};
+function onPressBackspace() {
+  
+  var name  = document.getElementById('name').value;
+  document.getElementById('name').value=name.substring(0,name.length -1);
+};
