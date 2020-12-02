@@ -1,5 +1,8 @@
-const route = require('express').Router();
+const router = require('express').Router();;
+
+
 const fs = require('fs');
+const { dirname } = require('path');
 const { promisify } = require('util');
 const readFile = promisify(fs.readFile);
 
@@ -23,17 +26,36 @@ function letters(name) {
 };
     
 
-// route.get("/create", (req, res) => {
-//     return res.render(navbar + createposterPage + footer, );
-//   });
-route.post('/create', async(req, res) =>{
- const name = req.body.name;
- letters(name);
-//  res.render('user', { name: 'Tobi' }, function (err, html)
-//  var page = await readFile('./public/createposter.html', 'utf8');
-//  page = page.replace(/{letter1}/g, name[0]);
-//  page = page.replace(/{letter11}/g, name[0].toUpperCase());
-});
+
+
+// router.post('/create', async(req, res) =>{
+//  let img = [];
+//   img = req.body.img;
+//  console.log(img[0]);
+  
+// });
+
+// let img = [];
+
+// router.post('/satisfied', async(req, res)=>{
+
+//   let img = req.body.imgSrc;
+//   console.log(img)
+//   let pathImage = [];
+// try{
+
+
+//     for(var i= 0; i<= img.length; i++){
+//       pathImage = img[i].substring(0,img.length-23);
+//       console.log(pathImage);
+//   }
+//   images/alfabet/f/f1.png
+// }catch(error){
+// console.log(error)
+// }
+
+// });
+ 
 
 
 
@@ -46,7 +68,4 @@ route.post('/create', async(req, res) =>{
 
 
 
-
-
-
-module.exports= route;
+module.exports= router;
