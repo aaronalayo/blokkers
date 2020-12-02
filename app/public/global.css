@@ -532,18 +532,44 @@ hr {
   font-family: "nunitolight";
 
 }
-#done_button{
+#done_button  {
   top: 60%;
   right: 11%;
   position: absolute;
   margin-bottom: 5%;
   margin-right: 9%;
+  font-size:1.1em;
   float: right;
   font-family: "nunitoblack";
+  text-decoration: none;
+  padding:0.6em 2em;
+  border-radius: 8px;
+  color:#fff;
+  background-color:#c0c0c0;
+  border:0;
+  cursor:pointer;
+  /* margin:1em; */
 }
 
-#tableposter td,
-tr {
+button.mbtn{
+  
+  padding:0.6em 2em;
+  border-radius: 8px;
+  color:#fff;
+  background-color:#c0c0c0;
+  font-size:1.1em;
+  border:0;
+  cursor:pointer;
+  margin:1em;
+  font-family: "nunitoblack";
+  
+
+
+  
+  
+}
+
+#tableposter td,tr {
   padding: 0;
   cursor: pointer;
 }
@@ -680,8 +706,8 @@ input {
   
   }
 
-  .fas{
-    size: 1em;
+  .fas .fa-backspace{
+    font-size: 1em;
   }
 
 }
@@ -793,15 +819,8 @@ img {
 }
 
 
-button.mbtn {
-  padding:0.6em 2em;
-  border-radius: 8px;
-  color:#fff;
-  background-color:#c0c0c0;
-  font-size:1.1em;
-  border:0;
-  cursor:pointer;
-  margin:1em;
-  font-family: "nunitoblack";
-}
 
+#satisfieddiv{
+  top:50%;
+  padding-top:50% ;
+}

@@ -34,7 +34,6 @@
 <div id="write_name">
     <div>
         <p>Write name</p>
-        <!-- <form id="formName" name="formName" action="#" onsubmit="validateForm()"> -->
         <input id="name"  type='text' name ='name'> <i class="fas fa-backspace fa-2x" style="color: rgb(158, 158, 158);" onclick="onPressBackspace()"></i>
         
     </div>
@@ -86,20 +85,25 @@
                 
     </table>
     <div>
-        <button type="submit" name="next" value="Next"  class="mbtn blue"  id="next_button" onclick="validateForm()">Next</button>
+        <button class="mbtn"  id="next_button" onclick="validateForm()">Next</button>
     </div>
-</form>
+
 </div>
 
 
-<div>
-
+<div id='posterdiv'>
+    <!-- <form id="imageForm"  action="/satisfied" method="GET"> -->
     <table id='tableposter'>
         
     </table>
-   
-      
+    <div id="done">
+
+    </div>
+     
+    <!-- </form> -->
+  
 </div>
+
 <div id="posterfooter"></div>
 
 <div id="choosecolor">
@@ -115,6 +119,14 @@
 <div id="chooseletter">
 
 </div>
-<div id="done_button">
 
-</div>
+
+<!-- 
+<div id="satisfieddiv">
+
+    <table id='satisfiedtable'>
+        
+    </table>
+   
+      
+</div> -->

@@ -6,7 +6,7 @@ const server = require("http").createServer(app);
 const helmet = require("helmet");
 app.use(helmet.xssFilter());
 
-app.use(express.urlencoded({ extended: false })); 
+app.use(express.urlencoded({ extended: true })); 
 app.use(express.json()); 
 
 app.set('trust proxy', true);
@@ -19,7 +19,7 @@ const homePage = fs.readFileSync("./public/homepage.html", "utf8");
 const footer = fs.readFileSync("./public/footer.html", "utf8");
 const inspirationsPage = fs.readFileSync("./public/inspirations.html", "utf8");
 const createposterPage = fs.readFileSync("./public/createposter.html", "utf8");
-
+const satisfiedPage = fs.readFileSync("./public/satisfied.html", 'utf8');
 app.get("/", (req, res) => {
   return res.send(navbar + homePage);
 });
@@ -28,12 +28,15 @@ app.get("/inspirations", (req, res) => {
   return res.send(navbar+ inspirationsPage);
 });
 
+
 app.get("/create", (req, res) => {
   return res.send(navbar + createposterPage );
 });
 
 
-
+app.get("/satisfied", (req, res) => {
+  return res.send(navbar + satisfiedPage );
+});
 
 
 
