@@ -198,6 +198,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow: hidden;
 }
 #inner_container {
   height: 102%;
@@ -313,10 +314,11 @@ html {
 #nav-bar {
   overflow: hidden;
   background-color: transparent;
+  position: fixed;
 }
 
 .menu-toggle {
-  position: absolute;
+  position: fixed;
   width: 15%;
   padding-top: 2%;
   z-index: 9;
@@ -373,10 +375,11 @@ hr {
   display: block;
   margin-left: auto;
   position: absolute;
-
+  margin-top: 20%;
   right: 8%;
   text-align: right;
   font-size: 120px;
+  /* z-index: -1; */
 }
 #icon_left {
   max-height: 100%;
@@ -384,8 +387,10 @@ hr {
   margin-right: auto;
   position: absolute;
   left: 7%;
+  margin-top: 20%;
   text-align: left;
   font-size: 120px;
+  /* z-index: -1; */
 }
 .center-right {
   float: right;
@@ -415,7 +420,7 @@ hr {
   display: block;
 }
 .mySlides.fade {
-  position: absolute;
+  /* position: absolute; */
   top:0;
   right: 0%;
   margin-left: auto;
@@ -431,9 +436,11 @@ hr {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  z-index: -1;
 }
 .shopping-bag {
-  position: absolute;
+  position: fixed;
   color: black;
   padding-top: 3%;
   padding-left: 90%;
@@ -581,7 +588,7 @@ tr {
   font-size: 120%;
   font-family: "nunitobold";
   width: fit-content;
-  position: absolute ;
+  /* position: absolute ; */
 }
 
 #write_name p,
@@ -624,6 +631,7 @@ input {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
   }
 
   #colourtable {
@@ -803,5 +811,15 @@ button.mbtn {
   cursor:pointer;
   margin:1em;
   font-family: "nunitoblack";
+}
+
+#inspirationspage{
+  width: fit-content;
+}
+
+.page{
+  position: inherit;
+  height: 100vh;
+  overflow: hidden;
 }
 
