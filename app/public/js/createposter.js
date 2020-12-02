@@ -1,4 +1,5 @@
 
+
   function changeSizeRight(){
     if($("#a3").is(':checked')){
         $("#a2").prop("checked", true);
@@ -159,9 +160,9 @@ function showColor(id){
 
     
     $('#chooseletter').append(`<p>Click on the letters to change the colors</p>`);
-    $('#done_button').append(`<button class="mbtn blue" type="submit" value="submit"  id="done_button">Done</button>`)
+    $('#done').append(`<button class="mbtn button" id="done_button" onclick="getSrc()">Done</button>`)
 }
-
+// "javascript:void(0)"
 function changeColor(id){
   
   var parts = id.split('-');
@@ -171,8 +172,76 @@ function changeColor(id){
  
   $("#" + lastSegment).append(`<img  src=${src}>`);
 };
-function onPressBackspace() {
-  
+function onPressBackspace() { 
   var name  = document.getElementById('name').value;
   document.getElementById('name').value=name.substring(0,name.length -1);
 };
+
+function getSrc(){
+
+  //  imgs = document.getElementById('tableposter').getElementsByTagName("img");
+  //   var imgSrcs = [];
+
+  //   for (var i = 0; i < imgs.length; i++) {
+  //       imgSrcs.push(imgs[i].src);
+  //   }
+  var div = $("#posterdiv")
+   console.log(div)
+   window.location = "/satisfied"+div
+
+  
+  // imgs = document.getElementById('tableposter').getElementsByTagName("img");
+  // var imgSrcs = [];
+
+  // for (var i = 0; i < imgs.length; i++) {
+  //     imgSrcs.push(imgs[i].src);
+ 
+   
+    // $.ajax({      
+    //   // traditional: true,
+    //   type: "POST",
+    //   url: '/satisfied',
+    //   dataType: 'json', 
+    //   data: div,
+    //   success: function(){
+    //     $("#satisfieddiv").html( div);
+    //   }
+    // });
+
+
+  };// End success
+       // End ajax metho
+
+      
+      
+// function getSrc() {
+//   imgs = document.getElementById("tableposter").getElementsByTagName("img");
+//   var imgSrcs = [];
+
+//   for (var i = 0; i < imgs.length; i++) {
+//     imgSrcs.push(imgs[i].src);
+//   }
+//   $.ajax({
+//     type: "POST",
+//     url: "/satisfied",
+//     async: false,
+//     data: imgSrcs,
+//   });
+// }
+
+// function copyTable(){
+// //   $('#satisfieddiv').html('');
+// //   $('#posterdiv').clone().appendTo('#satisfieddiv');
+
+// //   $('html, body').animate({
+// //     // scrollTop: eval($('#' + $(this).attr('satisfieddiv')).offset().top - 70)
+// //     scrollTop: $("#satisfieddiv").offset().top
+// // }, 500);
+ 
+// var pageContent = document.getElementById("posterdiv").innerHTML; 
+// sessionStorage.setItem("page1content", pageContent);
+// // console.log(pageContent)
+// }
+
+
+
