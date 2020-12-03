@@ -1,6 +1,4 @@
-
-
-  function changeSizeRight(){
+function changeSizeRight(){
     if($("#a3").is(':checked')){
         $("#a2").prop("checked", true);
     }
@@ -156,11 +154,10 @@ function showColor(id){
       }
     
     }
-     $('#choosecolor').append(`<p>Choose your color</p>`);
-
-    
+    $('#choosecolor').append(`<p>Choose your color</p>`);
     $('#chooseletter').append(`<p>Click on the letters to change the colors</p>`);
-    $('#done').append(`<button class="mbtn button" id="done_button" onclick="getSrc()">Done</button>`)
+   // $('#done').append(`<button class="mbtn button" id="done_button" onclick="getSrc()">Done</button>`)
+    $("#done_button").show();
 }
 // "javascript:void(0)"
 function changeColor(id){
@@ -177,7 +174,15 @@ function onPressBackspace() {
   document.getElementById('name').value=name.substring(0,name.length -1);
 };
 
+
+
+
 function getSrc(){
+  var b = document.getElementById('tableposter'),
+        url = 'http://localhost:2000/satisfied?name=' + encodeURIComponent(b);
+
+    document.location.href = url;
+
 
   //  imgs = document.getElementById('tableposter').getElementsByTagName("img");
   //   var imgSrcs = [];
@@ -185,9 +190,9 @@ function getSrc(){
   //   for (var i = 0; i < imgs.length; i++) {
   //       imgSrcs.push(imgs[i].src);
   //   }
-  var div = $("#posterdiv")
-   console.log(div)
-   window.location = "/satisfied"+div
+  // var div = $("#posterdiv")
+  //  console.log(div)
+  //  window.location = "/satisfied"
 
   
   // imgs = document.getElementById('tableposter').getElementsByTagName("img");

@@ -7,8 +7,7 @@
         </div> -->
         <!-- <h2 id="scroll_up" class="scrollUP">Scroll up</h2> -->
     <!-- </div> -->
-<div class="centered">
-    <!-- <div id="elementToMove"> -->
+<!-- <div class="centered">
         <div class="mySlides fade">
         <img class="inspiration_img" id="img1" src="images/agnete2 kopi.png">
     </div>
@@ -21,18 +20,17 @@
     <div class="mySlides fade">
         <img class="inspiration_img" id="img4" src="images/marie2 kopi.png">
     </div>
-    <!-- </div> -->
-</div>
+</div> -->
 
 
     
-<div class="center-left">
+<!-- <div class="center-left">
     <i class="fa fa-angle-left" id="icon_left" onclick="plusSlides(1)" ></i>
 </div>
 
 <div class="center-right">
     <i class="fa fa-angle-right" id="icon_right" onclick="plusSlides(-1)"></i>
-</div>
+</div> -->
 
 
 </body>
@@ -41,28 +39,28 @@
     // setTimeout(function () {
     //     document.getElementById('elementToMove').style.bottom = '10%';
     // }, 100);
-    var slideIndex = 1;
-    showSlides(slideIndex);
+    // var slideIndex = 1;
+    // showSlides(slideIndex);
     
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
+    // function plusSlides(n) {
+    //   showSlides(slideIndex += n);
+    // }
     
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
+    // function currentSlide(n) {
+    //   showSlides(slideIndex = n);
+    // }
     
-    function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      if (n > slides.length) {slideIndex = 1}    
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";  
-      }
-      slides[slideIndex-1].style.display = "block";
-      setTimeout(showSlides, 2000);  
-    }
+    // function showSlides(n) {
+    //   var i;
+    //   var slides = document.getElementsByClassName("mySlides");
+    //   if (n > slides.length) {slideIndex = 1}    
+    //   if (n < 1) {slideIndex = slides.length}
+    //   for (i = 0; i < slides.length; i++) {
+    //       slides[i].style.display = "none";  
+    //   }
+    //   slides[slideIndex-1].style.display = "block";
+    //   setTimeout(showSlides, 2000);  
+    // }
 
 
     // function scrollTop() {

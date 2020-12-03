@@ -198,7 +198,7 @@
 
 html {
   scroll-behavior: smooth;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 #inner_container {
   height: 102%;
@@ -514,7 +514,7 @@ hr {
 #choosecolor{
   top: 33%;
   right: 10%;
-  position: absolute;
+  position: inherit;
   margin-bottom: 5%;
   margin-right: 10%;
   float: right;
@@ -532,7 +532,7 @@ hr {
 #chooseletter{
   top: 55%;
   right: 7.65%;
-  position: absolute;
+  position: inherit;
   margin-bottom: 5%;
   margin-right: 9%;
   float: right;
@@ -542,7 +542,7 @@ hr {
 #done_button  {
   top: 60%;
   right: 11%;
-  position: absolute;
+  position: inherit;
   margin-bottom: 5%;
   margin-right: 9%;
   font-size:1.1em;
@@ -614,7 +614,7 @@ tr {
   font-size: 120%;
   font-family: "nunitobold";
   width: fit-content;
-  /* position: absolute ; */
+  position: absolute ;
 }
 
 #write_name p,

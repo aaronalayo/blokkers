@@ -1,17 +1,153 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<div class="centered">
-    <img id="logo_img" src="images/Blokkers_logo.png">
-</div>
-<div class="centered">
-    <h2 id="scroll" class="scrollDown">Scroll to explore</h2>
-    <i class="fa fa-angle-down" id="scroll_icon" onclick="scrollDown()"></i>
-</div>
-
-<div class="centered">
-    <div id="myScroll">
-
+<div id="homepage" class="page">
+    <div class="centered">
+        <img id="logo_img" src="images/Blokkers_logo.png">
+    </div>
+    <div class="centered">
+        <h2 id="scroll" class="scrollDown">Scroll to explore</h2>
+        <i class="fa fa-angle-down" id="scroll_icon" onclick="scrollDown()"></i>
+    </div>
+    
+    <div class="centered">
+        <div id="myScroll">
+    
+        </div>
     </div>
 </div>
+
+<div id="inspirationspage" class="page">
+    <div>
+        <div class="mySlides fade">
+            <img class="inspiration_img" id="img1" src="images/agnete2 kopi.png">
+        </div>
+        <div class="mySlides fade">
+            <img class="inspiration_img" id="img2" src="images/August kopi.jpg">
+        </div>
+        <div class="mySlides fade">
+            <img class="inspiration_img" id="img3" src="images/marie2 kopi.png">
+        </div>
+        <div class="mySlides fade">
+            <img class="inspiration_img" id="img4" src="images/blm2 kopi.png">
+        </div>
+    </div>    
+    <div class="center-left">
+        <i class="fa fa-angle-left" id="icon_left" onclick="plusSlides(1)" ></i>
+    </div>
+    
+    <div class="center-right">
+        <i class="fa fa-angle-right" id="icon_right" onclick="plusSlides(-1)"></i>
+    </div>
+</div>
+
+<div id="createposter" class="page">
+    <div>
+        <div id="choose-size" class="centered">
+            <p>Choose the size</p>
+            <p>
+                <span><i onclick="changeSizeLeft()" class="fa fa-angle-left"></i></span>
+                <span class="radiowrapper" id="wrap3">
+                    <input type="radio" name="size" value ="a3" id="a3">
+                    <label for="a3">A3</label>
+                </span>
+                <span class="radiowrapper" id="wrap2">
+                        <input type="radio" name="size" value ="a2" id="a2" checked>
+                        <label for="a2">A2</label>
+                </span>
+                
+                <span class="radiowrapper" id="wrap1">
+                    <input type="radio" name="size" value ="a1" id="a1">
+                    <label for="a1">A1</label>
+                </span>
+                <span><i onclick="changeSizeRight()" class="fa fa-angle-right" ></i></span>
+            </p>  
+        </div>  
+    </div>
+    
+    <div id="write_name">
+        <div>
+            <p>Write name</p>
+            <!-- <form id="formName" name="formName" action="#" onsubmit="validateForm()"> -->
+            <input id="name"  type='text' name ='name'> <i class="fas fa-backspace fa-2x" style="color: rgb(158, 158, 158);" onclick="onPressBackspace()"></i>
+            
+        </div>
+    
+    
+        <table id='tablealfabet'>
+            <tr>
+                <td id="a" onclick="addLetter(this)">A</td>
+                <td id="b" onclick="addLetter(this)">B</td>
+                <td id="c" onclick="addLetter(this)">C</td>
+                <td id="d" onclick="addLetter(this)">D</td>
+                <td id="e" onclick="addLetter(this)">E</td>
+            </tr>
+            <tr>
+                <td id="f" onclick="addLetter(this)">F</td>
+                <td id="g" onclick="addLetter(this)">G</td>
+                <td id="h" onclick="addLetter(this)">H</td>
+                <td id="i" onclick="addLetter(this)">I</td>
+                <td id="j" onclick="addLetter(this)">J</td>
+            </tr>
+            <tr>
+                <td id="k" onclick="addLetter(this)">K</td>
+                <td id="l" onclick="addLetter(this)">L</td>
+                <td id="m" onclick="addLetter(this)">M</td>
+                <td id="n" onclick="addLetter(this)">N</td>
+                <td id="o" onclick="addLetter(this)">O</td>
+            </tr>
+            <tr>
+                <td id="p" onclick="addLetter(this)">P</td>
+                <td id="q" onclick="addLetter(this)">Q</td>
+                <td id="r" onclick="addLetter(this)">R</td>
+                <td id="s" onclick="addLetter(this)">S</td>
+                <td id="t" onclick="addLetter(this)">T</td>
+            </tr>
+            <tr>
+                <td id="u" onclick="addLetter(this)">U</td>
+                <td id="v" onclick="addLetter(this)">V</td>
+                <td id="w" onclick="addLetter(this)">W</td>
+                <td id="x" onclick="addLetter(this)">X</td>
+                <td id="y" onclick="addLetter(this)">Y</td>
+            </tr>
+            <tr>
+                <td id="z" onclick="addLetter(this)">Z</td>
+                <td id="æ" onclick="addLetter(this)">Æ</td>
+                <td id="ø" onclick="addLetter(this)">Ø</td>
+                <td id="å" onclick="addLetter(this)">Å</td>
+                <td id="-" onclick="addLetter(this)">-</td>
+            </tr>
+                    
+        </table>
+        <div>
+            <button type="submit" name="next" value="Next"  class="mbtn blue"  id="next_button" onclick="validateForm()">Next</button>
+        </div>
+    </div>
+    
+    
+    <div id='posterdiv'>
+        <!-- <form id="imageForm"  action="/satisfied" method="GET"> -->
+        <table id='tableposter'>
+            
+        </table>
+        <div>
+            <button class="mbtn button" id="done_button" onclick="getSrc()" hidden>Done</button>
+        </div>
+         
+        <!-- </form> -->
+      
+    </div>
+    
+    <div id="posterfooter"></div>
+    
+    <div id="choosecolor">          
+    </div>
+
+    <div>
+        <table id="colourtable"></table>
+    </div>
+       
+    <div id="chooseletter">
+    </div>
+
 
 </body>
 </html>
@@ -19,17 +155,37 @@
 <script type="text/javascript">
     function scrollDown() {
         document.getElementById( "scroll_icon" )
-        window.location.href ="/inspirations";
+        window.location.href ="#inspirationspage";
     }
 
-    $(window).scroll(function () {
-        if ($(window).scrollTop() + $(window).height() >= $(document).height()-200) {
-            scrollDown()
-        }
-    });
-    // $(window).on('beforeunload', function(){
-    // $(window).scrollTop(0);
-// });
+    // $("#homepage").scroll(function () {
+    //     if ($(window).scrollTop() + $(window).height() >= $(document).height()-200) {
+    //         scrollDown()
+    //     }
+    // });
+    
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+      }
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 2000);  
+    }
 
 </script>
 
