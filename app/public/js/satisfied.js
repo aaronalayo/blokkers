@@ -3,9 +3,10 @@
 
 $(document).ready(function(){
    
-      $.getJSON("createposter.js", function(result){
-        $.each(result, function(i, field){
-          $("div").append(field + " ");
-        });
-      });
-    });
+  $.get("/satisfied", details => {
+    $('#satisfieddiv').html(details)
+    console.log(details)
+  }).fail(function (error) {
+      console.log(error)
+  })
+})

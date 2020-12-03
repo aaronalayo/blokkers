@@ -178,18 +178,20 @@ function onPressBackspace() {
 
 
 function getSrc(){
-  var b = document.getElementById('tableposter'),
-        url = 'http://localhost:2000/satisfied?name=' + encodeURIComponent(b);
+  // var b = document.getElementById('tableposter'),
+  //       url = 'http://localhost:2000/satisfied?name=' + encodeURIComponent(b);
 
-    document.location.href = url;
+  //   document.location.href = url;
 
 
-  //  imgs = document.getElementById('tableposter').getElementsByTagName("img");
-  //   var imgSrcs = [];
+   imgs = document.getElementById('tableposter').getElementsByTagName("img");
+    var imgSrcs = [];
 
-  //   for (var i = 0; i < imgs.length; i++) {
-  //       imgSrcs.push(imgs[i].src);
-  //   }
+    for (var i = 0; i < imgs.length; i++) {
+        imgSrcs.push(imgs[i].src);
+    }
+
+    $.post('/satisfied', {img:imgSrcs})
   // var div = $("#posterdiv")
   //  console.log(div)
   //  window.location = "/satisfied"
