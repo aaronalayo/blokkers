@@ -20,33 +20,6 @@ function letters(name) {
             if(l[i] == letter){
                 console.log(file[i])
             }
-            
-
-})}
+  })}
 };
-    
-
-
-
-router.get('/satisfied', async(req, res) =>{
- let img = [];
-  img = req.body.img;
-  console.log(img)
-  return res.status(200).json(img); 
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports= router;

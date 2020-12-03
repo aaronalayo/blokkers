@@ -489,10 +489,10 @@ hr {
   border-collapse: collapse;
 }
 #posterfooter{
-  margin-left: 41.6%;
+  /* margin-left: 41.6%;
   margin-top: 20%;
   padding-top: 5%;
- 
+  */
   font-size: 25px;
   font-family: "nunitolight";
 
@@ -674,9 +674,9 @@ input {
     /* border-collapse: collapse; */
   }
   #posterfooter{
-    margin-left: 38.5%;
+    /* margin-left: 38.5%;
     margin-top: 28%;
-    padding-top: 5%;
+    padding-top: 5%; */
    
     /* font-size: 25px; */
     /* font-family: "nunitolight"; */

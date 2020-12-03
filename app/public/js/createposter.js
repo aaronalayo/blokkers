@@ -117,7 +117,7 @@ function getName() {
     $('#tableposter').append('<tr>');
     k = k+3;
   }
-  $('#posterfooter').append(`<p>Click on the letters to change the colors</p>`);
+  $('#posterfooter').text("Click on the letters to change the colors");
 }
 
 function showColor(id){
@@ -154,9 +154,8 @@ function showColor(id){
       }
     
     }
-    $('#choosecolor').append(`<p>Choose your color</p>`);
-    $('#chooseletter').append(`<p>Click on the letters to change the colors</p>`);
-   // $('#done').append(`<button class="mbtn button" id="done_button" onclick="getSrc()">Done</button>`)
+    $('#choosecolor').text("Choose your color");
+    $('#chooseletter').text("Click on the letters to change the colors");
     $("#done_button").show();
 }
 // "javascript:void(0)"
@@ -175,14 +174,7 @@ function onPressBackspace() {
 };
 
 
-
-
 function getSrc(){
-  // var b = document.getElementById('tableposter'),
-  //       url = 'http://localhost:2000/satisfied?name=' + encodeURIComponent(b);
-
-  //   document.location.href = url;
-
 
    imgs = document.getElementById('tableposter').getElementsByTagName("img");
     var imgSrcs = [];
@@ -190,65 +182,7 @@ function getSrc(){
     for (var i = 0; i < imgs.length; i++) {
         imgSrcs.push(imgs[i].src);
     }
-
-    $.post('/satisfied', {img:imgSrcs})
-  // var div = $("#posterdiv")
-  //  console.log(div)
-  //  window.location = "/satisfied"
-
-  
-  // imgs = document.getElementById('tableposter').getElementsByTagName("img");
-  // var imgSrcs = [];
-
-  // for (var i = 0; i < imgs.length; i++) {
-  //     imgSrcs.push(imgs[i].src);
- 
-   
-    // $.ajax({      
-    //   // traditional: true,
-    //   type: "POST",
-    //   url: '/satisfied',
-    //   dataType: 'json', 
-    //   data: div,
-    //   success: function(){
-    //     $("#satisfieddiv").html( div);
-    //   }
-    // });
-
-
-  };// End success
-       // End ajax metho
-
-      
-      
-// function getSrc() {
-//   imgs = document.getElementById("tableposter").getElementsByTagName("img");
-//   var imgSrcs = [];
-
-//   for (var i = 0; i < imgs.length; i++) {
-//     imgSrcs.push(imgs[i].src);
-//   }
-//   $.ajax({
-//     type: "POST",
-//     url: "/satisfied",
-//     async: false,
-//     data: imgSrcs,
-//   });
-// }
-
-// function copyTable(){
-// //   $('#satisfieddiv').html('');
-// //   $('#posterdiv').clone().appendTo('#satisfieddiv');
-
-// //   $('html, body').animate({
-// //     // scrollTop: eval($('#' + $(this).attr('satisfieddiv')).offset().top - 70)
-// //     scrollTop: $("#satisfieddiv").offset().top
-// // }, 500);
- 
-// var pageContent = document.getElementById("posterdiv").innerHTML; 
-// sessionStorage.setItem("page1content", pageContent);
-// // console.log(pageContent)
-// }
-
+    sessionStorage.setItem("img", JSON.stringify(imgSrcs));
+};
 
 
