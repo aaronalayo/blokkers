@@ -25,13 +25,17 @@
   },
   "homepage": "https://github.com/aaronalayo/blokkers#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "fs-extra": "^9.0.1",
     "helmet": "^4.2.0",
     "knex": "^0.21.12",
     "nodemon": "^2.0.6",
     "objection": "^2.2.3",
-    "pg": "^8.5.1"
+    "pdfkit": "^0.11.0",
+    "pg": "^8.5.1",
+    "xml2js": "^0.4.23"
   }
 }

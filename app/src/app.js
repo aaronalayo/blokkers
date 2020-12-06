@@ -1,13 +1,24 @@
 
 const express = require("express");
-const app = express();
+var app = express();
+
+
 const server = require("http").createServer(app);
+var bodyParser = require('body-parser')
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+// app.use(express.urlencoded({ extended: true })); 
+// app.use(express.json()); 
+
 
 const helmet = require("helmet");
 app.use(helmet.xssFilter());
 
-app.use(express.urlencoded({ extended: true })); 
-app.use(express.json()); 
 
 app.set('trust proxy', true);
 
@@ -17,24 +28,28 @@ const fs = require('fs');
 const navbar = fs.readFileSync("./public/navbar.html", "utf8");
 const homePage = fs.readFileSync("./public/homepage.html", "utf8");
 const footer = fs.readFileSync("./public/footer.html", "utf8");
-const inspirationsPage = fs.readFileSync("./public/inspirations.html", "utf8");
-const createposterPage = fs.readFileSync("./public/createposter.html", "utf8");
+
 const satisfiedPage = fs.readFileSync("./public/satisfied.html", 'utf8');
+
+const restrictions= require('./middelware/restrict.js')
+
+
 app.get("/", (req, res) => {
   return res.send(navbar + homePage);
 });
 
-app.get("/inspirations", (req, res) => {
-  return res.send(navbar+ inspirationsPage);
-});
+// app.get("/inspirations", (req, res) => {
+//   return res.send(navbar+ inspirationsPage);
+// });
 
 
-app.get("/create", (req, res) => {
-  return res.send(navbar + createposterPage );
-});
+// app.get("/create", (req, res) => {
+//   return res.send(navbar + createposterPage );
+// });
 
 
-app.get("/satisfied", (req, res) => {
+app.get("/satisfied",(req, res, next) => {
+
   return res.send(navbar + satisfiedPage );
 });
 
@@ -51,6 +66,7 @@ app.get("*", (req, res) => {
 
 
 const createRoute = require('./routes/create.js');
+
 
 app.use(createRoute);
 

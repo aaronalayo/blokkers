@@ -39,161 +39,114 @@
 }
 
 @font-face {
-  font-family: 'nunitoblack';
-  src: url('./css/fonts/nunito-black-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-black-webfont.woff') format('woff');
+  font-family: "nunitoblack";
+  src: url("./css/fonts/nunito-black-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-black-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-
-}
-
-
-
-
-@font-face {
-  font-family: 'nunitoblack_italic';
-  src: url('./css/fonts/nunito-blackitalic-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-blackitalic-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-
-
-
-@font-face {
-  font-family: 'nunitobold';
-  src: url('./css/fonts/nunito-bold-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-bold-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-
-
-
-@font-face {
-  font-family: 'nunitobold_italic';
-  src: url('./css/fonts/nunito-bolditalic-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-bolditalic-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-
-
-
-@font-face {
-  font-family: 'nunitoextrabold';
-  src: url('./css/fonts/nunito-extrabold-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-extrabold-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-
-
-
-@font-face {
-  font-family: 'nunitoextrabold_italic';
-  src: url('./css/fonts/nunito-extrabolditalic-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-extrabolditalic-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-
-
-
-@font-face {
-  font-family: 'nunitoextralight';
-  src: url('./css/fonts/nunito-extralight-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-extralight-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-
-
-
-@font-face {
-  font-family: 'nunitoextralight_italic';
-  src: url('./css/fonts/nunito-extralightitalic-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-extralightitalic-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-
-
-
-@font-face {
-  font-family: 'nunitoitalic';
-  src: url('./css/fonts/nunito-italic-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-italic-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-
-
-
-@font-face {
-  font-family: 'nunitolight';
-  src: url('./css/fonts/nunito-light-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-light-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-
-
-
-@font-face {
-  font-family: 'nunitolight_italic';
-  src: url('./css/fonts/nunito-lightitalic-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-lightitalic-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-
-
-
-@font-face {
-  font-family: 'nunitoregular';
-  src: url('./css/fonts/nunito-regular-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-@font-face {
-  font-family: 'nunitosemibold';
-  src: url('./css/fonts/nunito-semibold-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-semibold-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
 }
 
 @font-face {
-  font-family: 'nunitosemibold_italic';
-  src: url('./css/fonts/nunito-semibolditalic-webfont.woff2') format('woff2'),
-       url('./css/fonts/nunito-semibolditalic-webfont.woff') format('woff');
+  font-family: "nunitoblack_italic";
+  src: url("./css/fonts/nunito-blackitalic-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-blackitalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+}
 
+@font-face {
+  font-family: "nunitobold";
+  src: url("./css/fonts/nunito-bold-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "nunitobold_italic";
+  src: url("./css/fonts/nunito-bolditalic-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-bolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "nunitoextrabold";
+  src: url("./css/fonts/nunito-extrabold-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-extrabold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "nunitoextrabold_italic";
+  src: url("./css/fonts/nunito-extrabolditalic-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-extrabolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "nunitoextralight";
+  src: url("./css/fonts/nunito-extralight-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-extralight-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "nunitoextralight_italic";
+  src: url("./css/fonts/nunito-extralightitalic-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-extralightitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "nunitoitalic";
+  src: url("./css/fonts/nunito-italic-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "nunitolight";
+  src: url("./css/fonts/nunito-light-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "nunitolight_italic";
+  src: url("./css/fonts/nunito-lightitalic-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-lightitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "nunitoregular";
+  src: url("./css/fonts/nunito-regular-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "nunitosemibold";
+  src: url("./css/fonts/nunito-semibold-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-semibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "nunitosemibold_italic";
+  src: url("./css/fonts/nunito-semibolditalic-webfont.woff2") format("woff2"),
+    url("./css/fonts/nunito-semibolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 html {
@@ -284,7 +237,6 @@ html {
   text-align: center;
   width: fit-content;
 }
-
 
 .scrollDown {
   position: relative;
@@ -410,7 +362,7 @@ hr {
 }
 .mySlides.fade {
   /* position: absolute; */
-  top:0;
+  top: 0;
   right: 0%;
   margin-left: auto;
   margin-right: auto;
@@ -477,7 +429,6 @@ hr {
   font-size: 35px;
   /* font-weight: bold; */
   font-family: "nunitoextrabold";
-
 }
 
 #tableposter {
@@ -488,19 +439,24 @@ hr {
   display: block;
   border-collapse: collapse;
 }
-#posterfooter{
+#satisfiedtable {
+  margin-top: 3%;
+  margin-left: 40%;
+  float: left;
+  border: none;
+  display: block;
+  border-collapse: collapse;
+}
+#posterfooter {
   /* margin-left: 41.6%;
   margin-top: 20%;
   padding-top: 5%;
   */
   font-size: 25px;
   font-family: "nunitolight";
-
-
 }
 
-
-#choosecolor{
+#choosecolor {
   top: 33%;
   right: 10%;
   position: inherit;
@@ -508,7 +464,6 @@ hr {
   margin-right: 10%;
   float: right;
   font-family: "nunitolight";
-
 }
 #colourtable {
   margin-top: 10%;
@@ -518,7 +473,7 @@ hr {
   display: block;
   /* border-collapse: collapse; */
 }
-#chooseletter{
+#chooseletter {
   top: 55%;
   right: 7.65%;
   position: inherit;
@@ -526,46 +481,87 @@ hr {
   margin-right: 9%;
   float: right;
   font-family: "nunitolight";
-
 }
-#done_button  {
+#done_button {
   top: 60%;
   right: 11%;
   position: inherit;
   margin-bottom: 5%;
   margin-right: 9%;
-  font-size:1.1em;
+  font-size: 1.1em;
   float: right;
   font-family: "nunitoblack";
   text-decoration: none;
-  padding:0.6em 2em;
+  padding: 0.6em 2em;
   border-radius: 8px;
-  color:#fff;
-  background-color:#c0c0c0;
-  border:0;
-  cursor:pointer;
+  color: #fff;
+  background-color: #c0c0c0;
+  border: 0;
+  cursor: pointer;
   /* margin:1em; */
 }
+#satisfied {
 
-button.mbtn{
-  
-  padding:0.6em 2em;
-  border-radius: 8px;
-  color:#fff;
-  background-color:#c0c0c0;
-  font-size:1.1em;
-  border:0;
-  cursor:pointer;
-  margin:1em;
+  display: block;
+  top: 10%;
+  margin-left: 47%;
+}
+#addbasket_button {
+  margin-top: 5%;
+
+  position: inherit;
+  margin-bottom: 5%;
+  margin-right: 44.25%;
+  font-size: 1.1em;
+  float: right;
   font-family: "nunitoblack";
-  
-
-
-  
-  
+  text-decoration: none;
+  padding: 0.6em 2em;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #c0c0c0;
+  border: 0;
+  cursor: pointer;
+  /* margin:1em; */
+}
+#cancel_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  left: 7%;
+  margin-top: 8%;
+  position: relative;
+  font-size: 1.1em;
+  float: right;
+  font-family: "nunitoblack";
+  text-decoration: none;
+  padding: 0.6em 2em;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #c0c0c0;
+  border: 0;
+  cursor: pointer;
+  /* margin:1em; */
+}
+button.mbtn {
+  padding: 0.6em 2em;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #c0c0c0;
+  font-size: 1.1em;
+  border: 0;
+  cursor: pointer;
+  margin: 1em;
+  font-family: "nunitoblack";
 }
 
-#tableposter td,tr {
+#tableposter td,
+tr {
+  padding: 0;
+  cursor: pointer;
+}
+#satisfiedtable td,
+tr {
   padding: 0;
   cursor: pointer;
 }
@@ -603,7 +599,7 @@ tr {
   font-size: 120%;
   font-family: "nunitobold";
   width: fit-content;
-  position: absolute ;
+  position: absolute;
 }
 
 #write_name p,
@@ -629,9 +625,28 @@ input {
     width: 8em;
     display: block;
   }
+  /* #satisfieddiv {
+    margin-right: auto;
+
+    margin-left: auto;
+    display: block;
+  } */
+  #satisfiedtable td,
+  tr{
+    margin-top: 10%;
+    padding: 0;
+  }
+  #addbasket_button {
+    margin-right: 47%;
+  }
+ 
+  #satisfiedtable img {
+    width: 10em;
+    display: block;
+  }
   .mySlides.fade {
     /* /* position: absolute; */
-    top:0; 
+    top: 0;
     right: 0%;
     margin-left: auto;
     margin-right: auto;
@@ -649,61 +664,61 @@ input {
     /* border-collapse: collapse; */
   }
 
-  #inspirationspage{
+  #inspirationspage {
     width: auto;
   }
-  
-
-} 
-
+}
 
 @media only screen and (max-device-width: 1920px) {
   .mail {
     padding-bottom: 3em;
   }
-  #chooseletter{
+  #chooseletter {
     top: 65.5%;
     right: 6.65%;
-
   }
 
   #colourtable {
     margin-top: -23.5%;
     margin-right: 8%;
-    
+
     /* border-collapse: collapse; */
   }
-  #posterfooter{
+  #posterfooter {
     /* margin-left: 38.5%;
     margin-top: 28%;
     padding-top: 5%; */
-   
+
     /* font-size: 25px; */
     /* font-family: "nunitolight"; */
-  
-  
   }
-  #choosecolor{
+  #choosecolor {
     top: 45%;
     right: 10%;
 
     /* margin-bottom: 10%; */
     margin-right: 10%;
-   
-  
-  }
-  
-  
-  #done_button{
-    top: 70%;
-    right: 10.5%;
-  
   }
 
-  .fas .fa-backspace{
+  #done_button {
+    top: 70%;
+    right: 10.5%;
+  }
+  #cancel_button {
+    left:9.35%;
+  }
+  
+  #addbasket_button {
+    margin-right: 46.5%;
+  }
+  .fas .fa-backspace {
     font-size: 1em;
   }
 
+  #satisfiedtable img {
+    width: 7em;
+    display: block;
+  }
 }
 @media (-webkit-min-device-pixel-ratio: 1.1) {
   .mail {
@@ -761,7 +776,6 @@ input {
   padding-bottom: 10px;
 }
 
-
 #tableposter td {
   pointer-events: auto;
 }
@@ -799,14 +813,12 @@ img {
   margin-left: 50px;
 }
 
-#inspirationspage{
+#inspirationspage {
   width: fit-content;
 }
 
-.page{
+.page {
   position: inherit;
   height: 100vh;
   overflow: hidden;
 }
-
-

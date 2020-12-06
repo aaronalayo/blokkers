@@ -44,28 +44,13 @@ function addCircles(){
   }
 }
 
-
-    // function sendName() {
-    //     const name = $("#name").val().toLowerCase();
-    //       $.post("/create", { name: name });
-
-
-    //     }
-
-//     function putImage() {
-//         $.get( "http://localhost:2000/create", function( data ) {
-//             // $( "img1" ).html( data );
-//             console.log(data)
-// });
-//     }
-
 function createTable(){
   
   var k = 0;
   for(var i=0; i<=3; i++){
     $('#tableposter').append('<tr>');
     for(var j = k; j<= k + 2; j++){
-      $('#tableposter').append(`<td id=${j+1} onclick=showColor(this.id)>`);
+      $('#tableposter').append(`<td id=${j+1} onclick=showColor(this.id) >`);
       console.log((j+1));
     }
     $('#tableposter').append('<tr>');
@@ -152,13 +137,11 @@ function showColor(id){
             $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${i+1}.png">` + '</td>');
 
       }
-    
     }
     $('#choosecolor').text("Choose your color");
     $('#chooseletter').text("Click on the letters to change the colors");
     $("#done_button").show();
 }
-// "javascript:void(0)"
 function changeColor(id){
   
   var parts = id.split('-');
@@ -182,7 +165,11 @@ function getSrc(){
     for (var i = 0; i < imgs.length; i++) {
         imgSrcs.push(imgs[i].src);
     }
-    sessionStorage.setItem("img", JSON.stringify(imgSrcs));
+    var name = $("#name").val().toLowerCase();
+    var size = $("input[name='size']:checked").val();
+    sessionStorage.setItem("imgs", JSON.stringify(imgSrcs));
+
+    sessionStorage.setItem("size", JSON.stringify(size));
+
+    sessionStorage.setItem("name", JSON.stringify(name));
 };
-
-
