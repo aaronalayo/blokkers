@@ -8,8 +8,8 @@ const fs = require("fs");
 const fsExtra = require("fs-extra");
 
 route.post("/createorder", async (req, res) => {
-  var { paths, size, name } = req.body;
-
+  const { paths, size, name } = req.body;
+console.log(size)
   const output = "./public/output/";
   await fsExtra.emptyDir(output);
 
@@ -20,9 +20,9 @@ route.post("/createorder", async (req, res) => {
 
   var sizes = {
     A0: (2383.94, 3370.39),
-    A1: (1683.78, 2383.94),
-    A2: (1190.55, 1683.78),
-    A3: (841.89, 1190.55),
+    A1: [1683.78, 2383.94],
+    A2: [1190.55, 1683.78],
+    A3: [841.89, 1190.55],
     A4: (595.28, 841.89),
     A5: (419.53, 595.28),
     A6: (297.64, 419.53),
@@ -31,8 +31,16 @@ route.post("/createorder", async (req, res) => {
     A9: (104.88, 147.4),
     A10: (73.7, 104.88),
   };
+  for (var [key, value] of Object.entries(sizes)) {
+    if(size == key){
+      var pdfSize = sizes[key];
+      console.log(pdfSize)
+    }
+  }
+  console.log(typeof pdfSize);
+  console.log(pdfSize)
   const doc = new PDFDocument({
-    size: [841.89, 1190.55],
+    size: pdfSize,
     margins: {
       // by default, all are 72
       top: 0,
@@ -50,11 +58,11 @@ route.post("/createorder", async (req, res) => {
     x = 0;
     for (var j = k; j <= k + 2; j++) {
       doc.image("./public" + paths[j], x, y, {
-        fit: [280.63, 297.6375],
+        fit: [pdfSize[0]/3, pdfSize[1]/4],
       });
-      x += 280.63;
+      x += pdfSize[0]/3;
     }
-    y += 297.6375;
+    y += pdfSize[1]/4;
     k = k + 3;
   }
   doc.end();
