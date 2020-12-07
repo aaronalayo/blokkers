@@ -28,7 +28,6 @@ const fs = require('fs');
 const navbar = fs.readFileSync("./public/navbar.html", "utf8");
 const homePage = fs.readFileSync("./public/homepage.html", "utf8");
 const footer = fs.readFileSync("./public/footer.html", "utf8");
-
 const satisfiedPage = fs.readFileSync("./public/satisfied.html", 'utf8');
 
 const restrictions= require('./middelware/restrict.js')
@@ -46,7 +45,6 @@ app.get("/", (req, res) => {
 // app.get("/create", (req, res) => {
 //   return res.send(navbar + createposterPage );
 // });
-
 
 app.get("/satisfied",(req, res, next) => {
 
