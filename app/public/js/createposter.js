@@ -169,7 +169,7 @@ function getSrc(){
     var size = $("input[name='size']:checked").val();
     sessionStorage.setItem("imgs", JSON.stringify(imgSrcs));
 
-    sessionStorage.setItem("size", JSON.stringify(size));
+    sessionStorage.setItem("size", JSON.stringify(size.toUpperCase()));
 
     sessionStorage.setItem("name", JSON.stringify(name));
 };
