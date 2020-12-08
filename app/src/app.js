@@ -29,6 +29,8 @@ const navbar = fs.readFileSync("./public/navbar.html", "utf8");
 const homePage = fs.readFileSync("./public/homepage.html", "utf8");
 const footer = fs.readFileSync("./public/footer.html", "utf8");
 const satisfiedPage = fs.readFileSync("./public/satisfied.html", 'utf8');
+const basketPage = fs.readFileSync("./public/basket.html", 'utf8');
+
 
 const restrictions= require('./middelware/restrict.js')
 
@@ -52,7 +54,9 @@ app.get("/satisfied",(req, res, next) => {
 });
 
 
-
+app.get("/basket", (req, res) => {
+  return res.send(navbar + basketPage);
+});
 
 
 

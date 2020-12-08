@@ -1,0 +1,38 @@
+<div>
+    <div id="basket-header">
+        <p style="margin-right: auto;">
+            <span class="size"></span>
+            <span> poster has been added to your basket</span>
+        </p>
+        <button id="proceed-button">Proceed</button>
+    </div>
+
+    <div class="basket-container">
+
+    </div>
+    
+</div>
+<script>
+    var posters = JSON.parse(sessionStorage.posters);
+    posters.forEach(poster => {
+        $(".basket-container").append(`<div id="poster-display-${poster.name}">`);
+        $(`#poster-display-${poster.name}`).append(`<div class="basket-table" id=${poster.name}>`);
+        var k = 0;
+        for (var i = 0; i <= 3; i++) {
+            $(`#${poster.name}`).append("<tr>");
+            for (var j = k; j <= k + 2; j++) {
+                $(`#${poster.name}`).append(`<td id=${j + 1}-${poster.name}> `);
+                $(`#${j + 1}-${poster.name}`).append(`<img src="${poster.paths[j]}">`);
+            }
+            $(`#${poster.name}`).append("</tr>");
+            k = k + 3;
+        }
+        $(`#poster-display-${poster.name}`).append(`<div>
+            <span class="size"></span><span> poster</span>
+        </div>
+        <div>
+            <span>Quantity</span>`);
+        $("#name").text(poster.name);
+        $(".size").text(poster.size);
+    });
+</script>

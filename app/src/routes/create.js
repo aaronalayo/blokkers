@@ -9,7 +9,7 @@ const fsExtra = require("fs-extra");
 
 route.post("/createorder", async (req, res) => {
   const { paths, size, name } = req.body;
-console.log(size)
+  console.log(size)
   const output = "./public/output/";
   await fsExtra.emptyDir(output);
 

@@ -20,35 +20,47 @@ $(document).ready(function () {
 });
 
 function addtobasket(){
-
   // console.log(size)
-
   imgs = document.getElementById('satisfiedtable').getElementsByTagName("img");
   var imgSrcs = [];
 
   for (var i = 0; i < imgs.length; i++) {
-      imgSrcs.push(imgs[i].src);
+    imgSrcs.push(imgs[i].src);
   }
   const paths =[];
     for (const key in imgSrcs) {
     
     paths.push(imgSrcs[key].slice(21,47));
-    console.log(paths)
+    //console.log(paths)
   }
 
+  let poster = {
+      "name": name,
+      "paths": paths,
+      "size": size   
+  };
+  console.log(poster);
+ var posters = [];
+ if(sessionStorage.getItem("posters") != null){
+  console.log(true);
+  posters = JSON.parse(sessionStorage.posters);
+ }
+ posters.push(poster);
+  sessionStorage.setItem("posters", JSON.stringify(posters));
+  console.log(sessionStorage.getItem("posters"));
 
   
-  // $.post('/createorder', {'name':name,'paths': paths, 'size': size});
-  $.ajax({
-    url: '/createorder',
-    type: 'POST',
-    // ContentType: 'application/json',
-    dataType: "text",
-    data:
-      {'name':name,'paths': paths, 'size': size},
-  }).done(function(response){
-    console.log('success');
-  }).fail(function(jqXHR, textStatus, errorThrown){
-    console.log('FAILED! ERROR: ' + errorThrown);
-  });
-};
+//   // $.post('/createorder', {'name':name,'paths': paths, 'size': size});
+//   $.ajax({
+//     url: '/createorder',
+//     type: 'POST',
+//     // ContentType: 'application/json',
+//     dataType: "text",
+//     data:
+//       {'name':name,'paths': paths, 'size': size},
+//   }).done(function(response){
+//     console.log('success');
+//   }).fail(function(jqXHR, textStatus, errorThrown){
+//     console.log('FAILED! ERROR: ' + errorThrown);
+//   });
+ };

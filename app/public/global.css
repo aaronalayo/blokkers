@@ -259,7 +259,7 @@ body{
 #nav-bar {
   overflow: hidden;
   background-color: transparent;
-  position: fixed;
+  /* position: fixed; */
 }
 
 .menu-toggle {
@@ -736,6 +736,10 @@ input {
   #write_name {
     font-size: 100%;
   }
+  #satisfiedtable img {
+    width: 5em;
+    display: block;
+  }
 }
 
 .radiowrapper input[type="radio"] {
@@ -828,6 +832,41 @@ img {
   position: absolute;
   margin-top: 5%;
 }
+
+#basket-header{
+  border:1.2px solid #c0c0c0;
+  margin-top: 15%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+}
+
+#proceed-button{
+  text-decoration: none;
+  padding: 0.6em 2em;
+  border-radius: 8px;
+  background-color: #c0c0c0;
+  border: 0;
+  cursor: pointer;
+  height: fit-content;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.basket-table img{
+  width: 2em;
+  border-collapse: collapse;
+}
+.basket-table{
+  border-collapse: collapse;
+  /* position: absolute; */
+}
+
+.basket-container{
+  margin-left: 10%;
+  margin-top: 3%;
+}
+
 
 /* html {
   scroll-snap-type: y mandatory;
