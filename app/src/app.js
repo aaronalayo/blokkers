@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
-// app.use(express.urlencoded({ extended: true })); 
-// app.use(express.json()); 
+app.use(express.urlencoded({ extended: true })); 
+app.use(express.json()); 
 
 
 const helmet = require("helmet");

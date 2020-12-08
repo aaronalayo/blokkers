@@ -31,7 +31,7 @@ function addtobasket(){
     for (const key in imgSrcs) {
     
     paths.push(imgSrcs[key].slice(21,47));
-    //console.log(paths)
+    
   }
 
   let poster = {
