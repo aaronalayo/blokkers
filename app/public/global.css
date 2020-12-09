@@ -392,6 +392,7 @@ hr {
   display: block;
   width: fit-content;
   z-index: 8;
+  text-decoration: none;
 }
 
 /* Fading animation */

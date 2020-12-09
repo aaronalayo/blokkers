@@ -5,9 +5,9 @@ const PDFDocument = require("pdfkit");
 const builder = require("xmlbuilder", { encoding: "utf-8" });
 const fsExtra = require("fs-extra");
 
-var ftp = require("../ftp.js");
-
-
+var config = require('../ftp.js');
+var EasyFtp = require("easy-ftp");
+var ftp = new EasyFtp();
 
 
 
@@ -145,21 +145,20 @@ var remoteXml = '/'+ xmlFile;
 
 
 var arr = [{local:localPdf, remote:remotePdf}, {local:localXml, remote:remoteXml}];
-ftp.upload(arr, function(err){;
+  ftp.upload(arr, function(err){;
 
-  if(err){
-    console.log(err);
-    ftp.close();
-  }else{
-    console.log('Uploaded pdf and xml!')
-    ftp.close();
-  }
-  
-}); 
-
-
-
+    if(err){
+      console.log(err);
+      ftp.close();
+    }else{
+      console.log('Uploaded pdf and xml!')
+      ftp.close();
+    }
     
+  }); 
+
+ftp.connect(config);
+
 }catch(error){
   console.log(error);
 }
