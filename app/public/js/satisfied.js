@@ -20,14 +20,12 @@ $(document).ready(function () {
 });
 
 function addtobasket(){
-
   // console.log(size)
-
   imgs = document.getElementById('satisfiedtable').getElementsByTagName("img");
   var imgSrcs = [];
 
   for (var i = 0; i < imgs.length; i++) {
-      imgSrcs.push(imgs[i].src);
+    imgSrcs.push(imgs[i].src);
   }
   const paths =[];
     for (const key in imgSrcs) {
@@ -36,6 +34,20 @@ function addtobasket(){
     
   }
 
+  let poster = {
+      "name": name,
+      "paths": paths,
+      "size": size   
+  };
+  console.log(poster);
+ var posters = [];
+ if(sessionStorage.getItem("posters") != null){
+  console.log(true);
+  posters = JSON.parse(sessionStorage.posters);
+ }
+ posters.push(poster);
+  sessionStorage.setItem("posters", JSON.stringify(posters));
+  console.log(sessionStorage.getItem("posters"));
 
   
   // $.post('/createorder', {'name':name,'paths': paths, 'size': size});
