@@ -631,6 +631,7 @@ input {
   tr{
     margin-top: 10%;
     padding: 0;
+    
   }
   #addbasket_button {
     margin-right: 47%;
@@ -639,6 +640,7 @@ input {
   #satisfiedtable img {
     width: 10em;
     display: block;
+
   }
   .mySlides.fade {
     /* /* position: absolute; */

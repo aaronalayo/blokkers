@@ -82,5 +82,6 @@ server.listen(port, (error) => {
   if (error) {
     console.log("error running the server");
   }
+
   console.log("App listening on port: ", server.address().port)
 });

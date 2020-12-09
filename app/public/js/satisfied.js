@@ -42,8 +42,8 @@ function addtobasket(){
   $.ajax({
     url: '/createorder',
     type: 'POST',
-    // ContentType: 'application/json',
-    dataType: "text",
+    ContentType: 'application/json',
+    dataType: "json",
     data:
       {'name':name,'paths': paths, 'size': size},
   }).done(function(response){

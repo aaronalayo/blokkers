@@ -3,12 +3,21 @@ const route = require("express").Router();
 const fs = require("fs");
 const PDFDocument = require("pdfkit");
 const builder = require("xmlbuilder", { encoding: "utf-8" });
-// const readFile = promisify(fs.readFile);
-
 const fsExtra = require("fs-extra");
 
+var ftp = require("../ftp.js");
+
+
+
+
+
 route.post("/createorder", async (req, res) => {
-  const { paths, size, name } = req.body;
+  try{
+    const { paths, size, name } = req.body;
+
+
+
+ 
   const ext = {
     pdf: ".pdf",
     xml: ".xml",
@@ -25,15 +34,16 @@ route.post("/createorder", async (req, res) => {
   const dimesions = "Plakater " + size;
   const pages = 1;
   const amount = 1;
-  const pdfFileName = orderNo + name;
+  const pdfFileName = orderNo +"_" + name;
   const pricePerItem = 400.0;
   const ftp_addr = "ftp://EksternTest:h242svgw@94.231.99.28";
 
   const output = "./public/output/";
   await fsExtra.emptyDir(output);
-
+  var localPdf = output + `${pdfFileName}`+`${ext["pdf"]}`;
+  var localXml = output + `${pdfFileName}`+`${ext["xml"]}`;
   fs.writeFile(
-    "./public/output/" + pdfFileName + ext["pdf"],
+    localPdf,
     name,
     function (err) {
       if (err) throw err;
@@ -54,14 +64,12 @@ route.post("/createorder", async (req, res) => {
     A9: (104.88, 147.4),
     A10: (73.7, 104.88),
   };
-  for (var [key, value] of Object.entries(sizes)) {
+  for (var [key] of Object.entries(sizes)) {
     if (size == key) {
       var pdfSize = sizes[key];
-      console.log(pdfSize);
     }
   }
-  console.log(typeof pdfSize);
-  console.log(pdfSize);
+  
   const doc = new PDFDocument({
     size: pdfSize,
     margins: {
@@ -72,7 +80,7 @@ route.post("/createorder", async (req, res) => {
       right: 0,
     },
   });
-  doc.pipe(fs.createWriteStream("./public/output/" + pdfFileName + ext["pdf"]));
+  doc.pipe(fs.createWriteStream(localPdf));
 
   var x = 0;
   var y = 0;
@@ -107,7 +115,7 @@ route.post("/createorder", async (req, res) => {
       Dimensions: dimesions,
       Pagess: pages,
       Amount: amount,
-      PdfFileName: pdfFileName + ext["pdf"],
+      PdfFileName: `${pdfFileName}`+`${ext["pdf"]}`,
       Comment: "",
       PricePerItem: pricePerItem,
       TotalPrice: pricePerItem * amount,
@@ -118,15 +126,46 @@ route.post("/createorder", async (req, res) => {
     .create(xmlOrder, { encoding: "UTF-8" })
     .end({ pretty: true });
 
-  console.log(xml);
   fs.writeFile(
-    "./public/output/" + pdfFileName + ext["xml"],
+    localXml,
     xml,
     function (err) {
-      if (err) throw err;
-      console.log("It's saved!");
+      if (err) {
+        console.log(err);
+      }else {
+        console.log("XML saved!");
+      };
+
     }
   );
+const pdfFile = pdfFileName + ext['pdf'];
+const xmlFile = pdfFileName + ext['xml'];
+var remotePdf = '/'+pdfFile;
+var remoteXml = '/'+ xmlFile;
+
+
+var arr = [{local:localPdf, remote:remotePdf}, {local:localXml, remote:remoteXml}];
+ftp.upload(arr, function(err){;
+
+  if(err){
+    console.log(err);
+    ftp.close();
+  }else{
+    console.log('Uploaded pdf and xml!')
+    ftp.close();
+  }
+  
+}); 
+
+
+
+    
+}catch(error){
+  console.log(error);
+}
+
+
 });
 
 module.exports = route;
+
