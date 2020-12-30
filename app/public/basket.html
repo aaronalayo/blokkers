@@ -4,7 +4,7 @@
             <span class="size"></span>
             <span> poster has been added to your basket</span>
         </p>
-        <button id="proceed-button">Proceed</button>
+        <a href="/checkout" class="mbtn button" id="proceed-button">Proceed to checkout</a>
     </div>
 
     <div class="basket-container">
@@ -15,24 +15,68 @@
 <script>
     var posters = JSON.parse(sessionStorage.posters);
     posters.forEach(poster => {
-        $(".basket-container").append(`<div id="poster-display-${poster.name}">`);
-        $(`#poster-display-${poster.name}`).append(`<div class="basket-table" id=${poster.name}>`);
+
+        $(".basket-container").append(`<div id="poster-display-${poster.pname}">`);
+        // $(`#poster-display-${poster.pname}`).append(`<div class="basket-table" id=${poster.pname}>`);
+        // var k = 0;
+        // for (var i = 0; i <= 3; i++) {
+        //     $(`#${poster.pname}`).append("<tr>");
+        //     for (var j = k; j <= k + 2; j++) {
+        //         $(`#${poster.pname}`).append(`<td id=${j + 1}-${poster.pname}> `);
+        //         $(`#${j + 1}-${poster.pname}`).append(`<img src="${poster.paths[j]}">`);
+        //     }
+        //     $(`#${poster.pname}`).append("</tr>");
+        //     k = k + 3;
+        // }
+
+        $(`#poster-display-${poster.pname}`).append(`<div class="basket-table" id=${poster.pname}>`);
+        $(`#${poster.pname}`).append(`<table class="basket-table" id="table-${poster.pname}">`);
         var k = 0;
         for (var i = 0; i <= 3; i++) {
-            $(`#${poster.name}`).append("<tr>");
+            $(`#table-${poster.pname}`).append(`<tr id=tr-${i + 1}-${poster.pname}>`)
             for (var j = k; j <= k + 2; j++) {
-                $(`#${poster.name}`).append(`<td id=${j + 1}-${poster.name}> `);
-                $(`#${j + 1}-${poster.name}`).append(`<img src="${poster.paths[j]}">`);
-            }
-            $(`#${poster.name}`).append("</tr>");
-            k = k + 3;
+                $(`#tr-${i + 1}-${poster.pname}`).append(`<td id=${j + 1}-${poster.pname}> `);
+                $(`#${j + 1}-${poster.pname}`).append(`<img src="${poster.paths[j]}">`);
+                }
+                $(`#table-${poster.pname}`).append("</tr>");
+                k = k + 3;
         }
-        $(`#poster-display-${poster.name}`).append(`<div>
+        $(`#${poster.pname}`).append("</table>");
+        $(`#poster-display-${poster.pname}`).append(`<div>
             <span class="size"></span><span> poster</span>
         </div>
         <div>
-            <span>Quantity</span>`);
-        $("#name").text(poster.name);
+            <span>Quantity</span>
+        <hr>
+        </div>`);
+      
+        $("#name").text(poster.pname);
         $(".size").text(poster.size);
+
+    var contents = {}, src;
+
+    // $( `#poster-display-${posters.pname} td`).each( poster => function(){
+    
+    // text = $(this).src;     
+    //     if( !( text in contents ) ) {
+    //     contents[text] = true;
+    //     }
+    //     else {
+    //     $( this.parentNode ).remove();
+    //     }
+    // });
+
+    // $( `#poster-display-${poster.pname} span`).each( function(){
+    
+    // text = $(this).text();     
+    //     if( !( text in contents ) ) {
+    //     contents[text] = true;
+    //     }
+    //     else {
+    //     $( this.parentNode ).remove();
+    //     }
+    
+    // });
+
     });
 </script>

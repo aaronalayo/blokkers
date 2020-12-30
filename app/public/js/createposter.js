@@ -16,13 +16,13 @@ function changeSizeLeft(){
 }
 
 function addLetter(id){
-   var letter = $(id).text();
+   let letter = $(id).text();
    $("#name").val($("#name").val() + letter);
 //    $(id).addClass("circle");
 }
 
 function validateForm() {
-  var empt = document.getElementById('name').value
+  let empt = document.getElementById('name').value
   if (empt == ""){
   alert("Please enter a name");
 
@@ -37,8 +37,8 @@ function addCircles(){
   });
   const name = $("#name").val();
   
-  var id;
-  for (var i = 0; i < name.length; i++) {
+  let id;
+  for (let i = 0; i < name.length; i++) {
       id = name.charAt(i).toLowerCase();
       $("#" + id).addClass("circle");
   }
@@ -46,14 +46,14 @@ function addCircles(){
 
 function createTable(){
   
-  var k = 0;
+  let k = 0;
   for(var i=0; i<=3; i++){
     $('#tableposter').append('<tr>');
-    for(var j = k; j<= k + 2; j++){
+    for(let j = k; j<= k + 2; j++){
       $('#tableposter').append(`<td id=${j+1} onclick=showColor(this.id) >`);
       console.log((j+1));
     }
-    $('#tableposter').append('<tr>');
+    // $('#tableposter').append('<tr>');
     k=k+3;
   }
 }
@@ -61,7 +61,7 @@ function getName() {
     let name = $("#name").val().toLowerCase();
     const letters = name.split('');
     while(name.length < 13){
-        for(var i =0; i <= letters.length-1; i++){
+        for(let i =0; i <= letters.length-1; i++){
             name += letters[i];   
       }  
   }
@@ -71,10 +71,10 @@ function getName() {
   $('#colourtable').html(''); //clear the table
   $('choosecolor').html('');
   createTable();
-  var k = 0;
-  for(var i=0; i<=3; i++){
-    $('#tableposter').append('<tr>');
-    for(var j=k; j<=k + 2; j++){ //fill the table
+  let k = 0;
+  for(let i=0; i<=3; i++){
+    // $('#tableposter').append('<tr>');
+    for(let j=k; j<=k + 2; j++){ //fill the table
       switch(name[j]) {
           case 'å':
               //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/AA1.jpg">` + '</td>');
@@ -97,9 +97,9 @@ function getName() {
               //$('#tableposter').append(`<td id=img${j}>` + `<img  src="/images/Alfabet/${name[j]}/${name[j].toUpperCase()}1.jpg">` + '</td>');
               console.log((j+1));
         }
-        
+        // $('#tableposter').append('</tr>');
     }
-    $('#tableposter').append('<tr>');
+    
     k = k+3;
   }
   $('#posterfooter').text("Click on the letters to change the colors");
@@ -109,14 +109,14 @@ function showColor(id){
   $('#colourtable').html('');
   $('#choosecolor').html('');
   $('#chooseletter').html('');
-    var src = document.getElementById(id).childNodes[0].src;
-    var parts = src.split('/');
-    var lastSegment = parts.pop();
+    let src = document.getElementById(id).childNodes[0].src;
+    let parts = src.split('/');
+    let lastSegment = parts.pop();
 
     console.log(parts[parts.length - 1]);
     
  
-    for(var i = 0; i<= 3; i++){
+    for(let i = 0; i<= 3; i++){
  
       switch(parts[parts.length - 1]){
        
@@ -144,15 +144,15 @@ function showColor(id){
 }
 function changeColor(id){
   
-  var parts = id.split('-');
-  var lastSegment = parts.pop();
+  let parts = id.split('-');
+  let lastSegment = parts.pop();
   $("#" + lastSegment).empty();
-  var src = document.getElementById(id).childNodes[0].src;
+  let src = document.getElementById(id).childNodes[0].src;
  
   $("#" + lastSegment).append(`<img  src=${src}>`);
 };
 function onPressBackspace() { 
-  var name  = document.getElementById('name').value;
+  let name  = document.getElementById('name').value;
   document.getElementById('name').value=name.substring(0,name.length -1);
 };
 
@@ -160,16 +160,16 @@ function onPressBackspace() {
 function getSrc(){
 
    imgs = document.getElementById('tableposter').getElementsByTagName("img");
-    var imgSrcs = [];
+    let imgSrcs = [];
 
     for (var i = 0; i < imgs.length; i++) {
         imgSrcs.push(imgs[i].src);
     }
-    var name = $("#name").val().toLowerCase();
-    var size = $("input[name='size']:checked").val();
+    let pname = $("#name").val().toLowerCase();
+    let size = $("input[name='size']:checked").val();
     sessionStorage.setItem("imgs", JSON.stringify(imgSrcs));
 
     sessionStorage.setItem("size", JSON.stringify(size.toUpperCase()));
 
-    sessionStorage.setItem("name", JSON.stringify(name));
+    sessionStorage.setItem("pname", JSON.stringify(pname));
 };

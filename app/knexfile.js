@@ -1,10 +1,13 @@
 '--unhandled-rejections=strict'
 const { knexSnakeCaseMappers} = require('objection');
 
+
+
 const fs = require('fs');
 
 const dotenv = require('dotenv');
 dotenv.config();
+
 
 module.exports = {
   
@@ -19,17 +22,15 @@ module.exports = {
       port:process.env.PGPORT,
       ssl: process.env.PGSSLMODE,
       ssl: {
-        rejectUnauthorized: false
-      },
-      // ssl: {
-      //   ca: fs.readFileSync(__dirname + "/server-ca.pem"),
-      //   cert: fs.readFileSync(__dirname + '/client-cert.pem'),
-      //   key: fs.readFileSync(__dirname + '/client-key.pem')
-      // }
-      // }
+        rejectUnauthorized: false,
+        ca: fs.readFileSync('/home/chrx/blokkers/app/certficates/server-ca.pem', "utf8"),
+        key: fs.readFileSync('/home/chrx/blokkers/app/certficates/client-key.pem', "utf8"),
+        cert: fs.readFileSync('/home/chrx/blokkers/app/certficates/client-cert.pem', "utf8"),
+
+      }
+      }
     },
     ...knexSnakeCaseMappers()
 
-  }
+  };
 
-};

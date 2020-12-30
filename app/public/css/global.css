@@ -1,46 +1,46 @@
-@font-face {
+/* @font-face {
   font-family: "khulabold";
-  src: url("./css/fonts/khula-bold-webfont.woff2") format("woff2"),
-    url("./css/fonts/khula-bold-webfont.woff") format("woff");
+  src: url("./fonts/khula-bold-webfont.woff2") format("woff2"),
+    url("./fonts/khula-bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "khulaextrabold";
-  src: url("./css/fonts/khula-extrabold-webfont.woff2") format("woff2"),
-    url("./css/fonts/khula-extrabold-webfont.woff") format("woff");
+  src: url("./fonts/khula-bold-demo.html") format("woff2"),
+    url("./fonts/khula-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "khulalight";
-  src: url("./css/fonts/khula-light-webfont.woff2") format("woff2"),
-    url("./css/fonts/khula-light-webfont.woff") format("woff");
+  src: url("./fonts/khula-light-webfont.woff2") format("woff2"),
+    url("./fonts/khula-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "khularegular";
-  src: url("./css/fonts/khula-regular-webfont.woff2") format("woff2"),
-    url("./css/fonts/khula-regular-webfont.woff") format("woff");
+  src: url("./fonts/khula-regular-webfont.woff2") format("woff2"),
+    url("./fonts/khula-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "khulasemibold";
-  src: url("./css/fonts/khula-semibold-webfont.woff2") format("woff2"),
-    url("./css/fonts/khula-semibold-webfont.woff") format("woff");
+  src: url("./fonts/khula-semibold-webfont.woff2") format("woff2"),
+    url("./fonts/khula-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 @font-face {
   font-family: "nunitoblack";
-  src: url("./css/fonts/nunito-black-webfont.woff2") format("woff2"),
+  src: url("./fonts/nunito-black-webfont.woff2") format("woff2"),
     url("./css/fonts/nunito-black-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
@@ -48,103 +48,103 @@
 
 @font-face {
   font-family: "nunitoblack_italic";
-  src: url("./css/fonts/nunito-blackitalic-webfont.woff2") format("woff2"),
-    url("./css/fonts/nunito-blackitalic-webfont.woff") format("woff");
+  src: url("./fonts/nunito-blackitalic-webfont.woff2") format("woff2"),
+    url("./fonts/nunito-blackitalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "nunitobold";
-  src: url("./css/fonts/nunito-bold-webfont.woff2") format("woff2"),
-    url("./css/fonts/nunito-bold-webfont.woff") format("woff");
+  src: url("./fonts/nunito-bold-webfont.woff2") format("woff2"),
+    url("./fonts/nunito-bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "nunitobold_italic";
-  src: url("./css/fonts/nunito-bolditalic-webfont.woff2") format("woff2"),
-    url("./css/fonts/nunito-bolditalic-webfont.woff") format("woff");
+  src: url("./fonts/nunito-bolditalic-webfont.woff2") format("woff2"),
+    url("./fonts/nunito-bolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "nunitoextrabold";
-  src: url("./css/fonts/nunito-extrabold-webfont.woff2") format("woff2"),
-    url("./css/fonts/nunito-extrabold-webfont.woff") format("woff");
+  src: url("./fonts/nunito-extrabold-webfont.woff2") format("woff2"),
+    url("./fonts/nunito-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "nunitoextrabold_italic";
-  src: url("./css/fonts/nunito-extrabolditalic-webfont.woff2") format("woff2"),
-    url("./css/fonts/nunito-extrabolditalic-webfont.woff") format("woff");
+  src: url("./fonts/nunito-extrabolditalic-webfont.woff2") format("woff2"),
+    url("./fonts/nunito-extrabolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "nunitoextralight";
-  src: url("./css/fonts/nunito-extralight-webfont.woff2") format("woff2"),
-    url("./css/fonts/nunito-extralight-webfont.woff") format("woff");
+  src: url("./fonts/nunito-extralight-webfont.woff2") format("woff2"),
+    url("./fonts/nunito-extralight-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "nunitoextralight_italic";
-  src: url("./css/fonts/nunito-extralightitalic-webfont.woff2") format("woff2"),
-    url("./css/fonts/nunito-extralightitalic-webfont.woff") format("woff");
+  src: url("./fonts/nunito-extralightitalic-webfont.woff2") format("woff2"),
+    url("./fonts/nunito-extralightitalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "nunitoitalic";
-  src: url("./css/fonts/nunito-italic-webfont.woff2") format("woff2"),
-    url("./css/fonts/nunito-italic-webfont.woff") format("woff");
+  src: url("./fonts/nunito-italic-webfont.woff2") format("woff2"),
+    url("./fonts/nunito-italic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "nunitolight";
-  src: url("./css/fonts/nunito-light-webfont.woff2") format("woff2"),
-    url("./css/fonts/nunito-light-webfont.woff") format("woff");
+  src: url("./fonts/nunito-light-webfont.woff2") format("woff2"),
+    url("./fonts/nunito-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "nunitolight_italic";
-  src: url("./css/fonts/nunito-lightitalic-webfont.woff2") format("woff2"),
-    url("./css/fonts/nunito-lightitalic-webfont.woff") format("woff");
+  src: url("./fonts/nunito-lightitalic-webfont.woff2") format("woff2"),
+    url("./fonts/nunito-lightitalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "nunitoregular";
-  src: url("./css/fonts/nunito-regular-webfont.woff2") format("woff2"),
-    url("./css/fonts/nunito-regular-webfont.woff") format("woff");
+  src: url("./fonts/nunito-regular-webfont.woff2") format("woff2"),
+    url("./fonts/nunito-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "nunitosemibold";
-  src: url("./css/fonts/nunito-semibold-webfont.woff2") format("woff2"),
-    url("./css/fonts/nunito-semibold-webfont.woff") format("woff");
+  src: url("./fonts/nunito-semibold-webfont.woff2") format("woff2"),
+    url("./fonts/nunito-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "nunitosemibold_italic";
-  src: url("./css/fonts/nunito-semibolditalic-webfont.woff2") format("woff2"),
-    url("./css/fonts/nunito-semibolditalic-webfont.woff") format("woff");
+  src: url("./fonts/nunito-semibolditalic-webfont.woff2") format("woff2"),
+    url("./fonts/nunito-semibolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -346,16 +346,6 @@ hr {
   padding-top: 10%;
 }
 
-/* #elementToMove {
-  right: 0%;
-  top: 0;
-  bottom:5%;
- 
-  position: absolute;
-  -webkit-transition: bottom 1s ease;
-  transition: bottom 1s ease;
-
-} */
 #elementToMoveLeft {
   right: 0;
   bottom: 5%;
@@ -445,6 +435,7 @@ hr {
   display: block;
   border-collapse: collapse;
 }
+
 #satisfiedtable {
   margin-top: 3%;
   margin-left: 40%;
@@ -634,6 +625,12 @@ input {
     padding: 0;
     
   }
+  .basket-table table td,
+  tr {
+    padding: 0;
+    cursor: pointer;
+    
+  }
   #addbasket_button {
     margin-right: 47%;
   }
@@ -753,7 +750,7 @@ input {
 
 .radiowrapper label {
   cursor: pointer;
-  font-family: "khulaextrabold";
+  font-family: "nunitoextrabold";
 }
 
 .radiowrapper label:hover {
@@ -860,11 +857,18 @@ img {
   width: 2em;
   border-collapse: collapse;
 }
-.basket-table{
-  border-collapse: collapse;
+.basket-table  table{
   /* position: absolute; */
+  border: none;
+  display: block;
+  /* border-collapse: collapse; */
 }
-
+.basket-table table td,
+tr {
+  padding: 0;
+  cursor: pointer;
+  
+}
 .basket-container{
   margin-left: 10%;
   margin-top: 3%;

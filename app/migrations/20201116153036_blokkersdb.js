@@ -17,18 +17,21 @@ exports.up = function(knex) {
        })
     .createTable('customers',(table)=>{
         table.uuid('customer_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
-        table.string('first_name').notNullable();
-        table.string('last_name').notNullable();
-        table.string('address').notNullable();
-        table.string('zip_code').notNullable();
-        table.string('city').notNullable();
+        table.string('full_name').notNullable();
+        table.string('phone').notNullable();
+        table.string('delivery_address').notNullable();
+        table.string('delivery_zip_code').notNullable();
+        table.string('delivery_city').notNullable();
+        table.string('invoice_address').notNullable();
+        table.string('invoice_zip_code').notNullable();
+        table.string('invoice_city').notNullable();
         table.string('email').unique().notNullable();
         table.boolean('enable_newsletter').defaultTo(false);
   
     })
     .createTable('orders',(table)=>{
-        table.uuid('order_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
-        table.integer('order_no').unique().notNullable();
+        // table.uuid('order_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
+        table.increments('order_no').notNullable();
         table.string('order_title').notNullable();
         table.integer('amount').unsigned().notNullable();
         table.string('pdf_file_name').notNullable();
@@ -41,6 +44,8 @@ exports.up = function(knex) {
         table.timestamp('created_at').notNullable().defaultTo(knex.raw('CURRENT_TIMESTAMP'));
   
     })
+.raw(`ALTER SEQUENCE orders_order_no_seq RESTART WITH 1000`)
+
 .raw(`
     CREATE OR REPLACE FUNCTION update_updated_at_column()
     RETURNS TRIGGER AS $$
@@ -55,6 +60,7 @@ exports.up = function(knex) {
     ON ?? FOR EACH ROW EXECUTE PROCEDURE 
     update_updated_at_column();
   `, ['orders']);
+  
   };
 
 
@@ -64,5 +70,6 @@ exports.down = function(knex) {
     return knex.schema
     .dropTableIfExists('orders')
     .dropTableIfExists('customers')
-    .dropTableIfExists('items');
+    .dropTableIfExists('items')
+    .dropTableIfExists('formats');
   };

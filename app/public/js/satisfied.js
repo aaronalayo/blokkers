@@ -1,7 +1,7 @@
 $(document).ready(function () {
   imgs = JSON.parse(sessionStorage.getItem("imgs"));
   size = JSON.parse(sessionStorage.getItem('size'));
-  name = JSON.parse(sessionStorage.getItem('name'));
+  pname = JSON.parse(sessionStorage.getItem('pname'));
   var k = 0;
   for (var i = 0; i <= 3; i++) {
     $("#satisfiedtable").append("<tr>");
@@ -35,7 +35,7 @@ function addtobasket(){
   }
 
   let poster = {
-      "name": name,
+      "pname": pname,
       "paths": paths,
       "size": size   
   };
@@ -50,17 +50,5 @@ function addtobasket(){
   console.log(sessionStorage.getItem("posters"));
 
   
-  // $.post('/createorder', {'name':name,'paths': paths, 'size': size});
-  $.ajax({
-    url: '/createorder',
-    type: 'POST',
-    ContentType: 'application/json',
-    dataType: "json",
-    data:
-      {'name':name,'paths': paths, 'size': size},
-  }).done(function(response){
-    console.log('success');
-  }).fail(function(jqXHR, textStatus, errorThrown){
-    console.log('FAILED! ERROR: ' + errorThrown);
-  });
+
 };

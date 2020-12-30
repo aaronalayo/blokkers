@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="global.css">
+    <link rel="stylesheet" type="text/css" href="css/global.css">
     <!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"> -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/navbar.js"></script>
     <script src="./js/createposter.js"></script>
     <script src="./js/satisfied.js"></script>
     <script src="./js/homepage.js"></script>
@@ -28,50 +30,23 @@
                 <hr>
                 <a href="#inspirationspage"><li>Inspirations</li></a>
                 <hr>
+                <a href="#createposter"><li>Create your poster</li></a>
+                <hr>
                 <a href="#"><li>About</li></a>
                 <hr>
                 <a href="#"><li>Contact</li></a>
-                <hr>
-                <a href="#createposter"><li>Create your poster</li></a>
                 <hr>
             </div>
 
         </div>
         <div class="shopping-bag">
           <a class="icon" href="basket">
-              <i class="fa fa-shopping-bag" ></i>
+              <i class="fa fa-shopping-bag" style="text-decoration: none"></i>
             </a>
         </div>
-        
+    
     </nav>
 
-<script>
-      function myFunction() {
-        var x = document.getElementById("menu");
-        if (x.style.display === "block") {
-           $("#menu").slideUp(800);
-        } else {
-           $("#menu").slideDown(800);
-        }
-       
-      }
 
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      // close modal here
-     closeNav();
-
-    }
-  })
- 
-  function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  }
-
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
-
-</script>
 
 
