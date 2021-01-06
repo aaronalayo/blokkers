@@ -13,7 +13,7 @@ class Customer extends Model {
         modelClass: __dirname + "/Order.js",
         join: {
           from: "customers.customer_uuid",
-          to: "orders.order_uuid",
+          to: "orders.order_no",
         },
       },
     };

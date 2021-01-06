@@ -22,10 +22,15 @@ function addLetter(id){
 }
 
 function validateForm() {
-  let empt = document.getElementById('name').value
-  if (empt == ""){
+  let name = document.getElementById('name').value
+  if (name == ""){
   alert("Please enter a name");
-
+   } else if(name.length >13){
+    alert("Name must be between 1 and 12 characters!");
+    $("#name").val("");
+    $('#tableposter').html(''); //clear the table
+    $('#posterfooter').html('');
+    addCircles()
 } else {
   addCircles(), getName()
 }
@@ -60,11 +65,13 @@ function createTable(){
 function getName() {
     let name = $("#name").val().toLowerCase();
     const letters = name.split('');
-    while(name.length < 13){
+
+       while (name.length < 13) {
         for(let i =0; i <= letters.length-1; i++){
             name += letters[i];   
-      }  
-  }
+      } 
+    }
+   
   $('#posterfooter').html('');
 
   $('#tableposter').html(''); //clear the table
@@ -103,8 +110,8 @@ function getName() {
     k = k+3;
   }
   $('#posterfooter').text("Click on the letters to change the colors");
+    
 }
-
 function showColor(id){
   $('#colourtable').html('');
   $('#choosecolor').html('');

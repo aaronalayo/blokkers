@@ -12,23 +12,23 @@ class Order extends Model {
         relation: Model.HasOneRelation,
         modelClass: __dirname + "/Customer.js",
         join: {
-          from: "orders.order_uuid",
+          from: "orders.customer_uuid",
           to: "customers.customer_uuid",
         },
       },
       item: {
-        relation: Model.HasManyRelation,
+        relation: Model.HasOneRelation,
         modelClass: __dirname + "/Item.js",
         join: {
-          from: "orders.order_uuid",
-          to: "items.items_uuid",
+          from: "orders.item_uuid",
+          to: "items.item_uuid",
         },
       },
     };
   }
 
   static get idColumn() {
-    return "orders.order_uuid";
+    return "orders.order_no";
   }
 }
 

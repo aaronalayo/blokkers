@@ -1,43 +1,3 @@
-/* @font-face {
-  font-family: "khulabold";
-  src: url("./fonts/khula-bold-webfont.woff2") format("woff2"),
-    url("./fonts/khula-bold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "khulaextrabold";
-  src: url("./fonts/khula-bold-demo.html") format("woff2"),
-    url("./fonts/khula-extrabold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "khulalight";
-  src: url("./fonts/khula-light-webfont.woff2") format("woff2"),
-    url("./fonts/khula-light-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "khularegular";
-  src: url("./fonts/khula-regular-webfont.woff2") format("woff2"),
-    url("./fonts/khula-regular-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "khulasemibold";
-  src: url("./fonts/khula-semibold-webfont.woff2") format("woff2"),
-    url("./fonts/khula-semibold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-} */
-
 @font-face {
   font-family: "nunitoblack";
   src: url("./fonts/nunito-black-webfont.woff2") format("woff2"),
@@ -154,7 +114,7 @@ html {
   overflow: hidden;
 }
 
-body{
+body {
   margin: 0;
 }
 
@@ -412,11 +372,12 @@ hr {
 }
 
 #choose-size {
-  padding-top: 5%;
+  padding-top: 3%;
 }
 #choose-size p {
   text-align: center;
   font-family: "nunitolight";
+  font-size: 30px;
 }
 
 #choose-size span {
@@ -437,7 +398,7 @@ hr {
 }
 
 #satisfiedtable {
-  margin-top: 3%;
+  margin-top: 0%;
   margin-left: 40%;
   float: left;
   border: none;
@@ -445,57 +406,24 @@ hr {
   border-collapse: collapse;
 }
 #posterfooter {
-  /* margin-left: 41.6%;
-  margin-top: 20%;
-  padding-top: 5%;
-  */
+  /* margin-top: 5%; */
+  padding-top: 2%;
+
   font-size: 18px;
   font-family: "nunitolight";
-  margin-left: 40%;
+  margin-left: 43.5%;
 }
 
-#choosecolor{
-  margin-bottom: 30%;
-  position: relative;
-  font-family: "nunitolight";
-}
-#colourtable {
-  border: none;
-  display: block;
-  position: inherit;
-  /* border-collapse: collapse; */
-}
-#chooseletter{
-  margin-top: 50%;
-  position: relative;
-  font-family: "nunitolight";
-}
-#done_button {
-  top: 60%;
-  right: 11%;
-  position: inherit;
-  margin-bottom: 5%;
-  margin-right: 9%;
-  font-size: 1.1em;
-  float: right;
-  font-family: "nunitoblack";
-  text-decoration: none;
-  padding: 0.6em 2em;
-  border-radius: 8px;
-  color: #fff;
-  background-color: #c0c0c0;
-  border: 0;
-  cursor: pointer;
-  /* margin:1em; */
-}
 #satisfied {
-
+  font-family: "nunitoextrabold";
+  font-size: 55px;
   display: block;
-  top: 10%;
-  margin-left: 47%;
+  top: 15%;
+  padding-top: 5%;
+  margin-left: 44.5%;
 }
 #addbasket_button {
-  margin-top: 5%;
+  margin-top: 3%;
 
   position: inherit;
   margin-bottom: 5%;
@@ -566,11 +494,47 @@ tr {
   width: 8em;
   display: block;
 }
-#colourtable img {
-  width: 5.5em;
-  display: block;
+
+#choosecolor {
+  margin-left: 36%;
+  margin-bottom: 20%;
+  position: relative;
+  font-family: "nunitolight";
 }
 
+#colourtable {
+  border: none;
+  display: block;
+  /* position: inherit; */
+  border-collapse: collapse;
+}
+#colourtable img {
+  width: 6.5em;
+  display: block;
+}
+#chooseletter {
+  margin-left: 16%;
+  margin-top: 5%;
+  /* position: relative; */
+  font-family: "nunitolight";
+}
+
+#done_button {
+  right: 25%;
+  margin-right: 24%;
+  margin-top: 16%;
+  font-size: 1.1em;
+  float: right;
+  font-family: "nunitoblack";
+  text-decoration: none;
+  padding: 0.6em 2em;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #c0c0c0;
+  border: 0;
+  cursor: pointer;
+  /* margin:1em; */
+}
 #tablealfabet {
   margin-top: 2%;
   float: left;
@@ -600,6 +564,18 @@ input {
   font-family: "nunitoextrabold";
 }
 
+#about {
+  font-family: "nunitoextrabold";
+  text-align: center;
+}
+#abouttext {
+  font-family: "nunitolight";
+  font-size: 20px;
+  text-align: justify;
+  text-indent: 50px;
+  line-height: 1.6;
+}
+
 @media only screen and (min-device-width: 2160px) {
   .mail {
     padding-bottom: 5em;
@@ -613,32 +589,29 @@ input {
     width: 8em;
     display: block;
   }
-  /* #satisfieddiv {
-    margin-right: auto;
 
-    margin-left: auto;
-    display: block;
-  } */
-  #satisfiedtable td,
-  tr{
-    margin-top: 10%;
-    padding: 0;
-    
-  }
   .basket-table table td,
   tr {
     padding: 0;
     cursor: pointer;
-    
   }
   #addbasket_button {
     margin-right: 47%;
   }
- 
+  #satisfiedtable td,
+  tr {
+    margin-top: 10%;
+    padding: 0;
+  }
+  #satisfiedtable{
+  border-collapse: collapse;
+  border: none;
+  display: block;
+}
   #satisfiedtable img {
     width: 10em;
     display: block;
-
+    
   }
   .mySlides.fade {
     /* /* position: absolute; */
@@ -653,15 +626,36 @@ input {
 
   #colourtable {
     margin-top: -15%;
-    margin-right: 11%;
-    float: right;
+    margin-right: 45%;
+    /* float: right; */
     border: none;
     display: block;
-    /* border-collapse: collapse; */
+    border-collapse: collapse;
   }
 
   #inspirationspage {
     width: auto;
+  }
+  #choosecolor {
+    margin-left: 36%;
+    margin-bottom: 20%;
+    position: relative;
+    font-family: "nunitolight";
+  }
+
+  #colourtable img {
+    width: 6.5em;
+    display: block;
+  }
+  #chooseletter {
+    margin-left: 16%;
+    margin-top: 5%;
+    /* position: relative; */
+    font-family: "nunitolight";
+  }
+  #cancel_button {
+    left: 6.25%;
+    margin-top: 5%;
   }
 }
 
@@ -669,44 +663,15 @@ input {
   .mail {
     padding-bottom: 3em;
   }
-  #chooseletter{
-    /* top: 65.5%;
-    right: 6.65%; */
-
-  }
-
-  #colourtable {
-    margin-top: -23.5%;
-    /* margin-right: 8%; */
-    
-    /* border-collapse: collapse; */
-  }
   #posterfooter {
-    /* margin-left: 38.5%;
-    margin-top: 28%;
-    padding-top: 5%; */
-
-    /* font-size: 25px; */
-    /* font-family: "nunitolight"; */
-  }
-  #choosecolor{
-    /* top: 45%;
-    right: 10%;
-
-    /* margin-bottom: 10%; */
-    /* margin-right: 10%; */ 
-   
-  
+    padding-top: 32.5%;
+    margin-left: 41.5%;
   }
 
-  #done_button {
-    top: 70%;
-    right: 10.5%;
-  }
   #cancel_button {
-    left:9.35%;
+    left: 8.5%;
   }
-  
+
   #addbasket_button {
     margin-right: 46.5%;
   }
@@ -717,6 +682,27 @@ input {
   #satisfiedtable img {
     width: 7em;
     display: block;
+  }
+  #choosecolor {
+    margin-left: 36%;
+    margin-bottom: 20%;
+  }
+
+  #colourtable {
+    margin-top: -15%;
+    margin-right: 45%;
+  }
+  #colourtable img {
+    width: 6.5em;
+    display: block;
+  }
+  #chooseletter {
+    margin-left: 16%;
+    margin-top: 8%;
+  }
+  #done_button {
+    margin-right: 21%;
+    margin-top: 17%;
   }
 }
 @media (-webkit-min-device-pixel-ratio: 1.1) {
@@ -827,21 +813,21 @@ img {
   /* scroll-snap-align: start; */
 }
 
-#changecolour{
+#changecolour {
   margin-left: 65%;
   position: absolute;
   margin-top: 5%;
 }
 
-#basket-header{
-  border:1.2px solid #c0c0c0;
+#basket-header {
+  border: 1.2px solid #c0c0c0;
   margin-top: 15%;
   margin-left: 10%;
   margin-right: 10%;
   display: flex;
 }
 
-#proceed-button{
+#proceed-button {
   text-decoration: none;
   padding: 0.6em 2em;
   border-radius: 8px;
@@ -853,11 +839,11 @@ img {
   margin-bottom: auto;
 }
 
-.basket-table img{
+.basket-table img {
   width: 2em;
   border-collapse: collapse;
 }
-.basket-table  table{
+.basket-table table {
   /* position: absolute; */
   border: none;
   display: block;
@@ -867,13 +853,11 @@ img {
 tr {
   padding: 0;
   cursor: pointer;
-  
 }
-.basket-container{
+.basket-container {
   margin-left: 10%;
   margin-top: 3%;
 }
-
 
 /* html {
   scroll-snap-type: y mandatory;
@@ -886,4 +870,3 @@ tr {
   padding: 0;
   overflow: hidden;
 } */
-

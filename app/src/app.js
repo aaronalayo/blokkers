@@ -53,7 +53,9 @@ const footer = fs.readFileSync("./public/footer.html", "utf8");
 const satisfiedPage = fs.readFileSync("./public/satisfied.html", 'utf8');
 const basketPage = fs.readFileSync("./public/basket.html", 'utf8');
 const checkOutPage = fs.readFileSync("./public/checkoutpage.html", 'utf8');
-
+const paymentPage = fs.readFileSync("./public/paymentpage.html", 'utf8');
+const aboutPage = fs.readFileSync("./public/aboutpage.html", 'utf8');
+const contactPage = fs.readFileSync("./public/contactpage.html", 'utf8');
 
 const restrictions= require('./middelware/restrict.js');
 
@@ -80,7 +82,18 @@ app.get("/basket", (req, res) => {
 
 app.get("/checkout", (req, res) => {
   return res.send(navbar + checkOutPage);
-})
+});
+
+app.get("/payment", (req, res) => {
+  return res.send(navbar + paymentPage);
+});
+app.get("/about", (req, res) => {
+  return res.send(navbar + aboutPage);
+});
+
+app.get("/contact", (req, res) => {
+  return res.send(navbar + contactPage);
+});
 
 app.get("*", (req, res) => {
 

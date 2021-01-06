@@ -3,7 +3,7 @@ exports.seed = function(knex) {
     return knex('formats').insert([
         {format_no: 'A1', size: '(2383.94, 3370.39)', price: 500.00},
         {format_no: 'A2', size: '(1190.55, 1683.78)', price: 400.00},
-        {format_no: 'A3', size: '(841.89, 1190.55)', price: 300.00},
+        {format_no: 'A3', size: '(841.89, 1190.55)', price: 350.00},
    
     ]);
 };

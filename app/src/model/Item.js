@@ -12,7 +12,7 @@ class Item extends Model {
         relation: Model.HasOneRelation,
         modelClass: __dirname + "/Format.js",
         join: {
-          from: "items.items_item_uuid",
+          from: "items.item_uuid",
           to: "formats.format_uuid",
         },
       },

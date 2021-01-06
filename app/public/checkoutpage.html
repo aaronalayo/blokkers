@@ -57,7 +57,7 @@ html {
   border: 1px solid rgb(255, 252, 252);
   border-radius: 3px;
 
-}
+} 
 
 input[type=text] {
   background-color:#bbbbbb ;
@@ -80,7 +80,7 @@ label {
   padding: 7px 0;
   font-size: 24px;
 }
-
+ 
 .btn {
     background-color: #c2c2c2;
     color: white;
@@ -101,6 +101,7 @@ label {
 
 a {
   color: #2196F3;
+  text-decoration: none;
 }
 
 hr {
@@ -136,7 +137,7 @@ span.price {
   <div class="col-75">
     
     <div class="container">
-      <form action="/createorder" method="POST">
+      <form >
       
         <div class="row">
       
@@ -150,11 +151,11 @@ span.price {
             <label for="phone"><i class="fa fa-phone"></i> Phone number</label>
             <input type="text" id="phone"  name="phone" placeholder="+4512345678" pattern="[+]45[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" required/>
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="Hovedgade 26 st th" required>
+            <input type="text" id="address" name="address" placeholder="Hovedgade 26 st th" pattern="^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$" required>
             <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="Copenhagen" required>
+            <input type="text" id="city" name="city" placeholder="Copenhagen" pattern="^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" required>
             <label for="zip">Zip</label>
-            <input type="text" id="zip" name="zip" placeholder="2500" required>
+            <input type="text" id="zip" name="zip" placeholder="2500" pattern="\d{4}"required>
           
             </div>
 
@@ -164,12 +165,8 @@ span.price {
             <label for="fname">Accepted Cards</label>
             <div class="icon-container">
               <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
-            <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+              <i class="fa fa-cc-amex" style="color:blue;"></i>  //   }
+  // }
             <label for="ccnum">Credit card number</label>
             <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
             <label for="expmonth">Exp Month</label>
@@ -201,6 +198,7 @@ span.price {
           </div>
         </div> 
         <input type="submit" value="Pay Order" class="btn" onclick="getInfo()">
+        <!-- <a href="/payment"  class="btn" onclick="getInfo()">Pay Order</a> -->
       </form>
     </div>
    
@@ -261,12 +259,28 @@ for (let i = 0; i < posters.length; i++) {
     let name = posters.map(poster => poster.pname)
     posters = posters.filter(({pname}, index) => !name.includes(pname, index + 1))
 
-    
+
+    let fullname = $('#fname').val();
+    let email = $('#email').val();
+    let phone = $('#phone').val();
+    let address = $('#address').val();
+    let city = $('#city').val();
+    let zip = $('#zip').val();
+
 
     $.ajax({
+      
         type: 'POST',
         url: '/createorder',
-        data:{'posters': posters},
+        data:{
+          'posters': posters, 
+          'fullname':fullname, 
+          'email':email, 
+          'phone':phone, 
+          'address': address, 
+          'city':city, 
+          'zip':zip
+        },
         ContentType: 'application/json',
         dataType: "json",
       }).done(function (data) {

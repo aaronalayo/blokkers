@@ -31,20 +31,23 @@ exports.up = function(knex) {
     })
     .createTable('orders',(table)=>{
         // table.uuid('order_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
-        table.increments('order_no').notNullable();
+        table.increments('order_no').primary().notNullable();
         table.string('order_title').notNullable();
         table.integer('amount').unsigned().notNullable();
-        table.string('pdf_file_name').notNullable();
+        // table.string('pdf_file_name').notNullable();
         table.decimal('price_per_item').unsigned().notNullable();
         table.decimal('total_price').unsigned().notNullable();
         table.uuid('item_uuid').notNullable();
         table.uuid('customer_uuid').notNullable();
+        table.string('xml_sent').defaultTo(false);
+        table.string('pdf_sent').defaultTo(false);
         table.foreign('item_uuid').references('items.item_uuid');
         table.foreign('customer_uuid').references('customers.customer_uuid');
+        table.timestamp('updated_at').defaultTo(knex.fn.now());
         table.timestamp('created_at').notNullable().defaultTo(knex.raw('CURRENT_TIMESTAMP'));
   
     })
-.raw(`ALTER SEQUENCE orders_order_no_seq RESTART WITH 1000`)
+.raw(`ALTER SEQUENCE orders_order_no_seq RESTART WITH 100`)
 
 .raw(`
     CREATE OR REPLACE FUNCTION update_updated_at_column()
