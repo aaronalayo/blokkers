@@ -387,15 +387,7 @@ hr {
   font-family: "nunitoextrabold";
 }
 
-#tableposter {
-  margin-top: 3%;
-  margin-left: 40%;
-  /* float: left; */
-  border: none;
-  position: absolute;
-  display: block;
-  border-collapse: collapse;
-}
+
 
 #satisfiedtable {
   margin-top: 0%;
@@ -470,7 +462,15 @@ button.mbtn {
   margin: 1em;
   font-family: "nunitoblack";
 }
-
+#tableposter {
+  margin-top: 3%;
+  margin-left: 40%;
+  /* float: left; */
+  border: none;
+  position: absolute;
+  display: block;
+  border-collapse: collapse;
+}
 #tableposter td,
 tr {
   padding: 0;
@@ -508,6 +508,12 @@ tr {
   /* position: inherit; */
   border-collapse: collapse;
 }
+
+#changecolour {
+  margin-left: 65%;
+  position: absolute;
+  margin-top: 5%;
+}
 #colourtable img {
   width: 6.5em;
   display: block;
@@ -521,7 +527,7 @@ tr {
 
 #done_button {
   right: 25%;
-  margin-right: 24%;
+  margin-right: 22%;
   margin-top: 16%;
   font-size: 1.1em;
   float: right;
@@ -584,10 +590,21 @@ input {
     margin-right: 42.5%;
     margin-top: 3%;
     margin-left: 42.5%;
+    border: none;
+    position: absolute;
+    display: block;
+    border-collapse: collapse; 
+    padding: 0;
   }
   #tableposter img {
     width: 8em;
     display: block;
+  }
+
+  #tableposter td,
+  tr {
+    padding: 0;
+    cursor: pointer;
   }
 
   .basket-table table td,
@@ -633,6 +650,12 @@ input {
     border-collapse: collapse;
   }
 
+#changecolour {
+  margin-left:70%;
+  position: absolute;
+  margin-top: 8%;
+}
+
   #inspirationspage {
     width: auto;
   }
@@ -656,6 +679,12 @@ input {
   #cancel_button {
     left: 6.25%;
     margin-top: 5%;
+  }
+  #done_button {
+    right: 25%;
+    margin-right: 19.5%;
+    margin-top: 17%;
+   
   }
 }
 
@@ -696,13 +725,17 @@ input {
     width: 6.5em;
     display: block;
   }
+  #changecolour {
+
+    margin-top: 10%;
+  }
   #chooseletter {
     margin-left: 16%;
     margin-top: 8%;
   }
   #done_button {
     margin-right: 21%;
-    margin-top: 17%;
+    margin-top: 22%;
   }
 }
 @media (-webkit-min-device-pixel-ratio: 1.1) {
@@ -813,11 +846,6 @@ img {
   /* scroll-snap-align: start; */
 }
 
-#changecolour {
-  margin-left: 65%;
-  position: absolute;
-  margin-top: 5%;
-}
 
 #basket-header {
   border: 1.2px solid #c0c0c0;

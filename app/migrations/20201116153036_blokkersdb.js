@@ -1,6 +1,8 @@
 
-exports.up = function(knex) {
+exports.up = async function(knex) {
+    await knex.schema.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
     return knex.schema
+
     .createTable('formats',(table)=>{
         table.uuid('format_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
         table.string('format_no').notNullable();
@@ -19,13 +21,15 @@ exports.up = function(knex) {
         table.uuid('customer_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
         table.string('full_name').notNullable();
         table.string('phone').notNullable();
-        table.string('delivery_address').notNullable();
-        table.string('delivery_zip_code').notNullable();
-        table.string('delivery_city').notNullable();
-        table.string('invoice_address').notNullable();
-        table.string('invoice_zip_code').notNullable();
-        table.string('invoice_city').notNullable();
-        table.string('email').unique().notNullable();
+        table.string('address').notNullable();
+        table.string('zip_code').notNullable();
+        table.string('city').notNullable();
+        table.string('invoice_full_name').defaultTo(null);
+        table.string('invoice_phone').defaultTo(null);
+        table.string('invoice_address').defaultTo(null);
+        table.string('invoice_zip_code').defaultTo(null);
+        table.string('invoice_city').defaultTo(null);
+        table.string('email').unique();
         table.boolean('enable_newsletter').defaultTo(false);
   
     })
