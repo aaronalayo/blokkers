@@ -753,11 +753,24 @@ input {
     font-size: 100%;
   }
   #write_name {
-    font-size: 100%;
+    font-size: 90%;
   }
   #satisfiedtable img {
     width: 5em;
     display: block;
+  }
+  #posterfooter{
+    margin-top: 0%;
+    padding-top: 0%;
+  }
+  #colourtable img {
+    width: 5em;
+  }
+  #done_button{
+    margin-top: 25%;
+  }
+  #satisfied{
+    font-size: 35px;
   }
 }
 
@@ -849,7 +862,7 @@ img {
 
 #basket-header {
   border: 1.2px solid #c0c0c0;
-  margin-top: 15%;
+  margin-top: 10%;
   margin-left: 10%;
   margin-right: 10%;
   display: flex;
@@ -885,6 +898,32 @@ tr {
 .basket-container {
   margin-left: 10%;
   margin-top: 3%;
+}
+
+.basket-devider{
+  text-align: left;
+  size: 5pt;
+  border: 0.6px solid #c0c0c0;
+  margin-right: 10%;
+  margin-inline-start: 0%;
+  width: auto;
+}
+
+.size-poster{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10%;
+}
+
+.quantity{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10%;
+}
+
+.basket-table{
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* html {
