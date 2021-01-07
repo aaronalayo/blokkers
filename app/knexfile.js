@@ -23,9 +23,9 @@ module.exports = {
       ssl: process.env.PGSSLMODE,
       ssl: {
         rejectUnauthorized: false,
-        ca: fs.readFileSync('/home/chrx/blokkers/app/certficates/server-ca.pem', "utf8"),
-        key: fs.readFileSync('/home/chrx/blokkers/app/certficates/client-key.pem', "utf8"),
-        cert: fs.readFileSync('/home/chrx/blokkers/app/certficates/client-cert.pem', "utf8"),
+        ca: fs.readFileSync('../app/certificates/server-ca.pem', "utf8"),
+        key: fs.readFileSync('../app/certificates/client-key.pem', "utf8"),
+        cert: fs.readFileSync('../app/certificates/client-cert.pem', "utf8"),
 
       }
       }

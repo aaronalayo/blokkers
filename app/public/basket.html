@@ -1,7 +1,7 @@
 <div>
     <div id="basket-header">
         <p style="margin-right: auto;">
-            <span class="size"></span>
+            <span id="size"></span>
             <span> poster has been added to your basket</span>
         </p>
         <a href="/checkout" class="mbtn button" id="proceed-button">Proceed to checkout</a>
@@ -14,46 +14,68 @@
 </div>
 <script>
     var posters = JSON.parse(sessionStorage.posters);
-    posters.forEach(poster => {
-
-        $(".basket-container").append(`<div id="poster-display-${poster.pname}">`);
-        // $(`#poster-display-${poster.pname}`).append(`<div class="basket-table" id=${poster.pname}>`);
-        // var k = 0;
-        // for (var i = 0; i <= 3; i++) {
-        //     $(`#${poster.pname}`).append("<tr>");
-        //     for (var j = k; j <= k + 2; j++) {
-        //         $(`#${poster.pname}`).append(`<td id=${j + 1}-${poster.pname}> `);
-        //         $(`#${j + 1}-${poster.pname}`).append(`<img src="${poster.paths[j]}">`);
-        //     }
-        //     $(`#${poster.pname}`).append("</tr>");
-        //     k = k + 3;
+    function increment(id){
+        let str = "#" + id.id + "-quantity";
+        let a = $(str).text();
+        console.log(str);
+        console.log(a);
+        a++;
+        $(str).text(a);
+    }
+    function decrement(id){
+        let str = "#" + id.id + "-quantity";
+        let a = $(str).text();
+        console.log(str);
+        console.log(a);
+        a--;
+        // if(a==0){
+        //     $this.prop('disabled', true);
+        // }else{
+        //     $this.prop('disabled', false);
         // }
-
-        $(`#poster-display-${poster.pname}`).append(`<div class="basket-table" id=${poster.pname}>`);
-        $(`#${poster.pname}`).append(`<table class="basket-table" id="table-${poster.pname}">`);
+        $(str).text(a);
+    }
+    posters.forEach(poster => {
+        let quantity = 1;
+        var name;
+        if(!$("#" + poster.pname).length){
+            name = poster.pname;
+        }
+        else{
+            name = poster.pname + 1;
+            while($("#" + name).length){
+                name = name + 1;
+            }
+        }
+        $(".basket-container").append(`<div id="poster-display-${name}">`);
+        $(`#poster-display-${name}`).append(`<div class="basket-table" id=${name}>`);
+        $(`#${name}`).append(`<table class="basket-table" id="table-${name}">`);
         var k = 0;
         for (var i = 0; i <= 3; i++) {
-            $(`#table-${poster.pname}`).append(`<tr id=tr-${i + 1}-${poster.pname}>`)
+            $(`#table-${name}`).append(`<tr id=tr-${i + 1}-${name}>`)
             for (var j = k; j <= k + 2; j++) {
-                $(`#tr-${i + 1}-${poster.pname}`).append(`<td id=${j + 1}-${poster.pname}> `);
-                $(`#${j + 1}-${poster.pname}`).append(`<img src="${poster.paths[j]}">`);
+                $(`#tr-${i + 1}-${name}`).append(`<td id=${j + 1}-${name}> `);
+                $(`#${j + 1}-${name}`).append(`<img src="${poster.paths[j]}">`);
                 }
-                $(`#table-${poster.pname}`).append("</tr>");
+                $(`#table-${name}`).append("</tr>");
                 k = k + 3;
         }
-        $(`#${poster.pname}`).append("</table>");
-        $(`#poster-display-${poster.pname}`).append(`<div>
-            <span class="size"></span><span> poster</span>
+        $(`#${name}`).append("</table>");
+        $(`#poster-display-${name}`).append(`<div class="size-poster">
+            <span>${poster.size}</span><span> poster</span>
         </div>
-        <div>
+        <div class="quantity">
             <span>Quantity</span>
-        <hr>
+            <span><button onclick= "decrement(${name})"><</button></span>
+            <span id="${name}-quantity">${quantity}</span>
+            <span><button onclick= "increment(${name})">></button></span>
         </div>`);
+        $(`#poster-display-${name}`).append(`<hr class="basket-devider">`)
       
-        $("#name").text(poster.pname);
-        $(".size").text(poster.size);
+       // $("#name").text(name);
+        $("#size").text(poster.size);
 
-    var contents = {}, src;
+   // var contents = {}, src;
 
     // $( `#poster-display-${posters.pname} td`).each( poster => function(){
     
@@ -79,4 +101,6 @@
     // });
 
     });
+    
+
 </script>
