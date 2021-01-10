@@ -345,6 +345,10 @@ hr {
   text-decoration: none;
 }
 
+.shopping-bag a{
+  color: black;
+}
+
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
@@ -628,7 +632,6 @@ input {
   #satisfiedtable img {
     width: 10em;
     display: block;
-    
   }
   .mySlides.fade {
     /* /* position: absolute; */
@@ -878,17 +881,20 @@ img {
   height: fit-content;
   margin-top: auto;
   margin-bottom: auto;
+  color: black;
 }
 
 .basket-table img {
   width: 2em;
   border-collapse: collapse;
+  display: block;
 }
 .basket-table table {
   /* position: absolute; */
   border: none;
   display: block;
-  /* border-collapse: collapse; */
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 .basket-table table td,
 tr {
@@ -924,6 +930,23 @@ tr {
 .basket-table{
   display: inline-block;
   vertical-align: middle;
+}
+
+.quantity button{
+  border: none;
+  background-color: white;
+  color: #c0c0c0;
+}
+
+.basket-checkbox{
+  margin-right: 5%;
+  color: #c0c0c0;
+}
+
+.remove-poster-btn{
+  border: none;
+  background-color: white;
+  margin-left: 10%;
 }
 
 /* html {
