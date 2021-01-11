@@ -37,7 +37,8 @@ function addtobasket(){
   let poster = {
       "pname": pname,
       "paths": paths,
-      "size": size   
+      "size": size,
+      "quantity": 1   
   };
   console.log(poster);
  var posters = [];

@@ -8,30 +8,48 @@
     </div>
 
     <div class="basket-container">
-
     </div>
+
+    <div id="total-amount-box">
+        <a style="font-size: 30px;">Total amount</a>
+        <p style="font-size: 15px;">Subtotal</p>
+        <hr style= "color: lightgrey;">
+        <p style="font-size: 15px;">Total</p>
+        <a href="/checkout" class="mbtn button" id="proceed-button">Proceed to checkout</a>
+    </div>
+
     
 </div>
 <script>
     var posters = JSON.parse(sessionStorage.posters);
-    function increment(id){
-        let str = "#" + id.id + "-quantity";
+    function updateQuantity(poster, quantity){
+        posters.forEach(p => {
+            if(p.pname === poster.pname){
+                p.quantity = quantity;
+                sessionStorage.setItem("posters", JSON.stringify(posters));
+                console.log(p.quantity);
+            }
+        });
+    }
+    function increment(poster){
+        let str = "#" + poster.pname + "-quantity";
         let a = $(str).text();
         a++;
         if(a > 1){
-            $("#" + id.id + "-decrease").prop('disabled', false);
+            $("#" + poster.pname + "-decrease").prop('disabled', false);
         }
         $(str).text(a);
+        updateQuantity(poster, a);
     }
-    function decrement(id){
-        let str = "#" + id.id + "-quantity";
+    function decrement(poster){
+        let str = "#" + poster.pname + "-quantity";
         let a = $(str).text();
         if(a == 1){
-            $("#" + id.id + "-decrease").prop('disabled', true);
+            $("#" + poster.pname + "-decrease").prop('disabled', true);
         }else{
             a--;
-            console.log(a);
             $(str).text(a);
+            updateQuantity(poster, a);
         }
     }
     function remove(poster){
@@ -51,7 +69,6 @@
         
     }
     posters.forEach(poster => {
-        let quantity = 1;
         var name;
         if(!$("#" + poster.pname).length){
             name = poster.pname;
@@ -83,9 +100,9 @@
         </div>
         <div class="quantity">
             <span>Quantity</span>
-            <span><button id="${name}-decrease" onclick="decrement(${name})"><</button></span>
-            <span id="${name}-quantity">${quantity}</span>
-            <span><button onclick="increment(${name})">></button></span>
+            <span><button id="${name}-decrease" onclick="decrement(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><</button></span>
+            <span id="${name}-quantity">${poster.quantity}</span>
+            <span><button onclick="increment(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)">></button></span>
         </div>
         <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)">Remove <i class="fa fa-trash-o"></i></button>`);
         $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);

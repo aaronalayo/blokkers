@@ -216,7 +216,7 @@ for (let i = 0; i < posters.length; i++) {
       <span id=${posters[i].pname}>${posters[i].pname}</span> 
       <span class="size">${posters[i].size}</span><span> poster</span>
 
-      x  <span id="amount" class="quantity">${countInPosters(posters[i].pname)}</span><span class="price">$5</span>
+      x  <span id="amount" class="quantity">${posters[i].quantity}</span><span class="price">$5</span>
       <hr>
       </div>
       `);
@@ -255,12 +255,13 @@ function displayForm(){
     }
   };
   function getInfo(){
-    let amount;
-    for (let i = 0; i < posters.length; i++) {
-      amount = countInPosters(posters[i].pname);
-      Object.assign(posters[i], {amount: amount});
+    // let amount;
+    // for (let i = 0; i < posters.length; i++) {
+    //   amount = countInPosters(posters[i].pname);
+    //   Object.assign(posters[i], {amount: amount});
       
-    };
+    // };
+    let quantity = posters.map(poster => poster.quantity);
     let name = posters.map(poster => poster.pname)
     posters = posters.filter(({pname}, index) => !name.includes(pname, index + 1))
 
