@@ -8,35 +8,67 @@
     </div>
 
     <div class="basket-container">
-
     </div>
+
+    <div id="total-amount-box">
+        <a style="font-size: 30px;">Total amount</a>
+        <p style="font-size: 15px;">Subtotal</p>
+        <hr style= "color: lightgrey;">
+        <p style="font-size: 15px;">Total</p>
+        <a href="/checkout" class="mbtn button" id="proceed-button">Proceed to checkout</a>
+    </div>
+
     
 </div>
 <script>
     var posters = JSON.parse(sessionStorage.posters);
-    function increment(id){
-        let str = "#" + id.id + "-quantity";
-        let a = $(str).text();
-        console.log(str);
-        console.log(a);
-        a++;
-        $(str).text(a);
+    function updateQuantity(poster, quantity){
+        posters.forEach(p => {
+            if(p.pname === poster.pname){
+                p.quantity = quantity;
+                sessionStorage.setItem("posters", JSON.stringify(posters));
+                console.log(p.quantity);
+            }
+        });
     }
-    function decrement(id){
-        let str = "#" + id.id + "-quantity";
+    function increment(poster){
+        let str = "#" + poster.pname + "-quantity";
         let a = $(str).text();
-        console.log(str);
-        console.log(a);
-        a--;
-        // if(a==0){
-        //     $this.prop('disabled', true);
-        // }else{
-        //     $this.prop('disabled', false);
-        // }
+        a++;
+        if(a > 1){
+            $("#" + poster.pname + "-decrease").prop('disabled', false);
+        }
         $(str).text(a);
+        updateQuantity(poster, a);
+    }
+    function decrement(poster){
+        let str = "#" + poster.pname + "-quantity";
+        let a = $(str).text();
+        if(a == 1){
+            $("#" + poster.pname + "-decrease").prop('disabled', true);
+        }else{
+            a--;
+            $(str).text(a);
+            updateQuantity(poster, a);
+        }
+    }
+    function remove(poster){
+        console.log(poster);
+        posters.forEach(p => {
+            if(p.pname === poster.pname){
+                const index = posters.indexOf(p);
+                if (index > -1) {
+                    posters.splice(index, 1);
+                    console.log("deleted");
+                    console.log(posters);
+                    sessionStorage.setItem("posters", JSON.stringify(posters));
+                    document.location.reload(true)
+                }
+            }
+        });
+        
     }
     posters.forEach(poster => {
-        let quantity = 1;
         var name;
         if(!$("#" + poster.pname).length){
             name = poster.pname;
@@ -47,7 +79,9 @@
                 name = name + 1;
             }
         }
+        poster.pname = name;
         $(".basket-container").append(`<div id="poster-display-${name}">`);
+        // $(`#poster-display-${name}`).append(`<input class="basket-checkbox" type="checkbox" name=${name}>`);
         $(`#poster-display-${name}`).append(`<div class="basket-table" id=${name}>`);
         $(`#${name}`).append(`<table class="basket-table" id="table-${name}">`);
         var k = 0;
@@ -66,14 +100,15 @@
         </div>
         <div class="quantity">
             <span>Quantity</span>
-            <span><button onclick= "decrement(${name})"><</button></span>
-            <span id="${name}-quantity">${quantity}</span>
-            <span><button onclick= "increment(${name})">></button></span>
-        </div>`);
-        $(`#poster-display-${name}`).append(`<hr class="basket-devider">`)
-      
+            <span><button id="${name}-decrease" onclick="decrement(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><</button></span>
+            <span id="${name}-quantity">${poster.quantity}</span>
+            <span><button onclick="increment(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)">></button></span>
+        </div>
+        <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)">Remove <i class="fa fa-trash-o"></i></button>`);
+        $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
        // $("#name").text(name);
         $("#size").text(poster.size);
+        console.log(poster);
 
    // var contents = {}, src;
 
@@ -105,3 +140,9 @@
 
 
 </script>
+
+<style>
+    html{
+        overflow: scroll;
+    }
+</style>

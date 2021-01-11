@@ -243,7 +243,7 @@
       <span id=${posters[i].pname}>${posters[i].pname}</span> 
       <span class="size">${posters[i].size}</span><span> poster</span>
 
-      x  <span id="amount" class="quantity">${countInPosters(posters[i].pname)}</span><span class="price ${posters[i].size}-price">${findPrice(posters[i].size)}</span>
+      x  <span id="amount" class="quantity">${posters[i].quantity}</span><span class="price ${posters[i].size}-price">${findPrice(posters[i].size)}</span>
       <hr class="basket-devider">
       </div>
       `);
@@ -325,24 +325,14 @@
       return price
     })     
   };
-  (async function(){
-  let prices = await findPrice();
-  console.log(prices);
-})();
-
-
-
-
-
-
-
-  function getInfo() {
-    let amount;
-    for (let i = 0; i < posters.length; i++) {
-      amount = countInPosters(posters[i].pname);
-      Object.assign(posters[i], { amount: amount });
-
-    };
+  function getInfo(){
+    // let amount;
+    // for (let i = 0; i < posters.length; i++) {
+    //   amount = countInPosters(posters[i].pname);
+    //   Object.assign(posters[i], {amount: amount});
+      
+    // };
+    let quantity = posters.map(poster => poster.quantity);
     let name = posters.map(poster => poster.pname)
     posters = posters.filter(({ pname }, index) => !name.includes(pname, index + 1))
 
