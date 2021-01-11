@@ -2,6 +2,7 @@ const route = require("express").Router();
 
 const fs = require("fs");
 const navbar = fs.readFileSync("./public/navbar.html", "utf8");
+const checkOutPage = fs.readFileSync("./public/checkoutpage.html", 'utf8');
 const paymentPage = fs.readFileSync("./public/paymentpage.html", 'utf8');
 
 const PDFDocument = require("pdfkit");
@@ -19,10 +20,12 @@ const Item = require("../model/Item.js");
 const checkParameter = require("../middelware/checkParameters.js");
 const { generalTextFilter, eMailFilter } = require("../middelware/generalTextFilter");
 const setValueToNull = require("../middelware/setValueNull.js");
-const { nextTick } = require("process");
+
+
+
 
 route.post("/createorder", async (req, res) => {
-  
+  console.log(req.body)
    
     const { 
       posters, 
@@ -72,68 +75,41 @@ route.post("/createorder", async (req, res) => {
           });
         
 
-          const customer = await Customer.query()
+          const customers = await Customer.query()
             .select()
             .where({ full_name: newFullName });
 
           newPosters.forEach(async (poster) => {
-
-            const format = await Format.query()
+            const formats = await Format.query()
               .select()
               .where({ format_no: poster.size })
               .limit(1);
-          
-            const format_uuid = [];
+            customers.forEach((customer)=>{
 
-            for (var i = 0; i < format.length; i++) {
-              var obj = format[i];
-              for (var key in obj) {
-                format_uuid.push(obj["format_uuid"]);
-              }
+            
+            formats.forEach(async (format) => {
               await Item.query().insert({
                 item_name: poster.pname,
-                format_uuid: format_uuid[i],
+                format_uuid: format.format_uuid,
               });
-            }
 
-            const newItem = await Item.query()
-              .select()
-              .where({ item_name: poster.pname })
-              .limit(1);
-          
-
-            const item_uuid = [];
-            const item_name = [];
-            const formatPrice = [];
-            const customer_uuid = [];
-            for (let i = 0; i < newItem.length; i++) {
-              for (let j = 0; j < format.length; j++) {
-                for (let k = 0; k < customer.length; k++) {
-                  var obj = newItem[i];
-                  var objPrice = format[j];
-                  let objCustomer = customer[k];
-                  for (let key in obj) {
-                    item_uuid.push(obj["item_uuid"]);
-                    item_name.push(obj["item_name"]);
-                  }
-                  for (let key in objPrice) {
-                    formatPrice.push(objPrice["price"]);
-                  }
-                  for (let key in objCustomer) {
-                    customer_uuid.push(objCustomer["customer_uuid"]);
-                  }
-                  await Order.query().insert({
-                    order_title: item_name[i],
-                    amount: poster.amount,
-                    price_per_item: formatPrice[j],
-                    total_price: formatPrice[j] * poster.amount,
-                    item_uuid: item_uuid[i],
-                    customer_uuid: customer_uuid[k],
-                  });
-                }
-              }
-            }
+              const newItem = await Item.query()
+                .select()
+                .where({ item_name: poster.pname })
+                .limit(1);
+              newItem.forEach(async (item) => {
+                await Order.query().insert({
+                  order_title: item.item_name,
+                  amount: poster.amount,
+                  price_per_item: format.price,
+                  total_price: format.price * poster.amount,
+                  item_uuid: item.item_uuid,
+                  customer_uuid: customer.customer_uuid,
+                });
+              });
+            });
           });
+        });
           res.redirect('/payment');
         }
   } catch (error) {
@@ -318,4 +294,3 @@ function sendPdf(){
   ftp.connect(config);
 }
 module.exports = route;
-

@@ -30,7 +30,8 @@ app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
 app.set('trust proxy', true);
 app.use(express.static('public'));
 
-
+let router = express.Router();
+app.use('/', router);
 // Setup Objection + Knex
 const { Model } = require("objection");
 
@@ -59,10 +60,11 @@ const contactPage = fs.readFileSync("./public/contactpage.html", 'utf8');
 
 const restrictions= require('./middelware/restrict.js');
 
+const Format = require("./model/Format.js");
+
 app.all(['*app.js*', '*_helpers/**', '*models/**', '*package.json*', '*bower.json*', '*README.md*', '*Public/**'], function (req, res, next){
   res.send({ auth: false });
 });
-
 
 
 
@@ -70,7 +72,7 @@ app.get("/", (req, res) => {
   return res.send(navbar + homePage);
 });
 
-app.get("/satisfied", (req, res, next) => {
+app.get("/satisfied", (req, res) => {
 
   return res.send(navbar + satisfiedPage );
 });
@@ -80,8 +82,17 @@ app.get("/basket", (req, res) => {
   return res.send(navbar + basketPage);
 });
 
+
 app.get("/checkout", (req, res) => {
-  return res.send(navbar + checkOutPage);
+
+  res.send(navbar + checkOutPage);
+
+});
+
+app.get("/formats", async (req, res)=> {   
+  const formats = await Format.query().select();
+  
+  res.json({ 'formats' : formats});
 });
 
 app.get("/payment", (req, res) => {
@@ -103,7 +114,6 @@ app.get("*", (req, res) => {
 
 
 const createRoute = require('./routes/create.js');
-
 
 app.use(createRoute);
 
