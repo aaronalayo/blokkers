@@ -75,7 +75,6 @@
   }
 
   label {
-
     margin-bottom: 10px;
     display: block;
   }
@@ -128,7 +127,33 @@
     color: grey;
 
   }
-
+  .basket-container {
+    margin-left: 0%;
+    margin-top: 0%;
+    margin-bottom: 2%;
+    display: inline-block;
+    width: 48.5%;
+    position: absolute;
+  }
+  #totalbasket{
+    margin-top: 1%;
+  }
+  .quantity{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 2%;
+  padding-left: 2%;
+}
+.poster{
+  margin-right: 2%;
+  margin-left: 2%;
+  vertical-align: middle;
+  display: inline-block;
+}
+.x{
+  margin-right: 2%;
+  margin-left: 2%;
+}
   /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
   @media (max-width: 800px) {
     .row {
@@ -136,7 +161,7 @@
     }
 
     .col-25 {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
   }
 </style>
@@ -216,10 +241,20 @@
             </span>
           </h4>
           <div class="basket-container">
+            
           </div>
+          
         </div>
-
-        <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+     
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <div class="container">
+    <div id="totalbasket">
+        
+    </div>
+      </div>
       </div>
     </div>
     <input type="submit" id="submit" value="Go to payment" class="btn" onclick="getInfo()" />
@@ -235,19 +270,22 @@
 
 <script>
   let posters = JSON.parse(sessionStorage.posters);
-  let total = posters.length
-  $("#totalItems").text(total);
+ 
   for (let i = 0; i < posters.length; i++) {
+ 
+   
     $(".basket-container").append(
       `<div id="poster-display-${posters[i].pname}">
       <span id=${posters[i].pname}>${posters[i].pname}</span> 
-      <span class="size">${posters[i].size}</span><span> poster</span>
+      <span class="size">${posters[i].size}</span><span class="poster"> poster</span>
 
-      x  <span id="amount" class="quantity">${posters[i].quantity}</span><span class="price ${posters[i].size}-price">${findPrice(posters[i].size)}</span>
-      <hr class="basket-devider">
+      <span class="x">x</span> <span id="amount" class="quantity">${posters[i].quantity}</span><span id='itemprice' class="price ${posters[i].size}-price">${findPrice(posters[i].size)}</span>
+      <hr >
+      
       </div>
+     
       `);
-
+    
     let contents = {}, text;
     $(`#poster-display-${posters[i].pname} span`).each(function () {
 
@@ -260,20 +298,27 @@
       }
 
     });
-
+    
   };
 
-
+  $('#totalbasket').append(`<p>Total<span id="totalprice" class="price" style="color:black"><b>${setTotal()}</b></span></p>`)
   
-  function countInPosters(pname) {
+  
+  function countInPosters() {
     let count = 0;
+    let totalItems = 0;
     for (let i = 0; i < posters.length; i++) {
-      if (posters[i].pname === pname) {
-        count++;
-      }
+        count = posters[i].quantity;
+        totalItems+= count
+    console.log(totalItems)
+
     }
-    return count;
+  
+  return totalItems
   };
+  $("#totalItems").text(countInPosters())
+  // let totalItems  = countInPosters();
+
 
   function displayForm() {
     $("#invoiceform").hide().prop('required', true)
@@ -325,6 +370,36 @@
       return price
     })     
   };
+  async function setTotal(){
+    let total= 0;
+    let subTotal;
+    // let quantity = countInPosters(pname)
+    await getFormats().then(data => {
+      for (let [key] of Object.entries(data.formats)) {
+        posters.forEach(poster => {
+          if (poster.size === data.formats[key].format_no) {
+              console.log(data.formats[key].price )
+              console.log(poster.quantity )
+            subTotal = parseInt(data.formats[key].price) * poster.quantity 
+            console.log(subTotal)
+            total += subTotal
+            console.log(total)
+            $("#totalprice").text(total)
+        }
+    
+        });
+     
+      
+      }
+      
+    
+
+      return total
+    })     
+   
+    }
+   
+
   function getInfo(){
     // let amount;
     // for (let i = 0; i < posters.length; i++) {
@@ -388,22 +463,5 @@
     });
 
   };
-
-
-
-
-// $(`#poster-display-${poster.pname}`).append(`<div class="basket-table" id=${poster.pname}>`);
-  // $(`#${poster.pname}`).append(`<table class="basket-table" id="table-${poster.pname}">`);
-  // var k = 0;
-  // for (var i = 0; i <= 3; i++) {
-  //   $(`#table-${poster.pname}`).append(`<tr id=tr-${i + 1}-${poster.pname}>`)
-  //   for (var j = k; j <= k + 2; j++) {
-  //     $(`#tr-${i + 1}-${poster.pname}`).append(`<td id=${j + 1}-${poster.pname}> `);
-  //     $(`#${j + 1}-${poster.pname}`).append(`<img src="${poster.paths[j]}">`);
-  //   }
-  //   $(`#table-${poster.pname}`).append("</tr>");
-  //   k = k + 3;
-  // }
-  // $(`#${poster.pname}`).append("</table>");
 
 </script>
