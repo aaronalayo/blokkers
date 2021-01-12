@@ -91,7 +91,6 @@ app.get("/checkout", (req, res) => {
 
 app.get("/formats", async (req, res)=> {   
   const formats = await Format.query().select();
-  
   res.json({ 'formats' : formats});
 });
 
@@ -116,12 +115,6 @@ app.get("*", (req, res) => {
 const createRoute = require('./routes/create.js');
 
 app.use(createRoute);
-
-
-
-
-
-
 
 
 

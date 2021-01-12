@@ -566,7 +566,6 @@ tr {
 
 #write_name p,
 input {
-  /* font-size: 200%; */
   margin-left: 1em;
   outline: 0;
   border-width: 0 0 2px;
@@ -591,18 +590,25 @@ input {
     padding-bottom: 5em;
   }
   #tableposter {
-    margin-right: 42.5%;
-    margin-top: 3%;
-    margin-left: 42.5%;
+    margin-right: 36%;
+    margin-top: 2%;
+    margin-left: 42%;
     border: none;
     position: absolute;
     display: block;
     border-collapse: collapse; 
     padding: 0;
+    border-spacing: 0;
+  }
+  #posterfooter {
+    padding-top: 26.5%;
+    margin-left: 44%;
+    font-size: 20px;
   }
   #tableposter img {
-    width: 8em;
+    width: 10em;
     display: block;
+    
   }
 
   #tableposter td,
@@ -610,21 +616,13 @@ input {
     padding: 0;
     cursor: pointer;
   }
-  .basket-container {
-    margin-left: 0%;
-    margin-top: 3%;
-    /* display: inline-block; */
-    width: 60%;
-    position: absolute;
-  }
+
   .basket-table table td,
   tr {
     padding: 0;
     cursor: pointer;
   }
-  #addbasket_button {
-    margin-right: 47%;
-  }
+
   #satisfiedtable td,
   tr {
     margin-top: 10%;
@@ -660,7 +658,7 @@ input {
   }
 
 #changecolour {
-  margin-left:70%;
+  margin-left:71%;
   position: absolute;
   margin-top: 8%;
 }
@@ -685,8 +683,11 @@ input {
     /* position: relative; */
     font-family: "nunitolight";
   }
+  #addbasket_button {
+    margin-right: 48.5%;
+  }
   #cancel_button {
-    left: 6.25%;
+    left: 5.5%;
     margin-top: 5%;
   }
   #done_button {
@@ -702,21 +703,38 @@ input {
     padding-bottom: 3em;
   }
   #posterfooter {
-    padding-top: 32.5%;
+    padding-top: 28.5%;
     margin-left: 41.5%;
+    font-size: 20px;
   }
-
+  #satisfied {
+    margin-left: 42.5%;
+  }
   #cancel_button {
-    left: 8.5%;
+    left: 7.5%;
+    margin-top: 6%;
   }
 
   #addbasket_button {
-    margin-right: 46.5%;
+    margin-right: 48%;
   }
   .fas .fa-backspace {
     font-size: 1em;
   }
-
+  #tableposter {
+    border: none;
+    position: absolute;
+    display: block;
+    border-collapse: collapse; 
+    padding: 0;
+    border-spacing: 0;
+    margin-left: 42%;
+  }
+  #tableposter img{
+    width: 7em;
+    display: block;
+  }
+ 
   #satisfiedtable img {
     width: 7em;
     display: block;
@@ -740,13 +758,27 @@ input {
   }
   #chooseletter {
     margin-left: 16%;
-    margin-top: 8%;
+    margin-top: 6%;
   }
   #done_button {
-    margin-right: 21%;
+    margin-right: 22%;
     margin-top: 22%;
   }
+
+
+  .basket-table table td,
+  tr {
+    padding: 0;
+    cursor: pointer;
+  }
+  .basket-table img {
+    width: 2em;
+    /* border-collapse: collapse; */
+    /* display: block; */
+  }
+ 
 }
+
 @media (-webkit-min-device-pixel-ratio: 1.1) {
   .mail {
     padding-bottom: 1.5em;

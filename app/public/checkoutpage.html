@@ -89,7 +89,7 @@
     background-color: #c2c2c2;
     color: white;
     padding: 12px;
-    margin-left: 17%;
+    margin-left: 0%;
     margin-top: 2%;
     border: none;
     width: 20%;
@@ -114,30 +114,31 @@
   }
 
   #sameaddress {
-    padding-left: 16%;
+    padding-left: 18%;
 
   }
 
   #newsletter {
-    padding-left: 16%;
+    padding-left: 18%;
   }
 
   span.price {
     float: right;
     color: grey;
-
+    width: auto;
   }
   .basket-container {
     margin-left: 0%;
     margin-top: 0%;
     margin-bottom: 2%;
     display: inline-block;
-    width: 48.5%;
+    width: 43%;
     position: absolute;
   }
   #totalbasket{
-    margin-top: 1%;
+    margin-top: 4%;
   }
+
   .quantity{
   display: inline-block;
   vertical-align: middle;
@@ -163,6 +164,16 @@
     .col-25 {
       margin-bottom: 15px;
     }
+  }
+  @media only screen and (min-device-width: 2160px) {
+    .basket-container {
+
+    width: 48%;
+
+  }
+  #totalbasket{
+    margin-top: 6%;
+  }
   }
 </style>
 
@@ -241,32 +252,30 @@
             </span>
           </h4>
           <div class="basket-container">
-            
+    
+    
           </div>
-          
         </div>
-     
       </div>
+    
     </div>
     <div class="row">
       <div class="col-25">
         <div class="container">
-    <div id="totalbasket">
-        
-    </div>
+          <div id="totalbasket">
+          </div>
+              <div  id="submit">
+                <input type="submit" id="submit" value="Go to payment" class="btn" onclick="getInfo()" />
+              </div>
+        </div>
       </div>
-      </div>
     </div>
-    <input type="submit" id="submit" value="Go to payment" class="btn" onclick="getInfo()" />
-    <!-- <a href="/payment"  class="btn" onclick="getInfo()">Pay Order</a> -->
+
     </form>
   </div>
 
 </div>
-</div>
 
-
-</div>
 
 <script>
   let posters = JSON.parse(sessionStorage.posters);

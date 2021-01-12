@@ -24,7 +24,7 @@ const setValueToNull = require("../middelware/setValueNull.js");
 
 
 
-route.post("/createorder", async (req, res) => {
+route.post("/createorder", async (req, res, next) => {
   console.log(req.body)
    
     const { 
@@ -60,7 +60,54 @@ route.post("/createorder", async (req, res) => {
 
       if (newPosters, newFullName, newPhone, newAddress, newCity, newZip, email){
 
+        const customerFound = await Customer.query().select()
+            .where({
+              full_name: newFullName,
+              email: email,
+            })
+            .limit(1);
+         
+          if (customerFound.length > 0) {
+          console.log("found:",customerFound);
+   
+
+          newPosters.forEach(async (poster) => {
+            const formats = await Format.query()
+              .select()
+              .where({ format_no: poster.size })
+              .limit(1);
+            customerFound.forEach((customer)=>{
+
+            
+            formats.forEach(async (format) => {
+              await Item.query().insert({
+                item_name: poster.pname,
+                format_uuid: format.format_uuid,
+              });
+
+              const newItem = await Item.query()
+                .select()
+                .where({ item_name: poster.pname })
+                .limit(1);
+              newItem.forEach(async (item) => {
+                await Order.query().insert({
+                  order_title: item.item_name,
+                  amount: poster.quantity,
+                  price_per_item: format.price,
+                  total_price: format.price * poster.quantity,
+                  item_uuid: item.item_uuid,
+                  customer_uuid: customer.customer_uuid,
+                });
+              });
+            });
+          });
+        });
+        return res.redirect('/payment');
+
           
+        
+            
+        } else {
           await Customer.query().insert({           
             email: email,
             full_name: newFullName,
@@ -76,7 +123,6 @@ route.post("/createorder", async (req, res) => {
           
           });
         
-
           const customers = await Customer.query()
             .select()
             .where({ full_name: newFullName });
@@ -112,8 +158,14 @@ route.post("/createorder", async (req, res) => {
             });
           });
         });
-          res.redirect('/payment');
-        }
+        
+      
+          
+      }
+    }
+    res.redirect('/payment');
+      
+      
   } catch (error) {
     console.log(error);
   }
