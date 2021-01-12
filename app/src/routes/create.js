@@ -39,7 +39,9 @@ route.post("/createorder", async (req, res) => {
       invoicephone,
       invoiceaddress,
       invoicecity,
-      invoicezip } = req.body;
+      invoicezip,
+      newsletter
+    } = req.body;
 
   const newPosters = checkParameter(posters);
   const newFullName = checkParameter(fullname);
@@ -100,9 +102,9 @@ route.post("/createorder", async (req, res) => {
               newItem.forEach(async (item) => {
                 await Order.query().insert({
                   order_title: item.item_name,
-                  amount: poster.amount,
+                  amount: poster.quantity,
                   price_per_item: format.price,
-                  total_price: format.price * poster.amount,
+                  total_price: format.price * poster.quantity,
                   item_uuid: item.item_uuid,
                   customer_uuid: customer.customer_uuid,
                 });
@@ -155,7 +157,7 @@ function createPdfXml(){
     // const itemName = poster.pname;
     // const dimension = "Plakater " + poster.size;
     // const pages = 1;
-    // const amount = poster.amount;
+    // const amount = poster.quantity;
     // const pdfFileName = orderNo + "_" + poster.pname;
     // const pricePerItem = price_per_item[m]; 
     // const TotalPrice = total_price[m];

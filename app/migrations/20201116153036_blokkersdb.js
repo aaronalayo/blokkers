@@ -1,12 +1,12 @@
 
 exports.up = async function(knex) {
     await knex.schema.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
-    return knex.schemacd
+    return knex.schema
 
     .createTable('formats',(table)=>{
         table.uuid('format_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
         table.string('format_no').notNullable();
-        table.string('size').notNullable();r
+        table.string('size').notNullable();
         table.decimal('price').unsigned().notNullable();
   
     })
@@ -17,8 +17,7 @@ exports.up = async function(knex) {
         table.foreign('format_uuid').references('formats.format_uuid');
 
        })
-    .createTable('customers',
-    (table)=>{
+    .createTable('customers',(table)=>{
         table.uuid('customer_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
         table.string('full_name').notNullable();
         table.string('phone').notNullable();

@@ -610,7 +610,13 @@ input {
     padding: 0;
     cursor: pointer;
   }
-
+  .basket-container {
+    margin-left: 0%;
+    margin-top: 3%;
+    /* display: inline-block; */
+    width: 60%;
+    position: absolute;
+  }
   .basket-table table td,
   tr {
     padding: 0;
