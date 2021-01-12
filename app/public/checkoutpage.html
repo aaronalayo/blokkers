@@ -235,15 +235,15 @@
 
 <script>
   let posters = JSON.parse(sessionStorage.posters);
-  let total = posters.length
-  $("#totalItems").text(total);
+  let total = 0;
   for (let i = 0; i < posters.length; i++) {
+    total += posters[i].quantity;
     $(".basket-container").append(
       `<div id="poster-display-${posters[i].pname}">
       <span id=${posters[i].pname}>${posters[i].pname}</span> 
       <span class="size">${posters[i].size}</span><span> poster</span>
 
-      x  <span id="amount" class="quantity">${posters[i].quantity}</span><span class="price ${posters[i].size}-price">${findPrice(posters[i].size)}</span>
+      x  <span id="amount" class="quantity">${posters[i].quantity}</span><span class="price ${posters[i].size}-price">${posters[i].price}</span>
       <hr class="basket-devider">
       </div>
       `);
@@ -262,6 +262,7 @@
     });
 
   };
+  $("#totalItems").text(total);
 
 
   
@@ -295,36 +296,33 @@
     });
   };
   
-  function getFormats() {
-    const fetchJson = async url => {
-      const response = await fetch(url)
-      return response.json()
-    }
-    return new Promise(function (resolve) {
-      const formats = fetchJson('/formats');
-      setTimeout(function () {
-        resolve(formats)
-      }, 200);
-    });
-  }
+  // function getFormats() {
+  //   const fetchJson = async url => {
+  //     const response = await fetch(url)
+  //     return response.json()
+  //   }
+  //   return new Promise(function (resolve) {
+  //     const formats = fetchJson('/formats');
+  //     setTimeout(function () {
+  //       resolve(formats)
+  //     }, 200);
+  //   });
+  // }
 
+  // async function findPrice(size) {
+  //   let price;
 
+  //   await getFormats().then(data => {
+  //     for (let [key] of Object.entries(data.formats)) {
+  //       if (size === data.formats[key].format_no) {
+  //         price = data.formats[key].price 
+  //         $(`.${size}-price`).text(price)
+  //       }
+  //     }
 
-
-  async function findPrice(size) {
-    let price;
-
-    await getFormats().then(data => {
-      for (let [key] of Object.entries(data.formats)) {
-        if (size === data.formats[key].format_no) {
-          price = data.formats[key].price 
-          $(`.${size}-price`).text(price)
-        }
-      }
-
-      return price
-    })     
-  };
+  //     return price
+  //   })     
+  // };
   function getInfo(){
     // let amount;
     // for (let i = 0; i < posters.length; i++) {

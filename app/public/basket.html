@@ -1,6 +1,6 @@
 <div>
     <div id="basket-header">
-        <p style="margin-right: auto;">
+        <p style="margin: auto; margin-left: inherit;">
             <span id="size"></span>
             <span> poster has been added to your basket</span>
         </p>
@@ -12,25 +12,29 @@
 
     <div id="total-amount-box">
         <a style="font-size: 30px;">Total amount</a>
-        <p style="font-size: 15px;">Subtotal</p>
+        <p><span style="font-size: 15px;">Subtotal</span><span style="float: right;" id="subtotal-amount"></span></p>
         <hr style= "color: lightgrey;">
-        <p style="font-size: 15px;">Total</p>
+        <p><span style="font-size: 15px;">Total</span><span style="float: right;" id="total-amount"></span></p>
         <a href="/checkout" class="mbtn button" id="proceed-button">Proceed to checkout</a>
     </div>
 
     
 </div>
 <script>
+    $( document ).ready(function() {
+        calculateTotal()
+    });
     var posters = JSON.parse(sessionStorage.posters);
     function updateQuantity(poster, quantity){
         posters.forEach(p => {
             if(p.pname === poster.pname){
                 p.quantity = quantity;
                 sessionStorage.setItem("posters", JSON.stringify(posters));
-                console.log(p.quantity);
+                $("#" + poster.pname + "-price").text(p.price * p.quantity);
+                calculateTotal();
             }
         });
-    }
+    };
     function increment(poster){
         let str = "#" + poster.pname + "-quantity";
         let a = $(str).text();
@@ -40,7 +44,8 @@
         }
         $(str).text(a);
         updateQuantity(poster, a);
-    }
+        
+    };
     function decrement(poster){
         let str = "#" + poster.pname + "-quantity";
         let a = $(str).text();
@@ -51,7 +56,7 @@
             $(str).text(a);
             updateQuantity(poster, a);
         }
-    }
+    };
     function remove(poster){
         console.log(poster);
         posters.forEach(p => {
@@ -65,9 +70,44 @@
                     document.location.reload(true)
                 }
             }
+        }); 
+    };
+    function getFormats() {
+        const fetchJson = async url => {
+            const response = await fetch(url)
+            return response.json()
+        }
+        return new Promise(function (resolve) {
+            const formats = fetchJson('/formats');
+            setTimeout(function () {
+                resolve(formats)
+            }, 200);
         });
-        
     }
+    async function calculatePosterPrice(poster){
+        let price;
+        await getFormats().then(data => {
+            for (let [key] of Object.entries(data.formats)) {
+                if (poster.size === data.formats[key].format_no) {
+                    price = data.formats[key].price;
+                    poster.price = price;
+                    sessionStorage.setItem("posters", JSON.stringify(posters));
+                    $("#" + poster.pname + "-price").text(poster.price * poster.quantity);
+                }
+            }
+        });     
+    };
+    function calculateTotal(){
+        let total = 0;
+        posters.forEach(poster => {
+            total += poster.quantity * poster.price;
+        });
+        $("#subtotal-amount").text(total);
+        $("#total-amount").text(total);
+        return total;
+    }
+    
+
     posters.forEach(poster => {
         var name;
         if(!$("#" + poster.pname).length){
@@ -78,8 +118,9 @@
             while($("#" + name).length){
                 name = name + 1;
             }
+            poster.pname = name;
+            sessionStorage.setItem("posters", JSON.stringify(posters));
         }
-        poster.pname = name;
         $(".basket-container").append(`<div id="poster-display-${name}">`);
         // $(`#poster-display-${name}`).append(`<input class="basket-checkbox" type="checkbox" name=${name}>`);
         $(`#poster-display-${name}`).append(`<div class="basket-table" id=${name}>`);
@@ -103,6 +144,9 @@
             <span><button id="${name}-decrease" onclick="decrement(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><</button></span>
             <span id="${name}-quantity">${poster.quantity}</span>
             <span><button onclick="increment(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)">></button></span>
+        </div>
+        <div class="poster-price">
+            <span id="${name}-price">${calculatePosterPrice(poster)}</span><span> dkk</span>
         </div>
         <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)">Remove <i class="fa fa-trash-o"></i></button>`);
         $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
