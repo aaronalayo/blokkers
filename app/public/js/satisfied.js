@@ -38,7 +38,8 @@ function addtobasket(){
       "pname": pname,
       "paths": paths,
       "size": size,
-      "quantity": 1   
+      "quantity": 1,
+      "price": 0   
   };
   console.log(poster);
  var posters = [];

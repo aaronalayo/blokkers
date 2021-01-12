@@ -279,16 +279,15 @@
 
 <script>
   let posters = JSON.parse(sessionStorage.posters);
- 
+  let total = 0;
   for (let i = 0; i < posters.length; i++) {
- 
-   
+    total += posters[i].quantity;
     $(".basket-container").append(
       `<div id="poster-display-${posters[i].pname}">
       <span id=${posters[i].pname}>${posters[i].pname}</span> 
       <span class="size">${posters[i].size}</span><span class="poster"> poster</span>
 
-      <span class="x">x</span> <span id="amount" class="quantity">${posters[i].quantity}</span><span id='itemprice' class="price ${posters[i].size}-price">${findPrice(posters[i].size)}</span>
+      <span class="x">x</span> <span id="amount" class="quantity">${posters[i].quantity}</span><span id='itemprice' class="price ${posters[i].size}-price">${posters[i].price}</span>
       <hr >
       
       </div>
@@ -309,6 +308,7 @@
     });
     
   };
+  $("#totalItems").text(total);
 
   $('#totalbasket').append(`<p>Total<span id="totalprice" class="price" style="color:black"><b>${setTotal()}</b></span></p>`)
   
@@ -349,36 +349,33 @@
     });
   };
   
-  function getFormats() {
-    const fetchJson = async url => {
-      const response = await fetch(url)
-      return response.json()
-    }
-    return new Promise(function (resolve) {
-      const formats = fetchJson('/formats');
-      setTimeout(function () {
-        resolve(formats)
-      }, 200);
-    });
-  }
+  // function getFormats() {
+  //   const fetchJson = async url => {
+  //     const response = await fetch(url)
+  //     return response.json()
+  //   }
+  //   return new Promise(function (resolve) {
+  //     const formats = fetchJson('/formats');
+  //     setTimeout(function () {
+  //       resolve(formats)
+  //     }, 200);
+  //   });
+  // }
 
+  // async function findPrice(size) {
+  //   let price;
 
+  //   await getFormats().then(data => {
+  //     for (let [key] of Object.entries(data.formats)) {
+  //       if (size === data.formats[key].format_no) {
+  //         price = data.formats[key].price 
+  //         $(`.${size}-price`).text(price)
+  //       }
+  //     }
 
-
-  async function findPrice(size) {
-    let price;
-
-    await getFormats().then(data => {
-      for (let [key] of Object.entries(data.formats)) {
-        if (size === data.formats[key].format_no) {
-          price = data.formats[key].price 
-          $(`.${size}-price`).text(price)
-        }
-      }
-
-      return price
-    })     
-  };
+  //     return price
+  //   })     
+  // };
   async function setTotal(){
     let total= 0;
     let subTotal;

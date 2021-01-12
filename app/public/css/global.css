@@ -960,13 +960,20 @@ tr {
 .size-poster{
   display: inline-block;
   vertical-align: middle;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 .quantity{
   display: inline-block;
   vertical-align: middle;
-  margin-left: 10%;
+  margin-left: 5%;
+}
+
+.poster-price{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5%;
+  font-weight: bold;
 }
 
 .basket-table{
@@ -980,15 +987,10 @@ tr {
   color: #c0c0c0;
 }
 
-.basket-checkbox{
-  margin-right: 5%;
-  color: #c0c0c0;
-}
-
 .remove-poster-btn{
   border: none;
   background-color: white;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 #total-amount-box{
