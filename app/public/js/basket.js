@@ -3,7 +3,8 @@ $( document ).ready(function() {
     displayPosters();
     calculateTotal();
 });
-var posters = JSON.parse(sessionStorage.posters);
+
+let posters = JSON.parse(sessionStorage.posters);
 
 function displayPosters(){
     if(!posters.length > 0){
@@ -13,7 +14,7 @@ function displayPosters(){
     }
     posters.forEach(poster => {
         console.log(poster);
-        var name;
+        let name;
         if(!$("#" + poster.pname).length){
             name = poster.pname;
         }
@@ -29,10 +30,10 @@ function displayPosters(){
         // $(`#poster-display-${name}`).append(`<input class="basket-checkbox" type="checkbox" name=${name}>`);
         $(`#poster-display-${name}`).append(`<div class="basket-table" id=${name}>`);
         $(`#${name}`).append(`<table class="basket-table" id="table-${name}">`);
-        var k = 0;
-        for (var i = 0; i <= 3; i++) {
+        let k = 0;
+        for (let i = 0; i <= 3; i++) {
             $(`#table-${name}`).append(`<tr id=tr-${i + 1}-${name}>`)
-            for (var j = k; j <= k + 2; j++) {
+            for (let j = k; j <= k + 2; j++) {
                 $(`#tr-${i + 1}-${name}`).append(`<td id=${j + 1}-${name}> `);
                 $(`#${j + 1}-${name}`).append(`<img src="${poster.paths[j]}">`);
                 }
