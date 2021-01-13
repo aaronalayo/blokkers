@@ -940,7 +940,7 @@ tr {
   padding: 0;
   cursor: pointer;
 }
-.basket-container {
+.basket-items {
   margin-left: 10%;
   margin-top: 3%;
   display: inline-block;

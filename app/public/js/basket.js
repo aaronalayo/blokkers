@@ -4,6 +4,7 @@ $( document ).ready(function() {
     calculateTotal();
 });
 var posters = JSON.parse(sessionStorage.posters);
+
 function displayPosters(){
     if(!posters.length > 0){
         $("#basket-header").hide();
@@ -24,7 +25,7 @@ function displayPosters(){
             poster.pname = name;
             sessionStorage.setItem("posters", JSON.stringify(posters));
         }
-        $(".basket-container").append(`<div id="poster-display-${name}">`);
+        $(".basket-items").append(`<div id="poster-display-${name}">`);
         // $(`#poster-display-${name}`).append(`<input class="basket-checkbox" type="checkbox" name=${name}>`);
         $(`#poster-display-${name}`).append(`<div class="basket-table" id=${name}>`);
         $(`#${name}`).append(`<table class="basket-table" id="table-${name}">`);
@@ -68,6 +69,7 @@ function updateQuantity(poster, quantity){
         }
     });
 };
+
 function increment(poster){
     let str = "#" + poster.pname + "-quantity";
     let a = $(str).text();
@@ -79,6 +81,7 @@ function increment(poster){
     updateQuantity(poster, a);
     
 };
+
 function decrement(poster){
     let str = "#" + poster.pname + "-quantity";
     let a = $(str).text();
@@ -90,6 +93,7 @@ function decrement(poster){
         updateQuantity(poster, a);
     }
 };
+
 function remove(poster){
     console.log(poster);
     posters.forEach(p => {
@@ -105,6 +109,7 @@ function remove(poster){
         }
     }); 
 };
+
 function getFormats() {
     const fetchJson = async url => {
         const response = await fetch(url)
@@ -117,6 +122,7 @@ function getFormats() {
         }, 200);
     });
 };
+
 async function calculatePosterPrice(poster){
     let price;
     await getFormats().then(data => {
@@ -130,6 +136,7 @@ async function calculatePosterPrice(poster){
         }
     });     
 };
+
 function calculateTotal(){
     let total = 0;
     posters.forEach(poster => {
