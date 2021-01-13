@@ -57,9 +57,7 @@ route.post("/createorder", async (req, res) => {
  
 
   try {
-
       if (newPosters, newFullName, newPhone, newAddress, newCity, newZip, email, newsletter){
-
         const customerFound = await Customer.query().select()
             .where({
               full_name: newFullName,
@@ -68,47 +66,36 @@ route.post("/createorder", async (req, res) => {
             .limit(1);
          
           if (customerFound.length > 0) {
-          console.log("found:",customerFound);
-   
-
-          newPosters.forEach(async (poster) => {
-            console.log(poster.paths)
-            const formats = await Format.query()
-              .select()
-              .where({ format_no: poster.size })
-              .limit(1);
-            customerFound.forEach((customer)=>{
-
-            
-            formats.forEach(async (format) => {
+            console.log("found:",customerFound);
+  
+            newPosters.forEach(async (poster) => {
+              console.log(poster.paths)
+              const format = await Format.query()
+                .select()
+                .where({ format_no: poster.size })
+                .limit(1);
+              
               await Item.query().insert({
                 item_name: poster.pname,
                 item_no: poster.size,
                 item_paths: poster.paths,
-                format_uuid: format.format_uuid
+                format_uuid: format[0].format_uuid
               });
 
               const newItem = await Item.query()
                 .select()
                 .where({ item_name: poster.pname })
                 .limit(1);
-              newItem.forEach(async (item) => {
-                await Order.query().insert({
-                  order_title: item.item_name,
-                  amount: poster.quantity,
-                  price_per_item: format.price,
-                  total_price: format.price * poster.quantity,
-                  item_uuid: item.item_uuid,
-                  customer_uuid: customer.customer_uuid,
-                });
+    
+              await Order.query().insert({
+                 order_title: newItem[0].item_name,
+                 amount: poster.quantity,
+                 price_per_item: format[0].price,
+                 total_price: format[0].price * poster.quantity,
+                 item_uuid: newItem[0].item_uuid,
+                 customer_uuid: customerFound[0].customer_uuid,
               });
             });
-          });
-        
-
-        });
-        
-            
         } else {
           await Customer.query().insert({           
             email: email,
@@ -126,53 +113,40 @@ route.post("/createorder", async (req, res) => {
           
           });
         
-          const customers = await Customer.query()
+          const customer = await Customer.query()
             .select()
-            .where({ full_name: newFullName }).where({email:email});
+            .where({ full_name: newFullName }).where({email:email}).limit(1);
 
           newPosters.forEach(async (poster) => {
-            const formats = await Format.query()
+            const format = await Format.query()
               .select()
               .where({ format_no: poster.size })
               .limit(1);
-            customers.forEach((customer)=>{
-
-            
-            formats.forEach(async (format) => {
-              await Item.query().insert({
-                item_name: poster.pname,
-                item_no: poster.size,
-                item_paths: poster.paths,
-                format_uuid: format.format_uuid
-
-              });
-
-              const newItem = await Item.query()
-                .select()
-                .where({ item_name: poster.pname })
-                .limit(1);
-              newItem.forEach(async (item) => {
-                await Order.query().insert({
-                  order_title: item.item_name,
-                  amount: poster.quantity,
-                  price_per_item: format.price,
-                  total_price: format.price * poster.quantity,
-                  item_uuid: item.item_uuid,
-                  customer_uuid: customer.customer_uuid,
-                });
-              });
+           
+            await Item.query().insert({
+              item_name: poster.pname,
+              item_no: poster.size,
+              item_paths: poster.paths,
+              format_uuid: format[0].format_uuid
             });
-          });
-        });
-        return res.redirect('/payment');
-       
-      }
-            
-      
-    }
-    
-    
-      
+
+            const newItem = await Item.query()
+              .select()
+              .where({ item_name: poster.pname })
+              .limit(1);
+              
+            await Order.query().insert({
+              order_title: newItem[0].item_name,
+              amount: poster.quantity,
+              price_per_item: format[0].price,
+              total_price: format[0].price * poster.quantity,
+              item_uuid: newItem[0].item_uuid,
+              customer_uuid: customer[0].customer_uuid,
+            });
+        });  
+      }  
+      return res.redirect('/payment');
+    }     
   } catch (error) {
     console.log(error);
   }
@@ -182,8 +156,8 @@ route.post("/createorder", async (req, res) => {
 route.post("/sendfiles", async (req, res) => {
   
   console.log(req.body);
-const customer = req.body.customer;
-let orderSent =[];
+  const customer = req.body.customer;
+  let orderSent =[];
   try {
     const output = "./public/output/";
     await fsExtra.emptyDir("./public/output");

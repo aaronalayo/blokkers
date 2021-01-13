@@ -7,6 +7,10 @@
         <a href="/checkout" class="mbtn button" id="proceed-button">Proceed to checkout</a>
     </div>
 
+    <div id="empty-basket" style="display: none;">
+        <p>Your basket is empty</p>
+        <a href="/#createposter">Create you poster here</a>
+    </div>
     <div class="basket-container">
     </div>
 
@@ -22,9 +26,15 @@
 </div>
 <script>
     $( document ).ready(function() {
-        calculateTotal()
+        console.log("loaded");
+        calculateTotal();
     });
     var posters = JSON.parse(sessionStorage.posters);
+    if(!posters.length > 0){
+         $("#basket-header").hide();
+         $("#total-amount-box").hide();
+         $("#empty-basket").show();
+    }
     function updateQuantity(poster, quantity){
         posters.forEach(p => {
             if(p.pname === poster.pname){
