@@ -12,7 +12,9 @@ exports.up = async function(knex) {
     })
     .createTable('items',(table)=>{ 
         table.uuid('item_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
+        table.string('item_no').notNullable(); 
         table.string('item_name').notNullable();
+        table.string('item_paths',1000).notNullable();
         table.uuid('format_uuid').notNullable();
         table.foreign('format_uuid').references('formats.format_uuid');
 

@@ -16,8 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.use(express.urlencoded({ extended: true })); 
-app.use(express.json()); 
+// app.use(express.urlencoded({ extended: true })); 
+// app.use(express.json()); 
 
 
 
@@ -25,7 +25,7 @@ app.use(express.json());
 
 const helmet = require("helmet");
 app.use(helmet.xssFilter());
-app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
+// app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
 
 app.set('trust proxy', true);
 app.use(express.static('public'));

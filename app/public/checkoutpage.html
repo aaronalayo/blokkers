@@ -53,7 +53,7 @@
   .col-25,
   .col-50,
   .col-75 {
-    padding: 50px 16px;
+    padding: 5px 16px;
   }
 
   .container {
@@ -168,13 +168,21 @@
   @media only screen and (min-device-width: 2160px) {
     .basket-container {
 
-    width: 48%;
+    width: 46.5%;
 
   }
+  
   #totalbasket{
     margin-top: 6%;
   }
   }
+  @media only screen and (min-device-width: 1920px) {
+    .basket-container {
+
+    width: 40.5%;
+
+  }
+}
 </style>
 
 
@@ -188,11 +196,11 @@
 
         <div class="row">
           <h1 class="centered">Checkout</h1>
-          <div class="col-50">
+          <div class="col-50 ">
 
             <h3>Delivery Address</h3>
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com"
+            <input  type="text" id="email" name="email" placeholder="john@example.com"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
 
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
@@ -212,23 +220,22 @@
             <label for="zip">Zip</label>
             <input type="text" id="zip" name="zip" placeholder="2500" pattern="\d{4}" required>
           </div>
-          <div id="invoiceform" class="col-50" hidden>
+          <div id="invoiceform" class="col-50 " hidden>
             <h3>Invoice Address</h3>
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
             <input type="text" id="invoicefullname" name="invoicefullname" placeholder="John M. Doe"
-              pattern="([\s!-~À-ÿĀ-ſ]+\s+[\s!-~À-ÿĀ-ſ]+\s*){1,}" required>
+              pattern="([\s!-~À-ÿĀ-ſ]+\s+[\s!-~À-ÿĀ-ſ]+\s*){1,}" >
             <label for="phone"><i class="fa fa-phone"></i> Phone number</label>
             <input type="text" id="invoicephone" name="invoicephone" placeholder="+4512345678"
-              pattern="[+]45[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" required />
+              pattern="[+]45[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}"  />
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
             <input type="text" id="invoiceaddress" name="invoiceaddress" placeholder="Hovedgade 26 st th"
-              pattern="^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$" required>
+              pattern="^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$" >
             <label for="city"><i class="fa fa-institution"></i> City</label>
             <input type="text" id="invoicecity" name="invoicecity" placeholder="Copenhagen"
-              pattern="^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$"
-              required>
+              pattern="^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$">
             <label for="zip">Zip</label>
-            <input type="text" id="invoicezip" name="invoicezip" placeholder="2500" pattern="\d{4}" required>
+            <input type="text" id="invoicezip" name="invoicezip" placeholder="2500" pattern="\d{4}" >
 
           </div>
         </div>
@@ -278,6 +285,7 @@
 
 
 <script>
+ 
   let posters = JSON.parse(sessionStorage.posters);
   let total = 0;
   for (let i = 0; i < posters.length; i++) {
@@ -326,7 +334,7 @@
   return totalItems
   };
   $("#totalItems").text(countInPosters())
-  // let totalItems  = countInPosters();
+
 
 
   function displayForm() {
@@ -376,43 +384,21 @@
   //     return price
   //   })     
   // };
-  async function setTotal(){
+ function setTotal(){
     let total= 0;
     let subTotal;
-    // let quantity = countInPosters(pname)
-    await getFormats().then(data => {
-      for (let [key] of Object.entries(data.formats)) {
         posters.forEach(poster => {
-          if (poster.size === data.formats[key].format_no) {
-              console.log(data.formats[key].price )
-              console.log(poster.quantity )
-            subTotal = parseInt(data.formats[key].price) * poster.quantity 
+            subTotal = poster.price * poster.quantity 
             console.log(subTotal)
             total += subTotal
             console.log(total)
-            $("#totalprice").text(total)
-        }
-    
+            $("#totalprice").text(total)  
         });
-     
-      
+
+        return total
       }
       
-    
-
-      return total
-    })     
-   
-    }
-   
-
   function getInfo(){
-    // let amount;
-    // for (let i = 0; i < posters.length; i++) {
-    //   amount = countInPosters(posters[i].pname);
-    //   Object.assign(posters[i], {amount: amount});
-      
-    // };
     let quantity = posters.map(poster => poster.quantity);
     let name = posters.map(poster => poster.pname)
     posters = posters.filter(({ pname }, index) => !name.includes(pname, index + 1))
@@ -431,9 +417,14 @@
     let invoicezip = $('#invoicezip').val();
     let newsletter = $('.checknews')[0].checked;
 
+    const customer = {
+      'fullname':fullname,
+      'email':email
+    }
 
+    sessionStorage.setItem("customer", JSON.stringify(customer));
 
-
+    // if(fullname, email,phone,address,city,zip){
     $.ajax({
 
       type: 'POST',
@@ -455,19 +446,27 @@
       },
       ContentType: 'application/json',
       dataType: "json",
-    }).done(function (data) {
+    }).done(function (result) {  
+      // if(result){
+      //   var returnedvalue = result.d
+      //   debugger
+      //   window.location.href = "/payment";
 
-      console.log('success', data);
-
-    }).fail(function (jqXHR, textStatus, errorThrown) {
+      //   console.log('succes!', data);
+      // }
+      
+        
+    }).fail(function ( jqXHR, textStatus, errorThrown) {
       var contentType = jqXHR.getResponseHeader("Content-Type");
       if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
         window.location.href = "/payment";
-        console.log('FAILED! ERROR: ' + errorThrown);
+      console.log('FAILED! ERROR: ' + errorThrown);
 
-      }
+         }
     });
+  // };
 
+      
   };
 
 </script>
