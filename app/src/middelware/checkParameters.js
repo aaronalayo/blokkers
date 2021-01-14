@@ -4,7 +4,6 @@ module.exports = function checkParameter (parameter) {
         return false;
     }else {
         console.log('true')
-        return parameter;
-        
+        return parameter;  
     }
 };

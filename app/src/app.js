@@ -1,11 +1,9 @@
-
 const express = require("express");
 let https = require('https');
 let http = require('http');
 
 const fs = require('fs');
 let app = express();
-
 
 const server = require("http").createServer(app);
 let bodyParser = require('body-parser')
@@ -18,10 +16,6 @@ app.use(bodyParser.json());
 
 // app.use(express.urlencoded({ extended: true })); 
 // app.use(express.json()); 
-
-
-
-
 
 const helmet = require("helmet");
 app.use(helmet.xssFilter());
@@ -47,7 +41,6 @@ knex.on( 'query', function( queryData ) {
 
 Model.knex(knex);
 
-
 const navbar = fs.readFileSync("./public/navbar.html", "utf8");
 const homePage = fs.readFileSync("./public/homepage.html", "utf8");
 const footer = fs.readFileSync("./public/footer.html", "utf8");
@@ -66,8 +59,6 @@ app.all(['*app.js*', '*_helpers/**', '*models/**', '*package.json*', '*bower.jso
   res.send({ auth: false });
 });
 
-
-
 app.get("/", (req, res) => {
   return res.send(navbar + homePage);
 });
@@ -77,11 +68,9 @@ app.get("/satisfied", (req, res) => {
   return res.send(navbar + satisfiedPage );
 });
 
-
 app.get("/basket", (req, res) => {
   return res.send(navbar + basketPage);
 });
-
 
 app.get("/checkout", (req, res) => {
 
@@ -110,13 +99,9 @@ app.get("*", (req, res) => {
   res.status(404).send("<h1>Page doesnt exist<h1>");
 });
 
-
-
 const createRoute = require('./routes/create.js');
 
 app.use(createRoute);
-
-
 
 const port = process.env.PORT ? process.env.PORT : 2000;
 server.listen(port, (error) => {

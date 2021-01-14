@@ -21,9 +21,6 @@ const checkParameter = require("../middelware/checkParameters.js");
 const { generalTextFilter, eMailFilter } = require("../middelware/generalTextFilter");
 const setValueToNull = require("../middelware/setValueNull.js");
 
-
-
-
 route.post("/createorder", async (req, res) => {
   console.log(req.body)
    
@@ -162,7 +159,6 @@ route.post("/sendfiles", async (req, res) => {
     const output = "./public/output/";
     await fsExtra.emptyDir("./public/output");
   
-  
     const ext = {
       pdf: ".pdf",
       xml: ".xml",
@@ -173,7 +169,7 @@ route.post("/sendfiles", async (req, res) => {
         .withGraphJoined("customer").where({ full_name: customer.fullname }).where({email:customer.email})
         .withGraphJoined("item");
   
-       orders.forEach(order => {
+    orders.forEach(order => {
       orderSent.push(order.order_no);
 
       const orderNo = order.order_no;

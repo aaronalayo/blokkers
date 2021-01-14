@@ -111,14 +111,10 @@ span.price {
 }
 </style>
 <body>
-
-
     <div class="row">
         <div class="col-50">      
           <div class="container">
-
       <form >
- 
             <h3>Payment</h3>
             <label for="fname">Accepted Cards</label>
             <div class="icon-container">
@@ -133,18 +129,13 @@ span.price {
             <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
             <label for="expmonth">Exp Month</label>
             <input type="text" id="expmonth" name="expmonth" placeholder="September">
-
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
-              <!-- </div> -->
-              <!-- <div class="col-50"> -->
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
-
+            <label for="expyear">Exp Year</label>
+            <input type="text" id="expyear" name="expyear" placeholder="2018">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" name="cvv" placeholder="352">
           </div>
         <input type="submit" value="Pay order" class="btn" onclick="getInfo()">
       </form>
- 
 </div>
 </div>
 
@@ -156,7 +147,6 @@ span.price {
     let posters = JSON.parse(sessionStorage.getItem('posters'));
    
     $.ajax({
-
       type: 'POST',
       url: '/sendfiles',
       data: {
@@ -165,18 +155,13 @@ span.price {
       ContentType: 'application/json',
       dataType: "json",
     }).done(function (data) {
-
       console.log('success', data);
-
     }).fail(function (jqXHR, textStatus, errorThrown) {
       var contentType = jqXHR.getResponseHeader("Content-Type");
       if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
         window.location.href = "/";
         console.log('FAILED! ERROR: ' + errorThrown);
-
       }
     });
-
   };
-
 </script>
