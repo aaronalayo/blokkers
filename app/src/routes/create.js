@@ -69,7 +69,7 @@ route.post("/createorder", async (req, res) => {
             console.log("found:",customerFound);
   
             newPosters.forEach(async (poster) => {
-              console.log(poster.paths)
+              
               const format = await Format.query()
                 .select()
                 .where({ format_no: poster.size })
@@ -156,7 +156,7 @@ route.post("/createorder", async (req, res) => {
 route.post("/sendfiles", async (req, res) => {
   
   console.log(req.body);
-  const customer = req.body.customer;
+  const {customer, posters} = req.body;
   let orderSent =[];
   try {
     const output = "./public/output/";
@@ -169,7 +169,7 @@ route.post("/sendfiles", async (req, res) => {
     };
       
       const orders = await Order.query()
-        .select()
+        .select().where({pdf_sent:false})
         .withGraphJoined("customer").where({ full_name: customer.fullname }).where({email:customer.email})
         .withGraphJoined("item");
   

@@ -49,8 +49,8 @@ exports.up = async function(knex) {
         table.string('pdf_sent').defaultTo(false);
         table.foreign('item_uuid').references('items.item_uuid');
         table.foreign('customer_uuid').references('customers.customer_uuid');
-        table.timestamp('updated_at').defaultTo(knex.fn.now());
-        table.timestamp('created_at').notNullable().defaultTo(knex.raw('CURRENT_TIMESTAMP'));
+        table.timestamp('updated_at').defaultTo(knex.fn.now(),{ useTz: true });
+        table.timestamp('created_at').notNullable().defaultTo(knex.raw('CURRENT_TIMESTAMP',{ useTz: true }));
         table.unique(['order_uuid', 'order_no']);
     })
 .raw(`ALTER SEQUENCE orders_order_no_seq RESTART WITH 100`)

@@ -153,12 +153,15 @@ span.price {
 <script>
   function getInfo(){
     let customer = JSON.parse(sessionStorage.getItem('customer'));
-
+    let posters = JSON.parse(sessionStorage.getItem('posters'));
+   
     $.ajax({
 
       type: 'POST',
       url: '/sendfiles',
-      data: {customer:customer},
+      data: {
+        posters:posters,
+        customer:customer},
       ContentType: 'application/json',
       dataType: "json",
     }).done(function (data) {
