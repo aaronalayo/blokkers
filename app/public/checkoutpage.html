@@ -92,7 +92,6 @@
     margin-left: 0%;
     margin-top: 2%;
     border: none;
-    width: 20%;
     border-radius: 3px;
     cursor: pointer;
     font-size: 17px;
@@ -128,12 +127,8 @@
     width: auto;
   }
   .basket-container {
-    margin-left: 0%;
-    margin-top: 0%;
-    margin-bottom: 2%;
-    display: inline-block;
-    width: 43%;
-    position: absolute;
+    width: 100%;
+    /* position: absolute; */
   }
   #totalbasket{
     margin-top: 4%;
@@ -141,14 +136,13 @@
 
   .quantity{
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: unset;
   margin-left: 2%;
   padding-left: 2%;
 }
 .poster{
   margin-right: 2%;
   margin-left: 2%;
-  vertical-align: middle;
   display: inline-block;
 }
 .x{
@@ -185,7 +179,7 @@
 }
 </style>
 
-
+<form>
 <div class="row">
   <div class="col-75">
     <div class="container">
@@ -222,7 +216,7 @@
               pattern="([\s!-~À-ÿĀ-ſ]+\s+[\s!-~À-ÿĀ-ſ]+\s*){1,}" >
             <label for="phone"><i class="fa fa-phone"></i> Phone number</label>
             <input type="text" id="invoicephone" name="invoicephone" placeholder="+4512345678"
-              pattern="[+]45[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}"  />
+              pattern="[+]45[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}"/>
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
             <input type="text" id="invoiceaddress" name="invoiceaddress" placeholder="Hovedgade 26 st th"
               pattern="^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$" >
