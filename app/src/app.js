@@ -1,10 +1,7 @@
 const express = require("express");
 const app = express();
 const server = require("http").createServer(app);
-const io = require("socket.io")(server)
-module.exports.getIO = function(){
-  return io;
-}
+
 
 let https = require('https');
 let http = require('http');

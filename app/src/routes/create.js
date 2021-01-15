@@ -1,7 +1,5 @@
 const route = require("express").Router();
 
-const server = require('../app.js');
-const io = server.getIO(); 
 
 const fs = require("fs");
 
@@ -22,15 +20,6 @@ const checkParameter = require("../middelware/checkParameters.js");
 const { generalTextFilter, eMailFilter } = require("../middelware/generalTextFilter");
 const setValueToNull = require("../middelware/setValueNull.js");
 
-io.on('connection', socket => { 
-  console.log("Socket joined", socket.id);
-  socket.on("graphs", ({ posters}) =>  {
-    console.log(posters)
-  });
- socket.on('disconnect', () => {
-      console.log("Socket left", socket.id);
-  });
-});
 
 route.post("/createorder", async (req, res) => {
   console.log(req.body)

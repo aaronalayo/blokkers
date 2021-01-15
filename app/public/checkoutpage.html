@@ -276,21 +276,3 @@
     </div>
   </div>
 </div>
-<script>
-    let posters = JSON.parse(sessionStorage.posters);
-  //connect to localhost
-  const socket = io.connect("localhost:2000");
-  //Connec to public ip
-  // const socket = io.connect("http://35.228.37.83:80");
-  function onDataSubmitted() {
-
-          socket.emit( 'graphs', {posters:posters});
-        
-  }
-
-  socket.on("graphs", (message) => {
-          
-          $('#message').prepend(`<p>${message.message}</p>`);
-      });
-
-</script>
