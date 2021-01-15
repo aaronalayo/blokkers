@@ -76,68 +76,74 @@ function setTotal(){
   });
   return total
 };
-      
-function getInfo(){
-    // let quantity = posters.map(poster => poster.quantity);
-    // let name = posters.map(poster => poster.pname)
-    // posters = posters.filter(({ pname }, index) => !name.includes(pname, index + 1))
-    let fullname = $('#fname').val();
-    let email = $('#email').val();
-    let phone = $('#phone').val();
-    let address = $('#address').val();
-    let city = $('#city').val();
-    let zip = $('#zip').val();
-    let invoicefullname = $('#invoicefullname').val();
-    let invoicephone = $('#invoicephone').val();
-    let invoiceaddress = $('#invoiceaddress').val();
-    let invoicecity = $('#invoicecity').val();
-    let invoicezip = $('#invoicezip').val();
-    let newsletter = $('.checknews')[0].checked;
 
-    const customer = {
-      'fullname':fullname,
-      'email':email
-    }
+function getInfo() {
+  // let quantity = posters.map(poster => poster.quantity);
+  // let name = posters.map(poster => poster.pname)
+  // posters = posters.filter(({ pname }, index) => !name.includes(pname, index + 1))
+  let fullname = $("#fname").val();
+  let email = $("#email").val();
+  let phone = $("#phone").val();
+  let address = $("#address").val();
+  let city = $("#city").val();
+  let zip = $("#zip").val();
+  let invoicefullname = $("#invoicefullname").val();
+  let invoicephone = $("#invoicephone").val();
+  let invoiceaddress = $("#invoiceaddress").val();
+  let invoicecity = $("#invoicecity").val();
+  let invoicezip = $("#invoicezip").val();
+  let newsletter = $(".checknews")[0].checked;
 
-    sessionStorage.setItem("customer", JSON.stringify(customer));
-
-    if(fullname, email,phone,address,city,zip){
-    $.ajax({
-
-      type: 'POST',
-      url: '/createorder',
-      data: {
-        'posters': posters,
-        'fullname': fullname,
-        'email': email,
-        'phone': phone,
-        'address': address,
-        'city': city,
-        'zip': zip,
-        'invoicefullname': invoicefullname,
-        'invoicephone': invoicephone,
-        'invoiceaddress': invoiceaddress,
-        'invoicecity': invoicecity,
-        'invoicezip': invoicezip,
-        'newsletter': newsletter
-      },
-      ContentType: 'application/json',
-      dataType: "json",
-    }).done(function (result) {  
-      // if(result){
-      //   var returnedvalue = result.d
-      //   debugger
-      //   window.location.href = "/payment";
-
-      //   console.log('succes!', data);
-      // }
-        
-    }).fail(function ( jqXHR, textStatus, errorThrown) {
-      var contentType = jqXHR.getResponseHeader("Content-Type");
-      if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
-        window.location.href = "/payment";
-        console.log('FAILED! ERROR: ' + errorThrown);
-      }
-    });
+  const customer = {
+    fullname: fullname,
+    email: email,
   };
-};
+
+  sessionStorage.setItem("customer", JSON.stringify(customer));
+
+
+  $(document).ready(function () {
+    $("#addresssform").on("submit", function (e) {
+      e.preventDefault()
+      if (fullname, email, phone, address, city, zip) {
+        $.ajax({
+          type: "POST",
+          url: "/createorder",
+          data: {
+            posters: posters,
+            fullname: fullname,
+            email: email,
+            phone: phone,
+            address: address,
+            city: city,
+            zip: zip,
+            invoicefullname: invoicefullname,
+            invoicephone: invoicephone,
+            invoiceaddress: invoiceaddress,
+            invoicecity: invoicecity,
+            invoicezip: invoicezip,
+            newsletter: newsletter,
+          },
+          
+          ContentType: "application/json",
+          dataType: "json",
+        })
+          .done(function (data) {
+
+          })
+          .fail(function (jqXHR, textStatus, errorThrown) {
+            
+            var contentType = jqXHR.getResponseHeader("Content-Type");
+            if (jqXHR.status == 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
+              window.location = "http://localhost:2000/payment";
+              console.log("FAILED! ERROR: " + errorThrown);
+            }
+          });
+          
+        }
+    });
+    
+  });
+
+
+}

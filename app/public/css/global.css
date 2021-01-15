@@ -617,9 +617,11 @@ input {
     padding: 0;
   }
   #satisfiedtable{
+    margin-left: auto;
+    margin-right: auto;
   border-collapse: collapse;
   border: none;
-  display: block;
+
 }
   #satisfiedtable img {
     width: 10em;
@@ -675,7 +677,7 @@ input {
     margin-top: 3%;
   }
   #cancel_button {
-    margin-top: 3%;
+    margin-top: 1%;
   }
   #done_button {
     right: 25%;
@@ -747,7 +749,7 @@ input {
     margin-top: 6%;
   }
   #done_button {
-    margin-right: 22%;
+    margin-right: 21%;
     margin-top: 22%;
   }
 
@@ -761,6 +763,9 @@ input {
     width: 2em;
     /* border-collapse: collapse; */
     /* display: block; */
+  }
+  #cancel_button {
+    margin-top: 1%;
   }
  
 }

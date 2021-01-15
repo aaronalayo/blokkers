@@ -1,13 +1,17 @@
 const express = require("express");
+const app = express();
+const server = require("http").createServer(app);
+
+
 let https = require('https');
 let http = require('http');
 
 const fs = require('fs');
-let app = express();
 
-const server = require("http").createServer(app);
+
+
+
 let bodyParser = require('body-parser')
-
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
