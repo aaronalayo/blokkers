@@ -77,10 +77,26 @@ function setTotal(){
   return total
 };
 
+function validateForm() {
+  
+  let name = document.getElementById('name').value
+  if (name == ""){
+    alert("Please enter a name");
+  } else if(name.length >13){
+    alert("Name must be between 1 and 12 characters!");
+
+  } 
+};
+
+const emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+const nameFilter = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+const phoneFilter = /^[+]45[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}/;
+const addressFilter = /^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$/;
+const cityFilter = /^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
+const zipFilter = /\d{4}/;
 function getInfo() {
-  // let quantity = posters.map(poster => poster.quantity);
-  // let name = posters.map(poster => poster.pname)
-  // posters = posters.filter(({ pname }, index) => !name.includes(pname, index + 1))
+
+
   let fullname = $("#fname").val();
   let email = $("#email").val();
   let phone = $("#phone").val();
@@ -94,6 +110,22 @@ function getInfo() {
   let invoicezip = $("#invoicezip").val();
   let newsletter = $(".checknews")[0].checked;
 
+  // if(nameFilter.test(String(fullname).toLowerCase()) == false){
+  //   alert("Enter a valid name");
+  if(emailFilter.test(String(email).toLowerCase()) == false){
+    alert("Enter a valid email");
+  }else if(phoneFilter.test(String(phone).toLowerCase()) == false){
+    alert("Enter a valid phone number");
+  }else if(addressFilter.test(String(address).toLowerCase()) == false){
+    alert("Enter a valid address");
+  }else if(cityFilter.test(String(city).toLowerCase()) == false){
+    alert("Enter a valid city");
+  } else if(zipFilter.test(String(zip).toLowerCase()) == false){
+    alert("Enter a valid zip code");
+  } else {
+
+
+
   const customer = {
     fullname: fullname,
     email: email,
@@ -102,13 +134,15 @@ function getInfo() {
   sessionStorage.setItem("customer", JSON.stringify(customer));
 
 
-  $(document).ready(function () {
-    $("#addresssform").on("submit", function (e) {
-      e.preventDefault()
+  // $(document).ready(function () {
+    // $("#addressform").on("submit", function (e) {
+    //   e.preventDefault()
       if (fullname, email, phone, address, city, zip) {
         $.ajax({
+
           type: "POST",
           url: "/createorder",
+          timeout: 400,
           data: {
             posters: posters,
             fullname: fullname,
@@ -128,22 +162,76 @@ function getInfo() {
           ContentType: "application/json",
           dataType: "json",
         })
-          .done(function (data) {
-
+   
+        
+        
+          .done(function (link) {
+         
           })
           .fail(function (jqXHR, textStatus, errorThrown) {
             
             var contentType = jqXHR.getResponseHeader("Content-Type");
-            if (jqXHR.status == 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
-              window.location = "http://localhost:2000/payment";
+            if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
+              window.location.href = "/payment"
               console.log("FAILED! ERROR: " + errorThrown);
             }
           });
-          
+          return false
         }
-    });
+  
+    // });
     
-  });
-
+  // });
+}
 
 }
+
+
+
+// function getInfo() {
+//   let fullname = $("#fname").val();
+//   let email = $("#email").val();
+//   let phone = $("#phone").val();
+//   let address = $("#address").val();
+//   let city = $("#city").val();
+//   let zip = $("#zip").val();
+//   let invoicefullname = $("#invoicefullname").val();
+//   let invoicephone = $("#invoicephone").val();
+//   let invoiceaddress = $("#invoiceaddress").val();
+//   let invoicecity = $("#invoicecity").val();
+//   let invoicezip = $("#invoicezip").val();
+//   let newsletter = $(".checknews")[0].checked;
+
+//   const customer = {
+//     fullname: fullname,
+//     email: email,
+//     phone:phone,
+//     address:address,
+//     city:city,
+//     invoicefullname:invoicefullname,
+//     invoicephone:invoicephone,
+//     invoiceaddress:invoiceaddress,
+//     invoicecity:invoicecity,
+//     invoicezip:invoicezip,
+//     newsletter:newsletter
+
+//   };
+
+//   // sessionStorage.setItem("customer", JSON.stringify(customer));
+
+//   var CB=customer;
+//   console.log(CB)
+//   xhttp = new XMLHttpRequest();
+//   xhttp.onreadystatechange = function() {
+//       if (xhttp.readyState == 4 && xhttp.status == 200)
+//       window.location.href = "/payment"
+//     };
+  
+
+  
+//   xhttp.open("POST", "/createorder", true);
+//   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//   xhttp.send('customer='+ customer);
+ 
+
+// }

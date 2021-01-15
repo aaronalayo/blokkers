@@ -143,7 +143,10 @@ route.post("/createorder", async (req, res) => {
             });
         });  
       }  
-      return res.redirect('/payment');
+      const link = "/payment";
+
+
+      return res.send(link);
     }     
   } catch (error) {
     console.log(error);

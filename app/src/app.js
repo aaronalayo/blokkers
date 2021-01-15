@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 
 const helmet = require("helmet");
 app.use(helmet.xssFilter());
-// app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
+app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
 
 app.set('trust proxy', true);
 app.use(express.static('public'));
@@ -55,7 +55,6 @@ const paymentPage = fs.readFileSync("./public/paymentpage.html", 'utf8');
 const aboutPage = fs.readFileSync("./public/aboutpage.html", 'utf8');
 const contactPage = fs.readFileSync("./public/contactpage.html", 'utf8');
 
-const restrictions= require('./middelware/restrict.js');
 
 const Format = require("./model/Format.js");
 
