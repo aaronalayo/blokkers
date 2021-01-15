@@ -77,16 +77,6 @@ function setTotal(){
   return total
 };
 
-function validateForm() {
-  
-  let name = document.getElementById('name').value
-  if (name == ""){
-    alert("Please enter a name");
-  } else if(name.length >13){
-    alert("Name must be between 1 and 12 characters!");
-
-  } 
-};
 
 const emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 const nameFilter = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
