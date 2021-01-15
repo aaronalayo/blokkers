@@ -1,9 +1,10 @@
 const route = require("express").Router();
 
+const server = require('../app.js');
+const io = server.getIO(); 
+
 const fs = require("fs");
-const navbar = fs.readFileSync("./public/navbar.html", "utf8");
-const checkOutPage = fs.readFileSync("./public/checkoutpage.html", 'utf8');
-const paymentPage = fs.readFileSync("./public/paymentpage.html", 'utf8');
+
 
 const PDFDocument = require("pdfkit");
 const builder = require("xmlbuilder", { encoding: "utf-8" });
@@ -20,6 +21,16 @@ const Item = require("../model/Item.js");
 const checkParameter = require("../middelware/checkParameters.js");
 const { generalTextFilter, eMailFilter } = require("../middelware/generalTextFilter");
 const setValueToNull = require("../middelware/setValueNull.js");
+
+io.on('connection', socket => { 
+  console.log("Socket joined", socket.id);
+  socket.on("graphs", ({ posters}) =>  {
+    console.log(posters)
+  });
+ socket.on('disconnect', () => {
+      console.log("Socket left", socket.id);
+  });
+});
 
 route.post("/createorder", async (req, res) => {
   console.log(req.body)
@@ -39,6 +50,7 @@ route.post("/createorder", async (req, res) => {
       invoicezip,
       newsletter
     } = req.body;
+
 
   const newPosters = checkParameter(posters);
   const newFullName = checkParameter(fullname);
