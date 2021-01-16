@@ -19,4 +19,4 @@ EXPOSE 2000
 #RUN npm i dotenv
 
 
-CMD [ "npm", "run", "start-dev" ]
+CMD [ "npm", "run", "start-dev", "start" ]
