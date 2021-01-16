@@ -152,10 +152,7 @@ function getInfo() {
           ContentType: "application/json",
           dataType: "json",
         })
-   
-        
-        
-          .done(function (link) {
+          .done(function () {
          
           })
           .fail(function (jqXHR, textStatus, errorThrown) {
@@ -178,50 +175,3 @@ function getInfo() {
 
 
 
-// function getInfo() {
-//   let fullname = $("#fname").val();
-//   let email = $("#email").val();
-//   let phone = $("#phone").val();
-//   let address = $("#address").val();
-//   let city = $("#city").val();
-//   let zip = $("#zip").val();
-//   let invoicefullname = $("#invoicefullname").val();
-//   let invoicephone = $("#invoicephone").val();
-//   let invoiceaddress = $("#invoiceaddress").val();
-//   let invoicecity = $("#invoicecity").val();
-//   let invoicezip = $("#invoicezip").val();
-//   let newsletter = $(".checknews")[0].checked;
-
-//   const customer = {
-//     fullname: fullname,
-//     email: email,
-//     phone:phone,
-//     address:address,
-//     city:city,
-//     invoicefullname:invoicefullname,
-//     invoicephone:invoicephone,
-//     invoiceaddress:invoiceaddress,
-//     invoicecity:invoicecity,
-//     invoicezip:invoicezip,
-//     newsletter:newsletter
-
-//   };
-
-//   // sessionStorage.setItem("customer", JSON.stringify(customer));
-
-//   var CB=customer;
-//   console.log(CB)
-//   xhttp = new XMLHttpRequest();
-//   xhttp.onreadystatechange = function() {
-//       if (xhttp.readyState == 4 && xhttp.status == 200)
-//       window.location.href = "/payment"
-//     };
-  
-
-  
-//   xhttp.open("POST", "/createorder", true);
-//   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//   xhttp.send('customer='+ customer);
- 
-
-// }
