@@ -1,3 +1,4 @@
+//Model for customer table
 const { Model } = require('objection');
 
 

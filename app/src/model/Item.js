@@ -1,3 +1,4 @@
+//Model for items table
 const { Model } = require('objection');
 
 

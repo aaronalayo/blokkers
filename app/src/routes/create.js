@@ -17,7 +17,6 @@ const Format = require("../model/Format.js");
 const Item = require("../model/Item.js");
 
 const checkParameter = require("../middelware/checkParameters.js");
-const { generalTextFilter, eMailFilter } = require("../middelware/generalTextFilter");
 const setValueToNull = require("../middelware/setValueNull.js");
 
 
@@ -40,13 +39,14 @@ route.post("/createorder", async (req, res) => {
       newsletter
     } = req.body;
 
-
+//Check if values are empty or null
   const newPosters = checkParameter(posters);
   const newFullName = checkParameter(fullname);
   const newPhone = checkParameter(phone);
   const newAddress = checkParameter(address);
   const newCity = checkParameter(city);
   const newZip = checkParameter(zip);
+//Check if values are empty set them to null
   const newInvoiceFullName = setValueToNull(invoicefullname);
   const newInvoicePhone = setValueToNull(invoicephone);
   const newInvoiceAddress = setValueToNull(invoiceaddress);
@@ -62,7 +62,7 @@ route.post("/createorder", async (req, res) => {
               email: email,
             })
             .limit(1);
-         
+         //Find if customer exists in the database
           if (customerFound.length > 0) {
             console.log("found:",customerFound);
   
@@ -72,7 +72,8 @@ route.post("/createorder", async (req, res) => {
                 .select()
                 .where({ format_no: poster.size })
                 .limit(1);
-              
+
+              //Insert a new item in the database
               await Item.query().insert({
                 item_name: poster.pname,
                 item_no: poster.size,
@@ -84,7 +85,9 @@ route.post("/createorder", async (req, res) => {
                 .select()
                 .where({ item_name: poster.pname })
                 .limit(1);
-    
+
+              //Insert a new order in the database 
+              //for an existing customer
               await Order.query().insert({
                  order_title: newItem[0].item_name,
                  amount: poster.quantity,
@@ -95,6 +98,7 @@ route.post("/createorder", async (req, res) => {
               });
             });
         } else {
+          //Insert a new customer in the database
           await Customer.query().insert({           
             email: email,
             full_name: newFullName,
@@ -153,14 +157,18 @@ route.post("/createorder", async (req, res) => {
   }
 });
 
-
+//Route to send the files to the FTP server
 route.post("/sendfiles", async (req, res) => {
   
   console.log(req.body);
   const {customer, posters} = req.body;
   let orderSent =[];
   try {
+
+    
     const output = "./public/output/";
+
+    //Empty the output folder
     await fsExtra.emptyDir("./public/output");
   
     const ext = {
@@ -200,7 +208,9 @@ route.post("/sendfiles", async (req, res) => {
             if (err) throw err;
             console.log("File created!");
           });
-  
+          
+          //Object containing all the 
+          //document sizes and dimesions
           let sizes = {
             A0: (2383.94, 3370.39),
             A1: [1683.78, 2383.94],
@@ -214,13 +224,9 @@ route.post("/sendfiles", async (req, res) => {
             A9: [104.88, 147.4],
             A10: [73.7, 104.88],
           };
-          // let pdfSize;
-          // for (let [key] of Object.entries(sizes)) {
-            // if (order.item.item_no == key) {
+ 
              let pdfSize = sizes[order.item.item_no];
              console.log(pdfSize)
-            // }
-          // };
 
           for(let i=0; i< posters.length; i++){
             let poster = posters[i];
@@ -228,7 +234,8 @@ route.post("/sendfiles", async (req, res) => {
             poster.pdfSize = pdfSize;
             createPoster(poster)
           };
-  
+          
+          //Create the XML object
           let xmlOrder = {
             PrintOrder: {
               "@encodingCheck": "ÅÆØåæø€©",
@@ -256,7 +263,8 @@ route.post("/sendfiles", async (req, res) => {
           let xml = builder
             .create(xmlOrder, { encoding: "UTF-8" })
             .end({ pretty: true });
-  
+          
+          //Write the XML to file
           fs.writeFile(localXml, xml, function (err) {
             if (err) {
               console.log(err);
@@ -265,7 +273,9 @@ route.post("/sendfiles", async (req, res) => {
             }
           });
         })
-    sendPdf()
+    sendPdfXml()
+
+    //Update the order after the files are sent to FTP server
     orderSent.forEach(async sentOrder => {
       await Order.query()
       .select().update({
@@ -280,7 +290,7 @@ route.post("/sendfiles", async (req, res) => {
   }
 });
 
-
+//Function to create a PDF file from a poster
 function createPoster(poster){
   let pathArr = [];
   for(let i=0; i< poster.paths.length; i++){
@@ -289,6 +299,7 @@ function createPoster(poster){
   };
   let pdfSize = poster.pdfSize;
   let localPdf = poster.pdfLocal;
+
   const doc = new PDFDocument({
     size: pdfSize,
     margins: {
@@ -299,6 +310,7 @@ function createPoster(poster){
       right: 0,
     },
   });
+
   doc.pipe(fs.createWriteStream(localPdf));
 
   let x = 0;
@@ -318,7 +330,8 @@ function createPoster(poster){
   doc.end();
 };
 
-function sendPdf(){
+//Function to send PDL and XML files to FTP server
+function sendPdfXml(){
   const output = "./public/output/";
   let localPdf = [];
   let localXml = [];
