@@ -1,3 +1,5 @@
+
+//Model for orders table
 const { Model } = require('objection');
 
 

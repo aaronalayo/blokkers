@@ -2,6 +2,7 @@ $( document ).ready(function() {
   displayCart();
 });
 
+//Displays the poster in the cart with size, quantity and price
 function displayCart(){
   let total = 0;
   for (let i = 0; i < posters.length; i++) {
@@ -33,6 +34,7 @@ function displayCart(){
   $('#totalbasket').append(`<p>Total<span id="totalprice" class="price" style="color:black"><b>${setTotal()}</b></span></p>`)
 };
 
+//Display the total for all posters in the cart
 function countInPosters() {
   let count = 0;
   let totalItems = 0;
@@ -46,6 +48,7 @@ function countInPosters() {
 
 $("#totalItems").text(countInPosters())
 
+//Displays the invoice form if customer selects to
 function displayForm() {
   $("#invoiceform").hide().prop('required', true)
   if ($('.check').is(":checked")) {
@@ -55,6 +58,7 @@ function displayForm() {
   }
 };
 
+//Checks if customer wants newsletter
 function newsLetter() {
   $('.checknews').click(function () {
     $('.checknews').attr("checked", "checked");
@@ -64,6 +68,7 @@ function newsLetter() {
   });
 };
 
+//Sets the total price 
 function setTotal(){
   let total= 0;
   let subTotal;
@@ -77,7 +82,7 @@ function setTotal(){
   return total
 };
 
-
+//Regex expressions for form validation
 const emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 const nameFilter = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 const phoneFilter = /^[+]45[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}/;
@@ -100,6 +105,8 @@ function getInfo() {
   let invoicezip = $("#invoicezip").val();
   let newsletter = $(".checknews")[0].checked;
 
+
+  //Checks form attributes
   // if(nameFilter.test(String(fullname).toLowerCase()) == false){
   //   alert("Enter a valid name");
   if(emailFilter.test(String(email).toLowerCase()) == false){
@@ -123,10 +130,7 @@ function getInfo() {
 
   sessionStorage.setItem("customer", JSON.stringify(customer));
 
-
-  // $(document).ready(function () {
-    // $("#addressform").on("submit", function (e) {
-    //   e.preventDefault()
+//Ajax POST method to send to create order route
       if (fullname, email, phone, address, city, zip) {
         $.ajax({
 
@@ -165,10 +169,7 @@ function getInfo() {
           });
           return false
         }
-  
-    // });
-    
-  // });
+
 }
 
 }
