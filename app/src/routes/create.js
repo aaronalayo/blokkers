@@ -214,46 +214,20 @@ route.post("/sendfiles", async (req, res) => {
             A9: [104.88, 147.4],
             A10: [73.7, 104.88],
           };
-          let pdfSize;
-          for (let [key] of Object.entries(sizes)) {
-            if (order.item.item_no == key) {
-              pdfSize = sizes[key];
-            }
-          };
+          // let pdfSize;
+          // for (let [key] of Object.entries(sizes)) {
+            // if (order.item.item_no == key) {
+             let pdfSize = sizes[order.item.item_no];
+             console.log(pdfSize)
+            // }
+          // };
 
-          let paths = order.item.item_paths.slice(1,324).replace(/"/g, '');
-          let pathArr = []
-          for(let i=0; i< paths.length; i++){
-           pathArr= paths.split(',');
+          for(let i=0; i< posters.length; i++){
+            let poster = posters[i];
+            poster.pdfLocal = localPdf;
+            poster.pdfSize = pdfSize;
+            createPoster(poster)
           };
-
-          const doc = new PDFDocument({
-            size: pdfSize,
-            margins: {
-              // by default, all are 72
-              top: 0,
-              bottom: 0,
-              left: 0,
-              right: 0,
-            },
-          });
-          doc.pipe(fs.createWriteStream(localPdf));
-  
-          let x = 0;
-          let y = 0;
-          let k = 0;
-          for (let i = 0; i <= 3; i++) {
-            x = 0;
-            for (let j = k; j <= k + 2; j++) {
-              doc.image("./public" + pathArr[j], x, y, {
-                fit: [pdfSize[0] / 3, pdfSize[1] / 4],
-              });
-              x += pdfSize[0] / 3;
-            }
-            y += pdfSize[1] / 4;
-            k = k + 3;
-          }
-          doc.end();
   
           let xmlOrder = {
             PrintOrder: {
@@ -306,6 +280,43 @@ route.post("/sendfiles", async (req, res) => {
   }
 });
 
+
+function createPoster(poster){
+  let pathArr = [];
+  for(let i=0; i< poster.paths.length; i++){
+    console.log(poster.paths[i]);
+   pathArr.push(poster.paths[i]);
+  };
+  let pdfSize = poster.pdfSize;
+  let localPdf = poster.pdfLocal;
+  const doc = new PDFDocument({
+    size: pdfSize,
+    margins: {
+      // by default, all are 72
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+    },
+  });
+  doc.pipe(fs.createWriteStream(localPdf));
+
+  let x = 0;
+  let y = 0;
+  let k = 0;
+  for (let i = 0; i <= 3; i++) {
+    x = 0;
+    for (let j = k; j <= k + 2; j++) {
+      doc.image("./public" + pathArr[j], x, y, {
+        fit: [pdfSize[0] / 3, pdfSize[1] / 4],
+      });
+      x += pdfSize[0] / 3;
+    }
+    y += pdfSize[1] / 4;
+    k = k + 3;
+  }
+  doc.end();
+};
 
 function sendPdf(){
   const output = "./public/output/";
