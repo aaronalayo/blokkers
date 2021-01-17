@@ -91,7 +91,7 @@ const cityFilter = /^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F
 const zipFilter = /\d{4}/;
 
 
-
+//Gets the customer information and sends to backend
 function getInfo() {
   let fullname = $("#fname").val();
   let email = $("#email").val();
