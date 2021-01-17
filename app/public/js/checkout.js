@@ -83,12 +83,13 @@ function setTotal(){
 };
 
 //Regex expressions for form validation
+const nameFilter = /^[a-zA-Z \-\_\/!0-9æøåÆØÅ\.,!?():+\[\]\n\t\r]*$/;
 const emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-const nameFilter = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 const phoneFilter = /^[+]45[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}/;
 const addressFilter = /^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$/;
 const cityFilter = /^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
 const zipFilter = /\d{4}/;
+
 function getInfo() {
 
 
@@ -107,8 +108,9 @@ function getInfo() {
 
 
   //Checks form attributes
-  // if(nameFilter.test(String(fullname).toLowerCase()) == false){
-  //   alert("Enter a valid name");
+  if(nameFilter.test(String(fullname).toLowerCase()) == false){
+    alert("Enter a valid name");
+  }else 
   if(emailFilter.test(String(email).toLowerCase()) == false){
     alert("Enter a valid email");
   }else if(phoneFilter.test(String(phone).toLowerCase()) == false){

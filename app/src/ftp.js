@@ -1,3 +1,5 @@
+
+//Setup FTP connection
 const path = require('path');
 const dotenvPath = path.join(__dirname, '..', '.env');
 require('dotenv').config({path: dotenvPath});

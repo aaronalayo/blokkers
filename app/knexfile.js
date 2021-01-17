@@ -1,4 +1,7 @@
 '--unhandled-rejections=strict'
+
+//Database connection
+
 const { knexSnakeCaseMappers} = require('objection');
 
 

@@ -28,6 +28,7 @@ app.use(express.static('public'));
 
 let router = express.Router();
 app.use('/', router);
+
 // Setup Objection + Knex
 const { Model } = require("objection");
 
@@ -43,6 +44,7 @@ knex.on( 'query', function( queryData ) {
 
 Model.knex(knex);
 
+//Read html files
 const navbar = fs.readFileSync("./public/navbar.html", "utf8");
 const homePage = fs.readFileSync("./public/homepage.html", "utf8");
 const footer = fs.readFileSync("./public/footer.html", "utf8");
@@ -60,6 +62,8 @@ app.all(['*app.js*', '*_helpers/**', '*models/**', '*package.json*', '*bower.jso
   res.send({ auth: false });
 });
 
+
+//Routes
 app.get("/", (req, res) => {
   return res.send(navbar + homePage);
 });
@@ -104,6 +108,8 @@ const createRoute = require('./routes/create.js');
 
 app.use(createRoute);
 
+
+//Server port
 const port = process.env.PORT ? process.env.PORT : 2000;
 server.listen(port, (error) => {
   if (error) {

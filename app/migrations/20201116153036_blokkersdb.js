@@ -1,4 +1,4 @@
-
+//Migration file
 exports.up = async function(knex) {
     await knex.schema.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
     return knex.schema
@@ -40,7 +40,6 @@ exports.up = async function(knex) {
         table.increments('order_no').notNullable();
         table.string('order_title').notNullable();''
         table.integer('amount').unsigned().notNullable();
-        // table.string('pdf_file_name').notNullable();
         table.decimal('price_per_item').unsigned().notNullable();
         table.decimal('total_price').unsigned().notNullable();
         table.uuid('item_uuid').notNullable();

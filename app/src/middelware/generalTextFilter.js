@@ -1,3 +1,4 @@
+//Regex expressions for form validation
 const generalTextFilter = /^[a-zA-Z \-\_\/!0-9æøåÆØÅ\.,!?():+\[\]\n\t\r]*$/;
 exports.generalTextFilter = generalTextFilter;
 const mailDataFilter = /^[a-zA-Z \-\_\/!0-9æøåÆØÅ\.,!?&#():;+\[\]\n\t\r]*$/;
