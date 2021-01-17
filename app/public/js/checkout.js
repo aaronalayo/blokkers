@@ -90,9 +90,9 @@ const addressFilter = /^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$/;
 const cityFilter = /^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
 const zipFilter = /\d{4}/;
 
+
+
 function getInfo() {
-
-
   let fullname = $("#fname").val();
   let email = $("#email").val();
   let phone = $("#phone").val();
@@ -123,8 +123,6 @@ function getInfo() {
     alert("Enter a valid zip code");
   } else {
 
-
-
   const customer = {
     fullname: fullname,
     email: email,
@@ -135,7 +133,6 @@ function getInfo() {
 //Ajax POST method to send to create order route
       if (fullname, email, phone, address, city, zip) {
         $.ajax({
-
           type: "POST",
           url: "/createorder",
           timeout: 400,
@@ -157,12 +154,9 @@ function getInfo() {
           
           ContentType: "application/json",
           dataType: "json",
-        })
-          .done(function () {
+        }).done(function (link) {
          
-          })
-          .fail(function (jqXHR, textStatus, errorThrown) {
-            
+          }).fail(function (jqXHR, textStatus, errorThrown) {
             var contentType = jqXHR.getResponseHeader("Content-Type");
             if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
               window.location.href = "/payment"

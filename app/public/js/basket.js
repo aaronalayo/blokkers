@@ -6,15 +6,23 @@ $( document ).ready(function() {
 
 let posters = JSON.parse(sessionStorage.posters);
 
+//displays all posters that are added to basket
 function displayPosters(){
+
+    //checks if there are posters added, if not it shows empty-basket div
     if(!posters.length > 0){
         $("#basket-header").hide();
         $("#total-amount-box").hide();
         $("#empty-basket").show();
     }
+
+    //goes through each poster and displays it with it's size, price and quantity
     posters.forEach(poster => {
         console.log(poster);
         let name;
+
+        //checks if element with id same as the poster name exist
+        //if yes it changes the name of the poster so a new row can be added for a poster with same name
         if(!$("#" + poster.pname).length){
             name = poster.pname;
         }
@@ -27,7 +35,6 @@ function displayPosters(){
             sessionStorage.setItem("posters", JSON.stringify(posters));
         }
         $(".basket-items").append(`<div id="poster-display-${name}">`);
-        // $(`#poster-display-${name}`).append(`<input class="basket-checkbox" type="checkbox" name=${name}>`);
         $(`#poster-display-${name}`).append(`<div class="basket-table" id=${name}>`);
         $(`#${name}`).append(`<table class="basket-table" id="table-${name}">`);
         let k = 0;
@@ -60,6 +67,7 @@ function displayPosters(){
     });    
 };
 
+//updates the quantity of the poster in the sessionStorage and updates the price
 function updateQuantity(poster, quantity){
     posters.forEach(p => {
         if(p.pname === poster.pname){
@@ -71,6 +79,7 @@ function updateQuantity(poster, quantity){
     });
 };
 
+//increments the quantity of the poster 
 function increment(poster){
     let str = "#" + poster.pname + "-quantity";
     let a = $(str).text();
@@ -83,6 +92,7 @@ function increment(poster){
     
 };
 
+//decrements the quantity of the poster
 function decrement(poster){
     let str = "#" + poster.pname + "-quantity";
     let a = $(str).text();
@@ -95,6 +105,7 @@ function decrement(poster){
     }
 };
 
+//removes a poster from the sessionStorage
 function remove(poster){
     console.log(poster);
     posters.forEach(p => {
@@ -111,6 +122,7 @@ function remove(poster){
     }); 
 };
 
+//gets the formats with their prices and returns them as Promise
 function getFormats() {
     const fetchJson = async url => {
         const response = await fetch(url)
@@ -124,6 +136,7 @@ function getFormats() {
     });
 };
 
+//calculates the poster price based on the format and quantity
 async function calculatePosterPrice(poster){
     let price;
     await getFormats().then(data => {
@@ -138,6 +151,7 @@ async function calculatePosterPrice(poster){
     });     
 };
 
+//calculates the total price of the basket
 function calculateTotal(){
     let total = 0;
     posters.forEach(poster => {

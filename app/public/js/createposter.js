@@ -1,3 +1,4 @@
+//changes the size to the one the right
 function changeSizeRight(){
     if($("#a3").is(':checked')){
         $("#a2").prop("checked", true);
@@ -7,6 +8,7 @@ function changeSizeRight(){
     }
 };
 
+//changes the size to the one on the left
 function changeSizeLeft(){
     if($("#a1").is(':checked')){
         $("#a2").prop("checked", true);
@@ -16,11 +18,13 @@ function changeSizeLeft(){
     }
 };
 
+//appends a letter to the name 
 function addLetter(id){
    let letter = $(id).text();
    $("#name").val($("#name").val() + letter);
 };
 
+//validates if the name is less than 12 characters
 function validateForm() {
   let name = document.getElementById('name').value
   if (name == ""){
@@ -36,6 +40,7 @@ function validateForm() {
   }
 };
 
+//adds a circle around each letter present in the name
 function addCircles(){
   $(".circle").each(function() {
     $(this).removeClass("circle");
@@ -48,6 +53,7 @@ function addCircles(){
   }
 };
 
+//creates an empty table with 3 columns and 4 rows
 function createTable(){
   let k = 0;
   for(let i=0; i<=3; i++){
@@ -59,6 +65,8 @@ function createTable(){
     k=k+3;
   }
 }
+
+//displays a poster with the name
 function getName() {
     let name = $("#name").val().toLowerCase();
     const letters = name.split('');
@@ -67,15 +75,18 @@ function getName() {
         name += letters[i];   
       } 
     }
-   
+  
+  //clears the tables
   $('#posterfooter').html('');
-  $('#tableposter').html(''); //clear the table
-  $('#colourtable').html(''); //clear the table
+  $('#tableposter').html(''); 
+  $('#colourtable').html(''); 
   $('choosecolor').html('');
+
+  //creates a new table and fills it with the new name letters
   createTable();
   let k = 0;
   for(let i=0; i<=3; i++){
-    for(let j=k; j<=k + 2; j++){ //fill the table
+    for(let j=k; j<=k + 2; j++){ 
       switch(name[j]) {
           case 'å':
             $("#" + (j+1)).append(`<img  src="/images/alfabet/aa/aa1.png">`);
@@ -98,7 +109,9 @@ function getName() {
   }
   $('#posterfooter').text("Click on the letters to change the colors");
     
-}
+};
+
+//displays the different letter design
 function showColor(id){
   $('#colourtable').html('');
   $('#choosecolor').html('');
@@ -132,6 +145,7 @@ function showColor(id){
     $("#done_button").show();
 }
 
+//changes the letter colour on the poster
 function changeColor(id){
   let parts = id.split('-');
   let lastSegment = parts.pop();
@@ -145,6 +159,7 @@ function onPressBackspace() {
   document.getElementById('name').value=name.substring(0,name.length -1);
 };
 
+//stores the poster name, size and letter paths to sessionStorage
 function getSrc(){
   imgs = document.getElementById('tableposter').getElementsByTagName("img");
   let imgSrcs = [];
