@@ -150,6 +150,8 @@ span.price {
 </body>
 </html>
 <script>
+  //Gets posters and customers from sessionStorage
+  //and sends them to backend
   function getInfo(){
     let customer = JSON.parse(sessionStorage.getItem('customer'));
     let posters = JSON.parse(sessionStorage.getItem('posters'));

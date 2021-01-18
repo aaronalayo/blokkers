@@ -166,8 +166,11 @@ route.post("/createorder", async (req, res) => {
 route.post("/sendfiles", async (req, res) => {
   // console.log(req.body);
   const { customer, posters } = req.body;
+  
   let orderSent = [];
   try {
+    if(customer, posters){
+   
     const output = "./public/output/";
 
     //Empty the output folder
@@ -289,6 +292,8 @@ route.post("/sendfiles", async (req, res) => {
         })
         .where({ order_no: sentOrder });
     });
+ 
+  }
   } catch (error) {
     console.log(error);
   }
