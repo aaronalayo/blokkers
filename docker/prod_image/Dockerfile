@@ -4,7 +4,7 @@ ENV NODE_VERSION 15.5.1
 
 WORKDIR /blokkers/app
 
-COPY /blokkers/app/
+COPY /blokkers/app/ ./
 
 
 RUN npm install
