@@ -150,7 +150,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  font-family: "khulalight";
+  font-family: "nunitobold";
 }
 #scroll {
   max-width: 10%;
@@ -164,7 +164,7 @@ body {
   right: 0;
   text-align: center;
   font-size: 1rem;
-  font-family: "khulalight";
+  font-family: "nunitobold";
 }
 #scroll_up {
   max-width: 10%;
@@ -752,7 +752,7 @@ input {
     margin-top: 6%;
   }
   #done_button {
-    margin-right: 21%;
+    margin-right: 22%;
     margin-top: 22%;
   }
 

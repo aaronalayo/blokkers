@@ -193,7 +193,7 @@ route.post("/sendfiles", async (req, res) => {
       orderSent.push(order.order_no);
 
       const orderNo = order.order_no;
-      const shopNo = "PinkOrange";
+      const shopNo = "Blokkers";
       const deliveryShopName = order.customer.full_name;
       const deliveryAddress = order.customer.address;
       const deliveryZipCode = order.customer.zip;
