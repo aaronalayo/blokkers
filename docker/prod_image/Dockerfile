@@ -2,9 +2,9 @@ FROM node:15.5.1-alpine3.12
 ENV NODE_VERSION 15.5.1
 
 
-WORKDIR /blokkers/app
+WORKDIR /app
 
-COPY /blokkers/app/ ./
+COPY app/ ./
 
 
 RUN npm install
