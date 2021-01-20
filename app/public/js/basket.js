@@ -41,6 +41,7 @@ function displayPosters(){
         for (let i = 0; i <= 3; i++) {
             $(`#table-${name}`).append(`<tr id=tr-${i + 1}-${name}>`)
             for (let j = k; j <= k + 2; j++) {
+                console.log(poster.paths[j]);
                 $(`#tr-${i + 1}-${name}`).append(`<td id=${j + 1}-${name}> `);
                 $(`#${j + 1}-${name}`).append(`<img src="${poster.paths[j]}">`);
                 }
@@ -161,3 +162,4 @@ function calculateTotal(){
     $("#total-amount").text(total);
     return total;
 };
+

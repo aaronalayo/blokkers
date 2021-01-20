@@ -20,14 +20,17 @@ $(document).ready(function () {
 function addtobasket(){
   imgs = document.getElementById('satisfiedtable').getElementsByTagName("img");
   var imgSrcs = [];
-
+  let origin = window.location.origin;
   for (var i = 0; i < imgs.length; i++) {
-    imgSrcs.push(imgs[i].src);
+  
+    imgSrcs.push(imgs[i].src.substr(origin.length));
   }
   const paths =[];
 
+
   for (const key in imgSrcs) {
-    paths.push(imgSrcs[key].slice(21,47));
+    
+    paths.push(imgSrcs[key]);
   }
 
   let poster = {

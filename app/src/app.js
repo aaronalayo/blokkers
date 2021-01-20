@@ -111,7 +111,8 @@ app.use(createRoute);
 
 //Server port
 const port = process.env.PORT ? process.env.PORT : 8080;
-server.listen(port, (error) => {
+const port2 = '0.0.0.0';
+server.listen(port, port2, (error) => {
   if (error) {
     console.log("error running the server");
   }
