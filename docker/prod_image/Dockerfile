@@ -4,20 +4,20 @@ ENV NODE_VERSION 15.5.1
 
 WORKDIR /blokkers/app
 
-COPY / ./
+COPY app/ ./
 
 
-RUN npm install
+
 
 
 COPY . .
 
 EXPOSE 8080
 
+RUN npm install
+
+#RUN npm i dotenv
 ENV PORT=8080
 
 
-#RUN npm i dotenv
-
-
-CMD [ "npm", "run", "start-dev"]
+CMD [ "npm", "run", "start-dev" ]
