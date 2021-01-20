@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # Expose API port to the outside
-EXPOSE 2000
+EXPOSE 8080
 
 
 #RUN npm i dotenv

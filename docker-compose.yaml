@@ -7,7 +7,7 @@ services:
       dockerfile: ./docker/prod_image/Dockerfile
     image: blokkers:local
     ports:
-      - "2000:2000" # Remember, this must correspond to the environmental variable file.
+      - "8080:8080" # Remember, this must correspond to the environmental variable file.
     container_name: blokkers
     volumes: # Only mounted if run by docker-compose up
       - ./app/src:/app/src

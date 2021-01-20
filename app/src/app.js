@@ -110,7 +110,7 @@ app.use(createRoute);
 
 
 //Server port
-const port = process.env.PORT ? process.env.PORT : 2000;
+const port = process.env.PORT ? process.env.PORT : 8080;
 server.listen(port, (error) => {
   if (error) {
     console.log("error running the server");
