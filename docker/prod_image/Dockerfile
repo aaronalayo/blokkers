@@ -12,8 +12,8 @@ RUN npm install
 
 COPY . .
 
-# Expose API port to the outside
-EXPOSE 8080
+
+ENV PORT=8080
 
 
 #RUN npm i dotenv
