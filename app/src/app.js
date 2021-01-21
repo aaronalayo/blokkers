@@ -1,7 +1,5 @@
 
 const express = require("express");
-let https = require('https');
-let http = require('http');
 
 const fs = require('fs');
 let app = express();

@@ -7,13 +7,19 @@ services:
       dockerfile: ./Dockerfile
     image: blokkers:local
     ports:
-      - "80:8080" # Remember, this must correspond to the environmental variable file.
+      
+      - "8080:80" # Remember, this must correspond to the environmental variable file.
+   
     container_name: blokkers
-    volumes: # Only mounted if run by docker-compose up
-      - ./app/src:/app/src
+    restart: always
     logging:
       driver: "json-file"
       options:
         max-file: "5"
         max-size: "1m"
+    volumes:
+      - ./app/src:/app/src
+
 # ./docker/prod_image/Dockerfile
+
+
