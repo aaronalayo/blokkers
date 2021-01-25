@@ -13,6 +13,7 @@ COPY / ./
 COPY . .
 
 EXPOSE 8080
+ENV HOST 0.0.0.0
 
 RUN npm install
 
@@ -22,10 +23,3 @@ ENV PORT=8080
 
 CMD [ "npm", "run", "start-dev" ]
 
-FROM nginx:latest
-RUN rm -rf /usr/share/nginx/html/*
-COPY app/ /usr/share/nginx/html
-
-COPY ./.nginx/nginx.conf /etc/nginx/nginx.conf
-
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
