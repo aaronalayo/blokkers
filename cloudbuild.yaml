@@ -1,0 +1,14 @@
+steps:
+  # build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/the-racer-300921/blokkers-cloud-run:${SHORT_SHA}', '.']
+  # push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/the-racer-300921/blokkers-cloud-run']
+  # deploy container image to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['beta', 'run', 'deploy', 'hello-cloud-run', '--image', 'gcr.io/the-racer-300921/blokkers-cloud-run:${SHORT_SHA}', '--region', 'europe-west1(Belgium)', '--allow-unauthenticated']
+  env:
+  - 'PORT=8080'
+images:
+- gcr.io/the-racer-300921/blokkers-cloud-run
