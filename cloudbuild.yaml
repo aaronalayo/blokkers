@@ -1,4 +1,5 @@
 steps:
+- runtime: nodejs
   # build the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/the-racer-300921/blokkers-cloud-run:${SHORT_SHA}', '.']
