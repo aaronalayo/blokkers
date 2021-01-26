@@ -1,9 +1,49 @@
 
 const express = require("express");
+const helmet = require("helmet");
+const app = express();
+const session = require('express-session');
 
 const fs = require('fs');
-let app = express();
 
+
+
+// app.use(function (req, res, next) {
+//   res.setHeader(
+//     'Content-Security-Policy-Report-Only',
+//     "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; frame-src 'self'"
+//   );
+//   next();
+// });
+const limiter = require('express-limiter')(app);
+
+// Limit requests to 100 per hour per ip address.
+limiter({
+  lookup: ['connection.remoteAddress'],
+  total: 100,
+  expire: 1000 * 60 * 60
+});
+const dotenv = require('dotenv').config();
+  app.use(
+    session({
+      cookieName: "session",
+      secret: process.env.SESSIONSECRET,
+      duration: 30 * 60 * 1000,
+      activeDuration: 5 * 60 * 1000,
+      httpOnly: true,
+      secure: true,
+      ephemeral: true,
+      resave: false,
+      saveUninitialized: true,
+      cookie: {
+        expires: 600000,
+        domain: 'localhost:8080',
+        path: '/payment',
+        expires: new Date( Date.now() + 60 * 60 * 1000 )
+      },
+    })
+  );
+  
 const server = require("http").createServer(app);
 let bodyParser = require('body-parser')
 
@@ -17,7 +57,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); 
 
 
-const helmet = require("helmet");
+// app.use(helmet());
 app.use(helmet.xssFilter());
 app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
 
@@ -62,38 +102,49 @@ app.all(['*app.js*', '*_helpers/**', '*models/**', '*package.json*', '*bower.jso
 
 
 //Routes
-app.get("/", (req, res) => {
+
+const home = "/";
+const satisfied = "/satisfied";
+const basket = "/basket";
+const checkout = "/checkout";
+const formats = "/formats";
+const payments = "/payment";
+const about = "/about";
+const contact = "/contact";
+
+
+app.get(home, (req, res) => {
   return res.send(navbar + homePage);
 });
 
-app.get("/satisfied", (req, res) => {
+app.get(satisfied, (req, res) => {
 
   return res.send(navbar + satisfiedPage );
 });
 
-app.get("/basket", (req, res) => {
+app.get(basket, (req, res) => {
   return res.send(navbar + basketPage);
 });
 
-app.get("/checkout", (req, res) => {
+app.get(checkout, (req, res) => {
 
   res.send(navbar + checkOutPage);
 
 });
 
-app.get("/formats", async (req, res)=> {   
+app.get(formats, async (req, res)=> {   
   const formats = await Format.query().select();
   res.json({ 'formats' : formats});
 });
 
-app.get("/payment", (req, res) => {
+app.get(payments, (req, res) => {
   return res.send(navbar + paymentPage);
 });
-app.get("/about", (req, res) => {
+app.get(about, (req, res) => {
   return res.send(navbar + aboutPage);
 });
 
-app.get("/contact", (req, res) => {
+app.get(contact, (req, res) => {
   return res.send(navbar + contactPage);
 });
 

@@ -2,12 +2,9 @@ const route = require("express").Router();
 
 const fs = require("fs");
 
-const PDFDocument = require("pdfkit");
 const builder = require("xmlbuilder", { encoding: "utf-8" });
 const fsExtra = require("fs-extra");
-let config = require("../ftp.js");
-let EasyFtp = require("easy-ftp");
-let ftp = new EasyFtp();
+
 
 const Customer = require("../model/Customer.js");
 const Order = require("../model/Order.js");
@@ -16,9 +13,11 @@ const Item = require("../model/Item.js");
 
 const checkParameter = require("../middelware/checkParameters.js");
 const setValueToNull = require("../middelware/setValueNull.js");
+const sendXmlPadf = require("../middelware/sendXmlPdf.js");
+const createPoster = require("../middelware/createPoster.js");
+
 
 route.post("/createorder", async (req, res) => {
-  console.log(req.body);
 
   const {
     posters,
@@ -280,7 +279,7 @@ route.post("/sendfiles", async (req, res) => {
         }
       });
     });
-    sendPdfXml();
+    sendXmlPadf();
 
     //Update the order after the files are sent to FTP server
     orderSent.forEach(async (sentOrder) => {
@@ -298,82 +297,4 @@ route.post("/sendfiles", async (req, res) => {
     console.log(error);
   }
 });
-
-//Function to create a PDF file from a poster
-function createPoster(poster) {
-  let pathArr = [];
-  for (let i = 0; i < poster.paths.length; i++) {
-    pathArr.push(poster.paths[i]);
-  }
-  let pdfSize = poster.pdfSize;
-  let localPdf = poster.pdfLocal;
-
-  const doc = new PDFDocument({
-    size: pdfSize,
-    margins: {
-      // by default, all are 72
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
-    },
-  });
-
-  doc.pipe(fs.createWriteStream(localPdf));
-
-  let x = 0;
-  let y = 0;
-  let k = 0;
-  for (let i = 0; i <= 3; i++) {
-    x = 0;
-    for (let j = k; j <= k + 2; j++) {
-      doc.image("./public" + pathArr[j], x, y, {
-        fit: [pdfSize[0] / 3, pdfSize[1] / 4],
-      });
-      x += pdfSize[0] / 3;
-    }
-    y += pdfSize[1] / 4;
-    k = k + 3;
-  }
-  doc.end();
-}
-
-//Function to send PDL and XML files to FTP server
-function sendPdfXml() {
-  const output = "./public/output/";
-  let localPdf = [];
-  let localXml = [];
-  let remotePdf = [];
-  let remoteXml = [];
-
-  let files = fs.readdirSync(output, "utf-8");
-  files.forEach((file) => {
-    if (file.split(".").pop() === "pdf") {
-      localPdf.push(output + file);
-      remotePdf.push("/" + file);
-    } else if (file.split(".").pop() === "xml") {
-      localXml.push(output + file);
-      remoteXml.push("/" + file);
-    }
-  });
-
-  let arr = [];
-  for (let i = 0; i <= remotePdf.length - 1; i++) {
-    arr.push(
-      { local: localPdf[i], remote: remotePdf[i] },
-      { local: localXml[i], remote: remoteXml[i] }
-    );
-  }
-
-  ftp.upload(arr, function (err) {
-    if (err) {
-      console.log(err);
-      ftp.close();
-    } else {
-      console.log("Uploaded pdf and xml!");
-      ftp.close();
-    }
-  });
-  ftp.connect(config);
-}
 module.exports = route;
