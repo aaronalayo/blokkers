@@ -26,11 +26,19 @@ function addLetter(id){
 
 //validates if the name is less than 12 characters
 function validateForm() {
+  $('#colourtable').html(''); 
+  $('#chooseletter').html('');
+  $('#choosecolor').html('');
+  $("#done_button").hide();
+  const nameFilter = /^[a-zA-Z \-\_\/!0-9æøåÆØÅ\.,!?():+\[\]\n\t\r]*$/;
   let name = document.getElementById('name').value
   if (name == ""){
-    alert("Please enter a name");
+    alert("Please enter letters");
+  } else if(nameFilter.test(String(name).toLowerCase()) == false){
+    alert("Invalid letters!");
+  
   } else if(name.length >13){
-    alert("Name must be between 1 and 12 characters!");
+    alert("Your letters must have between 1 and 12 characters!");
     $("#name").val("");
     $('#tableposter').html(''); //clear the table
     $('#posterfooter').html('');
@@ -39,7 +47,11 @@ function validateForm() {
     addCircles(), getName()
   }
 };
-
+function disable(){
+ document.onkeydown = function (e) {
+  return false;
+ }
+}
 //adds a circle around each letter present in the name
 function addCircles(){
   $(".circle").each(function() {
@@ -80,7 +92,8 @@ function getName() {
   $('#posterfooter').html('');
   $('#tableposter').html(''); 
   $('#colourtable').html(''); 
-  $('choosecolor').html('');
+  $('#choosecolor').html('');
+  $('#chooseletter').html('');
 
   //creates a new table and fills it with the new name letters
   createTable();

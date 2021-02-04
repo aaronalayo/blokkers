@@ -25,7 +25,9 @@
   },
   "homepage": "https://github.com/aaronalayo/blokkers#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "easy-ftp": "^0.4.1",

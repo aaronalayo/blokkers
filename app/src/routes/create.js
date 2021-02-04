@@ -1,7 +1,7 @@
 const route = require("express").Router();
 
 const fs = require("fs");
-
+const axios = require('axios');
 const builder = require("xmlbuilder", { encoding: "utf-8" });
 const fsExtra = require("fs-extra");
 
@@ -15,7 +15,6 @@ const checkParameter = require("../middelware/checkParameters.js");
 const setValueToNull = require("../middelware/setValueNull.js");
 const sendXmlPadf = require("../middelware/sendXmlPdf.js");
 const createPoster = require("../middelware/createPoster.js");
-
 
 route.post("/createorder", async (req, res) => {
 
@@ -297,4 +296,22 @@ route.post("/sendfiles", async (req, res) => {
     console.log(error);
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = route;

@@ -1,14 +1,14 @@
 $( document ).ready(function() {
     console.log("loaded");
+    
     displayPosters();
     calculateTotal();
 });
-
 let posters = JSON.parse(sessionStorage.posters);
+
 
 //displays all posters that are added to basket
 function displayPosters(){
-
     //checks if there are posters added, if not it shows empty-basket div
     if(!posters.length > 0){
         $("#basket-header").hide();

@@ -112,11 +112,18 @@ span.price {
   }
 }
 </style>
+
+
 <body>
-    <div class="row">
+  
+
+  <div class="row">
+  
         <div class="col-50">      
-          <div class="container">
-      <form >
+          <div class="container"> 
+            <div id="dibs-complete-checkout"> </div>
+              <button id="CreatePayment">Create payment</button>
+      <!-- <form >
             <h3>Payment</h3>
             <label for="fname">Accepted Cards</label>
             <div class="icon-container">
@@ -138,8 +145,8 @@ span.price {
           </div>
         <input type="submit" value="Pay order" class="btn" onclick="getInfo()">
         <a  id="cancelpayment" href="/checkout" class="btn">Cancel</a>
-      </form>
-
+      </form> 
+      -->
 
        
 
@@ -149,29 +156,4 @@ span.price {
 
 </body>
 </html>
-<script>
-  //Gets posters and customers from sessionStorage
-  //and sends them to backend
-  function getInfo(){
-    let customer = JSON.parse(sessionStorage.getItem('customer'));
-    let posters = JSON.parse(sessionStorage.getItem('posters'));
-   
-    $.ajax({
-      type: 'POST',
-      url: '/sendfiles',
-      data: {
-        posters:posters,
-        customer:customer},
-      ContentType: 'application/json',
-      dataType: "json",
-    }).done(function (data) {
-      console.log('success', data);
-    }).fail(function (jqXHR, textStatus, errorThrown) {
-      var contentType = jqXHR.getResponseHeader("Content-Type");
-      if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
-        window.location.href = "/";
-        console.log('FAILED! ERROR: ' + errorThrown);
-      }
-    });
-  };
-</script>
+
