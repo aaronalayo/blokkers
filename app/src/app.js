@@ -7,9 +7,9 @@ const cors = require('cors');
 const fs = require('fs');
 var request = require('request');
 const corsOptions = {
-  origin: 'https://9acf73a69e9d.ngrok.io',
+  
   origin: 'http://localhost:8080',
-  allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Methods", "Access-Control-Request-Headers"],
+  allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Methods", "Access-Control-Request-Headers",'Access-Control-Allow-Origin'],
   credentials: true,
   enablePreflight: true,
   optionSuccessStatus:200
@@ -33,20 +33,22 @@ app.use(express.json());
 // app.use(helmet());
 // '\'sha256-1XgMsIi6szxMi7JX5ZCg4KWReddGOu15C+cKuzlVaf4=\''
 
-app.use(helmet.contentSecurityPolicy({
-  directives:{
-    defaultSrc:["'self'",'https:', "'unsafe-inline'" ],
-    scriptSrc:["'self'",'ajax.googleapis.com','https://test.checkout.dibspayment.eu/v1/',"'unsafe-inline'","'unsafe-eval'"],
-    styleSrc:["'self'",'cdnjs.cloudflare.com',"'unsafe-inline'",'https://test.checkout.dibspayment.eu/v1/assets/css/checkout.css'],
-    // styleSrcElem:["'self'",'cdnjs.cloudflare.com','test.checkout.dibspayment.eu/v1/payments','unpkg.com/axios/dist/axios.min.js',"'unsafe-inline'","'unsafe-eval'"],
-    fontSrc:["'self'",'cdnjs.cloudflare.com',"'unsafe-inline'"],
-    frameSrc:["'self'",'https://test.checkout.dibspayment.eu/v1/payments','https://test.checkout.dibspayment.eu/'],
-    connectSrc: ["'self'", 'https://test.api.dibspayment.eu/v1/payments','https://test.checkout.dibspayment.eu/api/v1/theming/checkout']}}));
+// app.use(helmet.contentSecurityPolicy({
+//   directives:{
+//     defaultSrc:["'self'",'https:', "'unsafe-inline'" ],
+//     scriptSrc:["'self'","'unsafe-inline'",'http://*','ajax.googleapis.com','https://test.checkout.dibspayment.eu/v1/',"'unsafe-inline'","'unsafe-eval'"],
+//     styleSrc:["'self'",'cdnjs.cloudflare.com',"'unsafe-inline'",'https://test.checkout.dibspayment.eu/v1/assets/css/checkout.css','https://*'],
+//     // styleSrcElem:["'self'",'cdnjs.cloudflare.com','test.checkout.dibspayment.eu/v1/payments','unpkg.com/axios/dist/axios.min.js',"'unsafe-inline'","'unsafe-eval'"],
+//     fontSrc:["'self'",'cdnjs.cloudflare.com',"'unsafe-inline'"],
+//     frameSrc:["'self'"],
+//     // ,'https://test.checkout.dibspayment.eu/v1/payments','https://test.checkout.dibspayment.eu/'
+//     connectSrc: ["'self'"]}}));
+//     // , 'https://test.api.dibspayment.eu/v1/payments','https://test.checkout.dibspayment.eu/api/v1/theming/checkout'
 app.use(helmet.permittedCrossDomainPolicies());
 app.use(helmet.referrerPolicy());
 app.use(helmet.xssFilter());
 
-// app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
+app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
 
 
 app.set('trust proxy', true);
@@ -128,10 +130,10 @@ app.get('/createpayment', async (req, res)=> {
  request(options, function (error, response, body) {
     console.log('error:', error); // Print the error if one occurred
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    console.log('body:',body); // Print the HTML for the Google homepage.
+    console.log('body:',body); 
     res.send(body);
   });
-  console.log("Completed GET");
+
   
 });
 
@@ -158,7 +160,7 @@ app.get("*", (req, res) => {
 });
 
 const createRoute = require('./routes/create.js');
-const { body } = require("./middelware/payment.js");
+
 
 
 app.use(createRoute);

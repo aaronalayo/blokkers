@@ -1,6 +1,7 @@
 module.exports = options = {
-  host: 'http://localhost:8080',
-  uri: 'https://test.api.dibspayment.eu/v1/payments',
+  host: 'http://localhost:8080/createorder',
+  uri: 'https://test.api.dibspayment.eu/v1/payments',//test
+  // uri: 'https://api.dibspayment.eu/v1/payments',//live
   method: 'POST',
   body : `{
     "order": {
@@ -11,22 +12,22 @@ module.exports = options = {
         "unit": "pcs",
         "unitPrice": 40000,
         "taxRate": 2500,
-        "taxAmount": 100,
-        "grossTotalAmount": 400,
-        "netTotalAmount": 300
+        "taxAmount": 10000,
+        "grossTotalAmount": 40000,
+        "netTotalAmount": 30000
       }],
       "merchantNumber": 100020578,
-      "amount": 400,
+      "amount": 40000,
       "currency": "DKK",
       "reference": "Demo Order"
     }, 
     "checkout":{
-      "charge":true,
+      "charge":false,
       "publicDevice":true,
       "integrationType":"EmbeddedCheckout",
  
-      "url":"http://localhost:8080",
-      "returnUrl":"http://localhost:8080/chechout",
+      "url":"http://localhost:8080/createorder",
+      "returnUrl":"http://localhost:8080/payment",
       "termsUrl":"http://localhost:8080/toc",
       "appearance": {
         "displayOptions": {
@@ -66,7 +67,8 @@ module.exports = options = {
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'Authorization': 'test-secret-key-ef160d0b15ef4bf3b243c8f6a6183b85'
+    'Authorization': 'ef160d0b15ef4bf3b243c8f6a6183b85'
+    // 'Authorization': 'b7989e81d50b47228ac61d7763986548'
   },
 };
 

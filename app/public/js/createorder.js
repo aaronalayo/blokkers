@@ -194,34 +194,37 @@ function getInfo() {
 
 function initCheckout(paymentID){
   console.log("Checkout init")
+  const testCheckOutKey = "test-checkout-key-baa32b6941d04dedb5693f1e90456137";
+  const liveCheckOutKey = "live-checkout-key-172f052963d445a3ad0169d77eb471d9";
   var checkoutOptions = {
-    checkoutKey: 'test-checkout-key-baa32b6941d04dedb5693f1e90456137', // [Required] Test or Live checkout key with dashes
+    checkoutKey: testCheckOutKey, // [Required] Test or Live checkout key with dashes
     paymentId : paymentID, // [Required] Payment ID (GUID format) without dashes.
+
     containerId : "dibs-complete-checkout", // [Optional] Default: dibs-checkout-content
-    language: "en-GB", // [Optional] Default value: en-GB
-    theme: { // [Optional] as are all values within
-        textColor: "", // any css color
-        primaryColor: "", // any css color
-        buttonRadius: "5px",
-        buttonTextColor: "", // any css color
-        linkColor: "", // any css color
-        footerBackgroundColor: "", // any css color
-        footerOutlineColor: "", // any css color
-        footerTextColor: "", // any css color
-        backgroundColor: "", // any css color
-        panelColor: "", // any css color
-        outlineColor: "", // any css color
-        primaryOutlineColor: "", // any css color
-        panelTextColor: "", // any css color
-        panelLinkColor: "", // any css color
-        fontFamily: "Roboto", // any google font
-        buttonFontWeight: 500, //number or string
-        buttonFontStyle: "italic", // oblique, italic, etc. any valid css value
-        buttonTextTransform: "none", //any valid css text-transform
-        placeholderColor: "", // any css color
-        useLightIcons: false, // boolean
-        useLightFooterIcons: false // boolean
-    }
+    language: "da-DK", // [Optional] Default value: en-GB
+    // theme: { // [Optional] as are all values within
+    //     textColor: "#0000", // any css color
+    //     primaryColor: "rgb(212, 57, 0)", // any css color
+    //     buttonRadius: "50px",
+    //     buttonTextColor: "rgb(255, 255, 255)", // any css color
+    //     linkColor: "rgb(170, 85, 53)", // any css color
+    //     footerBackgroundColor: "rgb(170, 85, 53)", // any css color
+    //     footerOutlineColor: "", // any css color
+    //     footerTextColor: "", // any css color
+    //     backgroundColor: "rgb(255, 255, 255)", // any css color
+    //     panelColor: "rgb(255, 255, 255)", // any css color
+    //     outlineColor: "rgb(148, 148, 148)", // any css color
+    //     primaryOutlineColor: "rgb(148, 148, 148)", // any css color
+    //     panelTextColor: "", // any css color
+    //     panelLinkColor: "", // any css color
+    //     fontFamily: "Roboto", // any google font
+    //     buttonFontWeight: 500, //number or string
+    //     buttonFontStyle: "italic", // oblique, italic, etc. any valid css value
+    //     buttonTextTransform: "none", //any valid css text-transform
+    //     placeholderColor: "rgb(156, 156, 156)", // any css color
+    //     useLightIcons: false, // boolean
+    //     useLightFooterIcons: false // boolean
+    // }
 
 };
 console.log(checkoutOptions);
@@ -233,16 +236,15 @@ checkout.on('pay-initialized', function(response) {
   /*
     Complete the desired operations such as update payment
   */
-    // checkout.send('payment-order-finalized', true/false);
-  });
+    checkout.send('payment-order-finalized', true/false);
+   });
  
 //this is the event that the merchant should listen to redirect to the “payment-is-ok” page
 checkout.on('payment-completed', function(response) {
-               /*
-               Response:
-                              paymentId: string (GUID without dashes)
-               */
-               window.location = '/PaymentSuccessful';
+               
+     
+              console.log(response);
+               window.location = 'localhost:8080/payment';
 });
 }
 
