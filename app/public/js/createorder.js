@@ -127,6 +127,28 @@ function getInfo() {
     fullname: fullname,
     email: email,
   };
+  // $("#CreatePayment").on('click', function () {
+    const orderID = "Demo Order"
+    $.ajax({
+      type: "GET",
+       url: '/createpayment',
+       data: {
+          action: 'createPay',
+          orderID
+       },
+       dataType: 'json',
+       success: function (data) {
+          paymentID = JSON.stringify(data);
+          var obj = jQuery.parseJSON(paymentID);
+          paymentID = obj.paymentId;
+          console.log(paymentID)
+          initCheckout(paymentID);
+          
+       }
+       
+    });
+  // });
+  
 
   sessionStorage.setItem("customer", JSON.stringify(customer));
 
@@ -159,7 +181,7 @@ function getInfo() {
           }).fail(function (jqXHR, textStatus, errorThrown) {
             var contentType = jqXHR.getResponseHeader("Content-Type");
             if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
-              window.location.href = "/payment"
+              // window.location.href = "/payment"
               console.log("FAILED! ERROR: " + errorThrown);
             }
           });
@@ -170,5 +192,57 @@ function getInfo() {
 
 }
 
+function initCheckout(paymentID){
+  console.log("Checkout init")
+  var checkoutOptions = {
+    checkoutKey: 'test-checkout-key-baa32b6941d04dedb5693f1e90456137', // [Required] Test or Live checkout key with dashes
+    paymentId : paymentID, // [Required] Payment ID (GUID format) without dashes.
+    containerId : "dibs-complete-checkout", // [Optional] Default: dibs-checkout-content
+    language: "en-GB", // [Optional] Default value: en-GB
+    theme: { // [Optional] as are all values within
+        textColor: "", // any css color
+        primaryColor: "", // any css color
+        buttonRadius: "5px",
+        buttonTextColor: "", // any css color
+        linkColor: "", // any css color
+        footerBackgroundColor: "", // any css color
+        footerOutlineColor: "", // any css color
+        footerTextColor: "", // any css color
+        backgroundColor: "", // any css color
+        panelColor: "", // any css color
+        outlineColor: "", // any css color
+        primaryOutlineColor: "", // any css color
+        panelTextColor: "", // any css color
+        panelLinkColor: "", // any css color
+        fontFamily: "Roboto", // any google font
+        buttonFontWeight: 500, //number or string
+        buttonFontStyle: "italic", // oblique, italic, etc. any valid css value
+        buttonTextTransform: "none", //any valid css text-transform
+        placeholderColor: "", // any css color
+        useLightIcons: false, // boolean
+        useLightFooterIcons: false // boolean
+    }
 
+};
+console.log(checkoutOptions);
+let checkout = new Dibs.Checkout(checkoutOptions);
+
+checkout.on('pay-initialized', function(response) {
+
+  console.log("Checkout on")
+  /*
+    Complete the desired operations such as update payment
+  */
+    // checkout.send('payment-order-finalized', true/false);
+  });
+ 
+//this is the event that the merchant should listen to redirect to the “payment-is-ok” page
+checkout.on('payment-completed', function(response) {
+               /*
+               Response:
+                              paymentId: string (GUID without dashes)
+               */
+               window.location = '/PaymentSuccessful';
+});
+}
 

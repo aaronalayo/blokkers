@@ -5,7 +5,9 @@ const app = express();
 const session = require('express-session');
 const cors = require('cors');
 const fs = require('fs');
+var request = require('request');
 const corsOptions = {
+  origin: 'https://9acf73a69e9d.ngrok.io',
   origin: 'http://localhost:8080',
   allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Methods", "Access-Control-Request-Headers"],
   credentials: true,
@@ -29,12 +31,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); 
 
 // app.use(helmet());
-
+// '\'sha256-1XgMsIi6szxMi7JX5ZCg4KWReddGOu15C+cKuzlVaf4=\''
 
 app.use(helmet.contentSecurityPolicy({
   directives:{
     defaultSrc:["'self'",'https:', "'unsafe-inline'" ],
-    scriptSrc:["'self'",'https:','ajax.googleapis.com','https://test.checkout.dibspayment.eu/v1/payments','https://test.checkout.dibspayment.eu/','https://test.checkout.dibspayment.eu/v1/checkout.js','unpkg.com/axios/dist/axios.min.js',"'unsafe-inline'","'unsafe-eval'",'nonce-test.checkout.dibspayment.eu/v1/payments','sha256-base64 encoded hash' ],
+    scriptSrc:["'self'",'ajax.googleapis.com','https://test.checkout.dibspayment.eu/v1/',"'unsafe-inline'","'unsafe-eval'"],
     styleSrc:["'self'",'cdnjs.cloudflare.com',"'unsafe-inline'",'https://test.checkout.dibspayment.eu/v1/assets/css/checkout.css'],
     // styleSrcElem:["'self'",'cdnjs.cloudflare.com','test.checkout.dibspayment.eu/v1/payments','unpkg.com/axios/dist/axios.min.js',"'unsafe-inline'","'unsafe-eval'"],
     fontSrc:["'self'",'cdnjs.cloudflare.com',"'unsafe-inline'"],
@@ -44,17 +46,8 @@ app.use(helmet.permittedCrossDomainPolicies());
 app.use(helmet.referrerPolicy());
 app.use(helmet.xssFilter());
 
-app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
+// app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
 
-// Add Access Control Allow Origin headers
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
 
 app.set('trust proxy', true);
 app.use(express.static('public'));
@@ -91,19 +84,7 @@ const contactPage = fs.readFileSync("./public/contactpage.html", 'utf8');
 
 const Format = require("./model/Format.js");
 
-app.all(['*app.js*', '*_helpers/**', '*models/**', '*package.json*', '*bower.json*', '*README.md*', '*Public/**'], function (req, res, next){
-  res.send({ auth: false });
-});
-app.all('*', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-  );
-  next();
-});
+
 
 //Routes
 
@@ -116,36 +97,7 @@ const payment = "/payment";
 const about = "/about";
 const contact = "/contact";
 
-// var corsOptions = {
-//   origin: 'http://localhost:8080',
-//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-// }
 
-// var whitelist = ['https://test.api.dibspayment.eu/v1/payments'];
-
-// var corsOptionsDelegate = function (req, callback) {
-//   var corsOptions;
-
-//   console.log(req.header('Origin'));
-//   if (whitelist.indexOf(req.header('Origin')) !== -1) {
-    
-//     corsOptions = { origin: true} // reflect (enable) the requested origin in the CORS response
-//   } else {
-//     corsOptions = { origin: false } // disable CORS for this request
-//   }
-//   callback(null, corsOptions) // callback expects two parameters: error and options
-// }
- //Set CORS header and intercept "OPTIONS" preflight call from AngularJS
-var allowCrossDomain = function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  if (req.method === "OPTIONS") 
-      res.send(200);
-  else 
-      next();
-}
-app.use(allowCrossDomain);
 
 app.get(home, (req, res) => {
   return res.send(navbar + homePage);
@@ -170,21 +122,25 @@ app.get(formats, async (req, res)=> {
   const formats = await Format.query().select();
   res.json({ 'formats' : formats});
 });
-const createPaymentOrder = require('./middelware/payment.js');
+
+app.get('/createpayment', async (req, res)=> { 
+
+ request(options, function (error, response, body) {
+    console.log('error:', error); // Print the error if one occurred
+    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+    console.log('body:',body); // Print the HTML for the Google homepage.
+    res.send(body);
+  });
+  console.log("Completed GET");
+  
+});
+
+const options = require('./middelware/payment.js');
+
 app.get(payment, async (req, res) => {
 
-  await createPaymentOrder().then(response => {
-    console.log("esta es la:", response);
-  })
-
-
-  return res
-    // .setHeader("Access-Control-Allow-Origin", "*")
-    // .setHeader("Access-Control-Allow-Credentials", "true")
-    // .setHeader("Access-Control-Max-Age", "1800")
-    // .setHeader("Access-Control-Allow-Headers", "content-type")
-    // .setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" )
-    .status(200).send(navbar + paymentPage);
+  
+  return res.send(navbar + paymentPage);
 });
 
 
@@ -202,10 +158,11 @@ app.get("*", (req, res) => {
 });
 
 const createRoute = require('./routes/create.js');
-const paymentRoute = require('./middelware/payment.js');
+const { body } = require("./middelware/payment.js");
+
 
 app.use(createRoute);
-app.use(paymentRoute);
+// app.use(paymentRoute);
 
 
 //Server port

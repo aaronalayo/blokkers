@@ -1,110 +1,79 @@
-// const route = require("express").Router();
-const axios = require('axios');
-
-
-
-const data ={
-
+module.exports = options = {
+  host: 'http://localhost:8080',
+  uri: 'https://test.api.dibspayment.eu/v1/payments',
+  method: 'POST',
+  body : `{
     "order": {
       "items": [{
         "reference": "13",
         "name": "testproduct 1",
-        "quantity": 2,
+        "quantity": 1,
         "unit": "pcs",
-        "unitPrice": 48648,
+        "unitPrice": 40000,
         "taxRate": 2500,
-        "taxAmount": 24324,
-        "grossTotalAmount": 121620,
-        "netTotalAmount": 97296
+        "taxAmount": 100,
+        "grossTotalAmount": 400,
+        "netTotalAmount": 300
       }],
       "merchantNumber": 100020578,
-      "amount": 401220,
-      "currency": "SEK",
+      "amount": 400,
+      "currency": "DKK",
       "reference": "Demo Order"
     }, 
-    "checkout": {
-      "url": "https://localhost:8080/checkout",
-      "termsUrl": "https://localhost:8080/toc",
-      "shipping": {
-        "countries": [
-          {
-            "countryCode": "SWE"
-          }
-        ],
-        "merchantHandlesShippingCost": false
-      },
-      "consumerType": {
-        "supportedTypes": ["B2C", "B2B"],
-        "default": "B2C"
-      }
-    }
-  }
-  //This a call to dibs API to get paymnetID
-module.exports = async function createPaymentOrder() {
-  await axios.post('https://test.api.dibspayment.eu/v1/payments', {
-    
-
-      "order": {
-        "items": [{
-          "reference": "13",
-          "name": "testproduct 1",
-          "quantity": 2,
-          "unit": "pcs",
-          "unitPrice": 48648,
-          "taxRate": 2500,
-          "taxAmount": 24324,
-          "grossTotalAmount": 121620,
-          "netTotalAmount": 97296
-        }],
-        "merchantNumber": 100020578,
-        "amount": 401220,
-        "currency": "SEK",
-        "reference": "Demo Order"
-      }, 
-      "checkout": {
-        "url": "https://blokkers-42pcgbkrja-ew.a.run.app/checkout",
-        "termsUrl": "https://blokkers-42pcgbkrja-ew.a.run.app/toc",
-        "shipping": {
-          "countries": [
-            {
-              "countryCode": "SWE"
-            }
-          ],
-          "merchantHandlesShippingCost": false
+    "checkout":{
+      "charge":true,
+      "publicDevice":true,
+      "integrationType":"EmbeddedCheckout",
+ 
+      "url":"http://localhost:8080",
+      "returnUrl":"http://localhost:8080/chechout",
+      "termsUrl":"http://localhost:8080/toc",
+      "appearance": {
+        "displayOptions": {
+          "showMerchantName": true,
+          "showOrderSummary": true
         },
-        "consumerType": {
-          "supportedTypes": ["B2C", "B2B"],
-          "default": "B2C"
+        "textOptions": {
+          "completePaymentButtonText" : "order"
         }
       },
-    
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': 'ef160d0b15ef4bf3b243c8f6a6183b85'
-    }
+      "merchantHandlesConsumerData":true,
+      "consumer":{  
+        "reference":"1",
+           "email":"aaron.aa@me.com",
+           "shippingAddress":{  
+              "addressLine1":"Taastrup Have 1",
+              "addressLine2":"",
+              "postalCode":"2630",
+              "city":"Taastrup",
+              "country":"DNK"
+           },
+           "phoneNumber":{  
+              "prefix":"+45",
+              "number":"91435718"
+           },
+     
+         "company":{  
+          "name":"PinkOrange",
+          "contact":{  
+             "firstName":"Julia",
+              "lastName":"Sand"
+           }
+         }
+       }
+  }
+}`,
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Authorization': 'test-secret-key-ef160d0b15ef4bf3b243c8f6a6183b85'
+  },
+};
 
 
-  })
-    .then(res => {
-      if (res.status == 200) {
-
-        console.log("success", res)
-        return new Promise((done) => {
-          done(res);
-        });
-        //handle success here
-      }
-      console.log(res.status);
-      console.log(`statusCode: ${res.statusCode}`)
-      console.log(res)
-    })
-    .catch(error => {
-      console.log("Error retrieving paymentId", error)
-    })
-}
   
-  // module.exports = route;
-  
+
+
+
   
 
