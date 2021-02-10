@@ -1,4 +1,5 @@
 const route = require("express").Router();
+const request = require('request');
 
 const fs = require("fs");
 const axios = require('axios');
@@ -15,6 +16,159 @@ const checkParameter = require("../middelware/checkParameters.js");
 const setValueToNull = require("../middelware/setValueNull.js");
 const sendXmlPadf = require("../middelware/sendXmlPdf.js");
 const createPoster = require("../middelware/createPoster.js");
+
+route.post("/createpaymentorder", async (req, res) => {
+
+  const {
+    posters,
+    fullname,
+    phone,
+    email,
+    address,
+    city,
+    zip,
+    invoicefullname,
+    invoicephone,
+    invoiceaddress,
+    invoicecity,
+    invoicezip,
+    newsletter,
+  } = req.body;
+
+  //Check if values are empty or null
+  const newPosters = checkParameter(posters);
+  const newFullName = checkParameter(fullname);
+  const newPhone = checkParameter(phone);
+  const newAddress = checkParameter(address);
+  const newCity = checkParameter(city);
+  const newZip = checkParameter(zip);
+  //Check if values are empty set them to null
+  const newInvoiceFullName = setValueToNull(invoicefullname);
+  const newInvoicePhone = setValueToNull(invoicephone);
+  const newInvoiceAddress = setValueToNull(invoiceaddress);
+  const newInvoiceCity = setValueToNull(invoicecity);
+  const newInvoiceZip = setValueToNull(invoicezip);
+
+  try {
+    if (
+      (newPosters,
+      newFullName,
+      newPhone,
+      newAddress,
+      newCity,
+      newZip,
+      email,
+      newsletter)
+    ) {
+      console.log(newPosters)
+      let items = [];
+      let amount = 0;
+    
+
+        newPosters.forEach(async (poster) => {
+          let subAmount =0;
+          console.log(typeof poster.price)
+        const item = {
+          "reference": `${poster.pname}`,
+          "name": `${poster.pname}`,
+          "quantity": `${poster.quantity}`,
+          "unit": "poster",
+          "unitPrice": (poster.price * 100) - 2500,
+          "taxRate": 2500,
+          "taxAmount": ((poster.price * 25) / 100) * 100,
+          "grossTotalAmount": poster.price * poster.quantity * 100,
+          "netTotalAmount": ((poster.price * 100) - 2500) * poster.quantity
+        }
+        items.push(item);
+
+        subAmount = parseInt(poster.price) * parseInt(poster.quantity)*100;
+        amount += subAmount;
+      });
+      const consumer = {
+        "reference":"1",
+             "email":`${email}`,
+             "shippingAddress":{  
+                "addressLine1":`${newAddress}`,
+                "addressLine2":"",
+                "postalCode":`${newZip}`,
+                "city":`${newCity}`,
+                "country":"DNK"
+             },
+             "phoneNumber":{  
+                "prefix":"+45",
+                "number":`${newPhone.substring(3)}`
+             },
+      }
+      let options = {
+
+        host: "https://cf8ab8d550a0.ngrok.io/createorder",
+        uri: 'https://test.api.dibspayment.eu/v1/payments',//test
+        // uri: 'https://api.dibspayment.eu/v1/payments',//live
+        method: 'POST',
+        body: `{
+      "order": {
+        "items": ${JSON.stringify(items)},
+        "merchantNumber": 100020578,
+        "amount": ${amount},
+        "currency": "DKK",
+        "reference": "Demo Order"
+      }, 
+      "checkout":{
+        "charge":false,
+        "publicDevice":true,
+        "integrationType":"HostedPaymentPage",
+   
+        "url":"",
+        "returnUrl":"https://cf8ab8d550a0.ngrok.io/payment",
+        "termsUrl":"https://cf8ab8d550a0.ngrok.io/toc",
+        "appearance": {
+          "displayOptions": {
+            "showMerchantName": true,
+            "showOrderSummary": true
+          },
+          "textOptions": {
+            "completePaymentButtonText" : "order"
+          }
+        },
+        "merchantHandlesConsumerData":true,
+        "consumer":${JSON.stringify(consumer)},
+       
+           "company":{  
+            "name":"PinkOrange",
+            "contact":{  
+               "firstName":"Julia",
+                "lastName":"Sand"
+             }
+           }
+         }
+    }
+  }`,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'ef160d0b15ef4bf3b243c8f6a6183b85'
+          // 'Authorization': 'b7989e81d50b47228ac61d7763986548'
+        },
+       
+      };
+     
+        request(options, function (error, response, body) {
+          console.log(options)
+        console.log('error:', error); // Print the error if one occurred
+        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+        console.log("body:", body);
+        if(body){
+          res.json(body);
+        }
+        
+      
+      });
+      
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 route.post("/createorder", async (req, res) => {
 
@@ -68,7 +222,6 @@ route.post("/createorder", async (req, res) => {
         .limit(1);
       //Find if customer exists in the database
       if (customerFound.length > 0) {
-        console.log("found:", customerFound);
 
         newPosters.forEach(async (poster) => {
           const format = await Format.query()
@@ -98,7 +251,11 @@ route.post("/createorder", async (req, res) => {
             total_price: format[0].price * poster.quantity,
             item_uuid: newItem[0].item_uuid,
             customer_uuid: customerFound[0].customer_uuid,
-          });
+          }).returning("order_uuid").then(function (orders) {
+          if(orders){
+            console.log(orders)
+          }
+         });
         });
       } else {
         //Insert a new customer in the database
@@ -140,7 +297,7 @@ route.post("/createorder", async (req, res) => {
             .select()
             .where({ item_name: poster.pname })
             .limit(1);
-
+            console.log("pase por aqui")
           await Order.query().insert({
             order_title: newItem[0].item_name,
             amount: poster.quantity,
@@ -148,9 +305,15 @@ route.post("/createorder", async (req, res) => {
             total_price: format[0].price * poster.quantity,
             item_uuid: newItem[0].item_uuid,
             customer_uuid: customer[0].customer_uuid,
-          });
+          }).returning("order_uuid").then(function (orders) {
+            if(orders){
+              console.log(orders)
+            }
         });
+        });
+        
       }
+      
       const link = "/payment";
 
       return res.send(link);

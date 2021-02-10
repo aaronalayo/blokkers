@@ -108,56 +108,35 @@ function getInfo() {
 
 
   //Checks form attributes
-  if(nameFilter.test(String(fullname).toLowerCase()) == false){
+  if (nameFilter.test(String(fullname).toLowerCase()) == false) {
     alert("Enter a valid name");
-  }else 
-  if(emailFilter.test(String(email).toLowerCase()) == false){
-    alert("Enter a valid email");
-  }else if(phoneFilter.test(String(phone).toLowerCase()) == false){
-    alert("Enter a valid phone number");
-  }else if(addressFilter.test(String(address).toLowerCase()) == false){
-    alert("Enter a valid address");
-  }else if(cityFilter.test(String(city).toLowerCase()) == false){
-    alert("Enter a valid city");
-  } else if(zipFilter.test(String(zip).toLowerCase()) == false){
-    alert("Enter a valid zip code");
-  } else {
+  } else
+    if (emailFilter.test(String(email).toLowerCase()) == false) {
+      alert("Enter a valid email");
+    } else if (phoneFilter.test(String(phone).toLowerCase()) == false) {
+      alert("Enter a valid phone number");
+    } else if (addressFilter.test(String(address).toLowerCase()) == false) {
+      alert("Enter a valid address");
+    } else if (cityFilter.test(String(city).toLowerCase()) == false) {
+      alert("Enter a valid city");
+    } else if (zipFilter.test(String(zip).toLowerCase()) == false) {
+      alert("Enter a valid zip code");
+    } else {
 
-  const customer = {
-    fullname: fullname,
-    email: email,
-  };
-  // $("#CreatePayment").on('click', function () {
-    const orderID = "Demo Order"
-    $.ajax({
-      type: "GET",
-       url: '/createpayment',
-       data: {
-          action: 'createPay',
-          orderID
-       },
-       dataType: 'json',
-       success: function (data) {
-          paymentID = JSON.stringify(data);
-          var obj = jQuery.parseJSON(paymentID);
-          paymentID = obj.paymentId;
-          console.log(paymentID)
-          initCheckout(paymentID);
-          
-       }
-       
-    });
-  // });
-  
+      const customer = {
+        fullname: fullname,
+        email: email,
+      };
 
-  sessionStorage.setItem("customer", JSON.stringify(customer));
 
-//Ajax POST method to send to create order route
+
+      sessionStorage.setItem("customer", JSON.stringify(customer));
+
+      //Ajax POST method to send to create order route
       if (fullname, email, phone, address, city, zip) {
         $.ajax({
           type: "POST",
-          url: "/createorder",
-          timeout: 400,
+          url: "/createpaymentorder",
           data: {
             posters: posters,
             fullname: fullname,
@@ -173,78 +152,73 @@ function getInfo() {
             invoicezip: invoicezip,
             newsletter: newsletter,
           },
-          
-          ContentType: "application/json",
-          dataType: "json",
-        }).done(function (link) {
-         
+
+        })
+          .done(function (data) {
+            console.log(data)
+            // paymentID = JSON.stringify(data);
+            // hostedPayPageURL = JSON.stringify(data)
+            let obj = jQuery.parseJSON(data);
+            // let objhostedPayPageUrl = jQuery.parseJSON(hostedPayPageURL)
+            let paymentID = obj.paymentId;
+            let hostedPayPageUrl = obj.hostedPaymentPageUrl
+            // console.log(paymentID)
+            console.log(hostedPayPageUrl)
+            // initCheckout(paymentID,hostedPayPageUrl);
+            window.location = hostedPayPageUrl
+
           }).fail(function (jqXHR, textStatus, errorThrown) {
             var contentType = jqXHR.getResponseHeader("Content-Type");
             if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
               // window.location.href = "/payment"
-              console.log("FAILED! ERROR: " + errorThrown);
+
+
             }
-          });
-          return false
-        }
 
-}
-
-}
-
-function initCheckout(paymentID){
-  console.log("Checkout init")
-  const testCheckOutKey = "test-checkout-key-baa32b6941d04dedb5693f1e90456137";
-  const liveCheckOutKey = "live-checkout-key-172f052963d445a3ad0169d77eb471d9";
-  var checkoutOptions = {
-    checkoutKey: testCheckOutKey, // [Required] Test or Live checkout key with dashes
-    paymentId : paymentID, // [Required] Payment ID (GUID format) without dashes.
-
-    containerId : "dibs-complete-checkout", // [Optional] Default: dibs-checkout-content
-    language: "da-DK", // [Optional] Default value: en-GB
-    // theme: { // [Optional] as are all values within
-    //     textColor: "#0000", // any css color
-    //     primaryColor: "rgb(212, 57, 0)", // any css color
-    //     buttonRadius: "50px",
-    //     buttonTextColor: "rgb(255, 255, 255)", // any css color
-    //     linkColor: "rgb(170, 85, 53)", // any css color
-    //     footerBackgroundColor: "rgb(170, 85, 53)", // any css color
-    //     footerOutlineColor: "", // any css color
-    //     footerTextColor: "", // any css color
-    //     backgroundColor: "rgb(255, 255, 255)", // any css color
-    //     panelColor: "rgb(255, 255, 255)", // any css color
-    //     outlineColor: "rgb(148, 148, 148)", // any css color
-    //     primaryOutlineColor: "rgb(148, 148, 148)", // any css color
-    //     panelTextColor: "", // any css color
-    //     panelLinkColor: "", // any css color
-    //     fontFamily: "Roboto", // any google font
-    //     buttonFontWeight: 500, //number or string
-    //     buttonFontStyle: "italic", // oblique, italic, etc. any valid css value
-    //     buttonTextTransform: "none", //any valid css text-transform
-    //     placeholderColor: "rgb(156, 156, 156)", // any css color
-    //     useLightIcons: false, // boolean
-    //     useLightFooterIcons: false // boolean
-    // }
-
+          })
+      }
+    }
 };
-console.log(checkoutOptions);
-let checkout = new Dibs.Checkout(checkoutOptions);
 
-checkout.on('pay-initialized', function(response) {
 
-  console.log("Checkout on")
-  /*
-    Complete the desired operations such as update payment
-  */
-    checkout.send('payment-order-finalized', true/false);
-   });
+
+
+
+
+
+
+// function initCheckout(paymentID,hostedPayPageURL){
+//   console.log("Checkout init")
+// //   const testCheckOutKey = "test-checkout-key-baa32b6941d04dedb5693f1e90456137";
+// //   const liveCheckOutKey = "live-checkout-key-172f052963d445a3ad0169d77eb471d9";
+// //   let checkoutOptions = {
+// //     checkoutKey: testCheckOutKey, // [Required] Test or Live checkout key with dashes
+// //     paymentId : paymentID, // [Required] Payment ID (GUID format) without dashes.
+
+// //     containerId : "dibs-complete-checkout", // [Optional] Default: dibs-checkout-content
+// //     language: "da-DK", // [Optional] Default value: en-GB
+
  
-//this is the event that the merchant should listen to redirect to the “payment-is-ok” page
-checkout.on('payment-completed', function(response) {
+// // };
+
+// // console.log(checkoutOptions);
+// // let checkout = new Dibs.Checkout(checkoutOptions);
+
+// checkout.on('pay-initialized', function(response) {
+
+//   console.log("Checkout on")
+//   /*
+//     Complete the desired operations such as update payment
+//   */
+//     checkout.send('payment-order-finalized', true/false);
+//    });
+ 
+// //this is the event that the merchant should listen to redirect to the “payment-is-ok” page
+// checkout.on('payment-completed', function(response) {
                
      
-              console.log(response);
-               window.location = 'localhost:8080/payment';
-});
-}
+//               console.log(response);
+//                window.location = 'localhost:8080/payment';
+// });
 
+// };

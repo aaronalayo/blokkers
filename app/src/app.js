@@ -5,10 +5,9 @@ const app = express();
 const session = require('express-session');
 const cors = require('cors');
 const fs = require('fs');
-var request = require('request');
 const corsOptions = {
   
-  origin: 'http://localhost:8080',
+  origin: 'https://cf8ab8d550a0.ngrok.io/',
   allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Methods", "Access-Control-Request-Headers",'Access-Control-Allow-Origin'],
   credentials: true,
   enablePreflight: true,
@@ -49,6 +48,7 @@ app.use(helmet.referrerPolicy());
 app.use(helmet.xssFilter());
 
 app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
+
 
 
 app.set('trust proxy', true);
@@ -124,23 +124,26 @@ app.get(formats, async (req, res)=> {
   const formats = await Format.query().select();
   res.json({ 'formats' : formats});
 });
+const setOptions = require('./objects/payment.js');
 
-app.get('/createpayment', async (req, res)=> { 
+app.get('/createpayment', async (req, res) => {
+// await setOptions().then(options => {
+      // request(options, function (error, response, body) {
+      //   console.log('error:', error); // Print the error if one occurred
+      //   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      //   console.log('body:', body);
+      //   res.send(body);
+      //   console.log("request")
+      // });
 
- request(options, function (error, response, body) {
-    console.log('error:', error); // Print the error if one occurred
-    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    console.log('body:',body); 
-    res.send(body);
-  });
-
-  
+    // });
 });
 
-const options = require('./middelware/payment.js');
+
+
+
 
 app.get(payment, async (req, res) => {
-
   
   return res.send(navbar + paymentPage);
 });
