@@ -8,7 +8,6 @@ $(document).ready(function () {
     for (let j = k; j <= k + 2; j++) {
       $("#satisfiedtable").append(`<td id=${j + 1} >`);
       $("#" + (j + 1)).append(`<img src="${imgs[j]}">`);
-      console.log(j + 1);
     }
     $("#satisfiedtable").append("<tr>");
     k = k + 3;
@@ -40,7 +39,6 @@ function addtobasket(){
       "quantity": 1,
       "price": 0   
   };
-  console.log(poster);
   let posters = [];
   if(sessionStorage.getItem("posters") != null){
     console.log(true);

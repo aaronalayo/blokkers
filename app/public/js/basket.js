@@ -3,12 +3,13 @@ $( document ).ready(function() {
     
     displayPosters();
     calculateTotal();
+
 });
 let posters = JSON.parse(sessionStorage.posters);
 
-
 //displays all posters that are added to basket
 function displayPosters(){
+    
     //checks if there are posters added, if not it shows empty-basket div
     if(!posters.length > 0){
         $("#basket-header").hide();
@@ -18,9 +19,8 @@ function displayPosters(){
 
     //goes through each poster and displays it with it's size, price and quantity
     posters.forEach(poster => {
-        console.log(poster);
         let name;
-
+        
         //checks if element with id same as the poster name exist
         //if yes it changes the name of the poster so a new row can be added for a poster with same name
         if(!$("#" + poster.pname).length){
@@ -41,7 +41,6 @@ function displayPosters(){
         for (let i = 0; i <= 3; i++) {
             $(`#table-${name}`).append(`<tr id=tr-${i + 1}-${name}>`)
             for (let j = k; j <= k + 2; j++) {
-                console.log(poster.paths[j]);
                 $(`#tr-${i + 1}-${name}`).append(`<td id=${j + 1}-${name}> `);
                 $(`#${j + 1}-${name}`).append(`<img src="${poster.paths[j]}">`);
                 }
@@ -65,7 +64,9 @@ function displayPosters(){
         $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
        // $("#name").text(name);
         $("#size").text(poster.size);
+        
     });    
+    
 };
 
 //updates the quantity of the poster in the sessionStorage and updates the price
@@ -108,7 +109,6 @@ function decrement(poster){
 
 //removes a poster from the sessionStorage
 function remove(poster){
-    console.log(poster);
     posters.forEach(p => {
         if(p.pname === poster.pname){
             const index = posters.indexOf(p);
@@ -117,7 +117,7 @@ function remove(poster){
                 console.log("deleted");
                 console.log(posters);
                 sessionStorage.setItem("posters", JSON.stringify(posters));
-                document.location.reload(true)
+                window.location.href = window.location.href
             }
         }
     }); 
@@ -133,33 +133,55 @@ function getFormats() {
         const formats = fetchJson('/formats');
         setTimeout(function () {
             resolve(formats)
-        }, 200);
+        }, 50);
     });
 };
 
 //calculates the poster price based on the format and quantity
-async function calculatePosterPrice(poster){
+ function calculatePosterPrice(poster){
     let price;
-    await getFormats().then(data => {
+     getFormats().then(data => {
         for (let [key] of Object.entries(data.formats)) {
             if (poster.size === data.formats[key].format_no) {
                 price = data.formats[key].price;
                 poster.price = price;
+                let amount = poster.price * poster.quantity;
                 sessionStorage.setItem("posters", JSON.stringify(posters));
-                $("#" + poster.pname + "-price").text(poster.price * poster.quantity);
+                $("#" + poster.pname + "-price").text(amount);
+                
             }
         }
-    });     
+        
+    }); 
+    
 };
 
-//calculates the total price of the basket
 function calculateTotal(){
-    let total = 0;
+    let total= 0;
+    let subTotal;
     posters.forEach(poster => {
-        total += poster.quantity * poster.price;
-    });
-    $("#subtotal-amount").text(total);
-    $("#total-amount").text(total);
-    return total;
+         getFormats().then(data => {
+            for (let [key] of Object.entries(data.formats)) {
+                if (poster.size === data.formats[key].format_no) {
+                    price = data.formats[key].price;
+                    subTotal = price * poster.quantity
+                    console.log(subTotal)
+                    total += subTotal
+                    total = total.toFixed(Math.max(((total+'').split(".")[1]||"").length, 2));
+                    console.log(total)
+                    $("#subtotal-amount").text(total);
+                    $("#total-amount").text(total);
+
+                }
+            }
+        
+
+        });
+       
+
+    })
+    
+    return total
+
 };
 

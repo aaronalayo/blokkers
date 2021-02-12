@@ -14,7 +14,7 @@ const Item = require("../model/Item.js");
 
 const checkParameter = require("../middelware/checkParameters.js");
 const setValueToNull = require("../middelware/setValueNull.js");
-const sendXmlPadf = require("../middelware/sendXmlPdf.js");
+const sendXmlPdf = require("../middelware/sendXmlPdf.js");
 const createPoster = require("../middelware/createPoster.js");
 
 route.post("/createpaymentorder", async (req, res) => {
@@ -60,14 +60,12 @@ route.post("/createpaymentorder", async (req, res) => {
       email,
       newsletter)
     ) {
-      console.log(newPosters)
       let items = [];
       let amount = 0;
     
 
         newPosters.forEach(async (poster) => {
           let subAmount =0;
-          console.log(typeof poster.price)
         const item = {
           "reference": `${poster.pname}`,
           "name": `${poster.pname}`,
@@ -84,6 +82,7 @@ route.post("/createpaymentorder", async (req, res) => {
         subAmount = parseInt(poster.price) * parseInt(poster.quantity)*100;
         amount += subAmount;
       });
+      
       const consumer = {
         "reference":"1",
              "email":`${email}`,
@@ -98,10 +97,11 @@ route.post("/createpaymentorder", async (req, res) => {
                 "prefix":"+45",
                 "number":`${newPhone.substring(3)}`
              },
-      }
+      };
+
       let options = {
 
-        host: "https://cf8ab8d550a0.ngrok.io/createorder",
+        host: "https://e6bf27c82c5b.ngrok.io/createorder",
         uri: 'https://test.api.dibspayment.eu/v1/payments',//test
         // uri: 'https://api.dibspayment.eu/v1/payments',//live
         method: 'POST',
@@ -111,7 +111,7 @@ route.post("/createpaymentorder", async (req, res) => {
         "merchantNumber": 100020578,
         "amount": ${amount},
         "currency": "DKK",
-        "reference": "Demo Order"
+        "reference": "${fullname} Order"
       }, 
       "checkout":{
         "charge":false,
@@ -119,8 +119,8 @@ route.post("/createpaymentorder", async (req, res) => {
         "integrationType":"HostedPaymentPage",
    
         "url":"",
-        "returnUrl":"https://cf8ab8d550a0.ngrok.io/payment",
-        "termsUrl":"https://cf8ab8d550a0.ngrok.io/toc",
+        "returnUrl":"https://e6bf27c82c5b.ngrok.io/payment",
+        "termsUrl":"https://e6bf27c82c5b.ngrok.io/toc",
         "appearance": {
           "displayOptions": {
             "showMerchantName": true,
@@ -153,12 +153,11 @@ route.post("/createpaymentorder", async (req, res) => {
       };
      
         request(options, function (error, response, body) {
-          console.log(options)
         console.log('error:', error); // Print the error if one occurred
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
         console.log("body:", body);
         if(body){
-          res.json(body);
+          res.status(response.statusCode).json(body);
         }
         
       
@@ -174,33 +173,25 @@ route.post("/createorder", async (req, res) => {
 
   const {
     posters,
-    fullname,
-    phone,
-    email,
-    address,
-    city,
-    zip,
-    invoicefullname,
-    invoicephone,
-    invoiceaddress,
-    invoicecity,
-    invoicezip,
-    newsletter,
+   customer,
+   paymentId
   } = req.body;
-
-  //Check if values are empty or null
+console.log(posters)
+console.log(paymentId)
+  // //Check if values are empty or null
   const newPosters = checkParameter(posters);
-  const newFullName = checkParameter(fullname);
-  const newPhone = checkParameter(phone);
-  const newAddress = checkParameter(address);
-  const newCity = checkParameter(city);
-  const newZip = checkParameter(zip);
+  const newFullName = checkParameter(customer.fullname);
+  const newPhone = checkParameter(customer.phone);
+  const newAddress = checkParameter(customer.address);
+  const newCity = checkParameter(customer.city);
+  const newZip = checkParameter(customer.zip);
+  const newPaymentId = checkParameter(paymentId)
   //Check if values are empty set them to null
-  const newInvoiceFullName = setValueToNull(invoicefullname);
-  const newInvoicePhone = setValueToNull(invoicephone);
-  const newInvoiceAddress = setValueToNull(invoiceaddress);
-  const newInvoiceCity = setValueToNull(invoicecity);
-  const newInvoiceZip = setValueToNull(invoicezip);
+  const newInvoiceFullName = setValueToNull(customer.invoicefullname);
+  const newInvoicePhone = setValueToNull(customer.invoicephone);
+  const newInvoiceAddress = setValueToNull(customer.invoiceaddress);
+  const newInvoiceCity = setValueToNull(customer.invoicecity);
+  const newInvoiceZip = setValueToNull(customer.invoicezip);
 
   try {
     if (
@@ -210,14 +201,15 @@ route.post("/createorder", async (req, res) => {
       newAddress,
       newCity,
       newZip,
-      email,
-      newsletter)
+      customer.email,
+      customer.newsletter,
+      newPaymentId)
     ) {
       const customerFound = await Customer.query()
         .select()
         .where({
           full_name: newFullName,
-          email: email,
+          email: customer.email,
         })
         .limit(1);
       //Find if customer exists in the database
@@ -248,9 +240,10 @@ route.post("/createorder", async (req, res) => {
             order_title: newItem[0].item_name,
             amount: poster.quantity,
             price_per_item: format[0].price,
-            total_price: format[0].price * poster.quantity,
+            total_price: (format[0].price * poster.quantity).toFixed(Math.max((((format[0].price * poster.quantity)+'').split(".")[1]||"").length, 2)),
             item_uuid: newItem[0].item_uuid,
             customer_uuid: customerFound[0].customer_uuid,
+            payment_id: paymentId
           }).returning("order_uuid").then(function (orders) {
           if(orders){
             console.log(orders)
@@ -260,7 +253,7 @@ route.post("/createorder", async (req, res) => {
       } else {
         //Insert a new customer in the database
         await Customer.query().insert({
-          email: email,
+          email: customer.email,
           full_name: newFullName,
           address: newAddress,
           phone: newPhone,
@@ -271,13 +264,13 @@ route.post("/createorder", async (req, res) => {
           invoice_address: newInvoiceAddress,
           invoice_zip_code: newInvoiceCity,
           invoice_city: newInvoiceZip,
-          enable_newsletter: newsletter,
+          enable_newsletter: customer.newsletter,
         });
 
-        const customer = await Customer.query()
+        const newCustomer = await Customer.query()
           .select()
           .where({ full_name: newFullName })
-          .where({ email: email })
+          .where({ email: customer.email })
           .limit(1);
 
         newPosters.forEach(async (poster) => {
@@ -302,21 +295,20 @@ route.post("/createorder", async (req, res) => {
             order_title: newItem[0].item_name,
             amount: poster.quantity,
             price_per_item: format[0].price,
-            total_price: format[0].price * poster.quantity,
+            total_price: (format[0].price * poster.quantity).toString(2).toFixed(Math.max((((format[0].price * poster.quantity)+'').split(".")[1]||"").length, 2)),
             item_uuid: newItem[0].item_uuid,
-            customer_uuid: customer[0].customer_uuid,
-          }).returning("order_uuid").then(function (orders) {
+            customer_uuid: newCustomer[0].customer_uuid,
+            payment_id: paymentId
+          }).returning("order_uusid").then(function (orders) {
             if(orders){
-              console.log(orders)
+            console.log(orders)
             }
         });
         });
         
       }
       
-      const link = "/payment";
-
-      return res.send(link);
+      return res.json({ok:true});
     }
   } catch (error) {
     console.log(error);
@@ -326,8 +318,12 @@ route.post("/createorder", async (req, res) => {
 //Route to send the files to the FTP server
 route.post("/sendfiles", async (req, res) => {
   // console.log(req.body);
-  const { customer, posters } = req.body;
+  const { customer, posters, paymentId} = req.body;
+
+
   
+
+
   let orderSent = [];
   try {
     if(customer, posters){
@@ -344,7 +340,7 @@ route.post("/sendfiles", async (req, res) => {
 
     const orders = await Order.query()
       .select()
-      .where({ pdf_sent: false })
+      .where({ payment_id: paymentId })
       .withGraphJoined("customer")
       .where({ full_name: customer.fullname })
       .where({ email: customer.email })
@@ -441,7 +437,7 @@ route.post("/sendfiles", async (req, res) => {
         }
       });
     });
-    sendXmlPadf();
+    sendXmlPdf();
 
     //Update the order after the files are sent to FTP server
     orderSent.forEach(async (sentOrder) => {
@@ -450,6 +446,7 @@ route.post("/sendfiles", async (req, res) => {
         .update({
           xml_sent: true,
           pdf_sent: true,
+          order_confirmed: true,
         })
         .where({ order_no: sentOrder });
     });

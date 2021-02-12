@@ -76,9 +76,11 @@ function setTotal(){
     subTotal = poster.price * poster.quantity 
     console.log(subTotal)
     total += subTotal
-    console.log(total)
-    $("#totalprice").text(total)  
   });
+
+  total = total.toFixed(Math.max(((total+'').split(".")[1]||"").length, 2))
+    console.log(total)
+  $("#totalprice").text(total);
   return total
 };
 
@@ -126,6 +128,16 @@ function getInfo() {
       const customer = {
         fullname: fullname,
         email: email,
+        phone: phone,
+        address: address,
+        city: city,
+        zip: zip,
+        invoicefullname: invoicefullname,
+        invoicephone: invoicephone,
+        invoiceaddress: invoiceaddress,
+        invoicecity: invoicecity,
+        invoicezip: invoicezip,
+        newsletter: newsletter,
       };
 
 
@@ -154,27 +166,22 @@ function getInfo() {
           },
 
         })
-          .done(function (data) {
-            console.log(data)
-            // paymentID = JSON.stringify(data);
-            // hostedPayPageURL = JSON.stringify(data)
-            let obj = jQuery.parseJSON(data);
-            // let objhostedPayPageUrl = jQuery.parseJSON(hostedPayPageURL)
-            let paymentID = obj.paymentId;
-            let hostedPayPageUrl = obj.hostedPaymentPageUrl
-            // console.log(paymentID)
-            console.log(hostedPayPageUrl)
-            // initCheckout(paymentID,hostedPayPageUrl);
-            window.location = hostedPayPageUrl
-
+          .done(function (data, response) {
+            $("#btnSubmit").attr("disabled", true);
+            if (response === "success") {
+              let obj = jQuery.parseJSON(data);
+              let paymentID = obj.paymentId;
+              let hostedPayPageUrl = obj.hostedPaymentPageUrl
+              storeOrder(paymentID);
+              // initCheckout(paymentID,hostedPayPageUrl);
+              window.location = hostedPayPageUrl
+            } else {
+              console.log("error")
+            }
           }).fail(function (jqXHR, textStatus, errorThrown) {
             var contentType = jqXHR.getResponseHeader("Content-Type");
             if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
-              // window.location.href = "/payment"
-
-
             }
-
           })
       }
     }
@@ -183,26 +190,53 @@ function getInfo() {
 
 
 
+function storeOrder(paymentId){
+   
+  let customer = JSON.parse(sessionStorage.getItem('customer'));
+  let posters = JSON.parse(sessionStorage.getItem('posters'));
+
+  $.ajax({
+    global: false,
+    type: 'POST',
+    url: '/createorder',
+    data: {
+      posters:posters,
+      customer:customer,
+      paymentId: paymentId
+    },
+    ContentType: 'application/json',
+    dataType: "json",
+  }).done(function (data) {
+    console.log('success', data);
+  }).fail(function (jqXHR, textStatus, errorThrown) {
+    var contentType = jqXHR.getResponseHeader("Content-Type");
+    if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
+      window.location.href = "/";
+      console.log('FAILED! ERROR: ' + errorThrown);
+    }
+  });
+};
 
 
 
 
-// function initCheckout(paymentID,hostedPayPageURL){
+
+// function initCheckout(paymentID){
 //   console.log("Checkout init")
-// //   const testCheckOutKey = "test-checkout-key-baa32b6941d04dedb5693f1e90456137";
-// //   const liveCheckOutKey = "live-checkout-key-172f052963d445a3ad0169d77eb471d9";
-// //   let checkoutOptions = {
-// //     checkoutKey: testCheckOutKey, // [Required] Test or Live checkout key with dashes
-// //     paymentId : paymentID, // [Required] Payment ID (GUID format) without dashes.
+//   const testCheckOutKey = "test-checkout-key-baa32b6941d04dedb5693f1e90456137";
+//   const liveCheckOutKey = "live-checkout-key-172f052963d445a3ad0169d77eb471d9";
+//   let checkoutOptions = {
+//     checkoutKey: testCheckOutKey, // [Required] Test or Live checkout key with dashes
+//     paymentId : paymentID, // [Required] Payment ID (GUID format) without dashes.
 
-// //     containerId : "dibs-complete-checkout", // [Optional] Default: dibs-checkout-content
-// //     language: "da-DK", // [Optional] Default value: en-GB
+//     containerId : "dibs-complete-checkout", // [Optional] Default: dibs-checkout-content
+//     language: "da-DK", // [Optional] Default value: en-GB
 
  
-// // };
+// };
 
 // // console.log(checkoutOptions);
-// // let checkout = new Dibs.Checkout(checkoutOptions);
+// let checkout = new Dibs.Checkout(checkoutOptions);
 
 // checkout.on('pay-initialized', function(response) {
 
@@ -216,9 +250,11 @@ function getInfo() {
 // //this is the event that the merchant should listen to redirect to the “payment-is-ok” page
 // checkout.on('payment-completed', function(response) {
                
-     
+//               console.log("payment succes")
 //               console.log(response);
+//               storeOrder();
 //                window.location = 'localhost:8080/payment';
+               
 // });
 
 // };

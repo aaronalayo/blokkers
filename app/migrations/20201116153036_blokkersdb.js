@@ -44,8 +44,10 @@ exports.up = async function(knex) {
         table.decimal('total_price').unsigned().notNullable();
         table.uuid('item_uuid').notNullable();
         table.uuid('customer_uuid').notNullable();
+        table.string('payment_id').defaultTo(null);
         table.string('xml_sent').defaultTo(false);
         table.string('pdf_sent').defaultTo(false);
+        table.string('order_confirmed').defaultTo(false);
         table.foreign('item_uuid').references('items.item_uuid');
         table.foreign('customer_uuid').references('customers.customer_uuid');
         table.timestamp('updated_at').defaultTo(knex.fn.now(),{ useTz: true });

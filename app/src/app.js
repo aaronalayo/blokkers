@@ -3,11 +3,13 @@ const express = require("express");
 const helmet = require("helmet");
 const app = express();
 const session = require('express-session');
+const request = require('request');
+
 const cors = require('cors');
 const fs = require('fs');
 const corsOptions = {
   
-  origin: 'https://cf8ab8d550a0.ngrok.io/',
+  origin: 'https://e6bf27c82c5b.ngrok.io',
   allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Methods", "Access-Control-Request-Headers",'Access-Control-Allow-Origin'],
   credentials: true,
   enablePreflight: true,
@@ -124,30 +126,41 @@ app.get(formats, async (req, res)=> {
   const formats = await Format.query().select();
   res.json({ 'formats' : formats});
 });
-const setOptions = require('./objects/payment.js');
 
-app.get('/createpayment', async (req, res) => {
-// await setOptions().then(options => {
-      // request(options, function (error, response, body) {
-      //   console.log('error:', error); // Print the error if one occurred
-      //   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-      //   console.log('body:', body);
-      //   res.send(body);
-      //   console.log("request")
-      // });
-
-    // });
-});
-
-
-
-
-
-app.get(payment, async (req, res) => {
-  
+exports.paymentPage = function(req, res) {
   return res.send(navbar + paymentPage);
-});
+}
+let data;
+app.get(payment, async (req, res) => {
+  const paymentId = req.query.paymentid;
+  if(paymentId){
 
+  let options = {
+
+    uri: 'https://test.api.dibspayment.eu/v1/payments/'+paymentId,
+    method: 'GET',
+    headers: {
+      'Authorization': 'ef160d0b15ef4bf3b243c8f6a6183b85'
+      // 'Authorization': 'b7989e81d50b47228ac61d7763986548'
+    },
+}
+request(options, function (error, response, body) {
+  console.log('error:', error); // Print the error if one occurred
+  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+  // console.log("body:", body);
+  data = body
+});
+    
+
+return res.status(200).send(navbar + paymentPage);
+      
+}else {
+  res.redirect('/')
+}
+});
+app.get('/data', async (req, res) => {
+  res.json({'data':data})
+});
 
 app.get(about, (req, res) => {
   return res.send(navbar + aboutPage);
@@ -163,11 +176,11 @@ app.get("*", (req, res) => {
 });
 
 const createRoute = require('./routes/create.js');
-
+const paymentRoute = require('./routes/payment.js');
 
 
 app.use(createRoute);
-// app.use(paymentRoute);
+app.use(paymentRoute);
 
 
 //Server port
