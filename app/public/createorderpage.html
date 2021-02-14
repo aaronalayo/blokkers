@@ -6,10 +6,12 @@
 
   }
 
-  html {
+  html  {
+    -webkit-overflow-scrolling: auto !important;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     scroll-snap-stop: always
+    
   }
 
   * {
@@ -122,11 +124,7 @@
     padding-left: 18%;
   }
 
-  span.price {
-    float: right;
-    color: grey;
-    width: auto;
-  }
+
 
   .basket-container {
     width: 100%;
@@ -136,22 +134,27 @@
   #totalbasket {
     margin-top: 4%;
   }
-
-  .quantity{
-  display: inline-block;
-  vertical-align: unset;
-  margin-left: 2%;
-  padding-left: 2%;
+  /* #totalTaxes{
+    margin-top:2%;
+  } */
+#taxesText{
+  margin-top:2%;
 }
-.poster{
-  margin-right: 2%;
-  margin-left: 2%;
-  display: inline-block;
+div.demo {
+    display: table;
+    width: 50%;
+    table-layout: fixed;    /* For cells of equal size */
 }
-.x{
-  margin-right: 2%;
-  margin-left: 2%;
+div.demo span {
+    display: table-cell;
+    text-align: left;
 }
+span.price {
+  
+    float: right;
+    color: grey;
+    width: auto;
+  }
   /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
   @media (max-width: 800px) {
     .row {
@@ -184,13 +187,14 @@
   }
 </style>
 
+
 <form>
 <div class="row">
   <div class="col-75">
     <div class="container">
       <form id='addressform'>
         <div class="row">
-          <h1 class="centered">Checkout</h1>
+          <h1 class="centered">Useful Information</h1>
           <div class="col-50 ">
             <h3>Delivery Address</h3>
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
@@ -251,13 +255,14 @@
           </h4>
           <div class="basket-container">
           </div>
-
+          <div id="taxes">
+          </div>
           <div id="totalbasket">
           </div>
 
           <div id="submit">
             <input type="button" id="CreatePayment" value="Go to payment" id="submit" class="btn" onclick="getInfo()">
-            <a  id="cancelcheckout" href="/basket" class="btn">Cancel</a>
+            <a href="/basket" class="btn">Basket</a>
           </div>
             </div>
           </div>
@@ -269,3 +274,4 @@
     </div>
   </div>
 </div>
+<div id="loader"></div>

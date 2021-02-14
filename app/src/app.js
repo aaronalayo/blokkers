@@ -9,7 +9,7 @@ const cors = require('cors');
 const fs = require('fs');
 const corsOptions = {
   
-  origin: 'https://e6bf27c82c5b.ngrok.io',
+  origin: 'https://05472ced63e6.ngrok.io',
   allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Methods", "Access-Control-Request-Headers",'Access-Control-Allow-Origin'],
   credentials: true,
   enablePreflight: true,

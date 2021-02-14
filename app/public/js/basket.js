@@ -58,7 +58,7 @@ function displayPosters(){
             <span><button onclick="increment(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)">></button></span>
         </div>
         <div class="poster-price">
-            <span id="${name}-price">${calculatePosterPrice(poster)}</span><span> dkk</span>
+            <span id="${name}-price">${calculatePosterPrice(poster)}</span>
         </div>
         <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)">Remove <i class="fa fa-trash-o"></i></button>`);
         $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
@@ -138,50 +138,71 @@ function getFormats() {
 };
 
 //calculates the poster price based on the format and quantity
- function calculatePosterPrice(poster){
-    let price;
-     getFormats().then(data => {
+ async function calculatePosterPrice(poster){
+    
+    let price =0;
+    let amount=0;
+    await getFormats().then(data => {
         for (let [key] of Object.entries(data.formats)) {
+            
             if (poster.size === data.formats[key].format_no) {
+               
                 price = data.formats[key].price;
                 poster.price = price;
-                let amount = poster.price * poster.quantity;
-                sessionStorage.setItem("posters", JSON.stringify(posters));
-                $("#" + poster.pname + "-price").text(amount);
+                
+                amount = poster.price * poster.quantity;
+                
+                
+                
                 
             }
+            sessionStorage.setItem("posters", JSON.stringify(posters));
+            
+          
         }
+        $("#" + poster.pname + "-price").text(amount.toFixed(2));
         
     }); 
-    
+    return price
 };
 
-function calculateTotal(){
-    let total= 0;
-    let subTotal;
+function calculateTotal() {
+    let total=0;
+    let subTotal=0;
+    let taxes=0;
+    let subTaxes=0;
+    let price =0;
+    let sub = 0;
+    getFormats().then(data => {
     posters.forEach(poster => {
-         getFormats().then(data => {
+        $("#subtotal-amount").text("...");
+        $("#taxes-amount").text("...");
+        $("#total-amount").text("...");
+        
             for (let [key] of Object.entries(data.formats)) {
                 if (poster.size === data.formats[key].format_no) {
                     price = data.formats[key].price;
-                    subTotal = price * poster.quantity
-                    console.log(subTotal)
-                    total += subTotal
-                    total = total.toFixed(Math.max(((total+'').split(".")[1]||"").length, 2));
-                    console.log(total)
-                    $("#subtotal-amount").text(total);
-                    $("#total-amount").text(total);
-
+                    subTotal = price * poster.quantity;
+                    subTaxes = (price * poster.quantity * 25) / 100;       
+                    
                 }
+              
             }
-        
+            taxes += subTaxes;    
+            sub += subTotal;
+            total += subTotal  
+                     
+           
 
         });
-       
+         // taxes = taxes.toFixed(Math.max(((taxes + '').split(".")[1] || "").length, 2));
 
-    })
-    
-    return total
+            // total = total.toFixed(Math.max(((total + '').split(".")[1] || "").length, 2));
+            $("#subtotal-amount").text(sub.toFixed(2));
+            $("#taxes-amount").text(taxes.toFixed(2));
+            $("#total-amount").text(total.toFixed(2));
+    });
+    // return total
 
 };
 

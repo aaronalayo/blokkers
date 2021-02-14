@@ -10,9 +10,12 @@ function displayCart(){
     $(".basket-container").append(
         `<div id="poster-display-${posters[i].pname}">
         <p>
+        <div class="demo">
         <span id=${posters[i].pname}>${posters[i].pname}</span> 
         <span class="size">${posters[i].size}</span><span class="poster"> poster</span>
-        <span class="x">x</span> <span id="amount" class="quantity">${posters[i].quantity}</span><span id='itemprice' class="price ${posters[i].size}-price">${posters[i].price}</span>
+        <span class="x">x</span> <span id="amount" class="quantity">${posters[i].quantity}</span>
+        </div>
+        <span id='itemprice' class="price ${posters[i].size}-price">${posters[i].price}</span>
         </p>
         <hr >
         
@@ -31,6 +34,7 @@ function displayCart(){
     });
   };
   $("#totalItems").text(total);
+  $('#taxes').append(`<p id="taxesText">Taxes(incl.)<span id="totalTaxes" class="price"><b>${setTaxes()}</b></span></p>`)
   $('#totalbasket').append(`<p>Total<span id="totalprice" class="price" style="color:black"><b>${setTotal()}</b></span></p>`)
 };
 
@@ -83,6 +87,18 @@ function setTotal(){
   $("#totalprice").text(total);
   return total
 };
+function setTaxes(){
+  let taxes= 0;
+ let subTotal;
+  posters.forEach(poster => {
+    subTotal = (poster.price * poster.quantity * 25)/100
+    taxes += subTotal;
+    
+  });
+  taxes = taxes.toFixed(Math.max(((taxes+'').split(".")[1]||"").length, 2));
+  $("#totalTaxes").text(taxes);
+  return taxes
+};
 
 //Regex expressions for form validation
 const nameFilter = /^[a-zA-Z \-\_\/!0-9æøåÆØÅ\.,!?():+\[\]\n\t\r]*$/;
@@ -92,7 +108,7 @@ const addressFilter = /^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$/;
 const cityFilter = /^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
 const zipFilter = /\d{4}/;
 
-
+var spinner = $('#loader');
 //Gets the customer information and sends to backend
 function getInfo() {
   let fullname = $("#fname").val();
@@ -146,6 +162,7 @@ function getInfo() {
 
       //Ajax POST method to send to create order route
       if (fullname, email, phone, address, city, zip) {
+        spinner.show();
         $.ajax({
           type: "POST",
           url: "/createpaymentorder",
@@ -191,7 +208,7 @@ function getInfo() {
 
 
 function storeOrder(paymentId){
-   
+  
   let customer = JSON.parse(sessionStorage.getItem('customer'));
   let posters = JSON.parse(sessionStorage.getItem('posters'));
 
@@ -207,6 +224,7 @@ function storeOrder(paymentId){
     ContentType: 'application/json',
     dataType: "json",
   }).done(function (data) {
+    spinner.hide();
     console.log('success', data);
   }).fail(function (jqXHR, textStatus, errorThrown) {
     var contentType = jqXHR.getResponseHeader("Content-Type");
