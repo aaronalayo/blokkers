@@ -99,7 +99,7 @@
     }
 
     #tableposter {
-        margin-left: 1%;
+        margin-left: 0.5%;
         border: none;
         position: absolute;
         display: block;
@@ -177,6 +177,9 @@
             margin-left: 125.5%;
             margin-top: 5%;
         }
+        #write_name {
+            font-size: 100%;
+}
 
     }
 </style>
@@ -185,8 +188,8 @@
         <img id="logo_img" src="images/Blokkers_logo.png">
     </div>
     <div class="centered">
-        <h2 id="scroll" class="scrollDown">Scroll to explore</h2>
-        <i class="fa fa-angle-down" id="scroll_icon" onclick="scrollDown()"></i>
+        <h2 id="createyourown" class="bottomText">CREATE YOUR OWN</h2>
+        <h2 id="uniqueposter" class="bottomText">UNIQUE POSTER</h2>
     </div>
 </div>
 
@@ -345,9 +348,10 @@
                         <div>
                             <p id="type">Type</p>
                             <p id="something">something</p>
+                            
                             <p id="maxletters">(Max. 12 letters)</p>
                             
-                            <input id="name" type='text' name='name' size="30"> <i class="fas fa-backspace fa-2x"
+                            <input id="name" type='text' name='name' size="25"> <i class="fas fa-backspace fa-2x"
                                 style="color: rgb(158, 158, 158);" value="DISABLE"
                                 onclick="onPressBackspace(),disable()"></i>
                         </div>
