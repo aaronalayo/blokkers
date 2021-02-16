@@ -47,11 +47,12 @@ function validateForm() {
     addCircles(), getName()
   }
 };
-function disable(){
- document.onkeydown = function (e) {
-  return false;
- }
-}
+$(function() {
+  $('#name').keypress(function(event) {
+      event.preventDefault();
+      return false;
+  });
+});
 //adds a circle around each letter present in the name
 function addCircles(){
   $(".circle").each(function() {
@@ -74,8 +75,12 @@ function createTable(){
       $('#tableposter').append(`<td id=${j+1} onclick=showColor(this.id) >`);
       console.log((j+1));
     }
+    $('#tableposter').append('</tr>');
+    
     k=k+3;
+    
   }
+  $('#tableposter').append('<tfoot id="posterfooter">');
 }
 
 //displays a poster with the name
@@ -120,9 +125,9 @@ function getName() {
     }
     k = k+3;
   }
-  $('#posterfooter').text("Click on the letters to change the colors");
-    
+  $('#posterfooter').text("Click on a letter to change the color");
 };
+
 
 //displays the different letter design
 function showColor(id){
@@ -134,7 +139,7 @@ function showColor(id){
     let lastSegment = parts.pop();
 
     console.log(parts[parts.length - 1]);
-    
+    $('#colourtable').append('<caption id="choosecolor"></caption>')
     for(let i = 0; i<= 3; i++){
       switch(parts[parts.length - 1]){
         case 'å':
@@ -153,6 +158,7 @@ function showColor(id){
             $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${i+1}.png">` + '</td>');
       }
     }
+    $('#colourtable').append('<caption style="caption-side:bottom" id="chooseletter"></caption>')
     $('#choosecolor').text("Choose your color");
     $('#chooseletter').text("Click on the letters to change the colors");
     $("#done_button").show();

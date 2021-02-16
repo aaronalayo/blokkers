@@ -9,7 +9,7 @@ const cors = require('cors');
 const fs = require('fs');
 const corsOptions = {
   
-  origin: 'https://05472ced63e6.ngrok.io',
+  origin: 'https://e9738975b674.ngrok.io',
   allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Methods", "Access-Control-Request-Headers",'Access-Control-Allow-Origin'],
   credentials: true,
   enablePreflight: true,
@@ -84,7 +84,7 @@ const createOrderPage = fs.readFileSync("./public/createorderpage.html", 'utf8')
 const paymentPage = fs.readFileSync("./public/paymentpage.html", 'utf8');
 const aboutPage = fs.readFileSync("./public/aboutpage.html", 'utf8');
 const contactPage = fs.readFileSync("./public/contactpage.html", 'utf8');
-
+const testPage = fs.readFileSync("./public/test.html", 'utf8');
 
 const Format = require("./model/Format.js");
 
@@ -101,6 +101,9 @@ const payment = "/payment";
 const about = "/about";
 const contact = "/contact";
 
+app.get('/test', (req, res) => {
+  return res.send(navbar + testPage);
+});
 
 
 app.get(home, (req, res) => {

@@ -50,7 +50,7 @@ function scrollDown(){
         let scrollToElement = $('.page')[currentPos];
         $('html, body').animate({
             scrollTop: $(scrollToElement).offset().top
-        }, 300,function(){
+        }, 200,function(){
             scrolling = false;
         }); 
     }
@@ -60,10 +60,13 @@ let slideIndex = 1;
 showSlides(slideIndex);
     
 function plusSlides(n) {
+    
+
     showSlides(slideIndex += n);
 };
     
 function currentSlide(n) {
+
     showSlides(slideIndex = n);
 };
     
@@ -76,6 +79,7 @@ function showSlides(n) {
         slides[i].style.display = "none";  
     }
     slides[slideIndex-1].style.display = "block";
+
     setTimeout(showSlides, 2000);  
 };
     

@@ -62,7 +62,7 @@ route.post("/createpaymentorder", async (req, res) => {
     ) {
       let items = [];
       let amount = 0;
-      let host = 'https://129d808e058a.ngrok.io';
+      let host = 'https://e9738975b674.ngrok.io';
 
       newPosters.forEach(async (poster) => {
         let subAmount = 0;

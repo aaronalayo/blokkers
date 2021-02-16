@@ -4,6 +4,7 @@ $( document ).ready(function() {
 
 //Displays the poster in the cart with size, quantity and price
 function displayCart(){
+  let posters = JSON.parse(sessionStorage.posters);
   let total = 0;
   for (let i = 0; i < posters.length; i++) {
     total += posters[i].quantity;
@@ -40,6 +41,7 @@ function displayCart(){
 
 //Display the total for all posters in the cart
 function countInPosters() {
+  let posters = JSON.parse(sessionStorage.posters);
   let count = 0;
   let totalItems = 0;
   for (let i = 0; i < posters.length; i++) {
@@ -74,6 +76,7 @@ function newsLetter() {
 
 //Sets the total price 
 function setTotal(){
+  let posters = JSON.parse(sessionStorage.posters);
   let total= 0;
   let subTotal;
   posters.forEach(poster => {
@@ -88,6 +91,7 @@ function setTotal(){
   return total
 };
 function setTaxes(){
+  let posters = JSON.parse(sessionStorage.posters);
   let taxes= 0;
  let subTotal;
   posters.forEach(poster => {
