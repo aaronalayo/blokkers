@@ -1,4 +1,6 @@
 $(document).ready(function () {
+console.log(sessionStorage)
+  $("#satisfiedtable").html('');
   imgs = JSON.parse(sessionStorage.getItem("imgs"));
   size = JSON.parse(sessionStorage.getItem('size'));
   pname = JSON.parse(sessionStorage.getItem('pname'));
@@ -15,6 +17,37 @@ $(document).ready(function () {
   $("#addbasket_button").show();
   $("#cancel_button").show();
 });
+
+function editPoster(){
+  
+  imgs = document.getElementById('satisfiedtable').getElementsByTagName("img");
+  var imgSrcs = [];
+  let origin = window.location.origin;
+  for (var i = 0; i < imgs.length; i++) {
+  
+    imgSrcs.push(imgs[i].src.substr(origin.length));
+  }
+  const paths =[];
+
+
+  for (const key in imgSrcs) {
+    
+    paths.push(imgSrcs[key]);
+  }
+
+  let posterToEdit = {
+    "pname": pname,
+    "paths": paths,
+    "size": size,
+    "quantity": 1,
+    "price": 0   
+};
+
+
+sessionStorage.clear();
+sessionStorage.setItem("posterToEdit", JSON.stringify(posterToEdit));
+$("#satisfiedtable").html('');
+};
 
 function addtobasket(){
   imgs = document.getElementById('satisfiedtable').getElementsByTagName("img");
@@ -41,10 +74,8 @@ function addtobasket(){
   };
   let posters = [];
   if(sessionStorage.getItem("posters") != null){
-    console.log(true);
     posters = JSON.parse(sessionStorage.posters);
   }
   posters.push(poster);
   sessionStorage.setItem("posters", JSON.stringify(posters));
-  console.log(sessionStorage.getItem("posters"));
 };

@@ -7,6 +7,7 @@ exports.up = async function(knex) {
         table.uuid('format_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
         table.string('format_no').notNullable();
         table.string('size').notNullable();
+        table.string('dimension').notNullable();
         table.decimal('price').unsigned().notNullable();
         table.string('ext_no').notNullable();
 

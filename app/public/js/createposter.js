@@ -1,3 +1,44 @@
+$( document ).ready(function() {
+ let id = document.getElementById('a2')
+  getSizeDetails(id);
+  
+});
+window.onload = function() {
+  if(window.origin = '/satisfied'){
+    console.log('about to loadPosterEdit')
+  loadPosterEdit();
+  console.log('edited')
+  }
+};
+//gets the formats with their prices and returns them as Promise
+function getFormats() {
+  const fetchJson = async url => {
+      const response = await fetch(url)
+      return response.json()
+  }
+  return new Promise(function (resolve) {
+      const formats = fetchJson('/formats');
+      setTimeout(function () {
+          resolve(formats)
+      }, 50);
+  });
+};
+async function getSizeDetails(id){    
+  let price = 0;
+  let dimension;
+  let size = $(id).val().toUpperCase();
+  await getFormats().then(data => {
+      for (let [key] of Object.entries(data.formats)) { 
+          if (size === data.formats[key].format_no) {
+              price = data.formats[key].price;
+              dimension = data.formats[key].dimension;
+          } 
+      }
+      $("#dimension").text(dimension);  
+      $("#dimensionprise").text(price);        
+  }); 
+};
+
 //changes the size to the one the right
 function changeSizeRight(){
     if($("#a3").is(':checked')){
@@ -5,7 +46,7 @@ function changeSizeRight(){
     }
     else if($("#a2").is(':checked')){
         $("#a1").prop("checked", true);
-    }
+    } 
 };
 
 //changes the size to the one on the left
@@ -73,15 +114,11 @@ function createTable(){
     $('#tableposter').append('<tr>');
     for(let j = k; j<= k + 2; j++){
       $('#tableposter').append(`<td id=${j+1} onclick=showColor(this.id) >`);
-      console.log((j+1));
     }
     $('#tableposter').append('</tr>');
-    
     k=k+3;
-    
   }
-  $('#tableposter').append('<tfoot id="posterfooter">');
-}
+};
 
 //displays a poster with the name
 function getName() {
@@ -94,11 +131,11 @@ function getName() {
     }
   
   //clears the tables
-  $('#posterfooter').html('');
+  // $('#posterfooter').html('');
   $('#tableposter').html(''); 
   $('#colourtable').html(''); 
-  $('#choosecolor').html('');
-  $('#chooseletter').html('');
+  // $('#choosecolor').html('');
+  // $('#chooseletter').html('');
 
   //creates a new table and fills it with the new name letters
   createTable();
@@ -125,6 +162,7 @@ function getName() {
     }
     k = k+3;
   }
+  $('#tableposter').append('<tfoot id="posterfooter">');
   $('#posterfooter').text("Click on a letter to change the color");
 };
 
@@ -132,8 +170,8 @@ function getName() {
 //displays the different letter design
 function showColor(id){
   $('#colourtable').html('');
-  $('#choosecolor').html('');
-  $('#chooseletter').html('');
+  // $('#choosecolor').html('');
+  // $('#chooseletter').html('');
     let src = document.getElementById(id).childNodes[0].src;
     let parts = src.split('/');
     let lastSegment = parts.pop();
@@ -180,6 +218,23 @@ function onPressBackspace() {
 
 //stores the poster name, size and letter paths to sessionStorage
 function getSrc(){
+  if(sessionStorage.getItem('posterToEdit') != null){
+    let poster = JSON.parse(sessionStorage.posterToEdit);
+    sessionStorage.clear();
+    imgs = document.getElementById('tableposter').getElementsByTagName("img");
+    let imgSrcs = [];
+    for (var i = 0; i < imgs.length; i++) {
+        imgSrcs.push(imgs[i].src);
+    }
+    let pname = poster.pname;
+    let size = $("input[name='size']:checked").val();
+    sessionStorage.setItem("imgs", JSON.stringify(imgSrcs));
+    sessionStorage.setItem("size", JSON.stringify(size.toUpperCase()));
+    sessionStorage.setItem("pname", JSON.stringify(pname));
+    sessionStorage.removeItem('posterToEdit');
+  }else{
+
+ 
   imgs = document.getElementById('tableposter').getElementsByTagName("img");
   let imgSrcs = [];
   for (var i = 0; i < imgs.length; i++) {
@@ -190,4 +245,25 @@ function getSrc(){
   sessionStorage.setItem("imgs", JSON.stringify(imgSrcs));
   sessionStorage.setItem("size", JSON.stringify(size.toUpperCase()));
   sessionStorage.setItem("pname", JSON.stringify(pname));
+  sessionStorage.removeItem('posterToEdit');
+}
+};
+
+
+function loadPosterEdit(){
+  
+    let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
+    createTable();
+    let k = 0;
+    for (let i = 0; i <= 3; i++) {
+      $("#tableposter").append("<tr>");
+      for (let j = k; j <= k + 2; j++) {
+        $("#tableposter").append(`<td id=${j + 1} >`);
+        $("#" + (j + 1)).append(`<img src="${posterToEdit.paths[j]}">`);
+      }
+      $("#tableposter").append("</tr>");
+      k = k + 3;
+    }
+  
+
 };

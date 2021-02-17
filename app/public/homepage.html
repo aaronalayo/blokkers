@@ -67,13 +67,10 @@
 
     }
 
-
-
     label {
         margin-bottom: 10px;
         display: inline-flex;
     }
-
 
     .btn {
         background-color: #c2c2c2;
@@ -92,10 +89,78 @@
         background-color: #bbbbbb;
     }
 
-    a {
-        color: #2196F3;
-        text-decoration: none;
+    #createyourown {
+        padding-bottom: 0%;
+        max-width: 100%;
+        max-height: 2%;
+        height: 100%;
+        margin-top: 2%;
+        margin-left: auto;
+        margin-right: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: lighter;
+        font-family: "nunitoextralight";
+        clear: both;
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+    }
 
+    #uniqueposter {
+        max-width: 100%;
+        max-height: 2%;
+        height: 100%;
+        margin-top: -2%;
+        margin-left: auto;
+        margin-right: auto;
+        bottom: 10%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 2rem;
+        font-family: "nunitobold";
+        clear: both;
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    #choose-size {
+        padding-top: 3%;
+    }
+
+    #choose-size p {
+        text-align: center;
+        font-family: "nunitolight";
+        font-size: 30px;
+    }
+
+    #choose-size span {
+
+        margin: 5px;
+        font-size: 35px;
+        /* font-weight: bold; */
+        font-family: "nunitoextrabold";
+    }
+
+    #choose-size #dimension {
+        display: flex;
+        justify-content: center;
+        font-family: "nunitolight";
+        font-size: 15px;
+        margin-bottom: 0%;
+    }
+
+    #choose-size #dimensionprise {
+        text-align: center;
+        justify-content: center;
+        font-family: "nunitoextrabold";
+        font-size: 15px;
+        margin-bottom: 0%;
     }
 
     #tableposter {
@@ -106,10 +171,26 @@
         border-collapse: collapse;
     }
 
-    #changecolour {
-        margin-left: 120%;
-        /* position: absolute; */
-        margin-top: 50%;
+    #tableposter td,
+    tr {
+        padding: 0;
+        cursor: pointer;
+    }
+
+
+    #tablealfabet td,
+    tr {
+        padding: 1em;
+    }
+
+    #tablealfabet td :hover {
+        cursor: pointer;
+    }
+
+    #tableposter img {
+        width: 8em;
+        display: block;
+
     }
 
     #posterfooter {
@@ -122,10 +203,57 @@
     }
 
     #posterdiv {
-        margin-left: 30%;
+        margin-top: -2%;
+        margin-left: 12%;
+
+        position: absolute;
     }
 
+    #choosecolor {
+        padding-bottom: 5%;
+        font-size: 25px;
+        font-family: "nunitolight";
+    }
+
+    #chooseletter {
+        padding-top: 5%;
+        font-size: 15px;
+        font-family: "nunitolight";
+    }
+
+    #colourtable {
+        border: 4px;
+        display: block;
+        border-collapse: collapse;
+
+    }
+
+    #colourtable img {
+        width: 6.5em;
+        display: block;
+    }
+
+    #tablealfabet {
+        margin-top: 2%;
+        float: left;
+        border: none;
+        display: block;
+        border-collapse: collapse;
+        font-family: "nunitobold";
+        font-size: 110%;
+    }
+
+    #changecolour {
+        margin-left: 90%;
+        /* position: absolute; */
+        margin-top: 13%;
+    }
+
+
+
     #write_name {
+        margin-top: -2%;
+        /* top: 230%; */
         margin-left: -12%;
         /* font-weight: bold;
         font-size: 120%;
@@ -145,9 +273,11 @@
         background-color: #c0c0c0;
         border: 0;
         cursor: pointer;
-        margin-left: 154%;
-        margin-top: 5%;
+        margin-left: 180%;
+        margin-top: 10%;
     }
+
+
 
     /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
     @media (max-width: 800px) {
@@ -159,27 +289,51 @@
             margin-bottom: 15px;
         }
 
+        #choose-size p {
+            text-align: center;
+            font-size: 20px;
+        }
 
+        #choose-size span {
+
+            margin: 10px;
+            font-size: 30px;
+        }
     }
 
     @media only screen and (max-device-width: 1920px) {
         #posterfooter {
             font-size: 18px;
+            padding-left: 11%;
         }
 
-        #changecolour {
-            margin-left: 90%;
-            /* position: absolute; */
-            margin-top: 30%;
+        #tableposter {
+            margin-left: -1%;
+
         }
 
-        #done_button {
-            margin-left: 125.5%;
-            margin-top: 5%;
-        }
         #write_name {
             font-size: 100%;
-}
+            margin-left: -13%;
+        }
+
+
+
+        #write_name #type {
+            margin-left: -10%;
+
+        }
+
+        #write_name #something {
+            margin-left: -10%;
+
+        }
+
+        #write_name #maxletters {
+            margin-left: -10%;
+
+        }
+
 
     }
 </style>
@@ -217,100 +371,6 @@
     </div>
 </div>
 
-<!-- <div id="createposter" class="page">
-        <div>
-            <div id="choose-size" class="centered">
-                <p>Choose the size</p>
-                <p>
-                    <span><i onclick="changeSizeLeft()" class="fa fa-angle-left"></i></span>
-                    <span class="radiowrapper" id="wrap3">
-                        <input type="radio" name="size" value ="a3" id="a3">
-                        <label for="a3">A3</label>
-                    </span>
-                    <span class="radiowrapper" id="wrap2">
-                            <input type="radio" name="size" value ="a2" id="a2" checked>
-                            <label for="a2">A2</label>
-                    </span>
-                    
-                    <span class="radiowrapper" id="wrap1">
-                        <input type="radio" name="size" value ="a1" id="a1">
-                        <label for="a1">A1</label>
-                    </span>
-                    <span><i onclick="changeSizeRight()" class="fa fa-angle-right" ></i></span>
-                </p>  
-            </div>  
-        </div>
-        
-        <div id="write_name">
-            <div>
-                <p>Write name</p>
-                <input id="name"  type='text' name ='name'> <i class="fas fa-backspace fa-2x" style="color: rgb(158, 158, 158);" value="DISABLE" onclick="onPressBackspace(),disable()"></i>  
-            </div>
-
-            <table id='tablealfabet'>
-                <tr>
-                    <td id="a" onclick="addLetter(this)">A</td>
-                    <td id="b" onclick="addLetter(this)">B</td>
-                    <td id="c" onclick="addLetter(this)">C</td>
-                    <td id="d" onclick="addLetter(this)">D</td>
-                    <td id="e" onclick="addLetter(this)">E</td>
-                </tr>
-                <tr>
-                    <td id="f" onclick="addLetter(this)">F</td>
-                    <td id="g" onclick="addLetter(this)">G</td>
-                    <td id="h" onclick="addLetter(this)">H</td>
-                    <td id="i" onclick="addLetter(this)">I</td>
-                    <td id="j" onclick="addLetter(this)">J</td>
-                </tr>
-                <tr>
-                    <td id="k" onclick="addLetter(this)">K</td>
-                    <td id="l" onclick="addLetter(this)">L</td>
-                    <td id="m" onclick="addLetter(this)">M</td>
-                    <td id="n" onclick="addLetter(this)">N</td>
-                    <td id="o" onclick="addLetter(this)">O</td>
-                </tr>
-                <tr>
-                    <td id="p" onclick="addLetter(this)">P</td>
-                    <td id="q" onclick="addLetter(this)">Q</td>
-                    <td id="r" onclick="addLetter(this)">R</td>
-                    <td id="s" onclick="addLetter(this)">S</td>
-                    <td id="t" onclick="addLetter(this)">T</td>
-                </tr>
-                <tr>
-                    <td id="u" onclick="addLetter(this)">U</td>
-                    <td id="v" onclick="addLetter(this)">V</td>
-                    <td id="w" onclick="addLetter(this)">W</td>
-                    <td id="x" onclick="addLetter(this)">X</td>
-                    <td id="y" onclick="addLetter(this)">Y</td>
-                </tr>
-                <tr>
-                    <td id="z" onclick="addLetter(this)">Z</td>
-                    <td id="æ" onclick="addLetter(this)">Æ</td>
-                    <td id="ø" onclick="addLetter(this)">Ø</td>
-                    <td id="å" onclick="addLetter(this)">Å</td>
-                    <td id="-" onclick="addLetter(this)">-</td>
-                </tr>          
-            </table>
-            <div>
-                <button type="submit" name="next" value="Next"  class="mbtn blue"  id="next_button" onclick="validateForm()">Next</button>
-            </div>
-        </div>
-        
-        <div id='posterdiv'>
-            <form id="imageForm"  action="/satisfied" method="GET">
-                <table id='tableposter'>
-                </table>
-            
-                <div id="changecolour">
-                    <p id="choosecolor"></p>
-                    <table id="colourtable"></table>
-                    <p id="chooseletter"></p>
-                </div>
-                <button type="submit" class="mbtn button" id="done_button" onclick="getSrc()"  hidden>Done</button>
-            </form>
-        </div>
-        <div id="posterfooter"></div>
-    </div> -->
 <div id="createposter" class="page">
     <div class="row">
         <div class="col-75">
@@ -322,20 +382,21 @@
                             <p>
                                 <span><i onclick="changeSizeLeft()" class="fa fa-angle-left"></i></span>
                                 <span class="radiowrapper" id="wrap3">
-                                    <input type="radio" name="size" value="a3" id="a3">
+                                    <input type="radio" name="size" value="a3" id="a3" onchange="getSizeDetails(this)">
                                     <label for="a3">A3</label>
                                 </span>
                                 <span class="radiowrapper" id="wrap2">
-                                    <input type="radio" name="size" value="a2" id="a2" checked>
+                                    <input type="radio" name="size" value="a2" id="a2" onchange="getSizeDetails(this)" checked>
                                     <label for="a2">A2</label>
                                 </span>
 
                                 <span class="radiowrapper" id="wrap1">
-                                    <input type="radio" name="size" value="a1" id="a1">
+                                    <input type="radio" name="size" value="a1" id="a1" onchange="getSizeDetails(this)">
                                     <label for="a1">A1</label>
                                 </span>
                                 <span><i onclick="changeSizeRight()" class="fa fa-angle-right"></i></span>
-
+                                <span id="dimension"></span>
+                                <span id="dimensionprise"></span>
                             </p>
                         </div>
                     </div>
@@ -348,9 +409,9 @@
                         <div>
                             <p id="type">Type</p>
                             <p id="something">something</p>
-                            
+
                             <p id="maxletters">(Max. 12 letters)</p>
-                            
+
                             <input id="name" type='text' name='name' size="25"> <i class="fas fa-backspace fa-2x"
                                 style="color: rgb(158, 158, 158);" value="DISABLE"
                                 onclick="onPressBackspace(),disable()"></i>
@@ -407,31 +468,29 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-50">
                     <div id='posterdiv'>
                         <form id="imageForm" action="/satisfied" method="GET">
                             <table id='tableposter'>
                             </table>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <div id="changecolour">
-                                        <table id="colourtable">
-                                        </table>
-
-                                    </div>
-                                    <div id="done_div">
-                                        <button type="submit" id="done_button" onclick="getSrc()" hidden>Done</button>
-                                    </div>
-                                </div>
-                            </div>
-
                     </div>
-
-                    </form>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-25">
+                    <div id="changecolour">
+                        <table id="colourtable">
+                        </table>
+                        <div id="done_div">
+                            <button type="submit" id="done_button" onclick="getSrc()" hidden>Done</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </form>
         </div>
     </div>
 </div>

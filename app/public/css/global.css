@@ -156,46 +156,7 @@ body {
   position: relative;
   padding-bottom: 5em;
 }
-#createyourown {
-  padding-bottom: 0%;
-  max-width: 100%;
-  max-height: 2%;
-  height: 100%;
-  /* margin-bottom: 3%; */
-  margin-left: auto;
-  margin-right: auto;
-  /* position: absolute; */
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 2rem;
-  font-weight: lighter;
-  font-family: "nunitoextralight";
-  clear: both;
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-}
-#uniqueposter {
-  max-width: 100%;
-  max-height: 2%;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
 
-  /* position: absolute; */
-  bottom: 10%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 2rem;
-  font-family: "nunitobold";
-  clear: both;
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-}
 #scroll_up {
   max-width: 10%;
   max-height: 5%;
@@ -396,21 +357,12 @@ nav hr {
   }
 }
 
-#choose-size {
-  padding-top: 3%;
-}
-#choose-size p {
-  text-align: center;
-  font-family: "nunitolight";
-  font-size: 30px;
+#satisfiedtable td,
+tr {
+    padding: 0;
+    cursor: pointer;
 }
 
-#choose-size span {
-  margin: 10px;
-  font-size: 35px;
-  /* font-weight: bold; */
-  font-family: "nunitoextrabold";
-}
 
 #satisfiedtable {
   margin: auto;
@@ -466,67 +418,6 @@ button.mbtn {
   font-family: "nunitoblack";
 }
 
-#tableposter {
-  border: none;
-  position: absolute;
-  display: block;
-  border-collapse: collapse;
-}
-#tableposter td,
-tr {
-  padding: 0;
-  cursor: pointer;
-}
-#satisfiedtable td,
-tr {
-  padding: 0;
-  cursor: pointer;
-}
-#tablealfabet td,
-tr {
-  padding: 1em;
-}
-
-#tablealfabet td :hover {
-  cursor: pointer;
-}
-
-#tableposter img {
-  width: 8em;
-  display: block;
-}
-
-#choosecolor {
-  padding-bottom: 5%;
-  font-size: 25px;
-  font-family: "nunitolight";
-}
-#chooseletter {
-  padding-top: 5%;
-  font-size: 15px;
-  font-family: "nunitolight";
-}
-
-#colourtable {
-  border: none;
-  display: block;
-  border-collapse: collapse;
-}
-
-#colourtable img {
-  width: 6.5em;
-  display: block;
-}
-
-#tablealfabet {
-  margin-top: 2%;
-  float: left;
-  border: none;
-  display: block;
-  border-collapse: collapse;
-  font-family: "nunitobold";
-  font-size: 110%;
-}
 
 #write_name {
   /* margin-left: -2%; */
@@ -584,22 +475,7 @@ input {
   .mail {
     padding-bottom: 5em;
   }
-  /* #tableposter {
-    margin-right: 36%;
-    margin-top: 2%;
-    margin-left: 42%;
-    border: none;
-    position: absolute;
-    display: block;
-    border-collapse: collapse; 
-    padding: 0;
-    border-spacing: 0;
-  }
-  #posterfooter {
-    padding-top: 26.5%;
-    margin-left: 44%;
-    font-size: 20px;
-  } */
+
   #tableposter img {
     width: 10em;
     display: block;
@@ -720,8 +596,6 @@ input {
   }
   .basket-table img {
     width: 2em;
-    /* border-collapse: collapse; */
-    /* display: block; */
   }
   #cancel_button {
     margin-top: 1%;

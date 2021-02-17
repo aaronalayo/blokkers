@@ -12,3 +12,10 @@ function openNav() {
 function closeNav() {
    document.getElementById("mySidenav").style.width = "0";
 };
+
+$(document).ready(function () {
+
+   $(".menu-toggle").mouseleave(function(){
+     closeNav();
+   });
+ });
