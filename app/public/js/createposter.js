@@ -198,7 +198,7 @@ function showColor(id){
     }
     $('#colourtable').append('<caption style="caption-side:bottom" id="chooseletter"></caption>')
     $('#choosecolor').text("Choose your color");
-    $('#chooseletter').text("Click on the letters to change the colors");
+    $('#chooseletter').text("Click on the letter to change the color");
     $("#done_button").show();
 }
 
@@ -218,23 +218,7 @@ function onPressBackspace() {
 
 //stores the poster name, size and letter paths to sessionStorage
 function getSrc(){
-  if(sessionStorage.getItem('posterToEdit') != null){
-    let poster = JSON.parse(sessionStorage.posterToEdit);
-    sessionStorage.clear();
-    imgs = document.getElementById('tableposter').getElementsByTagName("img");
-    let imgSrcs = [];
-    for (var i = 0; i < imgs.length; i++) {
-        imgSrcs.push(imgs[i].src);
-    }
-    let pname = poster.pname;
-    let size = $("input[name='size']:checked").val();
-    sessionStorage.setItem("imgs", JSON.stringify(imgSrcs));
-    sessionStorage.setItem("size", JSON.stringify(size.toUpperCase()));
-    sessionStorage.setItem("pname", JSON.stringify(pname));
-    sessionStorage.removeItem('posterToEdit');
-  }else{
-
- 
+  
   imgs = document.getElementById('tableposter').getElementsByTagName("img");
   let imgSrcs = [];
   for (var i = 0; i < imgs.length; i++) {
@@ -246,13 +230,14 @@ function getSrc(){
   sessionStorage.setItem("size", JSON.stringify(size.toUpperCase()));
   sessionStorage.setItem("pname", JSON.stringify(pname));
   sessionStorage.removeItem('posterToEdit');
-}
+
 };
 
 
 function loadPosterEdit(){
   
     let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
+    $('#name').val(posterToEdit.pname.toUpperCase());
     createTable();
     let k = 0;
     for (let i = 0; i <= 3; i++) {
@@ -264,6 +249,8 @@ function loadPosterEdit(){
       $("#tableposter").append("</tr>");
       k = k + 3;
     }
+    $('#tableposter').append('<tfoot id="posterfooter">');
+    $('#posterfooter').text("Click on a letter to change the color");
   
 
 };

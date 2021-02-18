@@ -2,7 +2,14 @@
     body {
         /* font-family: "nunitobold"; */
         /* font-size: 17px; */
-        padding: 10px;
+        /* padding: 10px; */
+
+    }
+
+    body #inspirationspage {
+        /* font-family: "nunitobold"; */
+        /* font-size: 17px; */
+        /* padding: 0px; */
 
     }
 
@@ -21,8 +28,8 @@
 
     .row {
 
-        padding-left: 8%;
-        padding-right: 10%;
+        padding-left: 5%;
+        padding-right: 5%;
         display: -ms-flexbox;
         /* IE10 */
         display: flex;
@@ -52,6 +59,12 @@
         flex: 75%;
     }
 
+    .col-100 {
+        -ms-flex: 100%;
+        /* IE10 */
+        flex: 100%;
+    }
+
     .col-25,
     .col-50,
     .col-75 {
@@ -59,10 +72,20 @@
     }
 
     .container {
+        overflow: visible!important;
         background-color: transparent;
         padding: 10px 10px 15px 10px;
         /* border: 1px solid rgb(255, 252, 252); */
         border-radius: 3px;
+        align-items: baseline;
+
+    }
+
+    #inspirationspage .container {
+        background-color: transparent;
+        padding: 0px 0px 0px 0px;
+        /* border: 1px solid rgb(255, 252, 252); */
+        /* border-radius: 3px; */
         align-items: baseline;
 
     }
@@ -195,16 +218,16 @@
 
     #posterfooter {
         padding-top: 5%;
-        padding-left: 10%;
-        font-size: 25px;
+        padding-left: 5%;
+        font-size: 22px;
         font-family: "nunitoregular";
         position: absolute;
 
     }
 
     #posterdiv {
-        margin-top: -2%;
-        margin-left: 12%;
+        margin-top: -1%;
+        margin-left: 24.5%;
 
         position: absolute;
     }
@@ -244,9 +267,9 @@
     }
 
     #changecolour {
-        margin-left: 90%;
+        margin-left: 80%;
         /* position: absolute; */
-        margin-top: 13%;
+        margin-top: 8%;
     }
 
 
@@ -254,7 +277,7 @@
     #write_name {
         margin-top: -2%;
         /* top: 230%; */
-        margin-left: -12%;
+        margin-left: -5%;
         /* font-weight: bold;
         font-size: 120%;
         font-family: "nunitobold";
@@ -273,10 +296,24 @@
         background-color: #c0c0c0;
         border: 0;
         cursor: pointer;
-        margin-left: 180%;
+        margin-left: 48%;
         margin-top: 10%;
     }
 
+    .fa.fa-angle-left:hover {
+        color: rgb(136, 135, 135) !important;
+
+    }
+
+    .fa.fa-angle-right:hover {
+        color: rgb(136, 135, 135) !important;
+    }
+
+    .fa-animate {
+
+        opacity: 1;
+        transition: all 0.3s cubic-bezier(0.16, 0.08, 0.355, 1);
+    }
 
 
     /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
@@ -308,13 +345,29 @@
         }
 
         #tableposter {
-            margin-left: -1%;
+            margin-left: 0.5%;
 
+            border: none;
+            padding: 0;
+        }
+
+        #posterdiv {
+            margin-top: -3%;
+            margin-left: 19%;
+
+            padding: 0;
+        }
+
+        #done_button {
+
+
+            margin-left: 65%;
+            margin-top: 10%;
         }
 
         #write_name {
             font-size: 100%;
-            margin-left: -13%;
+            margin-left: -8%;
         }
 
 
@@ -346,30 +399,50 @@
         <h2 id="uniqueposter" class="bottomText">UNIQUE POSTER</h2>
     </div>
 </div>
+<!-- <div class="row"> -->
 
 <div id="inspirationspage" class="page">
-    <div>
-        <div class="mySlides fade">
-            <img class="inspiration_img" id="img1" src="images/agnete2 kopi.png">
+    <div class="col-100">
+        <div class="container">
+            <!-- <div > -->
+                <div class="mySlides fade">
+                    <img class="inspiration_img" id="img1" src="images/agnete2 kopi.png">
+                </div>
+                <div class="mySlides fade">
+                    <img class="inspiration_img" id="img2" src="images/August kopi.jpg">
+                </div>
+                <div class="mySlides fade">
+                    <img class="inspiration_img" id="img3" src="images/marie2 kopi.png">
+                </div>
+                <div class="mySlides fade">
+                    <img class="inspiration_img" id="img4" src="images/blm2 kopi.png">
+                </div>
+            <!-- </div> -->
+
+            <div class="row">
+                <div class="col-25">
+                    <div class="center-left">
+                        <span></span><i class="fa fa-angle-left " id="icon_left" onclick="plusSlides(1)"></i></span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-25">
+                    <div class="center-right">
+                        <span><i class="fa fa-angle-right fa-animate" id="icon_right"
+                                onclick="plusSlides(-1)"></i></span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mySlides fade">
-            <img class="inspiration_img" id="img2" src="images/August kopi.jpg">
-        </div>
-        <div class="mySlides fade">
-            <img class="inspiration_img" id="img3" src="images/marie2 kopi.png">
-        </div>
-        <div class="mySlides fade">
-            <img class="inspiration_img" id="img4" src="images/blm2 kopi.png">
-        </div>
-    </div>
-    <div class="center-left">
-        <i class="fa fa-angle-left" id="icon_left" onclick="plusSlides(1)"></i>
     </div>
 
-    <div class="center-right">
-        <i class="fa fa-angle-right" id="icon_right" onclick="plusSlides(-1)"></i>
-    </div>
 </div>
+
+<!-- </div> -->
 
 <div id="createposter" class="page">
     <div class="row">
@@ -386,7 +459,8 @@
                                     <label for="a3">A3</label>
                                 </span>
                                 <span class="radiowrapper" id="wrap2">
-                                    <input type="radio" name="size" value="a2" id="a2" onchange="getSizeDetails(this)" checked>
+                                    <input type="radio" name="size" value="a2" id="a2" onchange="getSizeDetails(this)"
+                                        checked>
                                     <label for="a2">A2</label>
                                 </span>
 

@@ -43,8 +43,6 @@ function editPoster(){
     "price": 0   
 };
 
-
-sessionStorage.clear();
 sessionStorage.setItem("posterToEdit", JSON.stringify(posterToEdit));
 $("#satisfiedtable").html('');
 };
@@ -78,4 +76,5 @@ function addtobasket(){
   }
   posters.push(poster);
   sessionStorage.setItem("posters", JSON.stringify(posters));
+  sessionStorage.removeItem('posterToEdit');
 };

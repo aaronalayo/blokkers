@@ -261,9 +261,9 @@ nav hr {
   max-height: 100%;
   display: block;
   margin-left: auto;
-  position: absolute;
-  margin-top: 20%;
-  right: 8%;
+  position:absolute;
+  margin-top: 19%;
+  right: 7%;
   text-align: right;
   font-size: 120px;
   /* z-index: -1; */
@@ -341,7 +341,7 @@ nav hr {
 
 @-webkit-keyframes fade {
   from {
-    opacity: 0.2;
+    opacity: 0.5;
   }
   to {
     opacity: 1;
@@ -350,7 +350,7 @@ nav hr {
 
 @keyframes fade {
   from {
-    opacity: 0.2;
+    opacity: 0.5;
   }
   to {
     opacity: 1;
