@@ -59,7 +59,7 @@ function displayPosters(){
         <div class="poster-price">
             <span id="${name}-price"></span>
         </div>
-        <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)">Remove <i class="fa fa-trash-o"></i></button>`);
+        <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><i class="fa fa-trash-o" style="font-size:24px" aria-hidden="true""></i></button>`);
         $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
        // $("#name").text(name);
         $("#size").text(poster.size);
@@ -114,8 +114,6 @@ function remove(poster){
             const index = posters.indexOf(p);
             if (index > -1) {
                 posters.splice(index, 1);
-                console.log("deleted");
-                console.log(posters);
                 sessionStorage.setItem("posters", JSON.stringify(posters));
                 window.location.href = window.location.href
             }

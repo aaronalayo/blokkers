@@ -115,14 +115,7 @@
     border: 1px solid lightgrey;
   }
 
-  #sameaddress {
-    padding-left: 18%;
-
-  }
-
-  #newsletter {
-    padding-left: 18%;
-  }
+  
 
 
 
@@ -155,8 +148,11 @@ span.price {
     color: grey;
     width: auto;
   }
+  .basket-container{
+    white-space: nowrap;
+  }
   /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
-  @media (max-width: 800px) {
+  @media (max-width: 1500px) {
     .row {
       flex-direction: column-reverse;
     }
@@ -164,6 +160,16 @@ span.price {
     .col-25 {
       margin-bottom: 15px;
     }
+    #contactinformation{
+      text-align: center;
+    }
+    #sameaddress {
+    text-align:center;
+  }
+
+  #newsletter {
+    text-align: justify;
+  }
   }
 
   @media only screen and (min-device-width: 2160px) {
@@ -194,9 +200,9 @@ span.price {
     <div class="container">
       <form id='addressform'>
         <div class="row">
-          <h1 class="centered">Contact Information</h1>
+          <h1 id='contactinformation' class="centered">Contact Information</h1>
           <div class="col-50 ">
-            <h3>Delivery Address</h3>
+            <h3>Shipping Address</h3>
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="john@example.com"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
@@ -237,14 +243,14 @@ span.price {
             <input type="text" id="invoicezip" name="invoicezip" placeholder="2500" pattern="\d{4}">
           </div>
           </div>
+          <div class="row">
+            <div class="col-50 ">
           <label id="sameaddress">
-            <input class="check" type="checkbox" checked="checked" name="sameaddress" onclick="displayForm()">Shipping
-            address
-            same as billing</label>
+            <input class="check" type="checkbox" checked="checked" name="sameaddress" onclick="displayForm()">Shipping address same as billing</label>
           <label id="newsletter">
-            <input type="checkbox" class="checknews" name="newsletter" onclick="newsLetter()" value=""> Receive
-            newsletter
-          </label>
+            <input type="checkbox" class="checknews" name="newsletter" onclick="newsLetter()" value="">Receive the newsletter</label>
+        </div>
+      </div>
           <div class="row">
             <div class="col-50 ">
           <h4>Cart
@@ -274,4 +280,3 @@ span.price {
     </div>
   </div>
 </div>
-<div id="loader"></div>

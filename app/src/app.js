@@ -84,7 +84,6 @@ const createOrderPage = fs.readFileSync("./public/createorderpage.html", 'utf8')
 const paymentPage = fs.readFileSync("./public/paymentpage.html", 'utf8');
 const aboutPage = fs.readFileSync("./public/aboutpage.html", 'utf8');
 const contactPage = fs.readFileSync("./public/contactpage.html", 'utf8');
-const testPage = fs.readFileSync("./public/test.html", 'utf8');
 
 const Format = require("./model/Format.js");
 
@@ -100,10 +99,6 @@ const formats = "/formats";
 const payment = "/payment";
 const about = "/about";
 const contact = "/contact";
-
-app.get('/test', (req, res) => {
-  return res.send(navbar + testPage);
-});
 
 
 app.get(home, (req, res) => {

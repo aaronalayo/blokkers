@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: "nunitoblack";
   src: url("./fonts/nunito-black-webfont.woff2") format("woff2"),
@@ -114,9 +115,9 @@ html {
   overflow: hidden;
 }
 
-body {
+/* body {
   margin: 0;
-}
+} */
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 #inner_container::-webkit-scrollbar {
@@ -419,45 +420,7 @@ button.mbtn {
 }
 
 
-#write_name {
-  /* margin-left: -2%; */
-  /* font-weight: bold; */
-  margin-top: 0%;
-  font-size: 120%;
-  font-family: "nunitobold";
-  width: fit-content;
-  position: absolute;
-}
-#write_name #type {
-  margin-left: -25%;
-  font-size: 30px;
-  font-family: "nunitoextrabold";
-  text-align: center;
-}
-#write_name #something {
-  margin-left: -25%;
-  margin-top: -8%;
-  font-size: 30px;
-  font-family: "nunitoextralight";
-  text-align: center;
-}
-#write_name #maxletters {
-  margin-left: -25%;
-  margin-top: -8%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  font-family: "nunitoextralight";
-  font-size: 15px;
-}
-#write_name p,
-input {
-  margin-left: 1em;
-  outline: 0;
-  border-width: 0 0 2px;
-  background-color: transparent;
-  font-family: "nunitoextrabold";
-}
+
 
 #about {
   font-family: "nunitoextrabold";
@@ -476,16 +439,7 @@ input {
     padding-bottom: 5em;
   }
 
-  #tableposter img {
-    width: 10em;
-    display: block;
-  }
 
-  #tableposter td,
-  tr {
-    padding: 0;
-    cursor: pointer;
-  }
 
   .basket-table table td,
   tr {
@@ -566,18 +520,7 @@ input {
   .fas .fa-backspace {
     font-size: 1em;
   }
-  #tableposter {
-    border: none;
-    position: absolute;
-    display: block;
-    border-collapse: collapse;
-    padding: 0;
-    border-spacing: 0;
-  }
-  #tableposter img {
-    width: 7em;
-    display: block;
-  }
+ 
 
   #satisfiedtable img {
     width: 7em;
@@ -715,7 +658,7 @@ img {
 
 .sidenav .closebtn {
   position: absolute;
-  top: 0;
+  top: 0; 
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
@@ -728,120 +671,11 @@ img {
 .page {
   position: inherit;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* scroll-snap-align: start; */
 }
 
-#basket-header {
-  border: 1.2px solid #c0c0c0;
-  margin-top: 10%;
-  margin-left: 10%;
-  margin-right: 10%;
-  display: flex;
-}
 
-#proceed-button {
-  text-decoration: none;
-  padding: 0.6em 2em;
-  border-radius: 8px;
-  background-color: lightgray;
-  border: 0;
-  cursor: pointer;
-  height: fit-content;
-  margin-top: 10px;
-  margin-bottom: auto;
-  color: black;
-  margin: 20px;
-}
-
-.basket-table img {
-  width: 2em;
-  border-collapse: collapse;
-  display: block;
-}
-.basket-table table {
-  /* position: absolute; */
-  border: none;
-  display: block;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-.basket-table table td,
-tr {
-  padding: 0;
-  cursor: pointer;
-}
-.basket-items {
-  margin-left: 10%;
-  margin-top: 3%;
-  display: inline-block;
-  width: 60%;
-  position: absolute;
-}
-
-.basket-devider {
-  text-align: left;
-  size: 5pt;
-  border: 0.6px solid #c0c0c0;
-  margin-right: 10%;
-  margin-inline-start: 0%;
-  width: auto;
-}
-
-.size-poster {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 5%;
-}
-
-.quantity {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 5%;
-}
-
-.poster-price {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 5%;
-  font-weight: bold;
-}
-
-.basket-table {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.quantity button {
-  border: none;
-  background-color: white;
-  color: #c0c0c0;
-}
-
-.remove-poster-btn {
-  border: none;
-  background-color: white;
-  margin-left: 5%;
-}
-
-#total-amount-box {
-  background-color: #c0c0c0;
-  width: 260px;
-  height: 200px;
-  margin-right: 10%;
-  margin-top: 7%;
-  position: fixed;
-  margin-left: 65%;
-  padding: 30px;
-}
-
-#empty-basket {
-  margin-top: 15%;
-  margin-left: 10%;
-  margin-right: 10%;
-  text-align: center;
-  font-size: 30px;
-}
 
 /* html {
   scroll-snap-type: y mandatory;
