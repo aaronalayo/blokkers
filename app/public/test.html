@@ -1,0 +1,264 @@
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 5px;
+}
+
+
+
+.header {
+    border: 1.2px solid #c0c0c0;
+    margin-top: 10%;
+    margin-left: 12%;
+    margin-right: 12%;
+    display: flex;
+  padding: 15px;
+}
+#create-button {
+    text-decoration: none;
+    padding: 0.6em 2em;
+    border-radius: 8px;
+    background-color: lightgray;
+    border: 0;
+    cursor: pointer;
+    height: fit-content;
+    margin-top: 15px;
+    margin-bottom: auto;
+    color: black;
+    margin: 10px;
+  }
+
+/* .menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+} */
+
+/* .menu li:hover {
+  background-color: #0099cc;
+} */
+#proceed-button {
+    text-decoration: none;
+    text-align: center;
+    padding: 0.6em 2em;
+    border-radius: 8px;
+    background-color: lightgray;
+    border: 0;
+    cursor: pointer;
+    height: fit-content;
+    margin-top: 20px;
+    margin-bottom: auto;
+    color: black;
+    margin: 10px;
+
+  }
+#total-amount-box {
+    background-color: #c0c0c0;
+    /* margin-top: 10%;
+    margin-left: 2%;
+    margin-right: 2%; */
+    /* float: right; */
+    padding: 2%;
+    width: 260px;
+    height: 200px;
+  }
+
+.aside {
+  /* background-color: #33b5e5; */
+  padding: 15px;
+  /* color: #ffffff; */
+  text-align: left;
+  /* font-size: 14px; */
+  /* box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
+}
+
+/* .footer {
+  background-color: #0099cc;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+} */
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+.basket-table img {
+    width: 2em;
+    border-collapse: collapse;
+    display: block;
+  }
+
+  .basket-table table {
+    /* position: absolute; */
+    border: none;
+    display: block;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .basket-table table td,
+  tr {
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .basket-items {
+    /* margin-right: 2%; */
+    /* margin-left: 2%; */
+    margin-top: 6%;
+    display: inline-block;
+    width: 60%;
+  }
+
+  .basket-devider {
+    text-align: left;
+    size: pt;
+    border: 0.6px solid #c0c0c0;
+    margin-right: 10%;
+    margin-inline-start: 0%;
+    width: auto;
+  }
+
+  .size-poster {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5%;
+  }
+
+  .quantity {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5%;
+  }
+
+  .poster-price {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5%;
+    font-weight: bold;
+  }
+
+  .basket-table {
+    display: inline-table;
+    vertical-align: middle;
+  }
+
+  .quantity button {
+    border: none;
+    background-color: white;
+    color: #3a3a3a;
+  }
+
+  .remove-poster-btn {
+    border: none;
+    background-color: white;
+    margin-left: 5%;
+  }
+  #trash{
+    margin-top: 8%;
+    /* margin-left: 2%; */
+    float: right;
+    margin-bottom: 10%;
+    }
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <!-- <div id="basket-header"> -->
+        <p style="margin: auto; margin-left: inherit;">
+          <span id="size"></span>
+          <span> poster has been added to your basket</span>
+        </p>
+        <a href="/#createposter" class="mbtn button" id="create-button">Create new poster</a>
+      <!-- </div> -->
+</div>
+
+<div class="row">
+  <div class="col-3 col-s-3 menu">
+
+  </div>
+
+  <div class="col-6 col-s-9">
+    <div class="basket-items">
+
+    </div>
+
+  </div>
+
+  <div class="col-3 col-s-12">
+    <div class="aside">
+        <div id="total-amount-box">
+
+            <!-- <a style="font-size: 30px;">Total amount</a> -->
+            <p><span style="font-size: 15px;">Subtotal</span><span style="float: right;" id="subtotal-amount"></span>
+            </p>
+            <p><span style="font-size: 15px;color: rgb(97, 97, 97);">taxes</span>
+              <span style="float: right; color:rgb(97, 97, 97);" id="taxes-amount"></span>
+            </p>
+            <hr style="color: lightgrey;">
+            <p><span style="font-size: 15px;">Total</span><span style="float: right;" id="total-amount"></span></p>
+            <a href="/createorder" class="mbtn button" id="proceed-button">Checkout</a>
+          </div>
+  </div>
+</div>
+
+<div class="footer">
+
+</div>
+
+</body>
+</html>

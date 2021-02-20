@@ -168,10 +168,18 @@ app.get(contact, (req, res) => {
   return res.send(navbar + contactPage);
 });
 
+const testPage= fs.readFileSync("./public/test.html", 'utf8');
+
+app.get('/test', (req, res) =>{
+  return res.send(navbar+ testPage)
+});
+
 app.get("*", (req, res) => {
 
   res.status(404).send("<h1>Page doesnt exist<h1>");
 });
+
+
 
 const createRoute = require('./routes/create.js');
 const paymentRoute = require('./routes/payment.js');

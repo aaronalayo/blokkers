@@ -47,19 +47,27 @@ function displayPosters(){
                 k = k + 3;
         }
         $(`#${name}`).append("</table>");
-        $(`#poster-display-${name}`).append(`<div class="size-poster">
+        $(`#poster-display-${name}`).append(`
+        <div class="size-poster">
             <span>${poster.size}</span><span> poster</span>
         </div>
         <div class="quantity">
-            <span>Quantity</span>
-            <span><button id="${name}-decrease" onclick="decrement(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><</button></span>
-            <span id="${name}-quantity">${poster.quantity}</span>
-            <span><button onclick="increment(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)">></button></span>
+            <span id="quantitytext">Quantity</span>
+            
+        </div>
+        <div class="quantity">
+            <span class="quantitybuttons"><button id="${name}-decrease" onclick="decrement(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><</button></span>
+            <span class="quantitybuttons" id="${name}-quantity">${poster.quantity}</span>
+            <span class="quantitybuttons"><button onclick="increment(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)">></button></span>
         </div>
         <div class="poster-price">
             <span id="${name}-price"></span>
         </div>
-        <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><i class="fa fa-trash-o" style="font-size:24px" aria-hidden="true""></i></button>`);
+        <div class="quantity">
+        <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><i class="fa fa-trash-o" style="font-size:24px" aria-hidden="true""></i></button>
+        </div>
+        `);
+        
         $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
        // $("#name").text(name);
         $("#size").text(poster.size);
@@ -67,7 +75,7 @@ function displayPosters(){
     });    
     
 };
-
+{/* <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><i class="fa fa-trash-o" style="font-size:24px" aria-hidden="true""></i></button>`); */}
 //updates the quantity of the poster in the sessionStorage and updates the price
 function updateQuantity(poster, quantity){
     posters.forEach(p => {
