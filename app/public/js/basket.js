@@ -56,9 +56,9 @@ function displayPosters(){
             
         </div>
         <div class="quantity">
-            <span class="quantitybuttons"><button id="${name}-decrease" onclick="decrement(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><</button></span>
-            <span class="quantitybuttons" id="${name}-quantity">${poster.quantity}</span>
-            <span class="quantitybuttons"><button onclick="increment(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)">></button></span>
+            <span class="quantityleft"><button id="${name}-decrease" onclick="decrement(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><</button></span>
+            <span class="quantitynumber" id="${name}-quantity">${poster.quantity}</span>
+            <span class="quantityright"><button onclick="increment(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)">></button></span>
         </div>
         <div class="poster-price">
             <span id="${name}-price"></span>
