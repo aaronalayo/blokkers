@@ -64,7 +64,7 @@ function displayPosters(){
             <span id="${name}-price"></span>
         </div>
         <div class="trash">
-        <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><i class="fa fa-trash-o" style="font-size:24px" aria-hidden="true""></i></button>
+        <span id="trash" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><i class="fa fa-trash-o" style="font-size:18px" aria-hidden="true""></i></span>
         </div>
         `);
         

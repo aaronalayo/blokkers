@@ -28,22 +28,10 @@
     /* IE10 */
     flex-wrap: wrap;
     margin: 0 100px;
-    
+
 
   }
-  /* .row::after {
-  content: "";
-  clear: both;
-  display: table;
-} */
-/* [class*="col"] {
-  float: left;
-  padding: 5px;
-} */
-/* For mobile phones: */
-/* [class*="col"] {
-  width: 100%;
-} */
+
 
   .col-25 {
     /* margin: 2%; */
@@ -82,13 +70,13 @@
   .btn {
     background-color: transparent;
     /* color: white; */
-    padding: 12px;
+    /* padding: 12px; */
     margin-left: 0%;
-    margin-top: 2%;
+  
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 18px;
 
   }
 
@@ -108,6 +96,7 @@
     margin-right: 12%;
     display: flex;
   }
+
 
   #proceed-button {
     text-decoration: none;
@@ -172,7 +161,7 @@
   }
 
   .basket-items {
-    margin: 5%;
+    margin: 2%;
     display: inline-block;
     width: 100%;
   }
@@ -188,22 +177,65 @@
   .size-poster {
     display: inline-block;
     vertical-align: middle;
-    margin: 2%;
+
   }
 
   .quantity {
     display: inline-block;
     vertical-align: middle;
-    margin: 2%;
+
   }
+  .quantitytext {
+      vertical-align: middle;
+
+      display: inline-block;
+    }
+
+ 
+
+    .quantity button {
+      border: none;
+      background-color: white;
+      color: #3a3a3a;
+      font-size: 18px;
+
+    }
+
+    #quantitytext {
+      font-size: 18px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    .quantityleft {
+
+      font-size: 18px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    .quantitynumber {
+      font-size: 18px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    .quantityright {
+      font-size: 18px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
 
   .poster-price {
     display: inline-block;
-    vertical-align: middle;
-    margin: 2%;
+    vertical-align: baseline;
+
     font-weight: bold;
   }
-
+#trash{
+  vertical-align: baseline;
+}
   .basket-table {
     display: inline-table;
     vertical-align: middle;
@@ -216,15 +248,16 @@
   }
 
   .remove-poster-btn {
+    vertical-align: middle;
     border: none;
     background-color: white;
-    margin: 2%;
+
   }
 
 
   #total-amount-box {
+    margin: 2%;
     background-color: #c0c0c0;
-    margin: 10%;
     float: right;
     padding: 2%;
     width: 260px;
@@ -233,415 +266,149 @@
   }
 
   #empty-basket {
-    margin-top: 15%;
-    margin-left: 10%;
-    margin-right: 10%;
     text-align: center;
     font-size: 30px;
-    left: 10%;
+
   }
-  #trash{
-    margin-top: 8%;
-    margin-left: 2%;
-    /* float: right; */
-    margin-bottom: 10%;
+.trash{
+  /* vertical-align: middle; */
+  display:inline-block;
+  margin: 2%;
+}
+
+  
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+
+    .col {
+      width: 50%;
+      float: left;
     }
-
-  @media only screen and (max-width: 1200px) {
-    /* .row {
-      flex-direction: column-reverse;
-    
-    } */
-
     .col-25 {
-
-      margin-bottom: 15px;
+    -ms-flex: 25%;
+    flex: 25%;
     }
-    .container {
+    .row {
+      margin: 2%;
+    }
 
-    padding: 0px 0px 0px 0px;
-    /* border: 1px solid rgb(255, 252, 252); */
-    border-radius: 3px;
-
+    #basket-header p {
+    display: none;
   }
-    .button-text {
-      display: none;
+  #basket-header {
+    margin-top: 10%;
+    margin-left: 25%;
+}
+.basket-devider {
+   display: none;
+  }
+   
+ 
+    #create-button {
+      font-size: 14px;
+      text-align: center;
+
+    }
+
+    #basket-header {
+
+      display: inline-flex;
+    }
+
+    .basket-table {
+    margin: 2%;
     }
     .basket-table img {
     width: 4em;
-    border-collapse: collapse;
-    display: block;
   }
-  #create-button {
-    font-size: 20px;
-    text-align: center;
-  }
-  #basket-header {
-    border: 1.2px solid #c0c0c0;
-    margin-top: 10%;
-    margin-left: 20%;
-    margin-right: 30%;
-    display: flex;
-}
-
-    #basket-header p {
-      display: none;
-    }
-
-    .basket-table {
-      margin-left: -10%;
-   
-    }
-    .basket-devider {
-    display :none;
-  }
-
     .size-poster {
-      align-items: center;
-      
-      /* margin: 20%; */
+      margin-left: 25%;
+      font-size: 24px;
+      margin-top: 10%;
+    }
+
+    .quantitytext {
+      margin-left: 25%;
+      vertical-align: middle;
+
+      display: flex;
+      margin-top: 10%;
     }
 
     .quantity {
-      /* margin: 20%; */
+      margin-left: 32%;
+      vertical-align: middle;
 
-    display: flex;
+      display: flex;
+      margin-top: 10%;
     }
-  .quantity #quantitytext{
-    font-size: 24px;
-  }
-  .quantitybuttons{
-  
-    font-size: 24px;
-  }
-  .quantitybuttons button{
-  
-  font-size: 24px;
-  }
+
+    .quantity button {
+      border: none;
+      background-color: white;
+      color: #3a3a3a;
+      font-size: 24px;
+
+    }
+
+    #quantitytext {
+      font-size: 24px;
+
+    }
+
+    .quantityleft {
+
+      font-size: 24px;
+
+    }
+
+    .quantitynumber {
+      font-size: 24px;
+      margin-bottom: 2%;
+      margin-left: 4%;
+      margin-right: 4%;
+      vertical-align: middle;
+
+    }
+
+    .quantityright {
+      font-size: 24px;
+   
+    }
+
     .poster-price {
-      /* margin-left: 10%; */
-    /* margin-top: 20%; */
+      margin-top: 10%;
+      margin-left: 30%;
       font-size: 24px;
     }
 
-    #trash{
-      /* margin-top: 20%;
-      margin-left: 20%;
-      margin-bottom: 20%; */
-      float: none;
-    }
-    #empty-basket {
-      text-align: center;
-    }
-
-    #total-amount-box {
-      background-color: #c0c0c0;
-
-    float: none;
-    padding: 2%;
-    width: 260px;
-    height: 200px;
-    }
-
-
-  }
-/* 
-  @media only screen and (max-device-width: 1920px) {
-    #total-amount-box {
-
-      margin-left: 6%;
-
-    }
-
-    .basket-items {
-      margin-left: 0%;
-      margin-top: 6%;
-      display: inline-block;
-      width: 60%;
-    }
-  }
-
-  /* On screens that are 992px wide or less, go from four columns to two columns */
-  @media screen and (max-width: 992px) {
-    .col {
-      float: left;
-      width: 50%;
-      align-items: center;
-    }
-    #total-amount-box {
-    float: none;
-    padding: 2%;
-    width: 260px;
-    height: 200px;
-}
-  }
-
-  /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
-  /* @media screen and (max-width: 600px) {
-    .col {
-      width: 50%;
-      float: left;
-    }
-    #basket-header {
-
-    margin-top: 10%;
-    margin-left: 20%;
-    margin-right: 30%;
-    display: flex;
-}
-    .basket-table {
-    margin-left: -13%;
-}
-    #total-amount-box {
-      float: left;
-    padding: 2%;
-    width: 200px;
-    height: 200px;
-    margin-top: 20%;
-    margin-left: -26%;
-    margin-right: 26%;
-    }
-
-    .size-poster {
-      font-size: 24px;
-    margin-top: 20%;
-    margin-left: -5%;
-}
-.quantity {
-
-
-    display: flex;
-    }
-  .quantity #quantitytext{
-    font-size: 24px;
-    margin-left: -5%;
-    margin-top: 20%;
-  }
-  .quantityleft{
-    font-size: 24px;
-    margin-left: -10%;
-    margin-top: 20%;
-  }
-  .quantitynumber {
-    font-size: 24px;
-    margin-left: 10%;
-    margin-top: 26%;
-}
-.quantityright{
-  font-size: 24px;
-  margin-left: 10%;
-    margin-top: 20%;
-}
-.quantity button {
-    border: none;
-    background-color: white;
-    color: #3a3a3a;
-    font-size: 40px;
-}
-    .poster-price {
-      margin-left: 0%;
-    margin-top: 20%;
-    font-size: 24px;
-    }
     .remove-poster-btn {
-    border: none;
-    background-color: white;
-    margin-top: 20%;
-    margin-left: 10%;
-    margin-bottom: 20%;
-}
-    #trash{
-  
-      float: none;
-    }
-    #empty-basket {
-      text-align: center;
-    }
-  }  */
-/* Portrait and Landscape */
-/* @media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-.row{
-    margin: 2%;
-  }
-  .col-25, .col-50, .col-75 {
-    padding: 5px 16px;
-    margin-left: 6%;
-}
-  #create-button {
-  font-size: 14px;
-  text-align: center;
-  margin-right: 10%;
-}
-  #basket-header {
+      border: none;
+      background-color: white;
 
-    margin-top: 15%;
-  margin-left: 25%;
-  margin-right: 23%;
-  display: flex;
-}
-.basket-table {
-  margin-left: -6%;
-}
-.size-poster {
-  font-size: 24px;
-  margin-top: 20%;
-  margin-left: 10%;
-}
-.quantity {
-  vertical-align: middle;
-  margin: 2%;
-  margin-left: 14%;
-}
-.poster-price {
-  margin-left: 16%;
-  margin-top: 20%;
-  font-size: 24px;
-}
-.remove-poster-btn {
-  border: none;
-  background-color: white;
-  margin-top: 20%;
-  margin-left: 20%;
-  margin-bottom: 20%;
-}
-.col-25 {
-  margin-left: -2%;
-  -ms-flex: 25%;
-  flex: 25%;
-}
-#total-amount-box {
-  float: left;
-  padding: 2%;
-  width: 200px;
-  height: 200px;
-  margin-top: 20%;
-  margin-left: 0%;
-  margin-right: 26%;
-}
-#proceed-button {
-margin: 16%;
-}
-} */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-
-    .col {
-      width: 50%;
-      float: left;
     }
-    #basket-header {
 
-    margin-top: 10%;
-    margin-left: 20%;
-    margin-right: 30%;
-    display: flex;
-}
-  .row{
-      margin: 2%;
-    }
-    #create-button {
-    font-size: 14px;
-    text-align: center;
-    margin-right: 10%;
-}
-    #basket-header {
-
-      margin-top: 15%;
-    margin-left: 25%;
-    margin-right: 23%;
-    display: flex;
-}
-.basket-table {
-  margin-left: 0%;
-}
-.size-poster {
-    font-size: 24px;
-    margin-top: 20%;
-    margin-left: 20%;
-}
-.quantitytext {
-    vertical-align: middle;
-    margin: 2%;
-    margin-left: 14%;
-    display: flex;
-}
-.quantity {
-    vertical-align: middle;
-    margin: 2%;
-    margin-left: 14%;
-    display: flex;
-}
-.quantity button {
-    border: none;
-    background-color: white;
-    color: #3a3a3a;
-    font-size: 24px;
     
-}
-#quantitytext {
-    font-size: 24px;
-    margin-left: 12%;
-    margin-top: 20%;
-}
-.quantityleft {
-  
-    font-size: 24px;
-    margin-left: 10%;
-    margin-top: 26%;
-}
-  .quantitynumber {
-    font-size: 24px;
-    margin-left: 10%;
-    margin-top: 26%;
-}
-.quantityright{
-  font-size: 24px;
-  margin-left: 10%;
-    margin-top: 26%;
-}
-.poster-price {
-    margin-top: 20%;
-    margin-left: 28%;
-    font-size: 24px;
-}
-.remove-poster-btn {
-  border: none;
-    background-color: white;
-    margin-top: 20%;
-    margin-bottom: 20%;
-    margin-left: 20%;
-    margin-right: 20%;
-}
-.col-25 {
-    margin-left: -10%;
-    -ms-flex: 25%;
-    flex: 25%;
-}
-#total-amount-box {
-    float: left;
-    padding: 2%;
-    width: 200px;
-    height: 200px;
-    margin-top: 10%;
-    margin-left: 15%;
-    margin-right: 26%;
-}
-#proceed-button {
-  margin: 16%;
-}
-.trash{
-  vertical-align: middle;
-    margin: 2%;
-    margin-left: 25%;
-    display: flex;
-}
-  }
 
+    #total-amount-box {
+      float: left;
+      padding: 2%;
+      width: 200px;
+      height: 200px;
+    
+    }
+
+    #proceed-button {
+      margin: 16%;
+    }
+
+    .trash {
+      margin-left: 45%;
+      vertical-align: middle;
+      display: flex;
+      margin-top: 10%;
+      margin-bottom: 20%;
+    }
+  }
 </style>
 
 <div class="row">
@@ -664,15 +431,11 @@ margin: 16%;
       </div>
       <div class="row">
         <div class="col-50">
-
-
           <div class="basket-items">
-
           </div>
         </div>
         <div class="col-25">
           <div id="total-amount-box">
-
             <!-- <a style="font-size: 30px;">Total amount</a> -->
             <p><span style="font-size: 15px;">Subtotal</span><span style="float: right;" id="subtotal-amount"></span>
             </p>
@@ -680,17 +443,13 @@ margin: 16%;
               <span style="float: right; color:rgb(97, 97, 97);" id="taxes-amount"></span>
             </p>
             <hr style="color: lightgrey;">
-            <p style="margin-bottom: 12%;"><span style="font-size: 15px;margin-bottom: 14%;">Total</span><span style="float: right;" id="total-amount"></span></p>
+            <p style="margin-bottom: 12%;"><span style="font-size: 15px;margin-bottom: 14%;">Total</span><span
+                style="float: right;" id="total-amount"></span></p>
             <a href="/createorder" class="mbtn button" id="proceed-button">Checkout</a>
           </div>
         </div>
-       
-          
-
       </div>
-
-      </div>
-
     </div>
   </div>
+</div>
 </div>
