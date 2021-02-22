@@ -51,7 +51,7 @@ function displayPosters(){
         <div class="size-poster">
             <span>${poster.size}</span><span> poster</span>
         </div>
-        <div class="quantity">
+        <div class="quantitytext">
             <span id="quantitytext">Quantity</span>
             
         </div>
@@ -63,7 +63,7 @@ function displayPosters(){
         <div class="poster-price">
             <span id="${name}-price"></span>
         </div>
-        <div class="quantity">
+        <div class="trash">
         <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><i class="fa fa-trash-o" style="font-size:24px" aria-hidden="true""></i></button>
         </div>
         `);
