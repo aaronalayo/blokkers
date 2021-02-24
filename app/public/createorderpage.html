@@ -1,8 +1,7 @@
 <style>
   body {
     font-family: "nunitobold";
-    font-size: 17px;
-    padding: 8px;
+
 
   }
 
@@ -21,8 +20,8 @@
 
   .row {
 
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
     display: -ms-flexbox;
     /* IE10 */
     display: flex;
@@ -34,9 +33,9 @@
   }
 
   .col-25 {
-    -ms-flex: 35%;
+    -ms-flex: 25%;
     /* IE10 */
-    flex: 35%;
+    flex: 25%;
 
   }
 
@@ -60,7 +59,7 @@
 
   .container {
     background-color: transparent;
-    padding: 10px 10px 15px 10px;
+    padding: 10px 10px 10px 10px;
     /* border: 1px solid rgb(255, 252, 252); */
     border-radius: 3px;
 
@@ -90,8 +89,8 @@
   .btn {
     background-color: #c2c2c2;
     color: white;
-    padding: 12px;
-    margin-left: 2%;
+    padding: 10px;
+    
     margin-top: 2%;
     border: none;
     border-radius: 3px;
@@ -151,15 +150,27 @@ span.price {
   .basket-container{
     white-space: nowrap;
   }
-  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
-  @media (max-width: 1500px) {
-    .row {
-      flex-direction: column-reverse;
-    }
 
-    .col-25 {
-      margin-bottom: 15px;
+  .basket{
+    margin-top: 4%;
+  }
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+
+    .col {
+      width: 50%;
+      float: left;
     }
+    .col-25 {
+    -ms-flex: 25%;
+    flex: 25%;
+    }
+    .row {
+      margin: 2%;
+    }
+    input[type=text] {
+    width: 120%;
+  }
     #contactinformation{
       text-align: center;
     }
@@ -170,9 +181,21 @@ span.price {
   #newsletter {
     text-align: justify;
   }
+  .basket{
+    margin-top: 10%;
+  }
+  .basket-container {
+    margin-bottom: 20%;
+}
+#shipping{
+  width: max-content;
+}
+/* #contactinformation{
+  width: max-content;
+} */
   }
 
-  @media only screen and (min-device-width: 2160px) {
+  /* @media only screen and (min-device-width: 2160px) {
     .basket-container {
 
       width: 46.5%;
@@ -190,19 +213,20 @@ span.price {
       width: 100%;
 
     }
-  }
+  } */
 </style>
 
 
-<form>
+
 <div class="row">
   <div class="col-75">
     <div class="container">
+      <form>
       <form id='addressform'>
         <div class="row">
           <h1 id='contactinformation' class="centered">Contact Information</h1>
           <div class="col-50 ">
-            <h3>Shipping Address</h3>
+            <h3 id="shipping">Shipping Address</h3>
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="john@example.com"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
@@ -265,15 +289,21 @@ span.price {
           </div>
           <div id="totalbasket">
           </div>
+        </div>
+      </div>
           <div class="row">
-            
+            <div class="col-25 ">
           <div id="submit">
-            <input type="button" id="CreatePayment" value="Go to payment" id="submit" class="btn" onclick="getInfo()">
-            <a href="/basket" class="btn">Basket</a>
+            <span><input type="button" id="CreatePayment" value="Go to payment" id="submit" class="btn" onclick="getInfo()"></span>
+            
+          </div>
+          <div class="basket">
+            <span><a id="basket-btn" href="/basket" class="btn">Basket</a></span>
           </div>
             </div>
           </div>
-      </div>
+
+      
       
       </form>
 

@@ -86,3 +86,8 @@ function showSlides(n) {
 fetch(url, {referrerPolicy: 'no-referrer-when-downgrade'});
 
 
+function goto()
+    {
+    window.location= '#poster-col';
+
+    }

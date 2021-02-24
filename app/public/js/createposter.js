@@ -237,20 +237,25 @@ function getSrc(){
 function loadPosterEdit(){
   
     let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
-    $('#name').val(posterToEdit.pname.toUpperCase());
-    createTable();
-    let k = 0;
-    for (let i = 0; i <= 3; i++) {
-      $("#tableposter").append("<tr>");
-      for (let j = k; j <= k + 2; j++) {
-        $("#tableposter").append(`<td id=${j + 1} >`);
-        $("#" + (j + 1)).append(`<img src="${posterToEdit.paths[j]}">`);
+    if(posterToEdit){
+      $('#name').val(posterToEdit.pname.toUpperCase());
+      createTable();
+      let k = 0;
+      for (let i = 0; i <= 3; i++) {
+        $("#tableposter").append("<tr>");
+        for (let j = k; j <= k + 2; j++) {
+          $("#tableposter").append(`<td id=${j + 1} >`);
+          $("#" + (j + 1)).append(`<img src="${posterToEdit.paths[j]}">`);
+        }
+        $("#tableposter").append("</tr>");
+        k = k + 3;
       }
-      $("#tableposter").append("</tr>");
-      k = k + 3;
+      $('#tableposter').append('<tfoot id="posterfooter">');
+      $('#posterfooter').text("Click on a letter to change the color");
+    
+    }else{
+      window.location = '#createposter'
     }
-    $('#tableposter').append('<tfoot id="posterfooter">');
-    $('#posterfooter').text("Click on a letter to change the color");
-  
+    
 
 };

@@ -1,20 +1,19 @@
 <style>
     body {
         /* font-family: "nunitobold"; */
-    /* font-size: 17px; */
-    /* padding: 10px; */
-    height: 5000px;
+        /* font-size: 17px; */
+        /* padding: 10px; */
+        height: 1000px;
         margin: 0;
         padding: 0;
- } 
+    }
 
-    html  {
-    -webkit-overflow-scrolling: auto !important;
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    scroll-snap-stop: always
-    
-  }
+    html {
+        /* -webkit-overflow-scrolling: auto !important;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        scroll-snap-stop: always */
+    }
 
     * {
         box-sizing: border-box;
@@ -23,18 +22,20 @@
 
 
     .row {
-        margin: auto;
-        padding-left: 2%;
-        padding-right: 2%;
+
+        /* padding-left: 5%;
+        padding-right: 5%; */
         display: -ms-flexbox;
         /* IE10 */
         display: flex;
         -ms-flex-wrap: wrap;
         /* IE10 */
         flex-wrap: wrap;
-        margin: 0 50px;
+        margin: 0 100px;
+
 
     }
+
 
     .col-25 {
         -ms-flex: 25%;
@@ -160,10 +161,7 @@
     }
 
     #choose-size span {
-
-        margin: 5px;
         font-size: 35px;
-        /* font-weight: bold; */
         font-family: "nunitoextrabold";
     }
 
@@ -184,24 +182,19 @@
     }
 
     #posterfooter {
-        padding-top: 1%;
-        padding-left: 0.5%;
+        /* padding-top: 1%;
+        padding-left: 0.5%; */
         font-size: 22px;
         font-family: "nunitoregular";
         position: absolute;
-
     }
 
     #posterdiv {
         width: fit-content;
-        margin-left: 10%;
-        margin-right: 10%;
-        padding-left: 9%
+
     }
 
     #tableposter {
-        margin-left: auto;
-        margin-right: auto;
         border: none;
         display: block;
         border-collapse: collapse;
@@ -220,10 +213,9 @@
     }
 
     #write_name {
-        margin-left: 0%;
-        margin-right: 5%;
-        margin-top: -2%;
-        font-weight: bold;
+        display: inline-block;
+        vertical-align: middle;
+
         font-size: 120%;
         font-family: "nunitobold";
         width: fit-content;
@@ -242,14 +234,11 @@
     }
 
     #tablealfabet {
-        margin-left: auto;
-        margin-right: auto;
-
         border: none;
         display: block;
         border-collapse: collapse;
         font-family: "nunitobold";
-        font-size: 110%;
+        font-size: 90%;
     }
 
 
@@ -294,14 +283,12 @@
     }
 
     #chooseletter {
-        padding-top: 5%;
+        /* padding-top: 5%; */
         font-size: 15px;
         font-family: "nunitolight";
     }
 
     #colourtable {
-        margin-left: auto;
-        margin-right: auto;
         border: 4px;
         display: block;
         border-collapse: collapse !important;
@@ -316,8 +303,8 @@
 
 
     #changecolour {
-    margin-left: 5%;
-    margin-top: 8%;
+        display: inline-block;
+        vertical-align: middle;
     }
 
 
@@ -333,8 +320,6 @@
         background-color: #c0c0c0;
         border: 0;
         cursor: pointer;
-        margin-left: 48%;
-        margin-top: 10%;
     }
 
     .fa.fa-angle-left:hover {
@@ -352,117 +337,151 @@
         transition: all 0.3s cubic-bezier(0.16, 0.08, 0.355, 1);
     }
 
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        body {
+            height: 6000px;
+        }
 
-    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
-    @media (max-device-width: 800px) {
-        #createposterpage{
-            margin-top: 20%;
+        html {
+            -webkit-overflow-scrolling: auto !important;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scroll-snap-stop: always
         }
-        .row {
-         margin-left: 2%;
-            flex-direction: column-reverse;
+
+        .col {
+            width: 50%;
+            float: left;
         }
-        #createposterpage .page{
-            margin-top:50px;
-            overflow:visible !important;
-}
+
         .col-25 {
-            margin-bottom: 15px;
+            -ms-flex: 25%;
+            flex: 25%;
         }
-      
 
-        #choose-size p {
-            text-align: center;
-            font-size: 20px;
+        .row {
+            margin: 2%;
+        }
+
+        .container {
+            padding: 0px 0px 0px 0px;
+
+
+        }
+
+        .centered {
+
+            padding-left: 0%;
+            padding-top: 0%;
+        }
+
+        .page {
+            height: 200vh;
+            overflow: hidden;
+        }
+
+        .shopping-bag {
+            padding-left: 90%;
+        }
+
+        #logo_img {
+            max-width: 120%;
+
+            margin-left: 10%;
+            margin-top: 80%;
+        }
+
+        #createyourown {
+            padding-bottom: 0%;
+            max-width: 90%;
+            font-size: 1.5rem;
+            overflow: visible;
+
+            margin-left: 20%;
+
+        }
+
+        #uniqueposter {
+            max-width: 100%;
+            overflow: visible;
+            font-size: 1.5rem;
+            font-weight: lighter;
+            font-family: "nunitoextralight";
+            margin-left: 30%;
+        }
+
+        #icon_left {
+            margin-top: 76%;
+            left: 2%;
+            font-size: 80px;
+        }
+
+        #icon_right {
+            margin-top: 70%;
+            right: 2%;
+            font-size: 80px;
+        }
+
+        #choose-size {
+            padding-top: 1%;
+            padding-right: 0%;
         }
 
         #choose-size span {
-
-            margin-left:10%;
-            font-size: 30px;
+            font-size: 25px;
         }
 
-        #posterdiv {
-        
-
-            margin-right: 0%;
-            margin-left: 0%;
- 
-        }
-        #changecolour {
-        margin-left:10%;
-        margin-top: 10%;
-        }
-
-    }
-
-    @media only screen and (max-device-width: 1920px) {
-        #posterfooter {
-            font-size: 18px;
-            /* padding-left: 11%; */
-        }
-
-        #tableposter {
-            padding: 0;
-        }
-
-        #posterdiv {
-        width: fit-content;
-        margin-left: 10%;
-        margin-right: 2%;
-        padding-left: 4%
-    }
-    #tableposter img {
-        width: 7em;
-        display: block;
-    }
-
-        #done_button {
-
-
-            margin-left: 35%;
-            margin-top: 10%;
+        #choose-size p {
+            margin: 2%;
         }
 
         #write_name {
-            font-size: 100%;
-            /* margin-left: -8%; */
+            font-size: 90%;
+            margin-bottom: 20%;
         }
-
-
 
         #write_name #type {
-            margin-left: -10%;
+            margin-top: 2%;
+        }
+
+        #write_name input {
+
+            width: 55%;
 
         }
 
-        #write_name #something {
-            margin-left: -10%;
+        #posterdiv {
+    margin-top: 40%;
+    /* margin-left: -12%;  */
 
         }
 
-        #write_name #maxletters {
-            margin-left: -10%;
+        #tableposter img {
+            width: 6em;
 
         }
 
+        #posterfooter {
+        font-size: 1.14em;
+        }
 
     }
 </style>
 <div id="homepage" class="page">
-    <div class="col-75">
-        <div class="container">
-            <div class="centered">
-                <img id="logo_img" src="images/Blokkers_logo.png">
-            </div>
-            <div class="centered">
-                <h2 id="createyourown" class="bottomText">CREATE YOUR OWN</h2>
-                <h2 id="uniqueposter" class="bottomText">UNIQUE POSTER</h2>
+    <div class="row">
+        <div class="col-75">
+            <div class="container">
+                <div class="centered">
+                    <img id="logo_img" src="images/Blokkers_logo.png">
+                </div>
+                <div class="centered">
+                    <h2 id="createyourown" class="bottomText">CREATE YOUR OWN</h2>
+                    <h2 id="uniqueposter" class="bottomText">UNIQUE POSTER</h2>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <div id="inspirationspage" class="page">
     <div class="col-100">
@@ -482,12 +501,9 @@
             <div class="row">
                 <div class="col-25">
                     <div class="center-left">
-                        <span></span><i class="fa fa-angle-left " id="icon_left" onclick="plusSlides(1)"></i></span>
+                        <span><i class="fa fa-angle-left " id="icon_left" onclick="plusSlides(1)"></i></span>
                     </div>
                 </div>
-            </div>
-
-            <div class="row">
                 <div class="col-25">
                     <div class="center-right">
                         <span><i class="fa fa-angle-right fa-animate" id="icon_right"
@@ -504,7 +520,7 @@
         <div class="col-75">
             <div class="container">
                 <div class="row">
-                    <div class="col-50">
+                    <div class="col-25">
                         <div id="choose-size" class="centered">
                             <p>Choose the size</p>
                             <p>
@@ -533,8 +549,10 @@
 
                 <div class="row">
 
-                    <div id="write_name">
-                        <div class="col-50">
+                    <div class="col-25">
+
+                        <div id="write_name">
+
                             <div>
                                 <p id="type">Type</p>
                                 <p id="something">something</p>
@@ -592,34 +610,34 @@
                             </table>
                             <div>
                                 <button type="submit" name="next" value="Next" class="mbtn blue" id="next_button"
-                                    onclick="validateForm()">Next</button>
+                                    onclick="validateForm(); goto()">Next</button>
                             </div>
                         </div>
+
                     </div>
 
-
-                    <div id='posterdiv'>
-                        <div class="col-50">
+                    <div id='poster-col' class="col-25">
+                        <div id='posterdiv'>
                             <form id="imageForm" action="/satisfied" method="GET">
                                 <table id='tableposter'>
                                 </table>
                         </div>
                     </div>
 
-                
 
 
-                <div id="changecolour">
-                    <div class="col-50">
-                        <table id="colourtable">
-                        </table>
-                        <div id="done_div">
-                            <button type="submit" id="done_button" onclick="getSrc()" hidden>Done</button>
+                    <div class="col-25">
+                        <div id="changecolour">
+                            <table id="colourtable">
+                            </table>
+                            <div id="done_div">
+                                <button type="submit" id="done_button" onclick="getSrc()" hidden>Done</button>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
-            </div>
                 </form>
             </div>
         </div>

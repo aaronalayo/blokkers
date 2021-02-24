@@ -51,10 +51,7 @@ function displayPosters(){
         <div class="size-poster">
             <span>${poster.size}</span><span> poster</span>
         </div>
-        <div class="quantitytext">
-            <span id="quantitytext">Quantity</span>
-            
-        </div>
+    
         <div class="quantity">
             <span class="quantityleft"><button id="${name}-decrease" onclick="decrement(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><</button></span>
             <span class="quantitynumber" id="${name}-quantity">${poster.quantity}</span>
@@ -75,7 +72,14 @@ function displayPosters(){
     });    
     
 };
-{/* <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><i class="fa fa-trash-o" style="font-size:24px" aria-hidden="true""></i></button>`); */}
+{
+        // <div class="quantitytext">
+        //     <span id="quantitytext">Quantity</span>
+            
+        // </div>
+    
+    
+    /* <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><i class="fa fa-trash-o" style="font-size:24px" aria-hidden="true""></i></button>`); */}
 //updates the quantity of the poster in the sessionStorage and updates the price
 function updateQuantity(poster, quantity){
     posters.forEach(p => {
