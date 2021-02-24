@@ -1,16 +1,18 @@
 let scrolling = false;
 let currentPos = 0;
 
+
 $(document).ready(function() {
     for(let i = 0; i < $('.page').length; i++){
         let elm = $('.page')[i];
         if( $(document).scrollTop() >= $(elm).offset().top ){
             currentPos = i;
         }
+        
     }
 
     $(document).bind('DOMMouseScroll', { passive: false }, function(e){
-        e.preventDefault();
+ 
         if(e.originalEvent.detail > 0) {
             scrollDown();
         }else {
@@ -45,7 +47,7 @@ function scrollUp(){
 
 function scrollDown(){   
     if(!scrolling && currentPos < $('.page').length-1  ){
-        scrolling=true;
+        scrolling = true;
         currentPos ++;
         let scrollToElement = $('.page')[currentPos];
         $('html, body').animate({
@@ -72,17 +74,21 @@ function currentSlide(n) {
     
 function showSlides(n) {
     let i;
+  
     let slides = document.getElementsByClassName("mySlides");
-    if (n > slides.length) {slideIndex = 1}    
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-    slides[slideIndex-1].style.display = "block";
 
-    setTimeout(showSlides, 2000);  
-};
-    
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+ 
+        slides[slideIndex-1].style.display = "block";     
+     
+
+      
+    setTimeout(showSlides, 2000); 
+
+}
+
 fetch(url, {referrerPolicy: 'no-referrer-when-downgrade'});
-
-

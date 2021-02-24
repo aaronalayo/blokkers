@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/global.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js-webshim/minified/polyfiller.js"></script> 
+
 
    
     <script src="./js/navbar.js"></script>
@@ -20,11 +20,83 @@
     <script src="./js/checkout.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"  type='text/css'>
     <script type="text/javascript" src="https://test.checkout.dibspayment.eu/v1/checkout.js?v=1"> </script>
-    <!-- <script type="text/javascript" src="https://checkout.dibspayment.eu/v1/checkout.js?v=1"> </script> -->
+ 
     <title>BLOKKERS</title>
 </head>
+<style>
+  body {
+      /* font-family: "nunitobold"; */
+      /* font-size: 17px; */
+      /* padding: 10px; */
+      height: 5000px;
+      margin: 0;
+      padding: 0;
+  }
 
+  * {
+      box-sizing: border-box;
+
+  }
+
+
+  .row {
+      margin: auto;
+      padding-left: 1%;
+      padding-right: 1%;
+      display: -ms-flexbox;
+      /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap;
+      /* IE10 */
+      flex-wrap: wrap;
+      margin: 0 5px;
+
+  }
+
+  .col-25 {
+      -ms-flex: 25%;
+      /* IE10 */
+      flex: 25%;
+
+  }
+
+  .col-50 {
+
+      -ms-flex: 50%;
+      /* IE10 */
+      flex: 50%;
+  }
+
+  .col-75 {
+      -ms-flex: 75%;
+      /* IE10 */
+      flex: 75%;
+  }
+
+  .col-100 {
+      -ms-flex: 100%;
+      /* IE10 */
+      flex: 100%;
+  }
+
+  .col-25,
+  .col-50,
+  .col-75 {
+      padding: 10px 16px;
+  }
+
+  .container {
+      overflow: visible !important;
+      background-color: transparent;
+      /* padding: 10px 10px 10px 10px; */
+      /* border: 1px solid rgb(255, 252, 252); */
+      border-radius: 3px;
+      align-items: baseline;
+
+  }
+  </style>
 <body>
+ 
     <nav role="navigation" id="nav-bar"> 
         <div class="menu-toggle">
             <a id="hamburger" class="icon" onclick="openNav()">
@@ -50,7 +122,3 @@
             </a>
         </div>
     </nav>
-
-
-
-

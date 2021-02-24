@@ -1,15 +1,11 @@
 $( document ).ready(function() {
  let id = document.getElementById('a2')
   getSizeDetails(id);
-  
+
+// if(window.location.origin = '/satisfied'){loadPosterEdit();};
+
 });
-window.onload = function() {
-  if(window.origin = '/satisfied'){
-    console.log('about to loadPosterEdit')
-  loadPosterEdit();
-  console.log('edited')
-  }
-};
+
 //gets the formats with their prices and returns them as Promise
 function getFormats() {
   const fetchJson = async url => {
@@ -26,6 +22,9 @@ function getFormats() {
 async function getSizeDetails(id){    
   let price = 0;
   let dimension;
+  if(id){
+
+ 
   let size = $(id).val().toUpperCase();
   await getFormats().then(data => {
       for (let [key] of Object.entries(data.formats)) { 
@@ -38,7 +37,7 @@ async function getSizeDetails(id){
       $("#dimensionprise").text(price);        
   }); 
 };
-
+};
 //changes the size to the one the right
 function changeSizeRight(){
     if($("#a3").is(':checked')){
@@ -157,7 +156,7 @@ function getName() {
             break;
           default:
             $("#" + (j+1)).append(`<img  src="/images/alfabet/${name[j]}/${name[j]}1.png">`);
-            console.log((j+1));
+         
         }
     }
     k = k+3;
@@ -176,7 +175,7 @@ function showColor(id){
     let parts = src.split('/');
     let lastSegment = parts.pop();
 
-    console.log(parts[parts.length - 1]);
+   
     $('#colourtable').append('<caption id="choosecolor"></caption>')
     for(let i = 0; i<= 3; i++){
       switch(parts[parts.length - 1]){
@@ -237,20 +236,32 @@ function getSrc(){
 function loadPosterEdit(){
   
     let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
-    $('#name').val(posterToEdit.pname.toUpperCase());
-    createTable();
-    let k = 0;
-    for (let i = 0; i <= 3; i++) {
-      $("#tableposter").append("<tr>");
-      for (let j = k; j <= k + 2; j++) {
-        $("#tableposter").append(`<td id=${j + 1} >`);
-        $("#" + (j + 1)).append(`<img src="${posterToEdit.paths[j]}">`);
+    if(posterToEdit){
+      $('#name').val(posterToEdit.pname.toUpperCase());
+      createTable();
+      let k = 0;
+      for (let i = 0; i <= 3; i++) {
+        $("#tableposter").append("<tr>");
+        for (let j = k; j <= k + 2; j++) {
+          $("#tableposter").append(`<td id=${j + 1} >`);
+          $("#" + (j + 1)).append(`<img src="${posterToEdit.paths[j]}">`);
+        }
+        $("#tableposter").append("</tr>");
+        k = k + 3;
       }
-      $("#tableposter").append("</tr>");
-      k = k + 3;
+      $('#tableposter').append('<tfoot id="posterfooter">');
+      $('#posterfooter').text("Click on a letter to change the color");
+      
     }
-    $('#tableposter').append('<tfoot id="posterfooter">');
-    $('#posterfooter').text("Click on a letter to change the color");
-  
+    
 
 };
+
+// function goto(url){
+//   window.location = url;
+  
+// }
+$('#next-button').click(function(event){
+  event.preventDefault();
+  window.location = '#posterdiv'
+});

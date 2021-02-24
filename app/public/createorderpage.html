@@ -1,17 +1,15 @@
 <style>
   body {
     font-family: "nunitobold";
-    font-size: 17px;
-    padding: 8px;
+
 
   }
 
-  html  {
+  html {
     -webkit-overflow-scrolling: auto !important;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     scroll-snap-stop: always
-    
   }
 
   * {
@@ -21,8 +19,8 @@
 
   .row {
 
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
     display: -ms-flexbox;
     /* IE10 */
     display: flex;
@@ -34,9 +32,9 @@
   }
 
   .col-25 {
-    -ms-flex: 35%;
+    -ms-flex: 25%;
     /* IE10 */
-    flex: 35%;
+    flex: 25%;
 
   }
 
@@ -60,7 +58,7 @@
 
   .container {
     background-color: transparent;
-    padding: 10px 10px 15px 10px;
+    padding: 10px 10px 10px 10px;
     /* border: 1px solid rgb(255, 252, 252); */
     border-radius: 3px;
 
@@ -90,14 +88,14 @@
   .btn {
     background-color: #c2c2c2;
     color: white;
-    padding: 12px;
-    margin-left: 2%;
+    padding: 10px;
+
     margin-top: 2%;
     border: none;
     border-radius: 3px;
     cursor: pointer;
     font-size: 17px;
-   
+
   }
 
   .btn:hover {
@@ -107,7 +105,7 @@
   a {
     color: #2196F3;
     text-decoration: none;
-  
+
   }
 
   hr {
@@ -115,7 +113,7 @@
     border: 1px solid lightgrey;
   }
 
-  
+
 
 
 
@@ -127,155 +125,181 @@
   #totalbasket {
     margin-top: 4%;
   }
+
   /* #totalTaxes{
     margin-top:2%;
   } */
-#taxesText{
-  margin-top:2%;
-}
-div.demo {
+  #taxesText {
+    margin-top: 2%;
+  }
+
+  div.demo {
     display: table;
     width: 50%;
-    table-layout: fixed;    /* For cells of equal size */
-}
-div.demo span {
+    table-layout: fixed;
+    /* For cells of equal size */
+  }
+
+  div.demo span {
     display: table-cell;
     text-align: left;
-}
-span.price {
-  
+  }
+
+  span.price {
+
     float: right;
     color: grey;
     width: auto;
   }
-  .basket-container{
+
+  .basket-container {
     white-space: nowrap;
   }
+
+  .basket {
+    margin-top: 4%;
+  }
+
   /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
-  @media (max-width: 1500px) {
-    .row {
-      flex-direction: column-reverse;
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+
+    .col {
+      width: 50%;
+      float: left;
     }
 
     .col-25 {
-      margin-bottom: 15px;
+      -ms-flex: 25%;
+      flex: 25%;
     }
-    #contactinformation{
+
+    .row {
+      margin: 2%;
+    }
+
+    input[type=text] {
+      width: 120%;
+    }
+
+    #contactinformation {
       text-align: center;
     }
+
     #sameaddress {
-    text-align:center;
-  }
-
-  #newsletter {
-    text-align: justify;
-  }
-  }
-
-  @media only screen and (min-device-width: 2160px) {
-    .basket-container {
-
-      width: 46.5%;
-
+      text-align: center;
     }
 
-    #totalbasket {
-      margin-top: 6%;
+    #newsletter {
+      text-align: justify;
     }
-  }
 
-  @media only screen and (min-device-width: 1920px) {
+    .basket {
+      margin-top: 10%;
+    }
+
     .basket-container {
+      margin-bottom: 20%;
+    }
 
-      width: 100%;
-
+    #shipping {
+      width: max-content;
     }
   }
 </style>
 
 
-<form>
+
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form id='addressform'>
-        <div class="row">
-          <h1 id='contactinformation' class="centered">Contact Information</h1>
-          <div class="col-50 ">
-            <h3>Shipping Address</h3>
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="fullname" placeholder="John M. Doe"
-              pattern="([\s!-~À-ÿĀ-ſ]+\s+[\s!-~À-ÿĀ-ſ]+\s*){1,}" required>
-
-            <label for="phone"><i class="fa fa-phone"></i> Phone number</label>
-            <input type="text" id="phone" name="phone" placeholder="+4512345678"
-              pattern="[+]45[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" required />
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="address" name="address" placeholder="Hovedgade 26 st th"
-              pattern="^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$" required>
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="Copenhagen"
-              pattern="^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$"
-              required>
-            <label for="zip">Zip</label>
-            <input type="text" id="zip" name="zip" placeholder="2500" pattern="\d{4}" required>
-          </div>
-
-          <div id="invoiceform" class="col-50 " hidden>
-            <h3>Invoice Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="invoicefullname" name="invoicefullname" placeholder="John M. Doe"
-              pattern="([\s!-~À-ÿĀ-ſ]+\s+[\s!-~À-ÿĀ-ſ]+\s*){1,}">
-            <label for="phone"><i class="fa fa-phone"></i> Phone number</label>
-            <input type="text" id="invoicephone" name="invoicephone" placeholder="+4512345678"
-              pattern="[+]45[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}"/>
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="invoiceaddress" name="invoiceaddress" placeholder="Hovedgade 26 st th"
-              pattern="^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$">
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="invoicecity" name="invoicecity" placeholder="Copenhagen"
-              pattern="^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$">
-            <label for="zip">Zip</label>
-            <input type="text" id="invoicezip" name="invoicezip" placeholder="2500" pattern="\d{4}">
-          </div>
-          </div>
+      <form>
+        <form id='addressform'>
           <div class="row">
+            <h1 id='contactinformation' class="centered">Contact Information</h1>
             <div class="col-50 ">
-          <label id="sameaddress">
-            <input class="check" type="checkbox" checked="checked" name="sameaddress" onclick="displayForm()">Shipping address same as billing</label>
-          <label id="newsletter">
-            <input type="checkbox" class="checknews" name="newsletter" onclick="newsLetter()" value="">Receive the newsletter</label>
-        </div>
-      </div>
-          <div class="row">
-            <div class="col-50 ">
-          <h4>Cart
-            <span class="price" style="color:black">
-              <i class="fa fa-shopping-cart"></i>
-              <b id="totalItems"></b>
-            </span>
-          </h4>
-          <div class="basket-container">
-          </div>
-          <div id="taxes">
-          </div>
-          <div id="totalbasket">
-          </div>
-          <div class="row">
-            
-          <div id="submit">
-            <input type="button" id="CreatePayment" value="Go to payment" id="submit" class="btn" onclick="getInfo()">
-            <a href="/basket" class="btn">Basket</a>
-          </div>
+              <h3 id="shipping">Shipping Address</h3>
+              <label for="email"><i class="fa fa-envelope"></i> Email</label>
+              <input type="text" id="email" name="email" placeholder="john@example.com"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+
+              <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+              <input type="text" id="fname" name="fullname" placeholder="John M. Doe"
+                pattern="([\s!-~À-ÿĀ-ſ]+\s+[\s!-~À-ÿĀ-ſ]+\s*){1,}" required>
+
+              <label for="phone"><i class="fa fa-phone"></i> Phone number</label>
+              <input type="text" id="phone" name="phone" placeholder="+4512345678"
+                pattern="[+]45[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" required />
+              <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+              <input type="text" id="address" name="address" placeholder="Hovedgade 26 st th"
+                pattern="^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$" required>
+              <label for="city"><i class="fa fa-institution"></i> City</label>
+              <input type="text" id="city" name="city" placeholder="Copenhagen"
+                pattern="^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$"
+                required>
+              <label for="zip">Zip</label>
+              <input type="text" id="zip" name="zip" placeholder="2500" pattern="\d{4}" required>
+            </div>
+
+            <div id="invoiceform" class="col-50 " hidden>
+              <h3>Invoice Address</h3>
+              <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+              <input type="text" id="invoicefullname" name="invoicefullname" placeholder="John M. Doe"
+                pattern="([\s!-~À-ÿĀ-ſ]+\s+[\s!-~À-ÿĀ-ſ]+\s*){1,}">
+              <label for="phone"><i class="fa fa-phone"></i> Phone number</label>
+              <input type="text" id="invoicephone" name="invoicephone" placeholder="+4512345678"
+                pattern="[+]45[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" />
+              <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+              <input type="text" id="invoiceaddress" name="invoiceaddress" placeholder="Hovedgade 26 st th"
+                pattern="^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$">
+              <label for="city"><i class="fa fa-institution"></i> City</label>
+              <input type="text" id="invoicecity" name="invoicecity" placeholder="Copenhagen"
+                pattern="^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$">
+              <label for="zip">Zip</label>
+              <input type="text" id="invoicezip" name="invoicezip" placeholder="2500" pattern="\d{4}">
             </div>
           </div>
-      </div>
-      
-      </form>
+          <div class="row">
+            <div class="col-50 ">
+              <label id="sameaddress">
+                <input class="check" type="checkbox" checked="checked" name="sameaddress"
+                  onclick="displayForm()">Shipping address same as billing</label>
+              <label id="newsletter">
+                <input type="checkbox" class="checknews" name="newsletter" onclick="newsLetter()" value="">Receive the
+                newsletter</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-50 ">
+              <h4>Cart
+                <span class="price" style="color:black">
+                  <i class="fa fa-shopping-cart"></i>
+                  <b id="totalItems"></b>
+                </span>
+              </h4>
+              <div class="basket-container">
+              </div>
+              <div id="taxes">
+              </div>
+              <div id="totalbasket">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25 ">
+              <div id="submit">
+                <span><input type="button" id="CreatePayment" value="Go to payment" id="submit" class="btn"
+                    onclick="getInfo()"></span>
+
+              </div>
+              <div class="basket">
+                <span><a id="basket-btn" href="/basket" class="btn">Basket</a></span>
+              </div>
+            </div>
+          </div>
+
+
+
+        </form>
 
 
     </div>

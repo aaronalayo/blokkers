@@ -1,5 +1,4 @@
 $(document).ready(function () {
-console.log(sessionStorage)
   $("#satisfiedtable").html('');
   imgs = JSON.parse(sessionStorage.getItem("imgs"));
   size = JSON.parse(sessionStorage.getItem('size'));
@@ -45,6 +44,7 @@ function editPoster(){
 
 sessionStorage.setItem("posterToEdit", JSON.stringify(posterToEdit));
 $("#satisfiedtable").html('');
+
 };
 
 function addtobasket(){
