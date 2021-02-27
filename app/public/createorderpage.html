@@ -1,8 +1,7 @@
 <style>
   body {
     font-family: "nunitobold";
-
-
+    text-rendering: auto;
   }
 
   html {
@@ -10,6 +9,7 @@
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     scroll-snap-stop: always
+    
   }
 
   * {
@@ -19,8 +19,8 @@
 
   .row {
 
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
     display: -ms-flexbox;
     /* IE10 */
     display: flex;
@@ -65,13 +65,13 @@
   }
 
   input[type=text] {
-    background-color: #bbbbbb;
+    background-color:rgb(223, 204, 175);
     width: 100%;
     margin-bottom: 20px;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 3px;
-
+    font-family: 'nunitobold';
   }
 
   label {
@@ -85,17 +85,43 @@
     font-size: 24px;
   }
 
+  input[type="checkbox"]:checked {
+    /* height: 15px; */
+    /* width: 15px; */
+    /* vertical-align: middle; */
+    /* margin: 0 5px 5px 0; */
+    /* border: 1px solid #ff0000; */
+    background: rgb(228, 182, 112);
+    /* border-radius: 8px; */
+    /* -webkit-appearance:initial;
+       -moz-appearance: inherit;
+            appearance: initial; */
+    /* transition: box-shadow 200ms; */
+}
+input[type="checkbox"] {
+    height: 15px;
+    width: 15px;
+    vertical-align: middle;
+    margin: 0 5px 5px 0;
+    border: 1px solid #A5A5A5;
+    background: linear-gradient(#041cf1, #0414f8);
+    border-radius: 8px;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    /* transition: box-shadow 200ms; */
+}
   .btn {
-    background-color: #c2c2c2;
-    color: white;
-    padding: 10px;
-
-    margin-top: 2%;
-    border: none;
-    border-radius: 3px;
+    text-decoration: none;
+    padding: 0.6em 2em;
+    border-radius: 8px;
+    background-color: lightgray;
+    border: 0;
     cursor: pointer;
     font-size: 17px;
-
+    color: black;
+    -webkit-appearance: none;
+    font-family: 'nunitobold';
   }
 
   .btn:hover {
@@ -103,8 +129,9 @@
   }
 
   a {
-    color: #2196F3;
+    color: black;
     text-decoration: none;
+    font-family: 'nunitobold';
 
   }
 
@@ -112,11 +139,6 @@
     width: auto;
     border: 1px solid lightgrey;
   }
-
-
-
-
-
   .basket-container {
     width: 100%;
     /* position: absolute; */
@@ -173,20 +195,39 @@
     }
 
     .row {
-      margin: 2%;
+    margin: 2%;
+    padding-left: 0%;
+    padding-right: 0%;
+
+
     }
 
     input[type=text] {
-      width: 120%;
+      width: 100%;
+    
     }
+    input[type="checkbox"]:checked {
+    /* height: 15px; */
+    /* width: 15px; */
+    vertical-align: middle;
+    /* margin: 0 5px 5px 0; */
+    /* border: 1px solid #ff0000; */
+    background: rgb(238, 147, 10);
+    /* border-radius: 8px; */
+    -webkit-appearance:inherit;
+       -moz-appearance: none;
+            appearance: none;
+    transition: box-shadow 200ms;
+}
 
     #contactinformation {
-      text-align: center;
+    text-align: center;
+    padding-right: 0%;
+    padding-left: 0%;
+    padding-top: 10%;
+
     }
 
-    #sameaddress {
-      text-align: center;
-    }
 
     #newsletter {
       text-align: justify;
@@ -286,8 +327,7 @@
           <div class="row">
             <div class="col-25 ">
               <div id="submit">
-                <span><input type="button" id="CreatePayment" value="Go to payment" id="submit" class="btn"
-                    onclick="getInfo()"></span>
+                <span><input type="button" id="CreatePayment" value="Go to payment" id="submit" class="btn" onclick="getInfo()"></span>
 
               </div>
               <div class="basket">

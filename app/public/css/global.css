@@ -502,7 +502,7 @@ button.mbtn {
   }
 }
 
-@media only screen and (max-device-width: 1920px) {
+/* @media only screen and (max-device-width: 1920px) {
   .mail {
     padding-bottom: 3em;
   }
@@ -543,7 +543,7 @@ button.mbtn {
   #cancel_button {
     margin-top: 1%;
   }
-}
+} */
 
 @media (-webkit-min-device-pixel-ratio: 1.1) {
   .mail {

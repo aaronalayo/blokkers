@@ -18,8 +18,9 @@ function displayCart(){
         <span id=${posters[i].pname}>${posters[i].pname}</span> 
         <span class="size">${posters[i].size}</span><span class="poster"> poster</span>
         <span class="x">x</span> <span id="amount" class="quantity">${posters[i].quantity}</span>
-        </div>
         <span id='itemprice' class="price ${posters[i].size}-price">${posters[i].price}</span>
+        </div>
+        
         </p>
         <hr>
         
