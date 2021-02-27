@@ -364,6 +364,14 @@
             -webkit-overflow-scrolling: touch !important;
         }
 
+        /* html {
+            -webkit-overflow-scrolling: auto !important;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scroll-snap-stop: always
+        } */
+
+
         .col {
             width: 50%;
             float: left;
@@ -469,6 +477,7 @@
 
         }
 
+
         #tableposter {
             width: 240px;
             margin-left: auto;
@@ -486,6 +495,21 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        #colourtable img {
+            width: 4em;
+            display: block;
+        }
+
+
+        #tableposter img {
+            width: 5em;
+        }
+    
+        #colourtable img {
+        width: 4em;
+        display: block;
+    }
 
         #colourtable img {
             width: 4em;
@@ -511,6 +535,24 @@
             margin-top: 10%;
             margin-left: 27%;
         }
+    }
+    @media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+   { 
+
+
+        #posterfooter {
+        font-size: 0.9em;
+        }
+        #posterdiv{
+            margin-left: 10%;
+        }
+        #done_button {
+    margin-top: 10%;
+    margin-left: 27%;
+}
     }
     @media screen 
   and (min-device-width: 1200px) 
@@ -561,7 +603,11 @@
 
         .page {
             height: 300vh;
+        }
+        .centered {
 
+            padding-left: 0%;
+            padding-top: 0%;
         }
 
         #choose-size {
@@ -571,6 +617,31 @@
         
         }
 
+        #choose-size span {
+            font-size: 20px;
+        }
+
+        #choose-size p {
+            margin: 1%;
+        }
+        #write_name {
+            margin-top: 0;
+            width: 240px;
+            margin-left: 0;
+            margin-right: 0;
+            font-size: 70%;
+            margin-bottom: 50%;
+        }
+        #write_name #type {
+    margin-left: -25%;
+    font-size: 30px;
+    font-family: "nunitoextrabold";
+    text-align: center;
+    margin-top: 0;
+}
+        #tableposter img {
+            width: 4.5em;
+        }
         #choose-size span {
             font-size: 20px;
         }
