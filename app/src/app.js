@@ -84,7 +84,7 @@ const createOrderPage = fs.readFileSync("./public/createorderpage.html", 'utf8')
 const paymentPage = fs.readFileSync("./public/paymentpage.html", 'utf8');
 const aboutPage = fs.readFileSync("./public/aboutpage.html", 'utf8');
 const contactPage = fs.readFileSync("./public/contactpage.html", 'utf8');
-
+const createPosterPage = fs.readFileSync("./public/createposterpage.html", 'utf8');
 const Format = require("./model/Format.js");
 
 
@@ -98,7 +98,7 @@ const formats = "/formats";
 const payment = "/payment";
 const about = "/about";
 const contact = "/contact";
-
+const createPoster = "/createposter";
 
 app.get(home, (req, res) => {
   return res.send(navbar + homePage);
@@ -166,7 +166,9 @@ app.get(about, (req, res) => {
 app.get(contact, (req, res) => {
   return res.send(navbar + contactPage);
 });
-
+app.get(createPoster,(req, res)=> {
+  return res.send(navbar + createPosterPage);
+});
 
 app.get("*", (req, res) => {
 
