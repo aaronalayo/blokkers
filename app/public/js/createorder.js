@@ -4,6 +4,9 @@ $( document ).ready(function() {
 
 //Displays the poster in the cart with size, quantity and price
 function displayCart(){
+  if(sessionStorage.posters){
+
+ 
   let posters = JSON.parse(sessionStorage.posters);
   let total = 0;
   for (let i = 0; i < posters.length; i++) {
@@ -34,9 +37,11 @@ function displayCart(){
         }
     });
   };
+
   $("#totalItems").text(total);
   $('#taxes').append(`<p id="taxesText">Taxes(incl.)<span id="totalTaxes" class="price"><b>${setTaxes()}</b></span></p>`)
   $('#totalbasket').append(`<p>Total<span id="totalprice" class="price" style="color:black"><b>${setTotal()}</b></span></p>`)
+};
 };
 
 //Display the total for all posters in the cart
@@ -112,7 +117,7 @@ const addressFilter = /^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$/;
 const cityFilter = /^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
 const zipFilter = /\d{4}/;
 
-var spinner = $('#loader');
+
 //Gets the customer information and sends to backend
 function getInfo() {
   let fullname = $("#fname").val();
@@ -238,48 +243,3 @@ function storeOrder(paymentId){
     }
   });
 };
-
-
-
-
-
-// function initCheckout(paymentID){
-//   console.log("Checkout init")
-//   const testCheckOutKey = "test-checkout-key-baa32b6941d04dedb5693f1e90456137";
-//   const liveCheckOutKey = "live-checkout-key-172f052963d445a3ad0169d77eb471d9";
-//   let checkoutOptions = {
-//     checkoutKey: testCheckOutKey, // [Required] Test or Live checkout key with dashes
-//     paymentId : paymentID, // [Required] Payment ID (GUID format) without dashes.
-
-//     containerId : "dibs-complete-checkout", // [Optional] Default: dibs-checkout-content
-//     language: "da-DK", // [Optional] Default value: en-GB
-
- 
-// };
-
-// // console.log(checkoutOptions);
-// let checkout = new Dibs.Checkout(checkoutOptions);
-
-// checkout.on('pay-initialized', function(response) {
-
-//   console.log("Checkout on")
-//   /*
-//     Complete the desired operations such as update payment
-//   */
-//     checkout.send('payment-order-finalized', true/false);
-//    });
- 
-// //this is the event that the merchant should listen to redirect to the “payment-is-ok” page
-// checkout.on('payment-completed', function(response) {
-               
-//               console.log("payment succes")
-//               console.log(response);
-//               storeOrder();
-//                window.location = 'localhost:8080/payment';
-               
-// });
-
-// };
-webshim.activeLang('en');
-webshims.polyfill('forms');
-webshims.cfg.no$Switch = true;

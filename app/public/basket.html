@@ -27,7 +27,7 @@
     -ms-flex-wrap: wrap;
     /* IE10 */
     flex-wrap: wrap;
-    margin: 0 100px;
+    margin: 0 150px;
 
 
   }
@@ -72,7 +72,7 @@
     /* color: white; */
     /* padding: 12px; */
     margin-left: 0%;
-  
+
     border: none;
     border-radius: 3px;
     cursor: pointer;
@@ -185,46 +185,47 @@
     vertical-align: middle;
 
   }
+
   .quantitytext {
-      vertical-align: middle;
+    vertical-align: middle;
 
-      display: inline-block;
-    }
+    display: inline-block;
+  }
 
- 
 
-    .quantity button {
-      border: none;
-      background-color: white;
-      color: #3a3a3a;
-      font-size: 18px;
 
-    }
+  .quantity button {
+    border: none;
+    background-color: white;
+    color: #3a3a3a;
+    font-size: 18px;
 
-    #quantitytext {
-      font-size: 18px;
-      vertical-align: middle;
-      display: inline-block;
-    }
+  }
 
-    .quantityleft {
+  #quantitytext {
+    font-size: 18px;
+    vertical-align: middle;
+    display: inline-block;
+  }
 
-      font-size: 18px;
-      vertical-align: middle;
-      display: inline-block;
-    }
+  .quantityleft {
 
-    .quantitynumber {
-      font-size: 18px;
-      vertical-align: middle;
-      display: inline-block;
-    }
+    font-size: 18px;
+    vertical-align: middle;
+    display: inline-block;
+  }
 
-    .quantityright {
-      font-size: 18px;
-      vertical-align: middle;
-      display: inline-block;
-    }
+  .quantitynumber {
+    font-size: 18px;
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .quantityright {
+    font-size: 18px;
+    vertical-align: middle;
+    display: inline-block;
+  }
 
 
   .poster-price {
@@ -233,9 +234,11 @@
 
     font-weight: bold;
   }
-#trash{
-  vertical-align: baseline;
-}
+
+  #trash {
+    vertical-align: baseline;
+  }
+
   .basket-table {
     display: inline-table;
     vertical-align: middle;
@@ -270,147 +273,201 @@
     font-size: 30px;
 
   }
-.trash{
-  /* vertical-align: middle; */
-  display:inline-block;
-  margin: 2%;
-}
 
-  
-  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  .trash {
+    /* vertical-align: middle; */
+    display: inline-block;
+    margin: 2%;
+  }
+
+
+  @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    html {
+
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll !important;
+      scroll-snap-stop: always;
+      -webkit-overflow-scrolling: touch !important;
+    }
+
+    .container {
+      background-color: transparent;
+      /* padding: 10px 10px 10px 10px; */
+      /* border: 1px solid rgb(255, 252, 252); */
+      border-radius: 3px;
+    }
 
     .col {
       width: 50%;
       float: left;
     }
+
     .col-25 {
-    -ms-flex: 25%;
-    flex: 25%;
+      -ms-flex: 25%;
+      flex: 25%;
     }
+
     .row {
-      margin: 2%;
+      margin: auto;
     }
 
     #basket-header p {
-    display: none;
-  }
-  #basket-header {
-    margin-top: 10%;
-    margin-left: 25%;
-}
-.basket-devider {
-   display: none;
-  }
-   
- 
+      display: none;
+    }
+
+    #basket-header {
+      margin-top: 10%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 150px;
+      display: flex;
+    }
+
+    .basket-devider {
+      display: none;
+    }
+
+
     #create-button {
       font-size: 14px;
       text-align: center;
 
     }
 
-    #basket-header {
 
-      display: inline-flex;
+    .basket-items {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .basket-table {
-    margin: 2%;
+      width: 216px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+
     }
-    .basket-table img {
-    width: 4em;
+
+
+  .basket-table img {
+    width: 4.5em;
+
   }
-    .size-poster {
-      margin-left: 25%;
-      font-size: 24px;
-      margin-top: 10%;
-    }
 
-    .quantitytext {
-      margin-left: 25%;
-      vertical-align: middle;
+  .size-poster {
+    width: 100px;
+    display: flex;
+    font-size: 24px;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-      display: flex;
-      margin-top: 10%;
-      width: fit-content;
-    }
+  .quantitytext {
+    margin-left: 25%;
+    vertical-align: middle;
+    display: flex;
+    margin-top: 10%;
+    width: fit-content;
+  }
 
-    .quantity {
-      margin-left: 32%;
-      vertical-align: middle;
+  .quantity {
 
-      display: flex;
-      margin-top: 10%;
-      width: fit-content;
-    }
+    vertical-align: middle;
 
-    .quantity button {
-      border: none;
-      background-color: white;
-      color: #3a3a3a;
-      font-size: 24px;
+    display: flex;
+    margin-top: 10%;
 
-    }
+  }
 
-    #quantitytext {
-      font-size: 24px;
+  .quantity button {
+    border: none;
+    background-color: white;
+    color: #3a3a3a;
+    font-size: 24px;
 
-    }
+  }
 
-    .quantityleft {
+  #quantitytext {
+    font-size: 24px;
 
-      font-size: 24px;
+  }
 
-    }
+  .quantityleft {
+    margin-left: auto;
+    font-size: 24px;
+    margin-right: auto;
 
-    .quantitynumber {
-      font-size: 24px;
-      margin-bottom: 2%;
-      margin-left: 4%;
-      margin-right: 4%;
-      vertical-align: middle;
+  }
 
-    }
+  .quantitynumber {
+    font-size: 24px;
+    margin-bottom: 2%;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
 
-    .quantityright {
-      font-size: 24px;
-   
-    }
+  }
 
-    .poster-price {
-      margin-top: 10%;
-      margin-left: 30%;
-      font-size: 24px;
-    }
+  .quantityright {
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto;
 
-    .remove-poster-btn {
-      border: none;
-      background-color: white;
+  }
 
-    }
+  .poster-price {
+    margin-top: 10%;
+    width: 80px;
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    display: flex;
 
-    
+  }
 
-    #total-amount-box {
-      float: left;
-      padding: 2%;
-      width: 200px;
-      height: 200px;
-    
-    }
+  .remove-poster-btn {
+    border: none;
+    background-color: white;
 
-    #proceed-button {
-      margin: 16%;
-    }
+  }
 
-    .trash {
-      margin-left: 47%;
-      vertical-align: middle;
-      display: flex;
-      margin-top: 10%;
-      margin-bottom: 20%;
-      width: fit-content;
-    }
+
+
+  #total-amount-box {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+  }
+
+  #proceed-button {
+    margin: 16%;
+  }
+
+  .trash {
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    display: flex;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width: 15px;
+  }
+
+  #empty-basket {
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
+
+  }
+
+  #empty-basket a {
+    display: flex;
+  }
   }
 </style>
 
@@ -428,7 +485,7 @@
       <div class="row">
         <div id="empty-basket" style="display: none;">
           <p>Your basket is empty</p>
-          <a href="/#createposter" class="mbtn button" id="empty-button">Create you poster here</a>
+          <a href="/#createposter" class="mbtn button" id="empty-button">New Poster</a>
         </div>
 
       </div>

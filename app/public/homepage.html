@@ -8,12 +8,12 @@
         padding: 0;
     }
 
-    html {
-        /* -webkit-overflow-scrolling: auto !important;
+    /* html {
+        -webkit-overflow-scrolling: auto !important;
         scroll-snap-type: y mandatory;
         overflow-y: scroll;
-        scroll-snap-stop: always */
-    }
+        scroll-snap-stop: always
+    } */
 
     * {
         box-sizing: border-box;
@@ -182,16 +182,19 @@
     }
 
     #posterfooter {
-        /* padding-top: 1%;
-        padding-left: 0.5%; */
-        font-size: 22px;
-        font-family: "nunitoregular";
-        position: absolute;
+    font-size: 22px;
+    font-family: "nunitoregular";
+    /* position: absolute; */
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
     }
 
     #posterdiv {
-        width: fit-content;
-
+        width: 384px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     #tableposter {
@@ -213,14 +216,14 @@
     }
 
     #write_name {
-        display: inline-block;
+        /* display: inline-block; */
         vertical-align: middle;
-
         font-size: 120%;
         font-family: "nunitobold";
-        width: fit-content;
+        width: 255px;
         padding-bottom: 2%;
-
+        margin-left: auto;
+        margin-right: auto;
     }
 
     #tablealfabet td,
@@ -283,9 +286,9 @@
     }
 
     #chooseletter {
-        /* padding-top: 5%; */
-        font-size: 15px;
+        font-size: 20px;
         font-family: "nunitolight";
+        margin-top: 10%;
     }
 
     #colourtable {
@@ -303,10 +306,20 @@
 
 
     #changecolour {
-        display: inline-block;
+        display: flow-root;
         vertical-align: middle;
+        width: 424px;
+        margin-top: 20%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
+    #done_div {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+        width: 120px;
+    }
 
 
     #done_button {
@@ -320,6 +333,7 @@
         background-color: #c0c0c0;
         border: 0;
         cursor: pointer;
+        align-content: center;
     }
 
     .fa.fa-angle-left:hover {
@@ -337,16 +351,17 @@
         transition: all 0.3s cubic-bezier(0.16, 0.08, 0.355, 1);
     }
 
-    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2)  {
         body {
-            height: 6000px;
+            height: 1000px;
         }
 
         html {
-            -webkit-overflow-scrolling: auto !important;
+
             scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            scroll-snap-stop: always
+            overflow-y: scroll !important;
+            scroll-snap-stop: always;
+            -webkit-overflow-scrolling: touch !important;
         }
 
         .col {
@@ -357,6 +372,7 @@
         .col-25 {
             -ms-flex: 25%;
             flex: 25%;
+
         }
 
         .row {
@@ -376,8 +392,8 @@
         }
 
         .page {
-            height: 200vh;
-            overflow: hidden;
+            height: 300vh;
+
         }
 
         .shopping-bag {
@@ -436,6 +452,9 @@
         }
 
         #write_name {
+            width: 240px;
+            margin-left: auto;
+            margin-right: 0;
             font-size: 90%;
             margin-bottom: 20%;
         }
@@ -450,22 +469,139 @@
 
         }
 
-        #posterdiv {
-    margin-top: 40%;
-    /* margin-left: -12%;  */
-
+        #tableposter {
+            width: 240px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         #tableposter img {
-            width: 6em;
+            width: 5em;
 
+        }
+
+        #changecolour {
+            width: 264px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #colourtable img {
+            width: 4em;
+            display: block;
+        }
+
+        #poster-col {
+            padding: 0px 0px;
         }
 
         #posterfooter {
-        font-size: 1.14em;
+            font-size: 0.9em;
         }
 
+        #posterdiv {
+            width: 240px;
+            margin-top: 20%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #done_button {
+            margin-top: 10%;
+            margin-left: 27%;
+        }
     }
+    @media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+   { 
+
+    body {
+            height: 1000px;
+        }
+/* 
+        html {
+
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll !important;
+            scroll-snap-stop: always;
+            -webkit-overflow-scrolling: touch !important;
+        } */
+
+        .col {
+            width: 30%;
+            /* float: left; */
+        }
+
+        .col-25 {
+            width: 200px;
+            -ms-flex: 25%;
+            flex: 25%;
+
+        }
+   
+
+        .row {
+            margin: 2%;
+        }
+
+        .container {
+            padding: 0px 0px 0px 0px;
+
+
+        }
+
+        .centered {
+
+            padding-left: 0%;
+            padding-top: 0%;
+        }
+
+        .page {
+            height: 300vh;
+
+        }
+
+        #choose-size {
+            padding-top: 1%;
+            padding-right: 0%;
+            margin-bottom: 0;
+        
+        }
+
+        #choose-size span {
+            font-size: 20px;
+        }
+
+        #choose-size p {
+            margin: 1%;
+        }
+        #write_name {
+            margin-top: 0;
+            width: 240px;
+            margin-left: 0;
+            margin-right: 0;
+            font-size: 70%;
+            margin-bottom: 50%;
+        }
+        #write_name #type {
+    margin-left: -25%;
+    font-size: 30px;
+    font-family: "nunitoextrabold";
+    text-align: center;
+    margin-top: 0;
+}
+        #tableposter img {
+            width: 4.5em;
+
+        }
+
+
+
+}
+
 </style>
 <div id="homepage" class="page">
     <div class="row">
@@ -548,22 +684,16 @@
                 </div>
 
                 <div class="row">
-
                     <div class="col-25">
-
                         <div id="write_name">
-
                             <div>
                                 <p id="type">Type</p>
                                 <p id="something">something</p>
-
                                 <p id="maxletters">(Max. 12 letters)</p>
-
                                 <input id="name" type='text' name='name' size="25"> <i class="fas fa-backspace fa-2x"
                                     style="color: rgb(158, 158, 158);" value="DISABLE"
                                     onclick="onPressBackspace(),disable()"></i>
                             </div>
-
                             <table id='tablealfabet'>
                                 <tr>
                                     <td id="a" onclick="addLetter(this)">A</td>
@@ -610,22 +740,19 @@
                             </table>
                             <div>
                                 <button type="submit" name="next" value="Next" class="mbtn blue" id="next_button"
-                                    onclick="validateForm(); goto()">Next</button>
+                                    onclick="validateForm()">Next</button>
                             </div>
                         </div>
 
                     </div>
 
-                    <div id='poster-col' class="col-25">
-                        <div id='posterdiv'>
+                    <div class="col-25">
+                        <div id='posterdiv' class="display">
                             <form id="imageForm" action="/satisfied" method="GET">
                                 <table id='tableposter'>
                                 </table>
                         </div>
                     </div>
-
-
-
                     <div class="col-25">
                         <div id="changecolour">
                             <table id="colourtable">
@@ -634,16 +761,12 @@
                                 <button type="submit" id="done_button" onclick="getSrc()" hidden>Done</button>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
                 </form>
             </div>
         </div>
     </div>
-
-
     </body>
 
     </html>

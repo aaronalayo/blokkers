@@ -194,4 +194,3 @@ function calculateTotal() {
             $("#total-amount").text(total.toFixed(2));
     });
 };
-

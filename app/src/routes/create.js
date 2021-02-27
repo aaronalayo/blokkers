@@ -2,7 +2,6 @@ const route = require("express").Router();
 const request = require('request');
 
 const fs = require("fs");
-const axios = require('axios');
 const builder = require("xmlbuilder", { encoding: "utf-8" });
 const fsExtra = require("fs-extra");
 
@@ -62,7 +61,7 @@ route.post("/createpaymentorder", async (req, res) => {
     ) {
       let items = [];
       let amount = 0;
-      let host = 'https://e9738975b674.ngrok.io';
+      let host = 'https://6feaa0832c15.ngrok.io';
 
       newPosters.forEach(async (poster) => {
         let subAmount = 0;

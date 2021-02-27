@@ -9,7 +9,7 @@ const cors = require('cors');
 const fs = require('fs');
 const corsOptions = {
   
-  origin: 'https://e9738975b674.ngrok.io',
+  origin: 'https://6feaa0832c15.ngrok.io',
   allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Methods", "Access-Control-Request-Headers",'Access-Control-Allow-Origin'],
   credentials: true,
   enablePreflight: true,
@@ -90,7 +90,6 @@ const Format = require("./model/Format.js");
 
 
 //Routes
-
 const home = "/";
 const satisfied = "/satisfied";
 const basket = "/basket";
@@ -125,9 +124,9 @@ app.get(formats, async (req, res)=> {
   res.json({ 'formats' : formats});
 });
 
-exports.paymentPage = function(req, res) {
-  return res.send(navbar + paymentPage);
-}
+// exports.paymentPage = function(req, res) {
+//   return res.send(navbar + paymentPage);
+// }
 let data;
 app.get(payment, async (req, res) => {
   const paymentId = req.query.paymentid;
@@ -168,11 +167,6 @@ app.get(contact, (req, res) => {
   return res.send(navbar + contactPage);
 });
 
-const testPage= fs.readFileSync("./public/test.html", 'utf8');
-
-app.get('/test', (req, res) =>{
-  return res.send(navbar+ testPage)
-});
 
 app.get("*", (req, res) => {
 
@@ -182,11 +176,11 @@ app.get("*", (req, res) => {
 
 
 const createRoute = require('./routes/create.js');
-const paymentRoute = require('./routes/payment.js');
+// const paymentRoute = require('./routes/payment.js');
 
 
 app.use(createRoute);
-app.use(paymentRoute);
+// app.use(paymentRoute);
 
 
 //Server port

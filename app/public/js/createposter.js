@@ -1,15 +1,11 @@
 $( document ).ready(function() {
  let id = document.getElementById('a2')
   getSizeDetails(id);
-  
+
+// if(window.location.origin = '/satisfied'){loadPosterEdit();};
+
 });
-window.onload = function() {
-  if(window.origin = '/satisfied'){
-    console.log('about to loadPosterEdit')
-  loadPosterEdit();
-  console.log('edited')
-  }
-};
+
 //gets the formats with their prices and returns them as Promise
 function getFormats() {
   const fetchJson = async url => {
@@ -26,6 +22,9 @@ function getFormats() {
 async function getSizeDetails(id){    
   let price = 0;
   let dimension;
+  if(id){
+
+ 
   let size = $(id).val().toUpperCase();
   await getFormats().then(data => {
       for (let [key] of Object.entries(data.formats)) { 
@@ -38,7 +37,7 @@ async function getSizeDetails(id){
       $("#dimensionprise").text(price);        
   }); 
 };
-
+};
 //changes the size to the one the right
 function changeSizeRight(){
     if($("#a3").is(':checked')){
@@ -157,7 +156,7 @@ function getName() {
             break;
           default:
             $("#" + (j+1)).append(`<img  src="/images/alfabet/${name[j]}/${name[j]}1.png">`);
-            console.log((j+1));
+         
         }
     }
     k = k+3;
@@ -176,7 +175,7 @@ function showColor(id){
     let parts = src.split('/');
     let lastSegment = parts.pop();
 
-    console.log(parts[parts.length - 1]);
+   
     $('#colourtable').append('<caption id="choosecolor"></caption>')
     for(let i = 0; i<= 3; i++){
       switch(parts[parts.length - 1]){
@@ -252,10 +251,17 @@ function loadPosterEdit(){
       }
       $('#tableposter').append('<tfoot id="posterfooter">');
       $('#posterfooter').text("Click on a letter to change the color");
-    
-    }else{
-      window.location = '#createposter'
+      
     }
     
 
 };
+
+// function goto(url){
+//   window.location = url;
+  
+// }
+$('#next-button').click(function(event){
+  event.preventDefault();
+  window.location = '#posterdiv'
+});
