@@ -1,23 +1,331 @@
-
 <style>
+    html {
 
-html {
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll !important;
+        scroll-snap-stop: always;
+        -webkit-overflow-scrolling: touch !important;
+    }
 
-scroll-snap-type: y mandatory;
-overflow-y: scroll !important;
-scroll-snap-stop: always;
--webkit-overflow-scrolling: touch !important;
+    .row {
+
+        /* padding-left: 5%;
+padding-right: 5%; */
+        display: -ms-flexbox;
+        /* IE10 */
+        display: flex;
+        -ms-flex-wrap: wrap;
+        /* IE10 */
+        flex-wrap: wrap;
+        margin: 0 100px;
+
+
+    }
+
+
+    .col-25 {
+        -ms-flex: 25%;
+        /* IE10 */
+        flex: 25%;
+
+    }
+
+    .col-50 {
+
+        -ms-flex: 50%;
+        /* IE10 */
+        flex: 50%;
+    }
+
+    .col-75 {
+        -ms-flex: 75%;
+        /* IE10 */
+        flex: 75%;
+    }
+
+    .col-100 {
+        -ms-flex: 100%;
+        /* IE10 */
+        flex: 100%;
+    }
+
+    .col-25,
+    .col-50,
+    .col-75 {
+        padding: 10px 16px;
+    }
+
+    .container {
+        overflow: visible !important;
+        background-color: transparent;
+        padding: 10px 10px 15px 10px;
+        /* border: 1px solid rgb(255, 252, 252); */
+        border-radius: 3px;
+        align-items: baseline;
+
+    }
+
+
+    #satisfiedtable td,
+    tr {
+        padding: 0;
+        cursor: pointer;
+    }
+
+
+    #satisfiedtable {
+        margin: auto;
+        border: none;
+        /* display: block; */
+        border-collapse: collapse;
+    }
+
+    #satisfied {
+        font-family: "nunitoextrabold";
+        font-size: 55px;
+        margin: auto;
+        display: table;
+        padding-top: 5%;
+        padding-bottom: 2%;
+    }
+
+    #addbasket_button {
+        margin-top: 3%;
+        margin: auto;
+        font-size: 1.1em;
+        font-family: "nunitoblack";
+        text-decoration: none;
+        padding: 0.6em 2em;
+        border-radius: 8px;
+        color: #fff;
+        background-color: #c0c0c0;
+        border: 0;
+
+        align-content: center;
+        cursor: pointer;
+        display: table;
+    }
+
+    #cancel_button {
+        margin: auto;
+        font-size: 1.1em;
+        font-family: "nunitoblack";
+        text-decoration: none;
+        padding: 0.6em 2em;
+        border-radius: 8px;
+        color: #fff;
+        background-color: #c0c0c0;
+        border: 0;
+        cursor: pointer;
+        align-content: center;
+
+        display: table;
+    }
+
+    .basket {
+        margin-top: 1%;
+    }
+
+    @media only screen and (min-device-width: 1024px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
+        body {
+            height: 800px;
+        }
+
+        /*         
+        html {
+
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll !important;
+            scroll-snap-stop: always;
+            -webkit-overflow-scrolling: touch !important;
+        } */
+
+        .col {
+            width: 20%;
+            /* float: left; */
+        }
+
+        .col-25 {
+            width: 200px;
+            -ms-flex: 25%;
+            flex: 25%;
+
+        }
+
+
+        .row {
+            margin: 2%;
+        }
+
+        .container {
+            padding: 0px 0px 0px 0px;
+
+
+        }
+
+        .centered {
+
+            padding-left: 30%;
+            padding-top: 15%;
+        }
+
+        .page {
+            height: 110vh;
+        }
+
+        .centered {
+
+            padding-left: 0%;
+            padding-top: 0%;
+        }
+
+        #satisfied {
+            font-family: "nunitoextrabold";
+            font-size: 35px;
+            margin: auto;
+            display: table;
+            padding-top: 3%;
+            padding-bottom: 2%;
+        }
+
+        #satisfiedtable img {
+            width: 6em;
+            display: block;
+        }
+
+        #addbasket_button {
+            font-size: 1.1em;
+            font-family: "nunitoblack";
+            text-decoration: none;
+            padding: 0.6em 2em;
+            border-radius: 8px;
+            color: #fff;
+            background-color: #c0c0c0;
+            border: 0;
+            cursor: pointer;
+            align-content: center;
+
+        }
+
+        #cancel_button {
+            font-size: 1.0em;
+            font-family: "nunitoblack";
+            text-decoration: none;
+            padding: 0.6em 2em;
+            border-radius: 8px;
+            color: #fff;
+            background-color: #c0c0c0;
+            border: 0;
+            cursor: pointer;
+            align-content: center;
+            cursor: pointer;
+            display: table;
+        }
+
+        .basket {
+            margin-top: 1%;
+        }
+    }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    html {
+
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll !important;
+      scroll-snap-stop: always;
+      -webkit-overflow-scrolling: touch !important;
+    }
+
+    .container {
+      background-color: transparent;
+      /* padding: 10px 10px 10px 10px; */
+      /* border: 1px solid rgb(255, 252, 252); */
+      border-radius: 3px;
+    }
+
+    .col {
+      width: 50%;
+      float: left;
+    }
+
+    .col-25 {
+      -ms-flex: 25%;
+      flex: 25%;
+    }
+
+    .row {
+      margin: auto;
+    }
+    #satisfied {
+            font-family: "nunitoextrabold";
+            font-size: 35px;
+            margin: auto;
+            display: table;
+            padding-top: 3%;
+            padding-bottom: 2%;
+        }
+
+        #satisfiedtable img {
+            width: 5em;
+            display: block;
+        }
+
+        #addbasket_button {
+            font-size: 1.1em;
+            font-family: "nunitoblack";
+            text-decoration: none;
+            padding: 0.6em 2em;
+            border-radius: 8px;
+            color: #fff;
+            background-color: #c0c0c0;
+            border: 0;
+            cursor: pointer;
+            align-content: center;
+
+        }
+
+        #cancel_button {
+            font-size: 1.0em;
+            font-family: "nunitoblack";
+            text-decoration: none;
+            padding: 0.6em 2em;
+            border-radius: 8px;
+            color: #fff;
+            background-color: #c0c0c0;
+            border: 0;
+            cursor: pointer;
+            align-content: center;
+            cursor: pointer;
+            display: table;
+        }
+
+        .basket {
+            margin-top: 1%;
+        }
 }
 </style>
+<div class="row">
+    <div class="col-75">
+        <div class="container">
 
-<div id="satisfieddiv">  
-    <form id="satisfiedForm"  action="/basket" method="GET">
-        <table id='satisfiedtable'>
-            <h1 id="satisfied">Satisfied?</h1> 
-        </table>
-        <a href="/basket" class="mbtn button" id="addbasket_button" onclick="addtobasket()" hidden>Add to basket</a>
-        <a  href="/#createposter" class="mbtn button" id="cancel_button" onclick="editPoster()" hidden>Edit</a>
-    </form>
+            <div id="satisfieddiv">
+                <form id="satisfiedForm" action="/basket" method="GET">
+                    <table id='satisfiedtable'>
+                        <h1 id="satisfied">Satisfied?</h1>
+                    </table>
+                    <div class="row">
+                        <div class="col-25 ">
+                            <div class="basket">
+                                <span><a href="/basket" class="btn" id="addbasket_button" onclick="addtobasket()"
+                                        hidden>Add to basket</a></span>
+                            </div>
+                            <div class="basket">
+                                <span><a href="/#createposter" class="btn" id="cancel_button" onclick="editPoster()"
+                                        hidden>Edit</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
-

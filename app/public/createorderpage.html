@@ -245,6 +245,101 @@ input[type="checkbox"] {
       width: max-content;
     }
   }
+  @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
+        body {
+            height: 800px;
+        }
+
+        /*         
+        html {
+
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll !important;
+            scroll-snap-stop: always;
+            -webkit-overflow-scrolling: touch !important;
+        } */
+
+        .col {
+            width: 20%;
+            /* float: left; */
+        }
+
+        .col-25 {
+            width: 200px;
+            -ms-flex: 25%;
+            flex: 25%;
+
+        }
+
+
+        .row {
+            margin: 2%;
+        }
+
+        .container {
+            padding: 0px 0px 0px 0px;
+
+
+        }
+
+        .centered {
+
+            padding-left: 30%;
+            padding-top: 15%;
+        }
+
+        .page {
+            height: 110vh;
+        }
+
+        .centered {
+
+            padding-left: 0%;
+            padding-top: 0%;
+        }
+        input[type=text] {
+      width: 100%;
+    
+    }
+    input[type="checkbox"]:checked {
+    /* height: 15px; */
+    /* width: 15px; */
+    vertical-align: middle;
+    /* margin: 0 5px 5px 0; */
+    /* border: 1px solid #ff0000; */
+    background: rgb(238, 147, 10);
+    /* border-radius: 8px; */
+    -webkit-appearance:inherit;
+       -moz-appearance: none;
+            appearance: none;
+    transition: box-shadow 200ms;
+}
+
+    #contactinformation {
+    text-align: center;
+    padding-right: 0%;
+    padding-left: 0%;
+    padding-top: 10%;
+
+    }
+
+
+    #newsletter {
+      text-align: justify;
+    }
+
+    .basket {
+      margin-top: 3%;
+    }
+
+    .basket-container {
+      margin-bottom: 5%;
+    }
+
+    #shipping {
+      width: max-content;
+    }
+      }
 </style>
 
 
@@ -254,8 +349,9 @@ input[type="checkbox"] {
     <div class="container">
       <form>
         <form id='addressform'>
+          <h1 id='contactinformation' >Contact Information</h1>
           <div class="row">
-            <h1 id='contactinformation' class="centered">Contact Information</h1>
+           
             <div class="col-50 ">
               <h3 id="shipping">Shipping Address</h3>
               <label for="email"><i class="fa fa-envelope"></i> Email</label>

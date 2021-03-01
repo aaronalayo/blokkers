@@ -79,15 +79,7 @@
 
     }
 
-    #inspirationspage .container {
-        background-color: transparent;
-        padding: 0px 0px 0px 0px;
-        /* border: 1px solid rgb(255, 252, 252); */
-        /* border-radius: 3px; */
-        align-items: baseline;
-
-    }
-
+ 
     label {
         margin-bottom: 10px;
         display: inline-flex;
@@ -110,45 +102,7 @@
         background-color: #bbbbbb;
     }
 
-    #createyourown {
-        padding-bottom: 0%;
-        max-width: 100%;
-        max-height: 2%;
-        height: 100%;
-        margin-top: 2%;
-        margin-left: auto;
-        margin-right: auto;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        text-align: center;
-        font-size: 2rem;
-        font-weight: lighter;
-        font-family: "nunitoextralight";
-        clear: both;
-        display: block;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-    #uniqueposter {
-        max-width: 100%;
-        max-height: 2%;
-        height: 100%;
-        margin-top: -2%;
-        margin-left: auto;
-        margin-right: auto;
-        bottom: 10%;
-        left: 0;
-        right: 0;
-        text-align: center;
-        font-size: 2rem;
-        font-family: "nunitobold";
-        clear: both;
-        display: block;
-        overflow: hidden;
-        white-space: nowrap;
-    }
+ 
 
     #choose-size {
         padding-top: 3%;
@@ -182,13 +136,13 @@
     }
 
     #posterfooter {
-    font-size: 22px;
-    font-family: "nunitoregular";
-    /* position: absolute; */
-    margin-top: 1%;
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
+        font-size: 22px;
+        font-family: "nunitoregular";
+        /* position: absolute; */
+        margin-top: 1%;
+        margin-left: auto;
+        margin-right: auto;
+        display: table;
     }
 
     #posterdiv {
@@ -351,7 +305,7 @@
         transition: all 0.3s cubic-bezier(0.16, 0.08, 0.355, 1);
     }
 
-    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2)  {
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         body {
             height: 1000px;
         }
@@ -408,44 +362,8 @@
             padding-left: 90%;
         }
 
-        #logo_img {
-            max-width: 120%;
-
-            margin-left: 10%;
-            margin-top: 80%;
-        }
-
-        #createyourown {
-            padding-bottom: 0%;
-            max-width: 90%;
-            font-size: 1.5rem;
-            overflow: visible;
-
-            margin-left: 20%;
-
-        }
-
-        #uniqueposter {
-            max-width: 100%;
-            overflow: visible;
-            font-size: 1.5rem;
-            font-weight: lighter;
-            font-family: "nunitoextralight";
-            margin-left: 30%;
-        }
-
-        #icon_left {
-            margin-top: 76%;
-            left: 2%;
-            font-size: 80px;
-        }
-
-        #icon_right {
-            margin-top: 70%;
-            right: 2%;
-            font-size: 80px;
-        }
-
+   
+    
         #choose-size {
             padding-top: 1%;
             padding-right: 0%;
@@ -496,20 +414,17 @@
             margin-right: auto;
         }
 
-        #colourtable img {
-            width: 4em;
-            display: block;
-        }
+
 
 
         #tableposter img {
             width: 5em;
         }
-    
+
         #colourtable img {
-        width: 4em;
-        display: block;
-    }
+            width: 4em;
+            display: block;
+        }
 
         #colourtable img {
             width: 4em;
@@ -534,37 +449,16 @@
         #done_button {
             margin-left: auto;
             margin-right: auto;
-}
         }
     }
-    @media screen 
-  and (min-device-width: 1200px) 
-  and (max-device-width: 1600px) 
-  and (-webkit-min-device-pixel-ratio: 2)
-   { 
 
+    @media screen and (min-device-width: 800px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio:2 ) {
 
-        #posterfooter {
-        font-size: 0.9em;
-        }
-        #posterdiv{
-            margin-left: 10%;
-        }
-        #done_button {
-    margin-top: 10%;
-    margin-left: 27%;
-}
-    }
-    @media screen 
-  and (min-device-width: 1200px) 
-  and (max-device-width: 1600px) 
-  and (-webkit-min-device-pixel-ratio: 2)
-   { 
-
-    body {
+        body {
             height: 1000px;
         }
-/* 
+
+        /* 
         html {
 
             scroll-snap-type: y mandatory;
@@ -584,7 +478,7 @@
             flex: 25%;
 
         }
-   
+
 
         .row {
             margin: 2%;
@@ -598,13 +492,14 @@
 
         .centered {
 
-            padding-left: 0%;
-            padding-top: 0%;
+            padding-left: 30%;
+            padding-top: 30%;
         }
 
-        .page {
+        /* .page {
             height: 300vh;
-        }
+        } */
+
         .centered {
 
             padding-left: 0%;
@@ -615,16 +510,18 @@
             padding-top: 1%;
             padding-right: 0%;
             margin-bottom: 0;
-        
+
         }
 
         #choose-size span {
-            font-size: 20px;
+            font-size:10px;
         }
 
         #choose-size p {
             margin: 1%;
+            font-size: 20px;
         }
+
         #write_name {
             margin-top: 0;
             width: 240px;
@@ -633,23 +530,25 @@
             font-size: 70%;
             margin-bottom: 10%;
         }
+
         #write_name #type {
-    margin-left: -25%;
-    font-size: 30px;
-    font-family: "nunitoextrabold";
-    text-align: center;
-    margin-top: 0;
-}
+            margin-left: 0%;
+            font-size: 30px;
+            font-family: "nunitoextrabold";
+            text-align: center;
+            margin-top: 0;
+        }
+
         #tableposter img {
             width: 4.5em;
         }
+
         #choose-size span {
             font-size: 20px;
         }
 
-        #choose-size p {
-            margin: 1%;
-        }
+
+
         #write_name {
             margin-top: 0;
             width: 240px;
@@ -658,13 +557,15 @@
             font-size: 70%;
             margin-bottom: 50%;
         }
+
         #write_name #type {
-    margin-left: -25%;
-    font-size: 30px;
-    font-family: "nunitoextrabold";
-    text-align: center;
-    margin-top: 0;
-}
+            margin-left: -25%;
+            font-size: 30px;
+            font-family: "nunitoextrabold";
+            text-align: center;
+            margin-top: 0;
+        }
+
         #tableposter img {
             width: 4.5em;
 
@@ -672,10 +573,210 @@
 
 
 
-}
+    }
+    @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
+        body {
+            height: 800px;
+        }
 
+/*         
+        html {
+
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll !important;
+            scroll-snap-stop: always;
+            -webkit-overflow-scrolling: touch !important;
+        } */
+
+        .col {
+            width: 20%;
+            /* float: left; */
+        }
+
+        .col-25 {
+            width: 200px;
+            -ms-flex: 25%;
+            flex: 25%;
+
+        }
+
+
+        .row {
+            margin: 2%;
+        }
+
+        .container {
+            padding: 0px 0px 0px 0px;
+
+
+        }
+
+        .centered {
+
+            padding-left: 30%;
+            padding-top: 15%;
+        }
+
+        .page {
+            height: 110vh;
+        }
+
+        .centered {
+
+            padding-left: 0%;
+            padding-top: 0%;
+        }
+
+        #choose-size {
+            padding-top: 0%;
+            padding-right: 0%;
+            margin-bottom: 0;
+            margin: 0%;
+
+        }
+
+        #choose-size span {
+            font-size:10px;
+            margin: 0%;
+        }
+
+        #choose-size p {
+            margin: 0%;
+            font-size: 20px;
+
+        }
+
+        #write_name {
+            margin-top: 0;
+            width: 240px;
+            margin-left: 0;
+            margin-right: 0;
+            font-size: 70%;
+            margin-bottom: 10%;
+        }
+
+
+        #tableposter img {
+            width: 4.5em;
+        }
+
+        #choose-size span {
+            font-size: 20px;
+        }
+
+        #choose-size p {
+            margin: 0%;
+        }
+
+        #write_name {
+            margin-top: -2%;
+            width: 240px;
+            margin-left: 0;
+            margin-right: 0;
+            font-size: 80%;
+            margin-bottom: 50%;
+        }
+
+        #write_name #type {
+            margin-left: -25%;
+            font-size: 25px;
+            font-family: "nunitoextrabold";
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 1%;
+        }
+        #write_name #something {
+        margin-left: -25%;
+        margin-top: 1%;
+        font-size: 20px;
+        font-family: "nunitoextralight";
+        text-align: center;
+    }
+
+    #write_name #maxletters {
+        margin-left: -25%;
+        margin-top: -8%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        font-family: "nunitoextralight";
+        font-size: 15px;
+
+    }
+
+    #write_name p,
+    input {
+        margin-left: 1em;
+        outline: 0;
+        border-width: 0 0 2px;
+        background-color: transparent;
+        font-family: "nunitoextrabold";
+    }
+    .set-width {
+     width: 110px;
+    }
+
+    #choosecolor {
+        padding-bottom: 5%;
+        font-size: 25px;
+        font-family: "nunitolight";
+    }
+
+    #chooseletter {
+        font-size: 20px;
+        font-family: "nunitolight";
+        margin-top: 10%;
+    }
+
+    #tableposter img {
+            width: 5em;
+
+        }
+        #posterfooter {
+            font-size: 0.9em;
+        }
+        #posterdiv {
+            width: 240px;
+            margin-top: 2%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #done_button {
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1em;
+            width: 110px;
+        }
+
+        #changecolour {
+            width: 264px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #colourtable img {
+            width: 4em;
+            display: block;
+        }
+        #choosecolor {
+        padding-bottom: 5%;
+        font-size: 20px;
+        font-family: "nunitolight";
+    }
+
+    #chooseletter {
+        font-size: 15px;
+        font-family: "nunitolight";
+        margin-top: 10%;
+    }
+
+
+
+
+}
 </style>
-<div id="createposter" class="page">
+<div id="createposter" >
     <div class="row">
         <div class="col-75">
             <div class="container">
@@ -714,7 +815,7 @@
                                 <p id="type">Type</p>
                                 <p id="something">something</p>
                                 <p id="maxletters">(Max. 12 letters)</p>
-                                <input id="name" type='text' name='name' size="25"> <i class="fas fa-backspace fa-2x"
+                                <input id="name" type='text' name='name' size="25" class="set-width"> <i class="fas fa-backspace fa-2x"
                                     style="color: rgb(158, 158, 158);" value="DISABLE"
                                     onclick="onPressBackspace(),disable()"></i>
                             </div>
