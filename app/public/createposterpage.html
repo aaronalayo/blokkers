@@ -289,6 +289,20 @@
         cursor: pointer;
         align-content: center;
     }
+    #next_button {
+
+    font-size: 1.1em;
+    font-family: "nunitoblack";
+    text-decoration: none;
+    padding: 0.6em 2em;
+    border-radius: 8px;
+    color: #fff;
+    background-color: #c0c0c0;
+    border: 0;
+    cursor: pointer;
+    align-content: center;
+    }
+
 
     .fa.fa-angle-left:hover {
         color: rgb(136, 135, 135) !important;
@@ -315,15 +329,9 @@
             scroll-snap-type: y mandatory;
             overflow-y: scroll !important;
             scroll-snap-stop: always;
-            -webkit-overflow-scrolling: touch !important;
+            /* -webkit-overflow-scrolling: touch !important;  */
+            -webkit-overflow-scrolling: auto !important; 
         }
-
-        /* html {
-            -webkit-overflow-scrolling: auto !important;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            scroll-snap-stop: always
-        } */
 
 
         .col {
@@ -382,7 +390,7 @@
             margin-left: auto;
             margin-right: 0;
             font-size: 90%;
-            margin-bottom: 20%;
+            margin-bottom:10%;
         }
 
         #write_name #type {
@@ -441,9 +449,10 @@
 
         #posterdiv {
             width: 240px;
-            margin-top: 20%;
+            margin-top: 10%;
             margin-left: auto;
             margin-right: auto;
+            padding-top: 0%;
         }
 
         #done_button {
@@ -864,22 +873,23 @@
                                 </tr>
                             </table>
                             <div>
-                                <button type="submit" name="next" value="Next" class="mbtn blue" id="next_button"
-                                    onclick="validateForm()">Next</button>
+                                <a href="#posterdiv" type="submit" name="next" value="Next" id="next_button"
+                                    onclick="validateForm()">Next</a>
                             </div>
                         </div>
 
                     </div>
 
                     <div class="col-25">
-                        <div id='posterdiv'>
+                     
+                        <div id='posterdiv' hidden>
                             <form id="imageForm" action="/satisfied" method="GET">
                                 <table id='tableposter'>
                                 </table>
                         </div>
                     </div>
                     <div class="col-25">
-                        <div id="changecolour">
+                        <div id="changecolour" hidden>
                             <table id="colourtable">
                             </table>
                             <div id="done_div">

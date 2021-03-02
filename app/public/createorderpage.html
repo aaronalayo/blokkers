@@ -2,14 +2,16 @@
   body {
     font-family: "nunitobold";
     text-rendering: auto;
+    touch-action: auto;
   }
 
   html {
     -webkit-overflow-scrolling: auto !important;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
-    scroll-snap-stop: always
-    
+    scroll-snap-stop: always;
+    -webkit-overflow-scrolling: touch !important; /* Lets it scroll lazy */
+    touch-action: auto;
   }
 
   * {
@@ -60,7 +62,7 @@
     background-color: transparent;
     padding: 10px 10px 10px 10px;
     /* border: 1px solid rgb(255, 252, 252); */
-    border-radius: 3px;
+    /* border-radius: 3px; */
 
   }
 
@@ -187,7 +189,7 @@ input[type="checkbox"] {
   }
 
   .basket {
-    margin-top: 4%;
+    margin-top: 2%;
   }
 
   @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -258,14 +260,15 @@ input[type="checkbox"] {
             height: 800px;
         }
 
-        /*         
         html {
+    /* -webkit-overflow-scrolling: auto !important; */
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-snap-stop: always;
+    -webkit-overflow-scrolling: touch !important; /* Lets it scroll lazy */
+    
+  }
 
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll !important;
-            scroll-snap-stop: always;
-            -webkit-overflow-scrolling: touch !important;
-        } */
 
         .col {
             width: 20%;

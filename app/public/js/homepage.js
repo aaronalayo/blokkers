@@ -10,7 +10,10 @@ $(document).ready(function() {
         }
         
     }
-
+    // document.addEventListener("touchmove", scrollUp, true);
+    // document.addEventListener("scroll", scrollDown, true);
+    document.addEventListener('touchmove', function(e) {e.preventDefault();}, true);
+    document.addEventListener('scroll', function(e) {e.preventDefault();}, true);
     $(document).bind('DOMMouseScroll', { passive: false }, function(e){
  
         if(e.originalEvent.detail > 0) {
@@ -39,7 +42,7 @@ function scrollUp(){
         let scrollToElement = $('.page')[currentPos];
         $('html, body').animate({
             scrollTop: $(scrollToElement).offset().top
-        }, 200, function(){
+        }, 400, function(){
             scrolling = false;
         });      
     }
@@ -52,7 +55,7 @@ function scrollDown(){
         let scrollToElement = $('.page')[currentPos];
         $('html, body').animate({
             scrollTop: $(scrollToElement).offset().top
-        }, 200,function(){
+        }, 400,function(){
             scrolling = false;
         }); 
     }

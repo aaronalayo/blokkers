@@ -132,15 +132,7 @@ html {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-#logo_img {
-  max-width: 100%;
-  max-height: 100%;
-}
 
-#logo_container {
-  position: absolute;
-  display: block;
-}
 
 #insta_logo {
   max-height: 5%;

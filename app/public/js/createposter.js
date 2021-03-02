@@ -1,83 +1,87 @@
-$( document ).ready(function() {
- let id = document.getElementById('a2')
+
+$(document).ready(function () {
+
+  let id = document.getElementById('a2')
   getSizeDetails(id);
 
-// if(window.location.origin = '/satisfied'){loadPosterEdit();};
+  // if(window.location.origin = '/satisfied'){loadPosterEdit();};
 
 });
 
 //gets the formats with their prices and returns them as Promise
 function getFormats() {
   const fetchJson = async url => {
-      const response = await fetch(url)
-      return response.json()
+    const response = await fetch(url)
+    return response.json()
   }
   return new Promise(function (resolve) {
-      const formats = fetchJson('/formats');
-      setTimeout(function () {
-          resolve(formats)
-      }, 50);
+    const formats = fetchJson('/formats');
+    setTimeout(function () {
+      resolve(formats)
+    }, 50);
   });
 };
-async function getSizeDetails(id){    
+async function getSizeDetails(id) {
   let price = 0;
   let dimension;
-  if(id){
+  if (id) {
 
- 
-  let size = $(id).val().toUpperCase();
-  await getFormats().then(data => {
-      for (let [key] of Object.entries(data.formats)) { 
-          if (size === data.formats[key].format_no) {
-              price = data.formats[key].price;
-              dimension = data.formats[key].dimension;
-          } 
+
+    let size = $(id).val().toUpperCase();
+    await getFormats().then(data => {
+      for (let [key] of Object.entries(data.formats)) {
+        if (size === data.formats[key].format_no) {
+          price = data.formats[key].price;
+          dimension = data.formats[key].dimension;
+        }
       }
-      $("#dimension").text(dimension);  
-      $("#dimensionprise").text(price);        
-  }); 
-};
+      $("#dimension").text(dimension);
+      $("#dimensionprise").text(price);
+    });
+  };
 };
 //changes the size to the one the right
-function changeSizeRight(){
-    if($("#a3").is(':checked')){
-        $("#a2").prop("checked", true);
-    }
-    else if($("#a2").is(':checked')){
-        $("#a1").prop("checked", true);
-    } 
+function changeSizeRight() {
+  if ($("#a3").is(':checked')) {
+    $("#a2").prop("checked", true);
+  }
+  else if ($("#a2").is(':checked')) {
+    $("#a1").prop("checked", true);
+  }
 };
 
 //changes the size to the one on the left
-function changeSizeLeft(){
-    if($("#a1").is(':checked')){
-        $("#a2").prop("checked", true);
-    }
-    else if($("#a2").is(':checked')){
-        $("#a3").prop("checked", true);
-    }
+function changeSizeLeft() {
+  if ($("#a1").is(':checked')) {
+    $("#a2").prop("checked", true);
+  }
+  else if ($("#a2").is(':checked')) {
+    $("#a3").prop("checked", true);
+  }
 };
 
 //appends a letter to the name 
-function addLetter(id){
-   let letter = $(id).text();
-   $("#name").val($("#name").val() + letter);
+function addLetter(id) {
+  let letter = $(id).text();
+  $("#name").val($("#name").val() + letter);
 };
 
 //validates if the name is less than 12 characters
 function validateForm() {
-  $('#colourtable').html(''); 
+  $('#colourtable').html('');
   $('#chooseletter').html('');
   $('#choosecolor').html('');
+  $("#posterdiv").hide();
+  $("#colourtable").hide();
   $("#done_button").hide();
   const nameFilter = /^[a-zA-Z \-\_\/!0-9æøåÆØÅ\.,!?():+\[\]\n\t\r]*$/;
   let name = document.getElementById('name').value
-  if (name == ""){
+  if (name == "") {
     alert("Please enter letters");
-  } else if(nameFilter.test(String(name).toLowerCase()) == false){
+  } else if (nameFilter.test(String(name).toLowerCase()) == false) {
     alert("Invalid letters!");
-  
-  } else if(name.length >13){
+
+  } else if (name.length > 13) {
     alert("Your letters must have between 1 and 12 characters!");
     $("#name").val("");
     $('#tableposter').html(''); //clear the table
@@ -87,79 +91,81 @@ function validateForm() {
     addCircles(), getName()
   }
 };
-$(function() {
-  $('#name').keypress(function(event) {
-      event.preventDefault();
-      return false;
+$(function () {
+  $('#name').keypress(function (event) {
+    event.preventDefault();
+    return false;
   });
 });
 //adds a circle around each letter present in the name
-function addCircles(){
-  $(".circle").each(function() {
+function addCircles() {
+  $(".circle").each(function () {
     $(this).removeClass("circle");
   });
   const name = $("#name").val();
   let id;
   for (let i = 0; i < name.length; i++) {
-      id = name.charAt(i).toLowerCase();
-      $("#" + id).addClass("circle");
+    id = name.charAt(i).toLowerCase();
+    $("#" + id).addClass("circle");
   }
 };
 
 //creates an empty table with 3 columns and 4 rows
-function createTable(){
+function createTable() {
   let k = 0;
-  for(let i=0; i<=3; i++){
+  for (let i = 0; i <= 3; i++) {
     $('#tableposter').append('<tr>');
-    for(let j = k; j<= k + 2; j++){
-      $('#tableposter').append(`<td id=${j+1} onclick=showColor(this.id) >`);
+    for (let j = k; j <= k + 2; j++) {
+      $('#tableposter').append(`<td id=${j + 1} onclick=showColor(this.id) >`);
     }
     $('#tableposter').append('</tr>');
-    k=k+3;
+    k = k + 3;
   }
 };
 
+
 //displays a poster with the name
 function getName() {
-    let name = $("#name").val().toLowerCase();
-    const letters = name.split('');
-    while (name.length < 13) {
-      for(let i =0; i <= letters.length-1; i++){
-        name += letters[i];   
-      } 
+  $("#posterdiv").show();
+  let name = $("#name").val().toLowerCase();
+  const letters = name.split('');
+  while (name.length < 13) {
+    for (let i = 0; i <= letters.length - 1; i++) {
+      name += letters[i];
     }
-  
+  }
+
   //clears the tables
   // $('#posterfooter').html('');
-  $('#tableposter').html(''); 
-  $('#colourtable').html(''); 
+  $('#tableposter').html('');
+  $('#colourtable').html('');
   // $('#choosecolor').html('');
   // $('#chooseletter').html('');
 
   //creates a new table and fills it with the new name letters
   createTable();
   let k = 0;
-  for(let i=0; i<=3; i++){
-    for(let j=k; j<=k + 2; j++){ 
-      switch(name[j]) {
-          case 'å':
-            $("#" + (j+1)).append(`<img  src="/images/alfabet/aa/aa1.png">`);
-            break;
-          case 'æ':
-            $("#" + (j+1)).append(`<img  src="/images/alfabet/ae/ae1.png">`);
-            break;
-          case 'ø':
-            $("#" + (j+1)).append(`<img  src="/images/alfabet/oe/oe1.png">`);
-            break;
-          case '-':
-            $("#" + (j+1)).append(`<img  src="/images/alfabet/-/-1.png">`);
-            break;
-          default:
-            $("#" + (j+1)).append(`<img  src="/images/alfabet/${name[j]}/${name[j]}1.png">`);
-         
-        }
+  for (let i = 0; i <= 3; i++) {
+
+    for (let j = k; j <= k + 2; j++) {
+      switch (name[j]) {
+        case 'å':
+          $("#" + (j + 1)).append(`<img  src="/images/alfabet/aa/aa1.png">`);
+          break;
+        case 'æ':
+          $("#" + (j + 1)).append(`<img  src="/images/alfabet/ae/ae1.png">`);
+          break;
+        case 'ø':
+          $("#" + (j + 1)).append(`<img  src="/images/alfabet/oe/oe1.png">`);
+          break;
+        case '-':
+          $("#" + (j + 1)).append(`<img  src="/images/alfabet/-/-1.png">`);
+          break;
+        default:
+          $("#" + (j + 1)).append(`<img  src="/images/alfabet/${name[j]}/${name[j]}1.png">`);
+      }
     }
-    k = k+3;
+    k = k + 3;
   }
   $('#tableposter').append('<tfoot id="posterfooter">');
   $('#posterfooter').text("Click on a letter to change the color");
@@ -167,42 +173,52 @@ function getName() {
 
 
 //displays the different letter design
-function showColor(id){
+function showColor(id) {
+  $("#colourtable").show();
   $('#colourtable').html('');
   // $('#choosecolor').html('');
   // $('#chooseletter').html('');
-    let src = document.getElementById(id).childNodes[0].src;
-    let parts = src.split('/');
-    let lastSegment = parts.pop();
+  let src = document.getElementById(id).childNodes[0].src;
+  let parts = src.split('/');
+  let lastSegment = parts.pop();
 
-   
-    $('#colourtable').append('<caption id="choosecolor"></caption>')
-    for(let i = 0; i<= 3; i++){
-      switch(parts[parts.length - 1]){
+  $('#colourtable').append('<caption id="choosecolor"></caption>');
+  for (let i = 0; i < 2; i++) {
+    $('#colourtable').append('<tr>');
+    for (let j = 0; j < 4; j++) {
+      let key = (j+1)+(i*4);
+      switch (parts[parts.length - 1]) {
         case 'å':
-            $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/aa${i+1}.png" >` + '</td>');    
-            break;
+          $('#colourtable').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/aa${key}.png" >` + '</td>');
+          break;
         case 'æ':
-            $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/ae${i+1}.png">` + '</td>');
-            break;
+          $('#colourtable').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/ae${key}.png">` + '</td>');
+          break;
         case 'ø':
-            $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/oe${i+1}.png">` + '</td>');
-            break;
+          $('#colourtable').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/oe${key}.png">` + '</td>');
+          break;
         case '-':
-            $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/-${i+1}.png">` + '</td>');
-            break;
+          $('#colourtable').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/-${key}.png">` + '</td>');
+          break;
         default:
-            $('#colourtable').append(`<td id=img${i}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${i+1}.png">` + '</td>');
+          $('#colourtable').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${key}.png">` + '</td>');     
       }
+      
     }
-    $('#colourtable').append('<caption style="caption-side:bottom" id="chooseletter"></caption>')
-    $('#choosecolor').text("Choose your color");
-    $('#chooseletter').text("Click on the letter to change the color");
-    $("#done_button").show();
-}
+
+    $('#colourtable').append('</tr>');
+    
+  }
+  
+  $('#colourtable').append('<caption style="caption-side:bottom" id="chooseletter"></caption>')
+  $('#choosecolor').text("Choose your color");
+  $('#chooseletter').text("Click on the letter to change the color");
+  $("#done_button").show();
+};
+
 
 //changes the letter colour on the poster
-function changeColor(id){
+function changeColor(id) {
   let parts = id.split('-');
   let lastSegment = parts.pop();
   $("#" + lastSegment).empty();
@@ -210,18 +226,17 @@ function changeColor(id){
   $("#" + lastSegment).append(`<img  src=${src}>`);
 };
 
-function onPressBackspace() { 
-  let name  = document.getElementById('name').value;
-  document.getElementById('name').value=name.substring(0,name.length -1);
+function onPressBackspace() {
+  let name = document.getElementById('name').value;
+  document.getElementById('name').value = name.substring(0, name.length - 1);
 };
 
 //stores the poster name, size and letter paths to sessionStorage
-function getSrc(){
-  
+function getSrc() {
   imgs = document.getElementById('tableposter').getElementsByTagName("img");
   let imgSrcs = [];
   for (var i = 0; i < imgs.length; i++) {
-      imgSrcs.push(imgs[i].src);
+    imgSrcs.push(imgs[i].src);
   }
   let pname = $("#name").val().toLowerCase();
   let size = $("input[name='size']:checked").val();
@@ -229,39 +244,38 @@ function getSrc(){
   sessionStorage.setItem("size", JSON.stringify(size.toUpperCase()));
   sessionStorage.setItem("pname", JSON.stringify(pname));
   sessionStorage.removeItem('posterToEdit');
-
 };
 
 
-function loadPosterEdit(){
-  
-    let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
-    if(posterToEdit){
-      $('#name').val(posterToEdit.pname.toUpperCase());
-      createTable();
-      let k = 0;
-      for (let i = 0; i <= 3; i++) {
-        $("#tableposter").append("<tr>");
-        for (let j = k; j <= k + 2; j++) {
-          $("#tableposter").append(`<td id=${j + 1} >`);
-          $("#" + (j + 1)).append(`<img src="${posterToEdit.paths[j]}">`);
-        }
-        $("#tableposter").append("</tr>");
-        k = k + 3;
+function loadPosterEdit() {
+  let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
+  if (posterToEdit) {
+    $('#name').val(posterToEdit.pname.toUpperCase());
+    createTable();
+    let k = 0;
+    for (let i = 0; i <= 3; i++) {
+      $("#tableposter").append("<tr>");
+      for (let j = k; j <= k + 2; j++) {
+        $("#tableposter").append(`<td id=${j + 1} >`);
+        $("#" + (j + 1)).append(`<img src="${posterToEdit.paths[j]}">`);
       }
-      $('#tableposter').append('<tfoot id="posterfooter">');
-      $('#posterfooter').text("Click on a letter to change the color");
-      
+      $("#tableposter").append("</tr>");
+      k = k + 3;
     }
-    
-
+    $('#tableposter').append('<tfoot id="posterfooter">');
+    $('#posterfooter').text("Click on a letter to change the color");
+  }
 };
 
-// function goto(url){
-//   window.location = url;
-  
-// }
-$('#next-button').click(function(event){
-  event.preventDefault();
-  window.location = '#posterdiv'
+$(function() {
+  $('a[href*=\\#]:not([href=\\#])').on('click', function() {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.substr(1) +']');
+      if (target.length) {
+          $('html,body').animate({
+              scrollTop: target.position().top
+          }, 400);
+          return false;
+      }
+  });
 });

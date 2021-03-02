@@ -78,3 +78,53 @@ function addtobasket(){
   sessionStorage.setItem("posters", JSON.stringify(posters));
   sessionStorage.removeItem('posterToEdit');
 };
+
+
+
+document.addEventListener('touchmove', function(e) {e.preventDefault();}, true);
+document.addEventListener('scroll', function(e) {e.preventDefault();}, true);
+$(document).bind('DOMMouseScroll', { passive: false }, function(e){
+
+    if(e.originalEvent.detail > 0) {
+        scrollDown();
+    }else {
+        scrollUp();   
+    }
+    return false;
+});
+
+$(document).bind('mousewheel', { passive: false }, function(e){
+    e.preventDefault();
+    if(e.originalEvent.wheelDelta < 0) {
+        scrollDown();
+    }else {
+        scrollUp();     
+    }
+    return false;
+});
+
+function scrollUp(){
+  if(!scrolling && currentPos > 0 ){
+      scrolling = true;
+      currentPos --;
+      let scrollToElement = $('.page')[currentPos];
+      $('html, body').animate({
+          scrollTop: $(scrollToElement).offset().top
+      }, 200, function(){
+          scrolling = false;
+      });      
+  }
+};   
+
+function scrollDown(){   
+  if(!scrolling && currentPos < $('.page').length-1  ){
+      scrolling = true;
+      currentPos ++;
+      let scrollToElement = $('.page')[currentPos];
+      $('html, body').animate({
+          scrollTop: $(scrollToElement).offset().top
+      }, 200,function(){
+          scrolling = false;
+      }); 
+  }
+};    
