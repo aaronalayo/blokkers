@@ -465,12 +465,23 @@ img {
 
 
 
-@media only screen and (min-device-width: 2160px) {
+@media only screen and (min-device-width: 2160px)and (max-device-width: 2880px) {
   .mail {
     padding-bottom: 5em;
   }
 
+  .basket-items {
+    margin-left: 10%;
+    margin-top: 2%;
 
+ 
+  }
+  
+  #total-amount-box {
+    margin-right: 20%;
+    margin-top: 2%;
+
+  }
 
   .basket-table table td,
   tr {
@@ -493,8 +504,17 @@ img {
     width: 10em;
     display: block;
   }
+  #tableposter img {
+    width: 10em;
+    display: block;
+}
+#tableposter{
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  border: none;
+}
   .mySlides.fade {
-    /* /* position: absolute; */
     top: 0;
     right: 0%;
     margin-left: auto;
@@ -505,9 +525,6 @@ img {
   }
 
   #colourtable {
-    /* margin-top: -15%; */
-    /* margin-right: 45%; */
-    /* float: right; */
     border: none;
     display: block;
     border-collapse: collapse;

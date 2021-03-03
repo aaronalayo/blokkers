@@ -33,7 +33,6 @@ route.post("/createpaymentorder", async (req, res) => {
     invoicezip,
     newsletter,
   } = req.body;
-
   //Check if values are empty or null
   const newPosters = checkParameter(posters);
   const newFullName = checkParameter(fullname);
@@ -175,8 +174,6 @@ route.post("/createorder", async (req, res) => {
     customer,
     paymentId
   } = req.body;
-  console.log(posters)
-  console.log(paymentId)
   // //Check if values are empty or null
   const newPosters = checkParameter(posters);
   const newFullName = checkParameter(customer.fullname);

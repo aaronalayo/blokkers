@@ -231,6 +231,10 @@
         border-width: 0 0 2px;
         background-color: transparent;
         font-family: "nunitoextrabold";
+   
+    }
+    .set-width {
+     width: 170px;
     }
 
     #choosecolor {
@@ -271,7 +275,7 @@
     #done_div {
         margin-left: auto;
         margin-right: auto;
-        margin-top: 10%;
+        margin-top: 8%;
         width: 120px;
     }
 
@@ -284,7 +288,7 @@
         padding: 0.6em 2em;
         border-radius: 8px;
         color: #fff;
-        background-color: #c0c0c0;
+        background-color: #11b47e;
         border: 0;
         cursor: pointer;
         align-content: center;
@@ -294,7 +298,7 @@
     font-size: 1.1em;
     font-family: "nunitoblack";
     text-decoration: none;
-    padding: 0.6em 2em;
+    padding: 0.6em 1.5em;
     border-radius: 8px;
     color: #fff;
     background-color: #c0c0c0;
@@ -318,10 +322,13 @@
         opacity: 1;
         transition: all 0.3s cubic-bezier(0.16, 0.08, 0.355, 1);
     }
+    .basket {
+            margin: 4%;
+        }
 
     @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         body {
-            height: 1000px;
+            height: 1500px;
         }
 
         html {
@@ -329,7 +336,7 @@
             scroll-snap-type: y mandatory;
             overflow-y: scroll !important;
             scroll-snap-stop: always;
-            /* -webkit-overflow-scrolling: touch !important;  */
+            -webkit-overflow-scrolling: touch !important; 
             -webkit-overflow-scrolling: auto !important; 
         }
 
@@ -342,6 +349,7 @@
         .col-25 {
             -ms-flex: 25%;
             flex: 25%;
+         
 
         }
 
@@ -403,6 +411,17 @@
 
         }
 
+        #posterfooter {
+            font-size: 0.9em;
+        }
+
+        #posterdiv {
+            width: 240px;
+            
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
 
         #tableposter {
             width: 240px;
@@ -416,49 +435,42 @@
         }
 
         #changecolour {
-            width: 264px;
+            width: 232px;;
             display: block;
             margin-left: auto;
             margin-right: auto;
-        }
+            margin-top: auto;
 
-
-
-
-        #tableposter img {
-            width: 5em;
         }
 
         #colourtable img {
-            width: 4em;
+            width: 3.5em;
             display: block;
         }
+        #choosecolor {
+        padding-bottom: 0%;
+        font-size: 20px;
+        font-family: "nunitolight";
+    }
 
-        #colourtable img {
-            width: 4em;
-            display: block;
-        }
-
-        #poster-col {
-            padding: 0px 0px;
-        }
-
-        #posterfooter {
-            font-size: 0.9em;
-        }
-
-        #posterdiv {
-            width: 240px;
-            margin-top: 10%;
-            margin-left: auto;
-            margin-right: auto;
-            padding-top: 0%;
-        }
+    #chooseletter {
+        font-size: 20px;
+        font-family: "nunitolight";
+        margin-top: 2%;
+    }
+     
 
         #done_button {
             margin-left: auto;
             margin-right: auto;
         }
+
+    #done_div {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+        width: 120px;
+    }
     }
 
     @media screen and (min-device-width: 800px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio:2 ) {
@@ -872,18 +884,18 @@
                                     <td id="-" onclick="addLetter(this)">-</td>
                                 </tr>
                             </table>
-                            <div>
-                                <a href="#posterdiv" type="submit" name="next" value="Next" id="next_button"
+                            <div class="basket">
+                                <a href="#postercol" type="submit" name="next" value="Next" id="next_button"
                                     onclick="validateForm()">Next</a>
                             </div>
                         </div>
 
                     </div>
-
-                    <div class="col-25">
+                
+                    <div id='postercol' class="col-25">
                      
-                        <div id='posterdiv' hidden>
-                            <form id="imageForm" action="/satisfied" method="GET">
+                        <div id='posterdiv'>
+                            <form id="imageForm" action="/satisfied">
                                 <table id='tableposter'>
                                 </table>
                         </div>

@@ -3,9 +3,7 @@ $(document).ready(function () {
 
   let id = document.getElementById('a2')
   getSizeDetails(id);
-
-  // if(window.location.origin = '/satisfied'){loadPosterEdit();};
-
+  loadPosterEdit();
 });
 
 //gets the formats with their prices and returns them as Promise
@@ -71,7 +69,7 @@ function validateForm() {
   $('#colourtable').html('');
   $('#chooseletter').html('');
   $('#choosecolor').html('');
-  $("#posterdiv").hide();
+  // $("#posterdiv").hide();
   $("#colourtable").hide();
   $("#done_button").hide();
   const nameFilter = /^[a-zA-Z \-\_\/!0-9æøåÆØÅ\.,!?():+\[\]\n\t\r]*$/;
@@ -126,7 +124,7 @@ function createTable() {
 
 //displays a poster with the name
 function getName() {
-  $("#posterdiv").show();
+  // $("#posterdiv").show();
   let name = $("#name").val().toLowerCase();
   const letters = name.split('');
   while (name.length < 13) {
@@ -235,47 +233,119 @@ function onPressBackspace() {
 function getSrc() {
   imgs = document.getElementById('tableposter').getElementsByTagName("img");
   let imgSrcs = [];
+  let origin = window.location.origin;
   for (var i = 0; i < imgs.length; i++) {
-    imgSrcs.push(imgs[i].src);
+  
+    imgSrcs.push(imgs[i].src.substr(origin.length));
+  }
+  const paths =[];
+
+
+  for (const key in imgSrcs) {
+    
+    paths.push(imgSrcs[key]);
   }
   let pname = $("#name").val().toLowerCase();
   let size = $("input[name='size']:checked").val();
-  sessionStorage.setItem("imgs", JSON.stringify(imgSrcs));
-  sessionStorage.setItem("size", JSON.stringify(size.toUpperCase()));
-  sessionStorage.setItem("pname", JSON.stringify(pname));
-  sessionStorage.removeItem('posterToEdit');
+  let posterToEdit = {
+    "pname": pname,
+    "paths": paths,
+    "size": size.toUpperCase(),
+    "quantity": 1,
+    "price": 0   
 };
+if(sessionStorage.getItem("posterToEdit") != null){
+  sessionStorage.removeItem('posterToEdit');
+  sessionStorage.setItem('posterToEdit', JSON.stringify(posterToEdit));
+}else{
+  sessionStorage.setItem('posterToEdit', JSON.stringify(posterToEdit));
+}
 
-
-function loadPosterEdit() {
-  let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
-  if (posterToEdit) {
-    $('#name').val(posterToEdit.pname.toUpperCase());
-    createTable();
-    let k = 0;
-    for (let i = 0; i <= 3; i++) {
-      $("#tableposter").append("<tr>");
-      for (let j = k; j <= k + 2; j++) {
-        $("#tableposter").append(`<td id=${j + 1} >`);
-        $("#" + (j + 1)).append(`<img src="${posterToEdit.paths[j]}">`);
-      }
-      $("#tableposter").append("</tr>");
-      k = k + 3;
-    }
-    $('#tableposter').append('<tfoot id="posterfooter">');
-    $('#posterfooter').text("Click on a letter to change the color");
-  }
 };
 
 $(function() {
   $('a[href*=\\#]:not([href=\\#])').on('click', function() {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.substr(1) +']');
+      
       if (target.length) {
           $('html,body').animate({
               scrollTop: target.position().top
           }, 400);
+          console.log(target.position().top)
           return false;
       }
   });
 });
+
+// $.ajax({
+//   global: false,
+//   // type: 'GET',
+//   url: '/satisfied',
+// }).done(function (data) {
+// //   // function loadPosterEdit() {
+// //   console.log('Loading poster first time');
+// //   $('#tableposter').html('');
+// //     let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
+// //     // console.log(posterToEdit)
+// //     if (posterToEdit) {
+// //       $('#name').val(posterToEdit.pname.toUpperCase());
+// //       let k = 0;
+      
+// //       for (let i = 0; i <= 3; i++) {
+// //         $("#tableposter").append("<tr>");
+// //         for (let j = k; j <= k + 2; j++) {
+// //           $("#tableposter").append(`<td id=${j + 1} >`);
+// //           // $("#" + (j + 1)).append(`<img src="${posterToEdit.paths[j]}">`);
+// //         }
+// //         $("#tableposter").append("</tr>");
+// //         k = k + 3;
+// //       }
+// //       // if(table == undefined){
+// //       //   console.log('table cell is undefined');
+// //       // }
+// //       // td = document.getElementById('tableposter').getElementsByTagName('td');
+      
+// //       // for (var i = 0; i < td.length; i++) {
+// //       //   $("#" + (i)).append(`<img src="${posterToEdit.paths[i]}">` + '</td>');
+// //       // }
+// //       $('#tableposter').append('<tfoot id="posterfooter">');
+// //       $('#posterfooter').text("Click on a letter to change the color");
+// //     }
+// //   // };
+// // }).fail(function (jqXHR, textStatus, errorThrown) {
+
+// //     console.log('FAILED! ERROR: ' + errorThrown);
+//   }
+// );
+function loadPosterEdit() {
+  console.log('Loading poster first time');
+  $('#tableposter').html('');
+  createTable();
+    let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
+    // console.log(posterToEdit)
+    if (posterToEdit) {
+      $('#name').val(posterToEdit.pname.toUpperCase());
+      // let k = 0;
+      
+      // for (let i = 0; i <= 3; i++) {
+       
+      //   for (let j = k; j <= k + 2; j++) {
+      //     // $("#tableposter").append(`<td id=${j + 1} >`);
+      //     // $("#" + (j + 1)).append(`<img src="${posterToEdit.paths[j]}">`);
+      //   }
+
+      //   k = k + 3;
+      // }
+      // if(table == undefined){
+      //   console.log('table cell is undefined');
+      // }
+      // td = document.getElementById('tableposter').getElementsByTagName('td');
+      
+      // for (var i = 0; i < td.length; i++) {
+      //   $("#" + (i)).append(`<img src="${posterToEdit.paths[i]}">` + '</td>');
+      // }
+      $('#tableposter').append('<tfoot id="posterfooter">');
+      $('#posterfooter').text("Click on a letter to change the color");
+    }
+  };

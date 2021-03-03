@@ -113,7 +113,7 @@ function setTaxes(){
 //Regex expressions for form validation
 const nameFilter = /^[a-zA-Z \-\_\/!0-9æøåÆØÅ\.,!?():+\[\]\n\t\r]*$/;
 const emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-const phoneFilter = /^[+]45[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}/;
+const phoneFilter = /^[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}/;
 const addressFilter = /^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$/;
 const cityFilter = /^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
 const zipFilter = /\d{4}/;
@@ -123,6 +123,7 @@ const zipFilter = /\d{4}/;
 function getInfo() {
   let fullname = $("#fname").val();
   let email = $("#email").val();
+  let code =$('#code').val();
   let phone = $("#phone").val();
   let address = $("#address").val();
   let city = $("#city").val();
@@ -154,7 +155,7 @@ function getInfo() {
       const customer = {
         fullname: fullname,
         email: email,
-        phone: phone,
+        phone: code+phone,
         address: address,
         city: city,
         zip: zip,
@@ -172,7 +173,6 @@ function getInfo() {
 
       //Ajax POST method to send to create order route
       if (fullname, email, phone, address, city, zip) {
-        spinner.show();
         $.ajax({
           type: "POST",
           url: "/createpaymentorder",
@@ -180,7 +180,7 @@ function getInfo() {
             posters: posters,
             fullname: fullname,
             email: email,
-            phone: phone,
+            phone: code+phone,
             address: address,
             city: city,
             zip: zip,

@@ -14,20 +14,37 @@ $( document ).ready(function() {
         }, 100);
     });
 };
-async function setBody(){
+async function setBody() {
   let paymentId;
-  await getData().then(data =>{
-let details =JSON.parse(Object.values(data));
-console.log(details)
-paymentId = details.payment.paymentId;
-    $('#data').text(details.payment.paymentId )
-    $('#paymentDetailsCard').text(details.payment.paymentDetails.cardDetails.expiryDate);
-    $('#cardNumber').text(details.payment.paymentDetails.cardDetails.maskedPan);
-    $('#paymentType').text(details.payment.paymentDetails.paymentType);
-    $('#reservedAmount').text(details.payment.summary.reservedAmount);
-  });
+  await getData()
+  
+  .then(it => {
+    if (!it.ok) {
+        throw `Server error: [${it.status}] [${it.statusText}] [${it.url}]`;
+    }
+    return it.json();
+  })
+  .then(data => {
+    
+      let details = JSON.parse(Object.values(data));
 
-sendFiles(paymentId);
+      paymentId = details.payment.paymentId;
+      $('#data').text(details.payment.paymentId)
+      $('#paymentDetailsCard').text(details.payment.paymentDetails.cardDetails.expiryDate);
+      $('#cardNumber').text(details.payment.paymentDetails.cardDetails.maskedPan);
+      $('#paymentType').text(details.payment.paymentDetails.paymentType);
+      $('#reservedAmount').text(details.payment.summary.reservedAmount);
+    
+  }).catch(err => {
+    console.debug("Error in fetch", err);
+  
+  });
+  if(paymentId){
+    sendFiles(paymentId);
+  }else{
+    console.log("waiting for data")
+  }
+  
 
 }
 
