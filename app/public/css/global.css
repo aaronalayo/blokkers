@@ -471,14 +471,17 @@ img {
   }
 
   .basket-items {
-    margin-left: 10%;
+    margin-left: 25%;
+    margin-right: auto;
     margin-top: 2%;
+    width: 750px;
 
  
   }
   
   #total-amount-box {
-    margin-right: 20%;
+    margin-right: 45%;
+    margin-left: auto;
     margin-top: 2%;
 
   }
