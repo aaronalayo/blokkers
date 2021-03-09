@@ -60,7 +60,7 @@ route.post("/createpaymentorder", async (req, res) => {
     ) {
       let items = [];
       let amount = 0;
-      let host = 'https://6feaa0832c15.ngrok.io';
+      let host = 'https://f03c42d50d4f.ngrok.io';
 
       newPosters.forEach(async (poster) => {
         let subAmount = 0;
@@ -96,7 +96,7 @@ route.post("/createpaymentorder", async (req, res) => {
           "number": `${newPhone.substring(3)}`
         },
       };
-
+      console.log(consumer)
       let options = {
 
         host: host + "/createorder",
@@ -243,7 +243,7 @@ route.post("/createorder", async (req, res) => {
             payment_id: paymentId
           }).returning("order_uuid").then(function (orders) {
             if (orders) {
-              console.log(orders)
+              // console.log(orders)
             }
           });
         });
@@ -298,7 +298,7 @@ route.post("/createorder", async (req, res) => {
             payment_id: paymentId
           }).returning("order_uuid").then(function (orders) {
             if (orders) {
-              console.log(orders)
+              // console.log(orders)
             }
           });
         });

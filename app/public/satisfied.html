@@ -227,37 +227,39 @@ padding-right: 5%; */
             margin-top: 1%;
         }
     }
+
     @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
-    html {
+        html {
 
-      scroll-snap-type: y mandatory;
-      overflow-y: scroll !important;
-      scroll-snap-stop: always;
-      -webkit-overflow-scrolling: touch !important;
-      -webkit-overflow-scrolling: auto !important;
-    }
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll !important;
+            scroll-snap-stop: always;
+            -webkit-overflow-scrolling: touch !important;
+            -webkit-overflow-scrolling: auto !important;
+        }
 
-    .container {
-      background-color: transparent;
-      /* padding: 10px 10px 10px 10px; */
-      /* border: 1px solid rgb(255, 252, 252); */
-      border-radius: 3px;
-    }
+        .container {
+            background-color: transparent;
+            /* padding: 10px 10px 10px 10px; */
+            /* border: 1px solid rgb(255, 252, 252); */
+            border-radius: 3px;
+        }
 
-    .col {
-      width: 50%;
-      float: left;
-    }
+        .col {
+            width: 50%;
+            float: left;
+        }
 
-    .col-25 {
-      -ms-flex: 25%;
-      flex: 25%;
-    }
+        .col-25 {
+            -ms-flex: 25%;
+            flex: 25%;
+        }
 
-    .row {
-      margin: auto;
-    }
-    #satisfied {
+        .row {
+            margin: auto;
+        }
+
+        #satisfied {
             font-family: "nunitoextrabold";
             font-size: 35px;
             margin: auto;
@@ -303,31 +305,37 @@ padding-right: 5%; */
         .basket {
             margin-top: 1%;
         }
-}
+    }
 </style>
-<div class="row">
-    <div class="col-75">
-        <div class="container">
 
-            <div id="satisfieddiv">
-                <form id="satisfiedForm" action="/basket" method="GET">
-                    <table id='satisfiedtable'>
-                        <h1 id="satisfied">Satisfied?</h1>
-                    </table>
-                    <div class="row">
-                        <div class="col-25 ">
-                            <div class="basket">
-                                <span><a href="/basket" class="btn" id="addbasket_button" onclick="addtobasket()"
-                                        hidden>Add to basket</a></span>
-                            </div>
-                            <div class="basket">
-                                <span><a href="/createposter#postercol" class="btn" id="cancel_button" onclick="editPoster()"
-                                        hidden>Edit</a></span>
+<body onload="displayPoster()">
+    <div class="row">
+        <div class="col-75">
+            <div class="container">
+
+                <div id="satisfieddiv">
+                    <form id="satisfiedForm" action="/basket" method="GET">
+                        <table id='satisfiedtable'>
+                            <h1 id="satisfied">Satisfied?</h1>
+                        </table>
+                        <div class="row">
+                            <div class="col-25 ">
+                                <div class="basket">
+                                    <span><a href="/basket" class="btn" id="addbasket_button" onclick="addtobasket()"
+                                            hidden>Add to basket</a></span>
+                                </div>
+                                <div class="basket">
+                                    <span><a href="/createposter#postercol" class="btn" id="cancel_button"
+                                            onclick="editPoster()" hidden>Edit</a></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+</body>
+
+</html>

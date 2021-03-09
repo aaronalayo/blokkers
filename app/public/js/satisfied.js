@@ -1,7 +1,14 @@
-$(document).ready(function () {
+
+
+function displayPoster(){
   $("#satisfiedtable").html('');
   let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
-  if (posterToEdit) {
+
+  if (posterToEdit === null) {
+    window.location.href = "http://localhost:8080/";
+    $("#addbasket_button").hide();
+    $("#cancel_button").hide();
+  }else{
     let k = 0;
     for (let i = 0; i <= 3; i++) {
       $("#satisfiedtable").append("<tr>");
@@ -13,11 +20,18 @@ $(document).ready(function () {
       k = k + 3;
     }
 
-  }
-  $("#addbasket_button").show();
-  $("#cancel_button").show();
+      // $("#addbasket_button").show(2000);
+      // $("#cancel_button").show();
 
-});
+   
+  }
+};
+
+
+
+// setTimeout(function () {
+//   window.location.href = location.origin;
+// }, 0); 
 
 function editPoster(){
 $("#satisfiedtable").html('');

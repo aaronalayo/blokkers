@@ -9,7 +9,7 @@ const cors = require('cors');
 const fs = require('fs');
 const corsOptions = {
   
-  origin: 'https://6feaa0832c15.ngrok.io',
+  origin: 'https://f03c42d50d4f.ngrok.io',
   allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Methods", "Access-Control-Request-Headers",'Access-Control-Allow-Origin'],
   credentials: true,
   enablePreflight: true,
@@ -80,20 +80,20 @@ const homePage = fs.readFileSync("./public/homepage.html", "utf8");
 const footer = fs.readFileSync("./public/footer.html", "utf8");
 const satisfiedPage = fs.readFileSync("./public/satisfied.html", 'utf8');
 const basketPage = fs.readFileSync("./public/basket.html", 'utf8');
-const createOrderPage = fs.readFileSync("./public/createorderpage.html", 'utf8');
+const checkoutPage = fs.readFileSync("./public/checkoutpage.html", 'utf8');
 const paymentPage = fs.readFileSync("./public/paymentpage.html", 'utf8');
 const aboutPage = fs.readFileSync("./public/aboutpage.html", 'utf8');
 const contactPage = fs.readFileSync("./public/contactpage.html", 'utf8');
 const createPosterPage = fs.readFileSync("./public/createposterpage.html", 'utf8');
 const Format = require("./model/Format.js");
-
+const Order = require("./model/Order.js");
 
 
 //Routes
 const home = "/";
 const satisfied = "/satisfied";
 const basket = "/basket";
-const createOrder = "/createorder";
+const checkout = "/checkout";
 const formats = "/formats";
 const payment = "/payment";
 const about = "/about";
@@ -113,9 +113,9 @@ app.get(basket, (req, res) => {
   return res.send(navbar + basketPage);
 });
 
-app.get(createOrder, (req, res) => {
+app.get(checkout, (req, res) => {
 
-  res.send(navbar + createOrderPage);
+  res.send(navbar + checkoutPage);
 
 });
 
@@ -128,10 +128,11 @@ app.get(formats, async (req, res)=> {
 //   return res.send(navbar + paymentPage);
 // }
 let data;
+let paymentId;
 app.get(payment, async (req, res) => {
-  const paymentId = req.query.paymentid;
+  paymentId = req.query.paymentid;
   if(paymentId){
-
+console.log(paymentId)
   let options = {
 
     uri: 'https://test.api.dibspayment.eu/v1/payments/'+paymentId,
@@ -155,7 +156,13 @@ return res.status(200).send(navbar + paymentPage);
   res.redirect('/')
 }
 });
+app.get('/order', async (req, res) => {
+  const order = await Order.query().select().where({'payment_id':paymentId}).withGraphJoined('item').withGraphJoined('customer');
+  console.log(order)
+  res.json({'order':order})
+});
 app.get('/data', async (req, res) => {
+  
   res.json({'data':data})
 });
 
@@ -178,6 +185,7 @@ app.get("*", (req, res) => {
 
 
 const createRoute = require('./routes/create.js');
+
 // const paymentRoute = require('./routes/payment.js');
 
 

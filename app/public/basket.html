@@ -518,7 +518,7 @@ scroll-snap-stop: always;
 
 }
 </style>
-
+<body onload=" displayPosters(),calculateTotal()">
 <div class="row">
   <div class="col-75">
     <div class="container">
@@ -553,7 +553,7 @@ scroll-snap-stop: always;
             <hr style="color: lightgrey;">
             <p style="margin-bottom: 12%;"><span style="font-size: 15px;margin-bottom: 14%;">Total</span><span
                 style="float: right;" id="total-amount"></span></p>
-            <a href="/createorder" class="mbtn button" id="proceed-button">Checkout</a>
+            <a href="/checkout" class="mbtn button" id="proceed-button">Checkout</a>
           </div>
         </div>
       </div>
@@ -561,3 +561,7 @@ scroll-snap-stop: always;
   </div>
 </div>
 </div>
+ 
+</body>
+
+</html>

@@ -1,18 +1,13 @@
-$(document).ready(function () {
-    console.log("loaded");
-
-    displayPosters();
-    calculateTotal();
-
-});
-
 
 let posters = JSON.parse(sessionStorage.getItem("posters"));
+
+
+
 // console.log(posters)
 //displays all posters that are added to basket
 function displayPosters() {
     //checks if there are posters added, if not it shows empty-basket div
-    if (!posters.length) {
+    if (posters === undefined || !posters) {
         $("#basket-header").hide();
         $("#total-amount-box").hide();
         $("#empty-basket").show();
@@ -83,13 +78,15 @@ function displayPosters() {
     /* <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><i class="fa fa-trash-o" style="font-size:24px" aria-hidden="true""></i></button>`); */
 // }
 //updates the quantity of the poster in the sessionStorage and updates the price
+
 function updateQuantity(poster, quantity) {
     posters.forEach(p => {
         if (p.pname === poster.pname) {
             p.quantity = quantity;
-            sessionStorage.setItem("posters", JSON.stringify(posters));
+            
             let price = p.price * p.quantity;
-            $("#" + poster.pname + "-price").text(price.toFixed(2));
+            sessionStorage.setItem("posters", JSON.stringify(posters));
+            $("#" + poster.pname + "-price").text(price.toFixed(2)+" DKK");
             calculateTotal();
         }
     });
@@ -151,6 +148,7 @@ function getFormats() {
 
 //calculates the poster price based on the format and quantity
 async function calculatePosterPrice(poster) {
+
     //    console.log(poster.size)
     let price = 0;
     let amount = 0;
@@ -167,12 +165,13 @@ async function calculatePosterPrice(poster) {
             }
             sessionStorage.setItem("posters", JSON.stringify(posters));
         }
-        $("#" + poster.pname + "-price").text(amount.toFixed(2));
+        $("#" + poster.pname + "-price").text(amount.toFixed(2)+" DKK");
     });
     return price
 };
 
 function calculateTotal() {
+
     let total = 0;
     let subTotal = 0;
     let taxes = 0;
@@ -197,9 +196,10 @@ function calculateTotal() {
             sub += subTotal;
             total += subTotal
         });
-        $("#subtotal-amount").text(sub.toFixed(2));
-        $("#taxes-amount").text(taxes.toFixed(2));
-        $("#total-amount").text(total.toFixed(2));
+        sub = total - taxes
+        $("#subtotal-amount").text(sub.toFixed(2)+" DKK");
+        $("#taxes-amount").text(taxes.toFixed(2)+" DKK");
+        $("#total-amount").text(total.toFixed(2)+" DKK");
                  
     }
     });
