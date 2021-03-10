@@ -2,8 +2,6 @@
 function getData() {
 Promise.all([
 	fetch('/data'),
-
-
 ]).then(function (responses) {
 	// Get a JSON object from each of the responses
 	return Promise.all(responses.map(function (response) {

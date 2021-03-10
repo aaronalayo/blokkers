@@ -514,6 +514,52 @@ scroll-snap-stop: always;
   }
 
 }
+@media only screen and (max-device-width: 1680px) and (-webkit-min-device-pixel-ratio: 2) {
+  html {
+
+scroll-snap-type: y mandatory;
+overflow-y: scroll !important;
+scroll-snap-stop: always;
+-webkit-overflow-scrolling: touch !important;
+}
+.remove-poster-btn {
+    border: none;
+    background-color: white;
+
+  }
+  #basket-header {
+    margin-top: 10%;
+    width: 800px;
+}
+
+  .basket-items {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    width: 400px;
+  }
+  
+  #total-amount-box {
+    margin-right: 10%;
+    margin-top: 2%;
+
+  }
+
+
+  #total-amount-box {
+    width: 200px;
+    height: 200px;
+    padding: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+  }
+
+  #proceed-button {
+    margin: 16%;
+  }
+
+}
 </style>
 <body onload=" displayPosters(),calculateTotal()">
 <div class="row">

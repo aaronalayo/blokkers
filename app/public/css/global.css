@@ -563,7 +563,7 @@ img {
   }
 }
 
-@media only screen and (max-device-width: 1920px) {
+@media only screen and  (max-device-width: 1920px) {
   .mail {
     padding-bottom: 3em;
   }
