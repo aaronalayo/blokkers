@@ -464,24 +464,28 @@ img {
 }
 
 
-
-@media only screen and (min-device-width: 2160px)and (max-device-width: 2880px) {
+@media only screen and (min-device-width: 2160px) and (max-device-width: 2880px){
   .mail {
     padding-bottom: 5em;
   }
 
   .basket-items {
-    margin-left: 20%;
+    margin-left: auto;
     margin-right: auto;
     margin-top: 2%;
-    width: 750px;
+    width: 500px;
 
  
   }
+ 
+
+  #proceed-button {
+    margin: 16%;
+  }
   
   #total-amount-box {
-    margin-right: 35%;
-    margin-left: auto;
+    margin-right: auto;
+    margin-left: 10%;
     margin-top: 2%;
 
   }

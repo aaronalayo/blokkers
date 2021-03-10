@@ -159,17 +159,11 @@ return res.status(200).send(navbar + paymentPage);
 
 app.get('/data', async (req, res) => {
   const order = await Order.query().select().where({'payment_id':paymentId}).withGraphJoined('customer');
-  const items = await Item.query().select().where({'customer_uuid':order[0].customer_uuid});
+  const items = await Item.query().select().where({'payment_id':paymentId,'customer_uuid':order[0].customer_uuid});
   console.log(items)
   res.json({'order':order, 'items':items,'data':data});
 });
-// app.get('/items', async (req, res)=>{
-//   res.json({'items':items})
-// })
-// app.get('/data', async (req, res) => {
-  
-//   res.json({'data':data})
-// });
+
 
 app.get(about, (req, res) => {
   return res.send(navbar + aboutPage);
