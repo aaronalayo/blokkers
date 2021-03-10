@@ -463,9 +463,94 @@ img {
   scroll-snap-align: start;
 }
 
+@media only screen and (max-device-width: 2880px) {
+  .basket-items {
+    margin-left: 30%;
+    margin-right: auto;
+    margin-top: 2%;
+    width: 750px;
 
+ 
+  }
+ 
 
-@media only screen and (min-device-width: 2160px)and (max-device-width: 2880px) {
+  #proceed-button {
+    margin: 16%;
+  }
+  
+  #total-amount-box {
+    margin-right: 45%;
+    margin-left: auto;
+    margin-top: 2%;
+
+  }
+  .basket-table table td,
+  tr {
+    padding: 0;
+    cursor: pointer;
+  }
+
+  #satisfiedtable td,
+  tr {
+    margin-top: 10%;
+    padding: 0;
+  }
+  #satisfiedtable {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border: none;
+  }
+  #satisfiedtable img {
+    width: 10em;
+    display: block;
+  }
+  #tableposter img {
+    width: 10em;
+    display: block;
+}
+#tableposter{
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  border: none;
+}
+  .mySlides.fade {
+    top: 0;
+    right: 0%;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  #colourtable {
+    border: none;
+    display: block;
+    border-collapse: collapse;
+  }
+
+  #inspirationspage {
+    width: auto;
+  }
+
+  #colourtable img {
+    width: 6.5em;
+    display: block;
+  }
+  #chooseletter {
+    font-size: 20px;
+    font-family: "nunitolight";
+  }
+  #addbasket_button {
+    margin-top: 3%;
+  }
+  #cancel_button {
+    margin-top: 1%;
+  }
+}
+@media only screen and (max-device-width: 2160px){
   .mail {
     padding-bottom: 5em;
   }
@@ -477,6 +562,11 @@ img {
     width: 750px;
 
  
+  }
+ 
+
+  #proceed-button {
+    margin: 16%;
   }
   
   #total-amount-box {

@@ -50,6 +50,7 @@ exports.up = async function(knex) {
         table.decimal('total_price').unsigned().notNullable();
         table.uuid('customer_uuid').notNullable();
         table.uuid('format_uuid').notNullable();
+        table.string('payment_id').defaultTo(null);
         table.foreign('customer_uuid').references('customers.customer_uuid');
         table.foreign('format_uuid').references('formats.format_uuid');
 
@@ -112,7 +113,7 @@ exports.down = function(knex) {
     //rollback
     return knex.schema
     .dropTableIfExists('orders')
-    .dropTableIfExists('customers')
     .dropTableIfExists('items')
+    .dropTableIfExists('customers')
     .dropTableIfExists('formats');
   };

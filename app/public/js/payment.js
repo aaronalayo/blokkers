@@ -108,6 +108,13 @@ function setCustomerInfo(order){
   $("#shippingcity").text(shippingCity);
   $("#shippingcountry").text(shippingCountry);
   $("#shippingemail").text(shippingEmail);
+
+  $("#billingname").text(shippingName);
+  $("#billingaddress").text(shippingAddress);
+  $("#billingzip").text(shippingZip);
+  $("#billingcity").text(shippingCity);
+  $("#billingcountry").text(shippingCountry);
+  $("#billingemail").text(shippingEmail);
 }
 function sendFiles(paymentId){
 

@@ -228,7 +228,8 @@ route.post("/createorder", async (req, res) => {
             price_per_item: format[0].price,
             total_price: (format[0].price * poster.quantity).toFixed(Math.max((((format[0].price * poster.quantity) + '').split(".")[1] || "").length, 2)),
             customer_uuid: customerFound[0].customer_uuid,
-            format_uuid: format[0].format_uuid,        
+            format_uuid: format[0].format_uuid,
+            payment_id: paymentId        
           });      
           });
           const newItem = await Item.query()
@@ -286,6 +287,7 @@ route.post("/createorder", async (req, res) => {
             total_price: (format[0].price * poster.quantity).toFixed(Math.max((((format[0].price * poster.quantity) + '').split(".")[1] || "").length, 2)),
             customer_uuid: newCustomer[0].customer_uuid,
             format_uuid: format[0].format_uuid,
+            payment_id: paymentId
           });
 
           
