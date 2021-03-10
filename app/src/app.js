@@ -87,7 +87,7 @@ const contactPage = fs.readFileSync("./public/contactpage.html", 'utf8');
 const createPosterPage = fs.readFileSync("./public/createposterpage.html", 'utf8');
 const Format = require("./model/Format.js");
 const Order = require("./model/Order.js");
-
+const Item = require("./model/Item.js");
 
 //Routes
 const home = "/";
@@ -156,15 +156,20 @@ return res.status(200).send(navbar + paymentPage);
   res.redirect('/')
 }
 });
-app.get('/order', async (req, res) => {
-  const order = await Order.query().select().where({'payment_id':paymentId}).withGraphJoined('item').withGraphJoined('customer');
-  console.log(order)
-  res.json({'order':order})
-});
+
 app.get('/data', async (req, res) => {
-  
-  res.json({'data':data})
+  const order = await Order.query().select().where({'payment_id':paymentId}).withGraphJoined('customer');
+  const items = await Item.query().select().where({'customer_uuid':order[0].customer_uuid});
+  console.log(items)
+  res.json({'order':order, 'items':items,'data':data});
 });
+// app.get('/items', async (req, res)=>{
+//   res.json({'items':items})
+// })
+// app.get('/data', async (req, res) => {
+  
+//   res.json({'data':data})
+// });
 
 app.get(about, (req, res) => {
   return res.send(navbar + aboutPage);
@@ -185,6 +190,8 @@ app.get("*", (req, res) => {
 
 
 const createRoute = require('./routes/create.js');
+
+
 
 // const paymentRoute = require('./routes/payment.js');
 

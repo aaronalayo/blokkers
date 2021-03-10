@@ -2,7 +2,8 @@
 function getData() {
 Promise.all([
 	fetch('/data'),
-	fetch('/order')
+
+
 ]).then(function (responses) {
 	// Get a JSON object from each of the responses
 	return Promise.all(responses.map(function (response) {
@@ -11,19 +12,21 @@ Promise.all([
 }).then(function (data) {
 	// Log the data to the console
 	// You would do something with both sets of data here
-	// console.log(data);
-  let paymentOrder = JSON.parse(Object.values(data[0]));
-  console.log(paymentOrder)
-  let orderDetails = data[1];
-  
+	console.log(data);
+  let paymentDetails = data[0].data;
+  paymentDetails = JSON.parse(paymentDetails);
 
-  let paymentId = paymentOrder.payment.paymentId;
-  let date = new Date(paymentOrder.payment.created);
+  let paymentId = paymentDetails.payment.paymentId;
+  let date = new Date(paymentDetails.payment.created);
   date = date.toUTCString();
   $('#date').text(date.toString().substr(0,22));
-  $('#orderNumber').text("Order #"+ 105);
-  displayOrder(orderDetails.order);
-  setTotal(paymentOrder.payment,orderDetails.order);
+  let orderDetails = data[0].order;
+  console.log(orderDetails)
+  $('#orderNumber').text("Order #"+ orderDetails[0].order_no);
+  let itemsDetails = data[0].items;
+  displayOrder(itemsDetails);
+  setTotal(paymentDetails.payment);
+  setCustomerInfo(orderDetails);
   if(paymentId){
     // sendFiles(paymentId);
   }else{
@@ -34,19 +37,18 @@ Promise.all([
 	console.log(error);
 });
 
-}
-function displayOrder(order){
- 
-  let total = 0;
-  for (let i = 0; i < order.length; i++) {
-    let paths = JSON.stringify(order[i].item.item_paths).replace(/"/g, '').replace(/\\/g,'').replace(/[{}]/g,'');
+};
+function displayOrder(items){
+
+  for (let i = 0; i < items.length; i++) {
+    let paths = JSON.stringify(items[i].item_paths).replace(/"/g, '').replace(/\\/g,'').replace(/[{}]/g,'');
    
     paths = paths.split(",");
     console.log(paths)
 
-    // total += order[i].quantity;
+
    
-    let name = order[i].order_title;
+    let name = items[i].item_name;
 
   $(".order-container").append(`<div id="poster-display-${name}">`);
             $(`#poster-display-${name}`).append(`<div class="order-table" id=${name}>`);
@@ -64,14 +66,14 @@ function displayOrder(order){
             $(`#${name}`).append("</table>");
             $(`#poster-display-${name}`).append(`
         <div class="size-poster">
-            <span>${order[i].item.item_format}</span><span> poster </span><span class="poster" id=${order[i].order_title}>${order[i].order_title} - </span>
+            <span>${items[i].item_format}</span><span> poster </span><span class="poster" id=${name}>${name} - </span>
         </div>
         
         <div class="quantity">
-            <span id="${name}-quantity">${order[i].amount}</span>
+            <span id="${name}-quantity">${items[i].amount}</span>
         </div>
         <div class="poster-price">
-            <span id="${name}-price">${order[i].total_price +" DKK"}</span>
+            <span id="${name}-price">${items[i].total_price +" DKK"}</span>
         </div>
 
         `);
@@ -80,7 +82,7 @@ function displayOrder(order){
           }
 };
 
-function setTotal(payment, order) {
+function setTotal(payment) {
 
   let total = payment.orderDetails.amount/100;
   
@@ -91,6 +93,22 @@ function setTotal(payment, order) {
   $("#total-amount").text(total.toFixed(2)+" DKK");
 
 };
+
+function setCustomerInfo(order){
+  let shippingName = order[0].customer.shipping_full_name;
+  let shippingAddress = order[0].customer.shipping_address;
+  let shippingZip = order[0].customer.shipping_zip_code;
+  let shippingCity = order[0].customer.shipping_city
+  let shippingCountry = "DK";
+  let shippingEmail = order[0].customer.email;
+
+  $("#shippingname").text(shippingName);
+  $("#shippingaddress").text(shippingAddress);
+  $("#shippingzip").text(shippingZip);
+  $("#shippingcity").text(shippingCity);
+  $("#shippingcountry").text(shippingCountry);
+  $("#shippingemail").text(shippingEmail);
+}
 function sendFiles(paymentId){
 
   let customer = JSON.parse(sessionStorage.getItem('customer'));

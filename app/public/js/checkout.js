@@ -58,13 +58,13 @@ function countInPosters() {
 
 $("#totalItems").text(countInPosters())
 
-//Displays the invoice form if customer selects to
+//Displays the billing form if customer selects to
 function displayForm() {
-  $("#invoiceform").hide().prop('required', true)
+  $("#billingform").hide().prop('required', true)
   if ($('.check').is(":checked")) {
-      $("#invoiceform").hide(300);
+      $("#billingform").hide(300);
   } else {
-      $("#invoiceform").show(300);
+      $("#billingform").show(300);
   }
 };
 
@@ -119,49 +119,49 @@ const zipFilter = /\d{4}/;
 
 //Gets the customer information and sends to backend
 function getInfo() {
-  let fullname = $("#fname").val();
-  let email = $("#email").val();
+  let shippingfullname = $("#shippingfullname").val();
+  let email = $("#shippingemail").val();
   let code =$('#code').val();
-  let phone = $("#phone").val();
-  let address = $("#address").val();
-  let city = $("#city").val();
-  let zip = $("#zip").val();
-  let invoicefullname = $("#invoicefullname").val();
-  let invoicephone = $("#invoicephone").val();
-  let invoiceaddress = $("#invoiceaddress").val();
-  let invoicecity = $("#invoicecity").val();
-  let invoicezip = $("#invoicezip").val();
+  let shippingphone = $("#shippingphone").val();
+  let shippingaddress = $("#shippingaddress").val();
+  let shippingcity = $("#shippingcity").val();
+  let shippingzip = $("#shippingzip").val();
+  let billingfullname = $("#billingfullname").val();
+  let billingphone = $("#billingphone").val();
+  let billingaddress = $("#billingaddress").val();
+  let billingcity = $("#billingcity").val();
+  let billingzip = $("#billingzip").val();
   let newsletter = $(".checknews")[0].checked;
 
 
   //Checks form attributes
-  if (nameFilter.test(String(fullname).toLowerCase()) == false) {
+  if (nameFilter.test(String(shippingfullname).toLowerCase()) == false) {
     alert("Enter a valid name");
   } else
     if (emailFilter.test(String(email).toLowerCase()) == false) {
       alert("Enter a valid email");
-    } else if (phoneFilter.test(String(phone).toLowerCase()) == false) {
+    } else if (phoneFilter.test(String(shippingphone).toLowerCase()) == false) {
       alert("Enter a valid phone number");
-    } else if (addressFilter.test(String(address).toLowerCase()) == false) {
+    } else if (addressFilter.test(String(shippingaddress).toLowerCase()) == false) {
       alert("Enter a valid address");
-    } else if (cityFilter.test(String(city).toLowerCase()) == false) {
+    } else if (cityFilter.test(String(shippingcity).toLowerCase()) == false) {
       alert("Enter a valid city");
-    } else if (zipFilter.test(String(zip).toLowerCase()) == false) {
+    } else if (zipFilter.test(String(shippingzip).toLowerCase()) == false) {
       alert("Enter a valid zip code");
     } else {
 
       const customer = {
-        fullname: fullname,
+        shippingfullname: shippingfullname,
         email: email,
-        phone: code+phone,
-        address: address,
-        city: city,
-        zip: zip,
-        invoicefullname: invoicefullname,
-        invoicephone: invoicephone,
-        invoiceaddress: invoiceaddress,
-        invoicecity: invoicecity,
-        invoicezip: invoicezip,
+        shippingphone: code+shippingphone,
+        shippingaddress: shippingaddress,
+        shippingcity: shippingcity,
+        shippingzip: shippingzip,
+        billingfullname: billingfullname,
+        billingphone: billingphone,
+        billingaddress: billingaddress,
+        billingcity: billingcity,
+        billingzip: billingzip,
         newsletter: newsletter,
       };
 
@@ -170,23 +170,23 @@ function getInfo() {
       sessionStorage.setItem("customer", JSON.stringify(customer));
 
       //Ajax POST method to send to create order route
-      if (fullname, email, phone, address, city, zip) {
+      if (shippingfullname, email, shippingphone, shippingaddress, shippingcity, shippingzip) {
         $.ajax({
           type: "POST",
           url: "/createpaymentorder",
           data: {
             posters: posters,
-            fullname: fullname,
+            shippingfullname: shippingfullname,
             email: email,
-            phone: code+phone,
-            address: address,
-            city: city,
-            zip: zip,
-            invoicefullname: invoicefullname,
-            invoicephone: invoicephone,
-            invoiceaddress: invoiceaddress,
-            invoicecity: invoicecity,
-            invoicezip: invoicezip,
+            shippingphone: code+shippingphone,
+            shippingaddress: shippingaddress,
+            shippingcity: shippingcity,
+            shippingzip: shippingzip,
+            billingfullname: billingfullname,
+            billingphone: billingphone,
+            billingaddress: billingaddress,
+            billingcity: billingcity,
+            billingzip: billingzip,
             newsletter: newsletter,
           },
 

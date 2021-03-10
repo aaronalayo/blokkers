@@ -6,6 +6,18 @@ class Item extends Model {
   static get tableName() {
     return "items";
   }
+  static get relationMappings() {
+    return {
+      formats: {
+        relation: Model.HasOneRelation,
+        modelClass: __dirname + "/Customer.js",
+        join: {
+          from: "items.item_uuid",
+          to: "customers.customer_uuid",
+        },
+      },
+    }
+};
 
   static get relationMappings() {
     return {

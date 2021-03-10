@@ -6,7 +6,18 @@ class Customer extends Model {
   static get tableName() {
     return "customers";
   }
-
+  static get relationMappings() {
+    return {
+      formats: {
+        relation: Model.HasManyRelation,
+        modelClass: __dirname + "/Item.js",
+        join: {
+          from: "customers.customer_uuid",
+          to: "items.item_uuid",
+        },
+      },
+    }
+};
   static get relationMappings() {
     return {
       orders: {
