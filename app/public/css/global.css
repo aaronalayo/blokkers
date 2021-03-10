@@ -463,7 +463,13 @@ img {
   scroll-snap-align: start;
 }
 
-
+@media only screen and (max-device-width: 2880px) {
+  .basket-items {
+    margin-left: 30%;
+    margin-right: auto;
+    margin-top: 2%;
+    width: 750px;
+  }
 @media only screen and (min-device-width: 2160px) and (max-device-width: 2880px){
   .mail {
     padding-bottom: 5em;
