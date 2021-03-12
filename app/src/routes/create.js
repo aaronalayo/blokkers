@@ -59,28 +59,41 @@ route.post("/createpaymentorder", async (req, res) => {
         email,
         newsletter)
     ) {
+      
+
       let items = [];
       let amount = 0;
       let host = 'http://127.0.0.1:8080';
-
+      const formats = await Format.query().select();
+      console.log(formats)
+      for(let i=0; i<formats.length; i++){
+        console.log(formats[i].price)
+     
       newPosters.forEach(async (poster) => {
+        if(parseFloat(poster.price) === parseFloat(formats[i].price)){
+          console.log("Equality")
+      
         let subAmount = 0;
         const item = {
           "reference": `${poster.pname}`,
           "name": `${poster.pname}`,
           "quantity": `${poster.quantity}`,
           "unit": "poster",
-          "unitPrice": (poster.price * 100) - 2500,
+          "unitPrice": (formats[i].price * 100) - 2500,
           "taxRate": 2500,
-          "taxAmount": ((poster.price * 25) / 100) * 100,
-          "grossTotalAmount": poster.price * poster.quantity * 100,
-          "netTotalAmount": ((poster.price * 100) - 2500) * poster.quantity
+          "taxAmount": ((formats[i].price * 25) / 100) * 100,
+          "grossTotalAmount": formats[i].price * poster.quantity * 100,
+          "netTotalAmount": ((formats[i].price * 100) - 2500) * poster.quantity
         }
         items.push(item);
 
         subAmount = parseInt(poster.price) * parseInt(poster.quantity) * 100;
         amount += subAmount;
+      } else{
+        res.redirect('/')
+      }
       });
+    };
 
       const consumer = {
         "reference": "1",

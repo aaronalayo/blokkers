@@ -34,7 +34,7 @@ async function getSizeDetails(id) {
         }
       }
       $("#dimension").text(dimension);
-      $("#dimensionprise").text(price + " DKK");
+      $("#dimensionprise").text(~~price + " DKK");
     });
   };
 };

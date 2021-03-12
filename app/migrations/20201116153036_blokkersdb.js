@@ -2,7 +2,13 @@
 exports.up = async function(knex) {
     await knex.schema.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
     return knex.schema
-
+    .createTable('discounts', (table) => {
+      table.uuid('discount_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
+      table.string('discount_code').notNullable();
+      table.integer('amount').unsigned().notNullable();
+      table.timestamp('expires_at').defaultTo(knex.raw(`? + INTERVAL '? day'`, [knex.fn.now(), 30]));
+      table.timestamp('created_at').notNullable().defaultTo(knex.raw('CURRENT_TIMESTAMP',{ useTz: true }));
+    })
     .createTable('formats',(table)=>{
         table.uuid('format_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
         table.string('format_no').notNullable();
@@ -103,8 +109,18 @@ exports.up = async function(knex) {
     CREATE TRIGGER update_user_updated_at BEFORE UPDATE
     ON ?? FOR EACH ROW EXECUTE PROCEDURE 
     update_updated_at_column();
-  `, ['orders']);
-  
+  `, ['orders'])
+  .raw(`
+  CREATE OR REPLACE FUNCTION discounts_table_delete_old_rows()
+  RETURNS trigger AS $$
+
+  BEGIN
+    DELETE FROM discounts WHERE timestamp < NOW() - INTERVAL '1 minute';
+    RETURN NEW;
+  END;
+  $$ language 'plpgsql';
+  `)
+
   };
 
 
@@ -115,5 +131,6 @@ exports.down = function(knex) {
     .dropTableIfExists('orders')
     .dropTableIfExists('items')
     .dropTableIfExists('customers')
-    .dropTableIfExists('formats');
+    .dropTableIfExists('formats')
+    .dropTableIfExists('discounts');
   };

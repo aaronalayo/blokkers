@@ -108,6 +108,8 @@
     /* margin-bottom: auto; */
     color: rgb(255, 255, 255);
     margin: 22%;
+    cursor: pointer;
+    outline: none;
 
   }
 
@@ -123,6 +125,7 @@
     margin-bottom: auto;
     color: rgb(255, 255, 255);
     margin: 10px;
+    outline: none;
   }
 
   #empty-button {
@@ -137,6 +140,7 @@
     margin-bottom: auto;
     color: white;
     margin: 10px;
+    outline: none;
   }
 
   .basket-table img {
@@ -274,7 +278,43 @@
     display: inline-block;
     margin: 2%;
   }
-
+  input[type=text] {
+    background-color: #C8E2E5;
+    width: 75%;
+    margin-bottom: 20px;
+    padding: 0.65em 2em;
+    border: transparent;
+    border-radius: 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-family: 'nunitobold';
+    outline: none;
+    text-decoration: none;
+  }
+  .coupon{
+    display: inline-block;
+    margin-right: auto;
+    margin-left: 12%;
+    width: 240px;
+    margin-top: 5%;
+    text-align: center;
+  }
+  #add-button {
+    /* text-decoration: none; */
+    text-align: center;
+    padding: 0.65em 2em;;
+    border-radius: 7px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color:  #57B0B1;
+    border: 0;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    width: 25%;
+    outline: none;
+    font-family: 'nunitobold';
+    margin: 0 auto;
+  }
 
   @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
     html {
@@ -466,6 +506,34 @@
   #empty-basket a {
     display: flex;
   }
+  input[type=text] {
+    background-color: #C8E2E5;
+    width: 75%;
+    margin-bottom: 20px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display:flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .coupon{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 235px;
+    margin-top: 10%;
+  }
+  #add-button {
+
+    border-radius: 7px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color:  #57B0B1;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    vertical-align: middle;
+  }
   }
   @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
     html {
@@ -542,7 +610,7 @@ scroll-snap-stop: always;
   #total-amount-box {
     margin-right: 10%;
     margin-top: 2%;
-
+ 
   }
 
 
@@ -583,20 +651,29 @@ scroll-snap-stop: always;
       <div class="row">
         <div class="col-50">
           <div class="basket-items">
+           
           </div>
+          
         </div>
         <div class="col-25">
           <div id="total-amount-box">
             <!-- <a style="font-size: 30px;">Total amount</a> -->
             <p><span style="font-size: 15px;">Subtotal</span><span style="float: right;" id="subtotal-amount"></span>
             </p>
-            <p><span style="font-size: 15px;color: rgb(97, 97, 97);">taxes</span>
+            <p><span style="font-size: 15px;color: rgb(97, 97, 97);">Taxes(incl.)</span>
               <span style="float: right; color:rgb(97, 97, 97);" id="taxes-amount"></span>
             </p>
             <hr style="color: lightgrey;">
+            <p id="discount-row" style="margin-bottom: 8%;" hidden><span style="font-size: 15px;margin-bottom: 10%;" >Discount</span><span
+              style="float: right;" id="discount-amount" ></span></p>
             <p style="margin-bottom: 12%;"><span style="font-size: 15px;margin-bottom: 14%;">Total</span><span
                 style="float: right;" id="total-amount"></span></p>
             <a href="/checkout" class="mbtn button" id="proceed-button">Checkout</a>
+           
+            </div>
+            <div class="coupon">
+              <input type="text" id="discount" placeholder="Enter discount code"><button id="add-button" type="submit" onclick="applyDiscount()">Add</button>  
+            </div>
           </div>
         </div>
       </div>

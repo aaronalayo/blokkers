@@ -80,29 +80,26 @@ function newsLetter() {
 
 //Sets the total price 
 function setTotal(){
-  let posters = JSON.parse(sessionStorage.posters);
-  let total= 0;
-  let subTotal;
-  posters.forEach(poster => {
-    subTotal = poster.price * poster.quantity 
-    console.log(subTotal)
-    total += subTotal
-  });
+  // console.log(sessionStorage)
+  let totalOrder = parseFloat(sessionStorage.getItem("total"));
+  console.log(typeof totalOrder)
 
-  total = total.toFixed(Math.max(((total+'').split(".")[1]||"").length, 2))
-    console.log(total)
-  $("#totalprice").text(total);
-  return total
+  totalOrder = totalOrder.toFixed(Math.max(((totalOrder+'').split(".")[1]||"").length, 2))
+    
+  $("#totalprice").text(totalOrder);
+  return totalOrder
 };
 function setTaxes(){
-  let posters = JSON.parse(sessionStorage.posters);
-  let taxes= 0;
- let subTotal;
-  posters.forEach(poster => {
-    subTotal = (poster.price * poster.quantity * 25)/100
-    taxes += subTotal;
+//   let posters = JSON.parse(sessionStorage.posters);
+//   let taxes= 0;
+//  let subTotal;
+//   posters.forEach(poster => {
+//     subTotal = (poster.price * poster.quantity * 25)/100
+//     taxes += subTotal;
     
-  });
+//   });
+let taxes = parseFloat(sessionStorage.getItem("taxes"));
+
   taxes = taxes.toFixed(Math.max(((taxes+'').split(".")[1]||"").length, 2));
   $("#totalTaxes").text(taxes);
   return taxes

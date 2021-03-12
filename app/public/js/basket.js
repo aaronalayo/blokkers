@@ -7,7 +7,7 @@ let posters = JSON.parse(sessionStorage.getItem("posters"));
 //displays all posters that are added to basket
 function displayPosters() {
     //checks if there are posters added, if not it shows empty-basket div
-    if (posters === undefined || !posters) {
+    if (posters === undefined || !posters || posters === "") {
         $("#basket-header").hide();
         $("#total-amount-box").hide();
         $("#empty-basket").show();
@@ -196,11 +196,36 @@ function calculateTotal() {
             sub += subTotal;
             total += subTotal
         });
-        sub = total - taxes
+   
         $("#subtotal-amount").text(sub.toFixed(2)+" DKK");
         $("#taxes-amount").text(taxes.toFixed(2)+" DKK");
         $("#total-amount").text(total.toFixed(2)+" DKK");
-                 
+        sessionStorage.setItem("total", JSON.stringify(total));
+        sessionStorage.setItem("taxes", JSON.stringify(taxes));
+        sessionStorage.setItem("subTotal", JSON.stringify(subTotal));
+        
     }
     });
 };
+
+function applyDiscount(){
+    let code = $("#discount").val().toLowerCase();
+    let total = $("#total-amount").text();
+    total = parseFloat(total.substr(0,6)).toFixed(2)
+    console.log(total)
+    if(code === "highfive10" ){
+       let discount = (total * 10)/100;
+       total = total- discount;
+       $("#total-amount").text(total.toFixed(2)+" DKK");
+       $("#discount").val("");
+       $("#total-amount-box").css('height', "220px");
+       $("#discount-amount").text("10%");
+       $("#discount-row").show();
+   
+       sessionStorage.setItem("total", JSON.stringify(total));
+    }else{
+        $("#discount").val("");
+        alert("There is no discount for this code!");
+
+    }
+}
