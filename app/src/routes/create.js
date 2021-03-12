@@ -19,6 +19,7 @@ const createPoster = require("../middelware/createPoster.js");
 route.post("/createpaymentorder", async (req, res) => {
 
   const {
+    finalTotalPrice,
     posters,
     shippingfullname,
     shippingphone,
@@ -49,8 +50,9 @@ route.post("/createpaymentorder", async (req, res) => {
   const billingZipCode = setValueToNull(billingzip);
 
   try {
-    if (
-      (newPosters,
+    if 
+      (finalTotalPrice,
+        newPosters,
         shippingFullName,
         shippingPhone,
         shippingshippingAddress,
@@ -58,7 +60,7 @@ route.post("/createpaymentorder", async (req, res) => {
         shippingZipCode,
         email,
         newsletter)
-    ) {
+     {
       
 
       let items = [];
@@ -74,7 +76,7 @@ route.post("/createpaymentorder", async (req, res) => {
           console.log("Equality")
       
         let subAmount = 0;
-        const item = {
+        const item = [{
           "reference": `${poster.pname}`,
           "name": `${poster.pname}`,
           "quantity": `${poster.quantity}`,
@@ -83,15 +85,27 @@ route.post("/createpaymentorder", async (req, res) => {
           "taxRate": 2500,
           "taxAmount": ((formats[i].price * 25) / 100) * 100,
           "grossTotalAmount": formats[i].price * poster.quantity * 100,
+          // "grossTotalAmount": finalTotalPrice * 100,
           "netTotalAmount": ((formats[i].price * 100) - 2500) * poster.quantity
-        }
+        },
+        {  
+          "reference":"discount",
+          "name":"discount",
+          "quantity":1,
+          "unit":"units",
+          "unitPrice":-1000,
+          "taxRate":0,
+          "taxAmount":0,
+          "grossTotalAmount":"-1000",
+          "netTotalAmount":"-1000"
+       },
+      ];
         items.push(item);
 
         subAmount = parseInt(formats[i].price) * parseInt(poster.quantity) * 100;
+        // subAmount = finalTotalPrice * 100;
         amount += subAmount;
-      } else{
-        res.redirect('/')
-      }
+      } 
       });
     };
 

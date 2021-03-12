@@ -109,7 +109,7 @@ let taxes = parseFloat(sessionStorage.getItem("taxes"));
 const nameFilter = /^[a-zA-Z \-\_\/!0-9æøåÆØÅ\.,!?():+\[\]\n\t\r]*$/;
 const emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 const phoneFilter = /^[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}/;
-const addressFilter = /^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}\w?(\s.*)?$/;
+const addressFilter = /^([A-zæøåÆØÅ]{2,40}\.?\s)+([0-9]){1,5}[,]?\w?(\s.*)?$/;
 const cityFilter = /^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
 const zipFilter = /\d{4}/;
 
@@ -165,6 +165,7 @@ function getInfo() {
 
 
       sessionStorage.setItem("customer", JSON.stringify(customer));
+      let finalTotal = parseFloat(sessionStorage.getItem('total'));
 
       //Ajax POST method to send to create order route
       if (shippingfullname, email, shippingphone, shippingaddress, shippingcity, shippingzip) {
@@ -172,6 +173,7 @@ function getInfo() {
           type: "POST",
           url: "/createpaymentorder",
           data: {
+            finalTotalPrice: finalTotal,
             posters: posters,
             shippingfullname: shippingfullname,
             email: email,

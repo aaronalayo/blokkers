@@ -63,22 +63,11 @@ function displayPosters() {
         `);
 
             $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
-            // $("#name").text(name);
             $("#size").text(poster.size);
             calculatePosterPrice(poster);
         });
     }
 };
-// {
-    // <div class="quantitytext">
-    //     <span id="quantitytext">Quantity</span>
-
-    // </div>
-
-
-    /* <button class="remove-poster-btn" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') +`)"><i class="fa fa-trash-o" style="font-size:24px" aria-hidden="true""></i></button>`); */
-// }
-//updates the quantity of the poster in the sessionStorage and updates the price
 
 function updateQuantity(poster, quantity) {
     posters.forEach(p => {
@@ -213,8 +202,14 @@ function applyDiscount(){
     let code = $("#discount").val().toLowerCase();
     let total = $("#total-amount").text();
     total = parseFloat(total.substr(0,6)).toFixed(2)
-    console.log(total)
-    if(code === "highfive10" ){
+    let node = document.getElementById('discount-amount');
+    let discountText  = node.textContent || node.innerText;
+    // console.log(discountText);
+    if(code === "highfive10" && discountText === "10%"){
+        $("#discount").val("");
+        alert("This discount code is already applied!");
+
+    }else if(code === "highfive10" ){
        let discount = (total * 10)/100;
        total = total- discount;
        $("#total-amount").text(total.toFixed(2)+" DKK");
@@ -224,9 +219,11 @@ function applyDiscount(){
        $("#discount-row").show();
    
        sessionStorage.setItem("total", JSON.stringify(total));
-    }else{
+    
+    }else {
         $("#discount").val("");
         alert("There is no discount for this code!");
 
     }
 };
+
