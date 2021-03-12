@@ -67,7 +67,7 @@ route.post("/createpaymentorder", async (req, res) => {
       const formats = await Format.query().select();
       console.log(formats)
       for(let i=0; i<formats.length; i++){
-        console.log(formats[i].price)
+        // console.log(formats[i].price)
      
       newPosters.forEach(async (poster) => {
         if(parseFloat(poster.price) === parseFloat(formats[i].price)){
@@ -87,7 +87,7 @@ route.post("/createpaymentorder", async (req, res) => {
         }
         items.push(item);
 
-        subAmount = parseInt(poster.price) * parseInt(poster.quantity) * 100;
+        subAmount = parseInt(formats[i].price) * parseInt(poster.quantity) * 100;
         amount += subAmount;
       } else{
         res.redirect('/')

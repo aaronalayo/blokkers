@@ -7,10 +7,11 @@ let posters = JSON.parse(sessionStorage.getItem("posters"));
 //displays all posters that are added to basket
 function displayPosters() {
     //checks if there are posters added, if not it shows empty-basket div
-    if (posters === undefined || !posters || posters === "") {
+    if (posters === undefined || !posters || posters === "" || posters.length < 1) {
         $("#basket-header").hide();
         $("#total-amount-box").hide();
-        $("#empty-basket").show();
+        $(".coupon").hide();
+        $("#empty-basket").show();   
     } else if (posters.length > 0) {
         //goes through each poster and displays it with it's size, price and quantity
         posters.forEach(poster => {
@@ -228,4 +229,4 @@ function applyDiscount(){
         alert("There is no discount for this code!");
 
     }
-}
+};
