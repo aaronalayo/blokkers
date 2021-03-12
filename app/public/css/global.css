@@ -463,13 +463,13 @@ img {
   scroll-snap-align: start;
 }
 
-@media only screen and (max-device-width: 2880px) {
+/* @media only screen and (max-device-width: 2880px) {
   .basket-items {
     margin-left: 30%;
     margin-right: auto;
     margin-top: 2%;
     width: 750px;
-  }
+  } */ 
 @media only screen and (min-device-width: 2160px) and (max-device-width: 2880px){
   .mail {
     padding-bottom: 5em;
@@ -479,7 +479,7 @@ img {
     margin-left: auto;
     margin-right: auto;
     margin-top: 2%;
-    width: 500px;
+    width: 400px;
 
  
   }
@@ -496,10 +496,10 @@ img {
 
   }
 
-  .basket-table table td,
+  .basket-table td,
   tr {
     padding: 0;
-    cursor: pointer;
+    
   }
 
   #satisfiedtable td,
@@ -521,6 +521,13 @@ img {
     width: 10em;
     display: block;
 }
+
+#tableposter td,
+tr {
+    padding: 0;
+    cursor: pointer;
+}
+
 #tableposter{
   margin-left: auto;
   margin-right: auto;
@@ -560,6 +567,43 @@ img {
   }
   #cancel_button {
     margin-top: 1%;
+  }
+  .coupon input[type=text] {
+    background-color: #C8E2E5;
+    width: 75%;
+    margin-bottom: 20px;
+    padding: 0.65em 2em;
+    border: transparent;
+    border-radius: 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-family: 'nunitobold';
+    outline: none;
+    text-decoration: none;
+  }
+  .coupon{
+    display: inline-block;
+    margin-right: auto;
+    margin-left: 12%;
+    width: 240px;
+    margin-top: 5%;
+    text-align: center;
+  }
+  #add-button {
+    /* text-decoration: none; */
+    text-align: center;
+    padding: 0.65em 2em;;
+    border-radius: 7px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color:  #57B0B1;
+    border: 0;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    width: 25%;
+    outline: none;
+    font-family: 'nunitobold';
+    margin: 0 auto;
   }
 }
 
