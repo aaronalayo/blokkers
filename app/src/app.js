@@ -88,6 +88,7 @@ const createPosterPage = fs.readFileSync("./public/createposterpage.html", 'utf8
 const Format = require("./model/Format.js");
 const Order = require("./model/Order.js");
 const Item = require("./model/Item.js");
+const Discount = require("./model/Discount.js");
 
 //Routes
 const home = "/";
@@ -99,6 +100,7 @@ const payment = "/payment";
 const about = "/about";
 const contact = "/contact";
 const createPoster = "/createposter";
+const discounts = "/discounts";
 
 app.get(home, (req, res) => {
   return res.send(navbar + homePage);
@@ -123,10 +125,11 @@ app.get(formats, async (req, res)=> {
   const formats = await Format.query().select();
   res.json({ 'formats' : formats});
 });
+app.get(discounts, async (req, res)=> {   
+  const discounts = await Discount.query().select();
+  res.json({ 'discounts' : discounts});
+});
 
-// exports.paymentPage = function(req, res) {
-//   return res.send(navbar + paymentPage);
-// }
 let data;
 let paymentId;
 app.get(payment, async (req, res) => {
@@ -184,6 +187,7 @@ app.get("*", (req, res) => {
 
 
 const createRoute = require('./routes/create.js');
+
 
 
 

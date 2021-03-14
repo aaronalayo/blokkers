@@ -10,16 +10,18 @@ const Customer = require("../model/Customer.js");
 const Order = require("../model/Order.js");
 const Format = require("../model/Format.js");
 const Item = require("../model/Item.js");
+const Discount = require("../model/Discount.js");
 
 const checkParameter = require("../middelware/checkParameters.js");
 const setValueToNull = require("../middelware/setValueNull.js");
 const sendXmlPdf = require("../middelware/sendXmlPdf.js");
 const createPoster = require("../middelware/createPoster.js");
+const setValueNull = require("../middelware/setValueNull.js");
 
 route.post("/createpaymentorder", async (req, res) => {
 
   const {
-    finalTotalPrice,
+    discountCode,
     posters,
     shippingfullname,
     shippingphone,
@@ -34,7 +36,7 @@ route.post("/createpaymentorder", async (req, res) => {
     billingzip,
     newsletter,
   } = req.body;
-  console.log(req.body)
+
   //Check if values are empty or null
   const newPosters = checkParameter(posters);
   const shippingFullName = checkParameter(shippingfullname);
@@ -42,7 +44,7 @@ route.post("/createpaymentorder", async (req, res) => {
   const shippingshippingAddress = checkParameter(shippingaddress);
   const shippingCity = checkParameter(shippingcity);
   const shippingZipCode = checkParameter(shippingzip);
-  //Check if values are empty set them to null
+  //Check if values are empty, set them to null
   const billingFullname = setValueToNull(billingfullname);
   const billingPhone = setValueToNull(billingphone);
   const billingshippingAddress = setValueToNull(billingaddress);
@@ -50,65 +52,83 @@ route.post("/createpaymentorder", async (req, res) => {
   const billingZipCode = setValueToNull(billingzip);
 
   try {
-    if 
-      (finalTotalPrice,
-        newPosters,
-        shippingFullName,
-        shippingPhone,
-        shippingshippingAddress,
-        shippingCity,
-        shippingZipCode,
-        email,
-        newsletter)
-     {
-      
+    if
+      (
+      discountCode,
+      newPosters,
+      shippingFullName,
+      shippingPhone,
+      shippingshippingAddress,
+      shippingCity,
+      shippingZipCode,
+      email,
+      newsletter) {
+
+      const formats = await Format.query().select();
 
       let items = [];
       let amount = 0;
-      let host = 'http://127.0.0.1:8080';
-      const formats = await Format.query().select();
-      console.log(formats)
-      for(let i=0; i<formats.length; i++){
-        // console.log(formats[i].price)
-     
-      newPosters.forEach(async (poster) => {
-        if(parseFloat(poster.price) === parseFloat(formats[i].price)){
-          console.log("Equality")
-      
-        let subAmount = 0;
-        const item = [{
-          "reference": `${poster.pname}`,
-          "name": `${poster.pname}`,
-          "quantity": `${poster.quantity}`,
-          "unit": "poster",
-          "unitPrice": (formats[i].price * 100) - 2500,
-          "taxRate": 2500,
-          "taxAmount": ((formats[i].price * 25) / 100) * 100,
-          "grossTotalAmount": formats[i].price * poster.quantity * 100,
-          // "grossTotalAmount": finalTotalPrice * 100,
-          "netTotalAmount": ((formats[i].price * 100) - 2500) * poster.quantity
-        },
-        {  
-          "reference":"discount",
-          "name":"discount",
-          "quantity":1,
-          "unit":"units",
-          "unitPrice":-1000,
-          "taxRate":0,
-          "taxAmount":0,
-          "grossTotalAmount":"-1000",
-          "netTotalAmount":"-1000"
-       },
-      ];
-        items.push(item);
 
-        subAmount = parseInt(formats[i].price) * parseInt(poster.quantity) * 100;
-        // subAmount = finalTotalPrice * 100;
-        amount += subAmount;
-      } 
-      });
-    };
 
+      // console.log(formats[i].price)
+
+      let rate;
+      let totalRate;
+      let netRate;
+      let discount;
+
+      if (discountCode === "") {
+        discount = null;
+      }
+      if (discountCode) {
+        discount = await Discount.query().select('amount').where({ "discount_code": discountCode }).skipUndefined();
+      }
+      for (let i = 0; i < formats.length; i++) {
+        newPosters.forEach((poster) => {
+          if (parseFloat(poster.price) === parseFloat(formats[i].price)) {
+            let subAmount = 0;
+            let item = {
+              "reference": `${poster.pname}`,
+              "name": `${poster.pname}`,
+              "quantity": `${poster.quantity}`,
+              "unit": "poster",
+              "unitPrice": (formats[i].price * 100) - 2500,
+              "taxRate": 2500,
+              "taxAmount": ((formats[i].price * 25) / 100) * 100,
+              "grossTotalAmount": formats[i].price * poster.quantity * 100,
+              "netTotalAmount": ((formats[i].price * 100) - 2500) * poster.quantity
+            };
+
+            if (discount) {
+
+              rate = (((formats[i].price * 100) - 2500) * discount[0].amount) / 100;
+              totalRate = ((formats[i].price * poster.quantity * 100) * discount[0].amount) / 100;
+              netRate = ((((formats[i].price * 100) - 2500) * poster.quantity) * discount[0].amount) / 100;
+            } else {
+              rate = 0;
+              totalRate = 0;
+              netRate = 0;
+            }
+            let discountItem = {
+              "reference": "discount",
+              "name": "discount",
+              "quantity": poster.quantity,
+              "unit": "units",
+              "unitPrice": -rate,
+              "taxRate": 0,
+              "taxAmount": 0,
+              "grossTotalAmount": -totalRate,
+              "netTotalAmount": -netRate
+            };
+            console.log(discountItem)
+            items.push(item, discountItem);
+
+            subAmount = (parseInt(formats[i].price) * parseInt(poster.quantity) * 100) - totalRate;
+            amount += subAmount;
+          }
+
+        });
+      }
       const consumer = {
         "reference": "1",
         "email": `${email}`,
@@ -125,6 +145,7 @@ route.post("/createpaymentorder", async (req, res) => {
         },
       };
       // console.log(consumer)
+      let host = 'http://127.0.0.1:8080';
       let options = {
 
         host: host + "/createorder",
@@ -167,17 +188,16 @@ route.post("/createpaymentorder", async (req, res) => {
              }
            }
          }
-    }
-  }`,
+      }
+    }`,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
           'Authorization': 'ef160d0b15ef4bf3b243c8f6a6183b85'
           // 'Authorization': 'b7989e81d50b47228ac61d7763986548'
         },
-
       };
-
+      console.log(options)
       request(options, function (error, response, body) {
         console.log('error:', error); // Print the error if one occurred
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -256,24 +276,24 @@ route.post("/createorder", async (req, res) => {
             total_price: (format[0].price * poster.quantity).toFixed(Math.max((((format[0].price * poster.quantity) + '').split(".")[1] || "").length, 2)),
             customer_uuid: customerFound[0].customer_uuid,
             format_uuid: format[0].format_uuid,
-            payment_id: paymentId        
-          });      
-          });
-          const newItem = await Item.query()
-            .select()
-            .where({ customer_uuid: customerFound[0].customer_uuid })
-            .limit(1);
-          console.log(newItem)
-          //Insert a new order in the database
-          //for an existing customer
-          await Order.query().insert({     
-
-            customer_uuid: customerFound[0].customer_uuid,
             payment_id: paymentId
-          }).returning("order_uuid").then(function (orders) {
-            if (orders) {
-              // console.log(orders)
-            }
+          });
+        });
+        const newItem = await Item.query()
+          .select()
+          .where({ customer_uuid: customerFound[0].customer_uuid })
+          .limit(1);
+        console.log(newItem)
+        //Insert a new order in the database
+        //for an existing customer
+        await Order.query().insert({
+
+          customer_uuid: customerFound[0].customer_uuid,
+          payment_id: paymentId
+        }).returning("order_uuid").then(function (orders) {
+          if (orders) {
+            // console.log(orders)
+          }
         });
       } else {
         //Insert a new customer in the database
@@ -317,20 +337,20 @@ route.post("/createorder", async (req, res) => {
             payment_id: paymentId
           });
 
-          
-          });
-          const newItem = await Item.query()
-            .select()
-            .where({ customer_uuid: newCustomer[0].customer_uuid })
-            .limit(1);
-          await Order.query().insert({
-         
-            customer_uuid: newCustomer[0].customer_uuid,
-            payment_id: paymentId
-          }).returning("order_uuid").then(function (orders) {
-            if (orders) {
-              // console.log(orders)
-            }
+
+        });
+        const newItem = await Item.query()
+          .select()
+          .where({ customer_uuid: newCustomer[0].customer_uuid })
+          .limit(1);
+        await Order.query().insert({
+
+          customer_uuid: newCustomer[0].customer_uuid,
+          payment_id: paymentId
+        }).returning("order_uuid").then(function (orders) {
+          if (orders) {
+            // console.log(orders)
+          }
         });
 
       }

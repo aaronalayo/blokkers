@@ -38,8 +38,10 @@ function displayCart(){
 
   $("#totalItems").text(total);
   $('#shippingprice').append(`<p id="shippingpricetext">Shipping<span class="price"><b>0 DKK</b></span></p>`);
-  $('#taxes').append(`<p id="taxesText">Taxes(incl.)<span id="totalTaxes" class="price"><b>${setTaxes() +" DKK"}</b></span></p>`); 
-  $('#totalbasket').append(`<p>Total<span id="totalprice" class="price" style="color:black"><b>${setTotal() +" DKK"}</b></span></p>`);
+  $('#taxes').append(`<p id="taxesText">Taxes(incl.)<span id="totalTaxes" class="price"><b></b></span></p>`); 
+  $('#totalbasket').append(`<p>Total<span id="totalprice" class="price" style="color:black"><b></b></span></p>`);
+  setTaxes();
+  setTotal();
 };
 };
 
@@ -77,29 +79,65 @@ function newsLetter() {
     $('.checknews').removeAttr("checked");
   });
 };
-
+function getDiscounts() {
+  const fetchJson = async url => {
+      const response = await fetch(url)
+      return response.json()
+  }
+  return new Promise(function (resolve) {
+      const formats = fetchJson('/discounts');
+      setTimeout(function () {
+          resolve(formats)
+      }, 200);
+  });
+};
 //Sets the total price 
-function setTotal(){
-  // console.log(sessionStorage)
-  let totalOrder = parseFloat(sessionStorage.getItem("total"));
-  console.log(typeof totalOrder)
-
-  totalOrder = totalOrder.toFixed(Math.max(((totalOrder+'').split(".")[1]||"").length, 2))
-    
-  $("#totalprice").text(totalOrder);
+async function setTotal() {
+  let posters = JSON.parse(sessionStorage.posters);
+  let totalOrder = 0;
+  let subTotal;
+  let rate = 0;
+  let total = 0;
+  let discount = JSON.parse(sessionStorage.getItem("discount"));
+  if (discount) {
+    await getDiscounts().then(data => {
+      if (data) {
+        for (let [key] of Object.entries(data.discounts)) {
+          if (discount === data.discounts[key].discount_code) {
+            posters.forEach(poster => {
+              subTotal = poster.price * poster.quantity
+              // console.log(subTotal)
+              total += subTotal;
+              rate = (total * parseInt(data.discounts[key].discount_rate)) / 100;
+              totalOrder = total - rate;
+            });
+            totalOrder = totalOrder.toFixed(Math.max(((totalOrder + '').split(".")[1] || "").length, 2))
+            $("#totalprice").text(totalOrder +" DKK");
+          }
+        }
+      }
+    });
+  } else if(!discount){
+    posters.forEach(poster => {
+      subTotal = poster.price * poster.quantity
+      // console.log(subTotal)
+      totalOrder += subTotal;
+      console.log(totalOrder);
+    });
+    totalOrder = totalOrder.toFixed(Math.max(((totalOrder+'').split(".")[1]||"").length, 2)); 
+    $("#totalprice").text(totalOrder+" DKK");
+  }
   return totalOrder
 };
-function setTaxes(){
-//   let posters = JSON.parse(sessionStorage.posters);
-//   let taxes= 0;
-//  let subTotal;
-//   posters.forEach(poster => {
-//     subTotal = (poster.price * poster.quantity * 25)/100
-//     taxes += subTotal;
-    
-//   });
-let taxes = parseFloat(sessionStorage.getItem("taxes"));
 
+function setTaxes(){
+  let posters = JSON.parse(sessionStorage.posters);
+  let taxes= 0;
+ let subTotal;
+  posters.forEach(poster => {
+    subTotal = (poster.price * poster.quantity * 25)/100
+    taxes += subTotal;   
+  });
   taxes = taxes.toFixed(Math.max(((taxes+'').split(".")[1]||"").length, 2));
   $("#totalTaxes").text(taxes);
   return taxes
@@ -165,7 +203,7 @@ function getInfo() {
 
 
       sessionStorage.setItem("customer", JSON.stringify(customer));
-      let finalTotal = parseFloat(sessionStorage.getItem('total'));
+      let discountCode = JSON.parse(sessionStorage.getItem('discount'));
 
       //Ajax POST method to send to create order route
       if (shippingfullname, email, shippingphone, shippingaddress, shippingcity, shippingzip) {
@@ -173,7 +211,7 @@ function getInfo() {
           type: "POST",
           url: "/createpaymentorder",
           data: {
-            finalTotalPrice: finalTotal,
+            discountCode: discountCode,
             posters: posters,
             shippingfullname: shippingfullname,
             email: email,

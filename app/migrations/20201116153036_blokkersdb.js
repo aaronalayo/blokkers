@@ -5,6 +5,7 @@ exports.up = async function(knex) {
     .createTable('discounts', (table) => {
       table.uuid('discount_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
       table.string('discount_code').notNullable();
+      table.string('discount_rate').notNullable();
       table.integer('amount').unsigned().notNullable();
       table.timestamp('expires_at').defaultTo(knex.raw(`? + INTERVAL '? day'`, [knex.fn.now(), 30]));
       table.timestamp('created_at').notNullable().defaultTo(knex.raw('CURRENT_TIMESTAMP',{ useTz: true }));

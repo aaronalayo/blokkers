@@ -9,6 +9,7 @@ function displayPoster(){
     $("#addbasket_button").hide();
     $("#cancel_button").hide();
   }else{
+    $("#satisfieddiv").show();
     let k = 0;
     for (let i = 0; i <= 3; i++) {
       $("#satisfiedtable").append("<tr>");

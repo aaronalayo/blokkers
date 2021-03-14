@@ -7,7 +7,7 @@ let posters = JSON.parse(sessionStorage.getItem("posters"));
 //displays all posters that are added to basket
 function displayPosters() {
     //checks if there are posters added, if not it shows empty-basket div
-    if (posters === undefined || !posters || posters === "" || posters.length < 1) {
+    if (typeof posters === undefined || !posters || posters === "" || posters.length < 1) {
         $("#basket-header").hide();
         $("#total-amount-box").hide();
         $(".coupon").hide();
@@ -139,7 +139,7 @@ function getFormats() {
 //calculates the poster price based on the format and quantity
 async function calculatePosterPrice(poster) {
 
-    //    console.log(poster.size)
+    // console.log(poster.size)
     let price = 0;
     let amount = 0;
     $("#" + poster.pname + "-price").text("...");
@@ -190,40 +190,54 @@ function calculateTotal() {
         $("#subtotal-amount").text(sub.toFixed(2)+" DKK");
         $("#taxes-amount").text(taxes.toFixed(2)+" DKK");
         $("#total-amount").text(total.toFixed(2)+" DKK");
-        sessionStorage.setItem("total", JSON.stringify(total));
-        sessionStorage.setItem("taxes", JSON.stringify(taxes));
-        sessionStorage.setItem("subTotal", JSON.stringify(subTotal));
+      
         
     }
     });
 };
-
-function applyDiscount(){
+function getDiscounts() {
+    const fetchJson = async url => {
+        const response = await fetch(url)
+        return response.json()
+    }
+    return new Promise(function (resolve) {
+        const formats = fetchJson('/discounts');
+        setTimeout(function () {
+            resolve(formats)
+        }, 200);
+    });
+};
+async function applyDiscount() {
     let code = $("#discount").val().toLowerCase();
     let total = $("#total-amount").text();
-    total = parseFloat(total.substr(0,6)).toFixed(2)
+    total = parseFloat(total.substr(0, 6)).toFixed(2);
     let node = document.getElementById('discount-amount');
-    let discountText  = node.textContent || node.innerText;
-    // console.log(discountText);
-    if(code === "highfive10" && discountText === "10%"){
-        $("#discount").val("");
-        alert("This discount code is already applied!");
+    let discountText = node.textContent || node.innerText;
+        console.log(discountText);
+    await getDiscounts().then(data => {
+        if (data) {
+            for (let [key] of Object.entries(data.discounts)) {
+                if (discountText === data.discounts[key].discount_rate) {
+                    $("#discount").val("");
+                    alert("This discount code is already applied!");
+                } else if (code === data.discounts[key].discount_code) {
+                    let discount = (total * 10) / 100;
+                    total = total - discount;
+                    $("#total-amount").text(total.toFixed(2) + " DKK");
+                    $("#discount").val("");
+                    $("#total-amount-box").css('height', "220px");
+                    $("#discount-amount").text(data.discounts[key].discount_rate);
+                    $("#discount-row").show();
 
-    }else if(code === "highfive10" ){
-       let discount = (total * 10)/100;
-       total = total- discount;
-       $("#total-amount").text(total.toFixed(2)+" DKK");
-       $("#discount").val("");
-       $("#total-amount-box").css('height', "220px");
-       $("#discount-amount").text("10%");
-       $("#discount-row").show();
-   
-       sessionStorage.setItem("total", JSON.stringify(total));
-    
-    }else {
-        $("#discount").val("");
-        alert("There is no discount for this code!");
+                    sessionStorage.setItem("total", JSON.stringify(total));
+                    sessionStorage.setItem("discount", JSON.stringify(code));
 
-    }
+                } else if (code === "" || code !== data.discounts[key].discount_code ) {
+                    $("#discount").val("");
+                    alert("There is no discount for this code!");
+                }
+            }
+        }
+    })
 };
 
