@@ -236,7 +236,8 @@ function getInfo() {
               let hostedPayPageUrl = obj.hostedPaymentPageUrl
               storeOrder(paymentID);
               // initCheckout(paymentID,hostedPayPageUrl);
-              window.location = hostedPayPageUrl
+              window.location = hostedPayPageUrl;
+              sessionStorage.clear();
             } else {
               console.log("error")
             }

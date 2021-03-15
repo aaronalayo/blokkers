@@ -19,3 +19,8 @@ $(document).ready(function () {
      closeNav();
    });
  });
+
+function closeHeader() {
+   $("#nav-header").hide(400).fadeOut(400)
+
+};

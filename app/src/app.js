@@ -77,7 +77,8 @@ Model.knex(knex);
 //Read html files
 const navbar = fs.readFileSync("./public/navbar.html", "utf8");
 const homePage = fs.readFileSync("./public/homepage.html", "utf8");
-const footer = fs.readFileSync("./public/footer.html", "utf8");
+const inspirationsPage = fs.readFileSync("./public/inspirationspage.html", "utf8");
+const footerPage = fs.readFileSync("./public/footer.html", "utf8");
 const satisfiedPage = fs.readFileSync("./public/satisfied.html", 'utf8');
 const basketPage = fs.readFileSync("./public/basket.html", 'utf8');
 const checkoutPage = fs.readFileSync("./public/checkoutpage.html", 'utf8');
@@ -92,6 +93,7 @@ const Discount = require("./model/Discount.js");
 
 //Routes
 const home = "/";
+const inspirations = "/inspirations"
 const satisfied = "/satisfied";
 const basket = "/basket";
 const checkout = "/checkout";
@@ -101,23 +103,30 @@ const about = "/about";
 const contact = "/contact";
 const createPoster = "/createposter";
 const discounts = "/discounts";
+const footer = "/footer"
+
+app.get(footer, (req, res) => {
+  return res.send(navbar +footerPage);
+});
 
 app.get(home, (req, res) => {
   return res.send(navbar + homePage);
 });
-
+app.get(inspirations, (req, res) => {
+  return res.send(navbar + inspirationsPage);
+});
 app.get(satisfied, (req, res) => {
 
-  return res.send(navbar + satisfiedPage );
+  return res.send(navbar + satisfiedPage + footerPage );
 });
 
 app.get(basket, (req, res) => {
-  return res.send(navbar + basketPage);
+  return res.send(navbar + basketPage + footerPage);
 });
 
 app.get(checkout, (req, res) => {
 
-  res.send(navbar + checkoutPage);
+  res.send(navbar + checkoutPage + footerPage);
 
 });
 
@@ -153,7 +162,7 @@ request(options, function (error, response, body) {
 });
     
 
-return res.status(200).send(navbar + paymentPage);
+return res.status(200).send(navbar + paymentPage + footerPage);
       
 }else {
   res.redirect('/')
@@ -169,14 +178,14 @@ app.get('/data', async (req, res) => {
 
 
 app.get(about, (req, res) => {
-  return res.send(navbar + aboutPage);
+  return res.send(navbar + aboutPage + footerPage);
 });
 
 app.get(contact, (req, res) => {
   return res.send(navbar + contactPage);
 });
 app.get(createPoster,(req, res)=> {
-  return res.send(navbar + createPosterPage);
+  return res.send(navbar + createPosterPage +footerPage);
 });
 
 app.get("*", (req, res) => {

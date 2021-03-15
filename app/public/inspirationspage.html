@@ -1,9 +1,10 @@
+
 <style>
     body {
         /* font-family: "nunitobold"; */
         /* font-size: 17px; */
         /* padding: 10px; */
-        /* height: 1000px; */
+        height: 1000px;
         margin: 0;
         padding: 0;
     }
@@ -11,7 +12,7 @@
     html {
         -webkit-overflow-scrolling: auto !important;
         scroll-snap-type: y mandatory;
-        overflow-y: hidden;
+        overflow-y: scroll;
         scroll-snap-stop: always;
  
     }
@@ -79,6 +80,18 @@
 
     }
 
+    #inspirationspage .container {
+        background-color: transparent;
+        padding: 0px 0px 0px 0px;
+
+        align-items: baseline;
+
+    }
+
+    label {
+        margin-bottom: 10px;
+        display: inline-flex;
+    }
 
     .btn {
         background-color: #c2c2c2;
@@ -150,16 +163,43 @@
         white-space: nowrap;
     }
 
+    
+
+    .fa.fa-angle-left:hover {
+        color: rgb(136, 135, 135) !important;
+
+    }
+
+    .fa.fa-angle-right:hover {
+        color: rgb(136, 135, 135) !important;
+    }
+
+    .fa-animate {
+
+        opacity: 1;
+        transition: all 0.3s cubic-bezier(0.16, 0.08, 0.355, 1);
+    }
 
     @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2)  {
+        body {
+            height: 1000px;
+        }
 
         html {
-
+            -webkit-overflow-scrolling: auto !important;
             scroll-snap-type: y mandatory;
             overflow-y: scroll !important;
             scroll-snap-stop: always;
             -webkit-overflow-scrolling: touch !important;
         }
+
+        /* html {
+            -webkit-overflow-scrolling: auto !important;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scroll-snap-stop: always
+        } */
+
 
         .col {
             width: 50%;
@@ -188,87 +228,70 @@
             padding-top: 0%;
         }
 
+        .page {
+            height: 90vh;
 
+        }
 
         .shopping-bag {
             padding-left: 90%;
         }
-        .logo {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30%;
-    width: 300px;
-}
 
-#logo_img {
-    max-width: 100%;
-    max-height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-        #createyourown {
-            padding-bottom: 0%;
-            max-width: 90%;
-            font-size: 1.5rem;
-            overflow: visible;
 
-            margin-left: 20%;
-
+        #icon_left {
+            margin-top: 76%;
+            left: 2%;
+            font-size: 80px;
         }
 
-        #uniqueposter {
-            max-width: 100%;
-            overflow: visible;
-            font-size: 1.5rem;
-            font-weight: lighter;
-            font-family: "nunitoextralight";
-            margin-left: 30%;
+        #icon_right {
+            margin-top: 70%;
+            right: 2%;
+            font-size: 80px;
         }
-
-
 
 
     }
 
 @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
     
-    .page {
-            height: 300vh;
-        }
-    
-        .logo   {
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 10%;
-            width: 600px;
-            
-        }
-
-        #logo_img {
-            /* width: 60%; */
-            margin-left:auto;
-            margin-right: auto;
-
-        }
 
 }
 </style>
-<div id="homepage" >
-    <div class="row">
-        <div class="col-75">
-            <div class="container">
-                <div class="logo">
-                    <img id="logo_img" src="images/Blokkers_logo.png">
+<div id="inspirationspage">
+    <div class="col-100">
+        <div class="container">
+            <div class="mySlides fade">
+                <img class="inspiration_img" id="img1" src="images/agnete2 kopi.png">
+            </div>
+            <div class="mySlides fade">
+                <img class="inspiration_img" id="img2" src="images/August kopi.jpg">
+            </div>
+            <div class="mySlides fade">
+                <img class="inspiration_img" id="img3" src="images/marie2 kopi.png">
+            </div>
+            <div class="mySlides fade">
+                <img class="inspiration_img" id="img4" src="images/blm2 kopi.png">
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <div class="center-left">
+                        <span><i class="fa fa-angle-left " id="icon_left" onclick="plusSlides(1)"></i></span>
+                    </div>
                 </div>
-                <div class="centered">
-                    <h2 id="createyourown" class="bottomText">CREATE YOUR OWN</h2>
-                    <h2 id="uniqueposter" class="bottomText">UNIQUE POSTER</h2>
+                <div class="col-25">
+                    <div class="center-right">
+                        <span><i class="fa fa-angle-right fa-animate" id="icon_right"
+                                onclick="plusSlides(-1)"></i></span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+
+  
     </body>
 
     </html>

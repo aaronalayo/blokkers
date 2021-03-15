@@ -109,11 +109,11 @@
   font-weight: normal;
   font-style: normal;
 }
-
+/* 
 html {
   scroll-behavior: smooth;
   overflow: hidden;
-}
+} */
 
 /* body {
   margin: 0;
@@ -471,9 +471,13 @@ img {
     width: 750px;
   } */ 
 @media only screen and (min-device-width: 2160px) and (max-device-width: 2880px){
-  .mail {
-    padding-bottom: 5em;
-  }
+  html {
+    -webkit-overflow-scrolling: auto !important;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-snap-stop: always
+    
+}
 
   .basket-items {
     margin-left: auto;
@@ -483,8 +487,13 @@ img {
 
  
   }
- 
+ .container{
+  min-height: 80vh;
+ }
+ .footer {
 
+  position: relative; 
+  }
   #proceed-button {
     margin: 16%;
   }
