@@ -4,16 +4,11 @@
         /* font-size: 17px; */
         /* padding: 10px; */
         /* height: 1000px; */
-        margin: 0;
-        padding: 0;
+        /* margin: 0; */
+        /* padding: 0; */
     }
 
-    html {
-        -webkit-overflow-scrolling: auto !important;
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-        scroll-snap-stop: always
-    }
+  
 
     * {
         box-sizing: border-box;
@@ -70,7 +65,7 @@
     }
 
     .container {
-        overflow: visible !important;
+        /* overflow: visible !important; */
         background-color: transparent;
         padding: 10px 10px 15px 10px;
         /* border: 1px solid rgb(255, 252, 252); */
@@ -339,7 +334,8 @@
             -webkit-overflow-scrolling: touch !important; 
             -webkit-overflow-scrolling: auto !important; 
         }
-
+        #content-desktop {display: none;}
+        #content-mobile {display: flex;}
 
         .col {
             width: 50%;
@@ -358,8 +354,8 @@
         }
 
         .container {
-            padding: 0px 0px 0px 0px;
-
+            padding: 0px 0px 0px 10px;
+            min-height: 200vh;
 
         }
 
@@ -369,10 +365,7 @@
             padding-top: 0%;
         }
 
-        .page {
-            height: 300vh;
-
-        }
+ 
 
         .shopping-bag {
             padding-left: 90%;
@@ -480,18 +473,29 @@
 
    
     @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
-        body {
+        /* body {
             height: 800px;
+        } */
+        ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
         }
 
+        ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+        #content-desktop {display: flex;}
+        #content-mobile {display: none;}
         
         html {
-
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll !important;
-            scroll-snap-stop: always;
-            -webkit-overflow-scrolling: touch !important;
-        }
+        -webkit-overflow-scrolling: touch !important; 
+        -webkit-overflow-scrolling: auto !important;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        scroll-snap-stop: always
+    }
 
         .col {
             width: 20%;
@@ -511,20 +515,18 @@
         }
 
         .container {
-            padding: 0px 0px 0px 0px;
-
+            padding: 0px 0px 0px 10px;
+            height: 90vh;
 
         }
 
-        .centered {
+        /* .centered {
 
             padding-left: 30%;
             padding-top: 15%;
-        }
+        } */
 
-        .page {
-            height: 110vh;
-        }
+    
 
         .centered {
 
@@ -684,19 +686,16 @@
         margin-top: 10%;
     }
 }
-@media only screen and (min-device-width: 1680px) and (-webkit-min-device-pixel-ratio: 2) {
-    body {
-            height: 1050px;
-        }
-
-        
-        html {
+@media only screen and (min-device-width: 1680px) and (max-device-width: 2000px) and (-webkit-min-device-pixel-ratio: 2) {
+    #content-desktop {display: flex;}
+    #content-mobile {display: none;}
+        /* html {
 
             scroll-snap-type: y mandatory;
             overflow-y: scroll !important;
             scroll-snap-stop: always;
             -webkit-overflow-scrolling: touch !important;
-        }
+        } */
 
         .col {
             width: 20%;
@@ -716,8 +715,8 @@
         }
 
         .container {
-            padding: 0px 0px 0px 0px;
-
+            padding: 10px 10px 10px 10px;
+            min-height: 75vh;
 
         }
 
@@ -726,10 +725,6 @@
             padding-left: 30%;
             padding-top: 15%;
         }
-/* 
-        .page {
-            height: 110vh;
-        } */
 
         .centered {
 
@@ -960,9 +955,13 @@
                                     <td id="-" onclick="addLetter(this)">-</td>
                                 </tr>
                             </table>
-                            <div class="basket">
+                            <div id='content-mobile' class="basket">
                                 <a href="#postercol" type="submit" name="next" value="Next" id="next_button"
                                     onclick="validateForm()">Next</a>
+                            </div>
+                            <div id='content-desktop' class="basket">
+                                <button type="submit" name="next" value="Next" id="next_button"
+                                    onclick="validateForm()">Next</button>
                             </div>
                         </div>
 
@@ -990,6 +989,4 @@
             </div>
         </div>
     </div>
-    </body>
-
-    </html>
+</div>

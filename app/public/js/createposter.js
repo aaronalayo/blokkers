@@ -270,11 +270,16 @@ $(function() {
       
       if (target.length) {
           $('html,body').animate({
-              scrollTop: target.position().top
-          }, 400);
-          console.log(target.position().top)
+            
+              scrollTop: target.position().top,
+              
+          }, 200);
+         
+          
+          
           return false;
       }
+      
   });
 });
 

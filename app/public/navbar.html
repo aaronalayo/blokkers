@@ -106,18 +106,20 @@
         margin-left: auto;
         margin-right: auto;
         display: flex;
-        font-size: 26px;
+        font-size: 18px;
         font-family: "nunitolight";
         background-color: #E79B70;
         width: 100%;
-        padding: 10px;
+        padding: 5px;
 
     }
 
     #offering {
         margin-right: 20%;
     }
-
+    #fastdelivery{
+        margin-left: 20%;
+    }
     #nav-header a {
         padding: 4px 4px 4px 4px;
         text-decoration: none;
@@ -125,6 +127,9 @@
         color: rgb(255, 255, 255);
         display: block;
         transition: 0.3s;
+    }
+    #paragraf {
+      width: 700px;
     }
 
     #nav-header.closebtn {
@@ -134,18 +139,34 @@
         font-size: 36px;
         margin-left: 50px;
     }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        #offering {
+        margin-right: 10%;
+        margin-left: 20%;
+    }
+    #fastdelivery{
+        margin-left: 35%;
+        margin-right: 10%;
+    }
+    #nav-header p {
+      width: 375px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+ 
+}
 </style>
 
 <body>
 
     <nav role="navigation" id="nav-bar">
         <div id="nav-header">
-            <p style="margin: auto; margin-left: inherit; width: 700px; color: white;">
-                <span id="offering">Now offering free shipping!<i class="fa fa-check" aria-hidden="true"></i></span>
+            <div id="paragraf"style="margin: auto;  color: white;">
+                <span  id="offering">Now offering free shipping! <i class="fa fa-check" aria-hidden="true"></i></span>
 
                 <span id="fastdelivery">Fast delivery! <i class="fa fa-check" aria-hidden="true"></i></span>
 
-            </p>
+            </div>
             <a href="javascript:void(0)" class="closebtn" onclick="closeHeader()">&times;</a>
         </div>
         <div class="menu-toggle">

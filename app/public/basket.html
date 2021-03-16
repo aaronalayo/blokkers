@@ -534,14 +534,25 @@ background-color: rgb(190, 190, 190);
   }
   }
   @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
-    html {
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+        }
 
-scroll-snap-type: y mandatory;
-overflow-y: scroll !important;
-scroll-snap-stop: always;
--webkit-overflow-scrolling: auto !important;
--webkit-overflow-scrolling:inherit !important;
-}
+        ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+        
+        html {
+          -webkit-overflow-scrolling: auto;
+        -webkit-overflow-scrolling: touch !important; 
+        -webkit-overflow-scrolling: auto !important;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        scroll-snap-stop: always
+    }
 .container{
   min-height: 50vh;
 }
@@ -626,6 +637,9 @@ scroll-snap-type: y mandatory;
 overflow-y: scroll !important;
 scroll-snap-stop: always;
 -webkit-overflow-scrolling: touch !important;
+}
+.container{
+  min-height: 75vh;
 }
 .remove-poster-btn {
     border: none;

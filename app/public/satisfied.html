@@ -1,11 +1,23 @@
 <style>
-    html {
+      ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+        }
 
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll !important;
-        scroll-snap-stop: always;
-        -webkit-overflow-scrolling: touch !important;
+        ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+        #content-desktop {display: flex;}
+        #content-mobile {display: none;}
+        
+        html {
+        -webkit-overflow-scrolling: touch !important; 
         -webkit-overflow-scrolling: auto !important;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        scroll-snap-stop: always
     }
 
     .row {
@@ -231,18 +243,19 @@ padding-right: 5%; */
     @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         html {
 
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll !important;
-            scroll-snap-stop: always;
-            -webkit-overflow-scrolling: touch !important;
-            -webkit-overflow-scrolling: auto !important;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll !important;
+        scroll-snap-stop: always;
+        -webkit-overflow-scrolling: touch !important; 
+        -webkit-overflow-scrolling: auto !important; 
         }
 
         .container {
             background-color: transparent;
-            /* padding: 10px 10px 10px 10px; */
+            padding: 0px 0px 0px 10px;
             /* border: 1px solid rgb(255, 252, 252); */
             border-radius: 3px;
+            min-height: 120vh;
         }
 
         .col {
@@ -336,6 +349,4 @@ padding-right: 5%; */
         </div>
     </div>
 
-</body>
 
-</html>

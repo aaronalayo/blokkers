@@ -13,7 +13,7 @@
     font-family: "nunitolight";
     background-color: transparent;
     width: 100%;
-    padding: 10px 0px;
+    padding: 0px 0px;
 
     }
 .footer a {
@@ -23,15 +23,31 @@
     cursor: pointer;
     }
     @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
-        .footer {
-
-    position: relative; 
+    .footer {
+    position: sticky; 
+    bottom: 0;
+    font-size: 12px;
     }
+    .fab.fa-instagram::before{
+        font-size:25px;
+    }
+    .fab.fa-facebook::before{
+        font-size:25px;
+    }
+    .fab.fa-pinterest::before{
+        font-size:25px;
+    }
+    #tac{
+       
+      text-align: start;
+    }
+}
     @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
-        .footer {
-
-   
-        }
+    .footer {
+    position: sticky; 
+    bottom: 0;
+    
+    }
     }
 </style>
 <footer>
@@ -47,13 +63,13 @@
             </span>
         </div>
         <div style="width: 100%;text-align: center;margin-left: auto;margin-right: auto;">
-            <p><i class="fab fa-instagram" style="font-size:55px; margin-left: 2%;margin-right: 2%;"></i>
-            <i class="fab fa-facebook" style="font-size:55px; margin-left: 2%;margin-right: 2%;"></i>
-            <i class="fab fa-pinterest" style="font-size:55px; margin-left: 2%;margin-right: 2%;"></i></p>
+            <p><i class="fab fa-instagram" style="font-size:45px; margin-left: 1%;margin-right: 1%;"></i>
+            <i class="fab fa-facebook" style="font-size:45px; margin-left: 1%;margin-right: 1%;"></i>
+            <i class="fab fa-pinterest" style="font-size:45px; margin-left: 1%;margin-right: 1%;"></i></p>
         </div>
        <div style="float: right;width: 10%;text-align: end;margin-right: 10%; font-family: nunitobold;">
         <span >
-            <p><a href="mailto:hello@blokkers.dk" >Terms & conditions</a></p>
+            <p id="tac"><a href="mailto:hello@blokkers.dk" >Terms & Conditions</a></p>
             <p style="margin-top: 2%;"><a href="mailto:hello@blokkers.dk" >Privacy policy</a></p>
             <p style="margin-top: 2%;"><a href="/about" >About</a></p>
         </span>
@@ -62,5 +78,6 @@
 
 </div>
 </footer>
+</body>
 </html>
 

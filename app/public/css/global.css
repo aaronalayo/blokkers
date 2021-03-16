@@ -119,19 +119,19 @@ html {
   margin: 0;
 } */
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-#inner_container::-webkit-scrollbar {
+ /* Hide scrollbar for Chrome, Safari and Opera */ 
+/* #inner_container::-webkit-scrollbar {
   display: none;
-}
-#outer_container::-webkit-scrollbar {
+} */
+/* #outer_container::-webkit-scrollbar {
   display: none;
-}
+} */
 
 /* Hide scrollbar for IE, Edge and Firefox */
-#outer_container {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
+/* #outer_container {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}   */
 
 
 #insta_logo {
@@ -456,27 +456,27 @@ img {
   width: fit-content;
 }
 
-.page {
-  position: inherit;
-  height: 100vh;
-  overflow: hidden; 
-  scroll-snap-align: start;
-}
 
-/* @media only screen and (max-device-width: 2880px) {
-  .basket-items {
-    margin-left: 30%;
-    margin-right: auto;
-    margin-top: 2%;
-    width: 750px;
-  } */ 
 @media only screen and (min-device-width: 2160px) and (max-device-width: 2880px){
-  html {
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
+    #content-desktop {display: flex;}
+    #content-mobile {display: none;}
+    html {
+      
+    -webkit-overflow-scrolling: touch !important; 
     -webkit-overflow-scrolling: auto !important;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     scroll-snap-stop: always
-    
 }
 
   .basket-items {
@@ -488,7 +488,7 @@ img {
  
   }
  .container{
-  min-height: 80vh;
+  min-height: 90vh;
  }
  .footer {
 
