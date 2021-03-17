@@ -2,7 +2,10 @@ let scrolling = false;
 let currentPos = 0;
 
 
+
+
 $(document).ready(function() {
+    document.getElementById('intro-video').play();
     for(let i = 0; i < $('.page').length; i++){
         let elm = $('.page')[i];
         if( $(document).scrollTop() >= $(elm).offset().top ){

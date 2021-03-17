@@ -7,8 +7,24 @@
         /* margin: 0; */
         /* padding: 0; */
     }
+    html {
+            -webkit-overflow-scrolling: touch !important;
+            -webkit-overflow-scrolling: auto !important;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scroll-snap-stop: always
+        }
+        ::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 7px;
+        }
 
-  
+        ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .5);
+            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+
 
     * {
         box-sizing: border-box;
@@ -74,7 +90,7 @@
 
     }
 
- 
+
     label {
         margin-bottom: 10px;
         display: inline-flex;
@@ -97,7 +113,7 @@
         background-color: #bbbbbb;
     }
 
- 
+
 
     #choose-size {
         padding-top: 3%;
@@ -226,10 +242,11 @@
         border-width: 0 0 2px;
         background-color: transparent;
         font-family: "nunitoextrabold";
-   
+
     }
+
     .set-width {
-     width: 170px;
+        width: 170px;
     }
 
     #choosecolor {
@@ -251,10 +268,7 @@
 
     }
 
-    #colourtable img {
-        width: 6.5em;
-        display: block;
-    }
+ 
 
 
 
@@ -288,18 +302,19 @@
         cursor: pointer;
         align-content: center;
     }
+
     #next_button {
 
-    font-size: 1.1em;
-    font-family: "nunitoblack";
-    text-decoration: none;
-    padding: 0.6em 1.5em;
-    border-radius: 8px;
-    color: #fff;
-    background-color: #c0c0c0;
-    border: 0;
-    cursor: pointer;
-    align-content: center;
+        font-size: 1.1em;
+        font-family: "nunitoblack";
+        text-decoration: none;
+        padding: 0.6em 1.5em;
+        border-radius: 8px;
+        color: #fff;
+        background-color: #c0c0c0;
+        border: 0;
+        cursor: pointer;
+        align-content: center;
     }
 
 
@@ -317,9 +332,10 @@
         opacity: 1;
         transition: all 0.3s cubic-bezier(0.16, 0.08, 0.355, 1);
     }
+
     .basket {
-            margin: 4%;
-        }
+        margin: 4%;
+    }
 
     @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         body {
@@ -331,11 +347,17 @@
             scroll-snap-type: y mandatory;
             overflow-y: scroll !important;
             scroll-snap-stop: always;
-            -webkit-overflow-scrolling: touch !important; 
-            -webkit-overflow-scrolling: auto !important; 
+            -webkit-overflow-scrolling: touch !important;
+            -webkit-overflow-scrolling: auto !important;
         }
-        #content-desktop {display: none;}
-        #content-mobile {display: flex;}
+
+        #content-desktop {
+            display: none;
+        }
+
+        #content-mobile {
+            display: flex;
+        }
 
         .col {
             width: 50%;
@@ -345,7 +367,7 @@
         .col-25 {
             -ms-flex: 25%;
             flex: 25%;
-         
+
 
         }
 
@@ -365,14 +387,14 @@
             padding-top: 0%;
         }
 
- 
+
 
         .shopping-bag {
             padding-left: 90%;
         }
 
-   
-    
+
+
         #choose-size {
             padding-top: 1%;
             padding-right: 0%;
@@ -391,7 +413,7 @@
             margin-left: auto;
             margin-right: 0;
             font-size: 90%;
-            margin-bottom:10%;
+            margin-bottom: 10%;
         }
 
         #write_name #type {
@@ -410,10 +432,10 @@
 
         #posterdiv {
             width: 240px;
-            
+
             margin-left: auto;
             margin-right: auto;
-            
+
         }
 
         #tableposter {
@@ -428,74 +450,85 @@
         }
 
         #changecolour {
-            width: 232px;;
+            width: 232px;
+            ;
             display: block;
             margin-left: auto;
             margin-right: auto;
             margin-top: auto;
 
         }
+
         #tableposter td,
-    tr {
-        padding: 0;
-        cursor: pointer;
-    }
+        tr {
+            padding: 0;
+            cursor: pointer;
+        }
 
         #colourtable img {
             width: 3.5em;
             display: block;
         }
-        #choosecolor {
-        padding-bottom: 0%;
-        font-size: 20px;
-        font-family: "nunitolight";
-    }
 
-    #chooseletter {
-        font-size: 20px;
-        font-family: "nunitolight";
-        margin-top: 2%;
-    }
-     
+        #choosecolor {
+            padding-bottom: 0%;
+            font-size: 20px;
+            font-family: "nunitolight";
+        }
+
+        #chooseletter {
+            font-size: 20px;
+            font-family: "nunitolight";
+            margin-top: 2%;
+        }
+
 
         #done_button {
             margin-left: auto;
             margin-right: auto;
         }
 
-    #done_div {
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 5%;
-        width: 120px;
-    }
+        #done_div {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+            width: 120px;
+        }
     }
 
-   
+
     @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
+
         /* body {
             height: 800px;
         } */
+        html {
+            -webkit-overflow-scrolling: touch !important;
+            -webkit-overflow-scrolling: auto !important;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scroll-snap-stop: always
+        }
         ::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 7px;
+            -webkit-appearance: none;
+            width: 7px;
         }
 
         ::-webkit-scrollbar-thumb {
-        border-radius: 4px;
-        background-color: rgba(0, 0, 0, .5);
-        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .5);
+            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
         }
-        #content-desktop {display: flex;}
-        #content-mobile {display: none;}
-        
-        html {
-        -webkit-overflow-scrolling: touch !important; 
-        -webkit-overflow-scrolling: auto !important;
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-        scroll-snap-stop: always
-    }
+
+        #content-desktop {
+            display: flex;
+        }
+
+        #content-mobile {
+            display: none;
+        }
+
+    
 
         .col {
             width: 20%;
@@ -516,7 +549,7 @@
 
         .container {
             padding: 0px 0px 0px 10px;
-            height: 90vh;
+            height: 65vh;
 
         }
 
@@ -526,7 +559,7 @@
             padding-top: 15%;
         } */
 
-    
+
 
         .centered {
 
@@ -543,7 +576,7 @@
         }
 
         #choose-size span {
-            font-size:10px;
+            font-size: 10px;
             margin: 0%;
         }
 
@@ -563,10 +596,11 @@
         }
 
         #tableposter td,
-    tr {
-        padding: 0;
-        cursor: pointer;
-    }
+        tr {
+            padding: 0;
+            cursor: pointer;
+        }
+
         #tableposter img {
             width: 4.5em;
         }
@@ -596,60 +630,66 @@
             margin-top: 0;
             margin-bottom: 1%;
         }
+
         #write_name #something {
-        margin-left: -25%;
-        margin-top: 1%;
-        font-size: 20px;
-        font-family: "nunitoextralight";
-        text-align: center;
-    }
+            margin-left: -25%;
+            margin-top: 1%;
+            font-size: 20px;
+            font-family: "nunitoextralight";
+            text-align: center;
+        }
 
-    #write_name #maxletters {
-        margin-left: -25%;
-        margin-top: -8%;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        font-family: "nunitoextralight";
-        font-size: 15px;
+        #write_name #maxletters {
+            margin-left: -25%;
+            margin-top: -8%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            font-family: "nunitoextralight";
+            font-size: 15px;
 
-    }
+        }
 
-    #write_name p,
-    input {
-        margin-left: 1em;
-        outline: 0;
-        border-width: 0 0 2px;
-        background-color: transparent;
-        font-family: "nunitoextrabold";
-    }
-    .set-width {
-     width: 110px;
-    }
+        #write_name p,
+        input {
+            margin-left: 1em;
+            outline: 0;
+            border-width: 0 0 2px;
+            background-color: transparent;
+            font-family: "nunitoextrabold";
+        }
 
-    #choosecolor {
-        padding-bottom: 5%;
-        font-size: 25px;
-        font-family: "nunitolight";
-    }
+        .set-width {
+            width: 110px;
+        }
 
-    #chooseletter {
-        font-size: 20px;
-        font-family: "nunitolight";
-        margin-top: 10%;
-    }
-    #tableposter td,
-    tr {
-        padding: 0;
-        cursor: pointer;
-    }
-    #tableposter img {
+        #choosecolor {
+            padding-bottom: 5%;
+            font-size: 25px;
+            font-family: "nunitolight";
+        }
+
+        #chooseletter {
+            font-size: 20px;
+            font-family: "nunitolight";
+            margin-top: 10%;
+        }
+
+        #tableposter td,
+        tr {
+            padding: 0;
+            cursor: pointer;
+        }
+
+        #tableposter img {
             width: 5em;
 
         }
+
         #posterfooter {
             font-size: 0.9em;
         }
+
         #posterdiv {
             width: 240px;
             margin-top: 2%;
@@ -670,25 +710,34 @@
             margin-left: auto;
             margin-right: auto;
         }
+
         #colourtable img {
             width: 4em;
             display: block;
         }
+
         #choosecolor {
-        padding-bottom: 5%;
-        font-size: 20px;
-        font-family: "nunitolight";
+            padding-bottom: 5%;
+            font-size: 20px;
+            font-family: "nunitolight";
+        }
+
+        #chooseletter {
+            font-size: 15px;
+            font-family: "nunitolight";
+            margin-top: 10%;
+        }
     }
 
-    #chooseletter {
-        font-size: 15px;
-        font-family: "nunitolight";
-        margin-top: 10%;
-    }
-}
-@media only screen and (min-device-width: 1680px) and (max-device-width: 2000px) and (-webkit-min-device-pixel-ratio: 2) {
-    #content-desktop {display: flex;}
-    #content-mobile {display: none;}
+    @media only screen and (min-device-width: 1680px) and (max-device-width: 2000px) and (-webkit-min-device-pixel-ratio: 2) {
+        #content-desktop {
+            display: flex;
+        }
+
+        #content-mobile {
+            display: none;
+        }
+
         /* html {
 
             scroll-snap-type: y mandatory;
@@ -741,7 +790,7 @@
         }
 
         #choose-size span {
-            font-size:10px;
+            font-size: 10px;
             margin: 0%;
         }
 
@@ -776,60 +825,66 @@
             margin-top: 0;
             margin-bottom: 1%;
         }
+
         #write_name #something {
-        margin-left: -25%;
-        margin-top: 1%;
-        font-size: 20px;
-        font-family: "nunitoextralight";
-        text-align: center;
-    }
+            margin-left: -25%;
+            margin-top: 1%;
+            font-size: 20px;
+            font-family: "nunitoextralight";
+            text-align: center;
+        }
 
-    #write_name #maxletters {
-        margin-left: -25%;
-        margin-top: -8%;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        font-family: "nunitoextralight";
-        font-size: 15px;
+        #write_name #maxletters {
+            margin-left: -25%;
+            margin-top: -8%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            font-family: "nunitoextralight";
+            font-size: 15px;
 
-    }
+        }
 
-    #write_name p,
-    input {
-        margin-left: 1em;
-        outline: 0;
-        border-width: 0 0 2px;
-        background-color: transparent;
-        font-family: "nunitoextrabold";
-    }
-    .set-width {
-     width: 135px;
-    }
+        #write_name p,
+        input {
+            margin-left: 1em;
+            outline: 0;
+            border-width: 0 0 2px;
+            background-color: transparent;
+            font-family: "nunitoextrabold";
+        }
 
-    #choosecolor {
-        padding-bottom: 5%;
-        font-size: 25px;
-        font-family: "nunitolight";
-    }
+        .set-width {
+            width: 135px;
+        }
 
-    #chooseletter {
-        font-size: 20px;
-        font-family: "nunitolight";
-        margin-top: 10%;
-    }
-  
-    #tableposter img {
+        #choosecolor {
+            padding-bottom: 5%;
+            font-size: 25px;
+            font-family: "nunitolight";
+        }
+
+        #chooseletter {
+            font-size: 20px;
+            font-family: "nunitolight";
+            margin-top: 10%;
+        }
+
+        #tableposter img {
             width: 6em;
 
         }
-        #tableposter td, tr {
-        padding: 0;
-        cursor: pointer;
-    }
+
+        #tableposter td,
+        tr {
+            padding: 0;
+            cursor: pointer;
+        }
+
         #posterfooter {
             font-size: 0.9em;
         }
+
         #posterdiv {
             width: 290px;
             margin-top: 2%;
@@ -850,25 +905,187 @@
             margin-left: auto;
             margin-right: auto;
         }
+
         #colourtable img {
             width: 4em;
             display: block;
         }
+
         #choosecolor {
-        padding-bottom: 5%;
-        font-size: 20px;
-        font-family: "nunitolight";
+            padding-bottom: 5%;
+            font-size: 20px;
+            font-family: "nunitolight";
+        }
+
+        #chooseletter {
+            font-size: 15px;
+            font-family: "nunitolight";
+            margin-top: 10%;
+        }
+
     }
 
-    #chooseletter {
-        font-size: 15px;
-        font-family: "nunitolight";
-        margin-top: 10%;
-    }
+    @media only screen and (min-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 1) {
 
-}
+        .row {
+            margin: 0 50px;
+        }
+
+        .container {
+            min-height: 90vh;
+    padding-bottom: 20px;
+        }
+
+        ::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .5);
+            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+
+        #content-desktop {
+            display: flex;
+        }
+
+        #content-mobile {
+            display: none;
+        }
+
+        html {
+            -webkit-overflow-scrolling: touch !important;
+            -webkit-overflow-scrolling: auto !important;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scroll-snap-stop: always
+        }
+
+        .set-width {
+            width: 130px;
+        }
+
+        #write_name {
+            /* display: inline-block; */
+            vertical-align: middle;
+            font-size: 100%;
+            font-family: "nunitobold";
+            width: 255px;
+            padding-bottom: 2%;
+            margin-left: 0;
+            margin-right: auto;
+            margin-top: auto;
+        }
+
+        #changecolour {
+            width: 264px;
+            display: block;
+            margin-left: auto;
+            margin-right: 5%;
+        }
+  
+
+     
+
+        #done_div {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 8%;
+            width: 120px;
+        }
+
+        #changecolour {
+            width: 350px;
+            display: block;
+            margin-left: auto;
+            margin-right: 5%;
+        }
+
+        #tableposter img {
+            width: 6.5em;
+
+        }
+
+        #tableposter {
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+            border: none;
+        }
+
+        #posterfooter {
+            font-size: 1em;
+        }
+
+        #tableposter td,
+        tr {
+            padding: 0;
+            cursor: pointer;
+        }
+
+        #posterdiv {
+            width: 300px;
+            margin-top: 2%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #content-desktop {
+            display: flex;
+        }
+
+        #content-mobile {
+            display: none;
+        }
+
+        #satisfied {
+            margin-left: 42.5%;
+        }
+
+        #cancel_button {
+            margin-top: 3%;
+        }
+
+        #addbasket_button {
+            margin-top: 3%;
+        }
+
+        .fas .fa-backspace {
+            font-size: 1em;
+        }
+
+
+        #satisfiedtable img {
+            width: 7em;
+            display: block;
+        }
+
+        #colourtable img {
+            width: 5em;
+            display: block;
+        }
+        #chooseletter {
+        font-size: 16px;
+        }
+
+        .basket-table table td,
+        tr {
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .basket-table img {
+            width: 2em;
+        }
+
+        #cancel_button {
+            margin-top: 1%;
+        }
+    }
 </style>
-<div id="createposter" >
+<div id="createposter">
     <div class="row">
         <div class="col-75">
             <div class="container">
@@ -907,8 +1124,8 @@
                                 <p id="type">Type</p>
                                 <p id="something">something</p>
                                 <p id="maxletters">(Max. 12 letters)</p>
-                                <input id="name" type='text' name='name' size="25" class="set-width"> <i class="fas fa-backspace fa-2x"
-                                    style="color: rgb(158, 158, 158);" value="DISABLE"
+                                <input id="name" type='text' name='name' size="25" class="set-width"> <i
+                                    class="fas fa-backspace fa-2x" style="color: rgb(158, 158, 158);" value="DISABLE"
                                     onclick="onPressBackspace(),disable()"></i>
                             </div>
                             <table id='tablealfabet'>
@@ -966,9 +1183,9 @@
                         </div>
 
                     </div>
-                
+
                     <div id='postercol' class="col-25">
-                     
+
                         <div id='posterdiv'>
                             <form id="imageForm" action="/satisfied">
                                 <table id='tableposter'>

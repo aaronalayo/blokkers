@@ -144,14 +144,23 @@ padding-right: 5%; */
             height: 800px;
         }
 
-        /*         
         html {
-
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll !important;
-            scroll-snap-stop: always;
             -webkit-overflow-scrolling: touch !important;
-        } */
+            -webkit-overflow-scrolling: auto !important;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scroll-snap-stop: always
+        }
+        ::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .5);
+            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
 
         .col {
             width: 20%;
@@ -318,6 +327,14 @@ padding-right: 5%; */
         .basket {
             margin-top: 1%;
         }
+    }
+    @media only screen and  (max-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 1) {
+
+        #satisfiedtable img {
+            width: 7em;
+            display: block;
+        }
+
     }
 </style>
 

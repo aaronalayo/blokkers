@@ -1,10 +1,21 @@
 <style>
-  html {
-    -webkit-overflow-scrolling: auto !important;
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    scroll-snap-stop: always
-  }
+   html {
+            -webkit-overflow-scrolling: touch !important;
+            -webkit-overflow-scrolling: auto !important;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scroll-snap-stop: always
+        }
+        ::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .5);
+            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
 
   body {
     font-family: "nunitobold";
@@ -467,7 +478,9 @@ background-color: rgb(190, 190, 190);
 
   }
 
-
+  #total-amount-box a{
+    display: flex;
+  }
 
   #total-amount-box {
     width: 200px;
@@ -480,7 +493,9 @@ background-color: rgb(190, 190, 190);
   #proceed-button {
     margin: 16%;
   }
-
+  #total-amount-box a{
+    display: flex;
+  }
   .trash {
     margin-left: auto;
     margin-right: auto;
@@ -719,6 +734,96 @@ scroll-snap-stop: always;
     margin: 0 auto;
   }
   
+
+}
+
+@media only screen and  (min-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 1) {
+  ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+        
+        html {
+          -webkit-overflow-scrolling: auto;
+        -webkit-overflow-scrolling: touch !important; 
+        -webkit-overflow-scrolling: auto !important;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        scroll-snap-stop: always
+    }
+  .row {
+    padding-left: 0%;
+    padding-right: 5%;
+  }
+ 
+  .container{
+  min-height: 80vh;
+  padding-bottom: 10px;
+}
+
+.basket-items {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    width: 400px;
+  }
+  #total-amount-box {
+    width: 200px;
+    height: 200px;
+    padding: 2%;
+    margin-left: auto;
+    margin-right: 0%;
+    margin-top: 2%;
+ 
+    float: none;
+  }
+  #total-amount-box a{
+    display: flex;
+  }
+  #proceed-button {
+    margin: 16%;
+
+  }
+  input[type=text] {
+
+width: 100%;
+margin-bottom: 20px;
+padding: 0.65em 2em;
+border: transparent;
+border-radius: 8px;
+
+font-family: 'nunitobold';
+outline: none;
+text-decoration: none;
+}
+.coupon{
+display: inline-block;
+margin-right: auto;
+margin-left: 48%;
+width: 200px;
+margin-top: 5%;
+text-align: center;
+}
+#add-button {
+text-decoration: none;
+text-align: center;
+padding: 0.65em 2em;;
+border-radius: 7px;
+
+border: 0;
+cursor: pointer;
+color: rgb(255, 255, 255);
+width: 50%;
+outline: none;
+font-family: 'nunitobold';
+margin: 0 auto;
+}
 
 }
 </style>

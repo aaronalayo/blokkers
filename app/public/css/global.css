@@ -457,7 +457,7 @@ img {
 }
 
 
-@media only screen and (min-device-width: 2160px) and (max-device-width: 2880px){
+@media only screen and (min-device-width: 2160px) and (max-device-width: 2880px) and (-webkit-min-device-pixel-ratio: 2){
   ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 7px;
@@ -616,48 +616,6 @@ tr {
   }
 }
 
-@media only screen and  (max-device-width: 1920px) {
-  .mail {
-    padding-bottom: 3em;
-  }
-
-  #satisfied {
-    margin-left: 42.5%;
-  } 
-  #cancel_button {
-    margin-top: 3%;
-  }
-
-  #addbasket_button {
-    margin-top: 3%;
-  }
-  .fas .fa-backspace {
-    font-size: 1em;
-  }
- 
-
-  #satisfiedtable img {
-    width: 7em;
-    display: block;
-  }
-
-  #colourtable img {
-    width: 6.5em;
-    display: block;
-  }
-
-  .basket-table table td,
-  tr {
-    padding: 0;
-    cursor: pointer;
-  }
-  .basket-table img {
-    width: 2em;
-  }
-  #cancel_button {
-    margin-top: 1%;
-  }
-}
 
 /* @media (-webkit-min-device-pixel-ratio: 1.1) {
   .mail {
