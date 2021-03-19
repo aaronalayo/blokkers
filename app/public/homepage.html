@@ -6,6 +6,7 @@
         /* height: 1000px; */
         /* margin: 0;
         padding: 0; */
+
     }
 
     /* html {
@@ -42,8 +43,10 @@
         -ms-flex-wrap: wrap;
         /* IE10 */
         flex-wrap: wrap;
-        margin: 0 100px;
-
+        /* margin: 0 100px;
+         */
+        margin: 0;
+        padding: 0;
 
     }
 
@@ -52,21 +55,19 @@
         -ms-flex: 25%;
         /* IE10 */
         flex: 25%;
-
+        /* width: 600px; */
+        float: right;
     }
 
-    .col-50 {
 
-        -ms-flex: 50%;
-        /* IE10 */
-        flex: 50%;
-    }
 
     .col-75 {
         -ms-flex: 75%;
         /* IE10 */
         flex: 75%;
-        
+
+
+
     }
 
     .col-100 {
@@ -76,136 +77,177 @@
     }
 
     .col-25,
-    .col-50,
     .col-75 {
-        padding: 10px 16px;
+        /* padding: 10px 16px; */
+        padding: 0;
+        margin: 0;
+        /* display: flex; */
     }
 
     .container {
-        overflow: visible !important;
+        /* overflow: visible !important; */
         background-color: transparent;
-        padding: 10px 10px 15px 10px;
-        
-      margin-top: 10%;
+        /* padding: 10px 10px 15px 10px; */
+        padding: 0;
+        margin-top: 1%;
+        /* width: 1910px; */
+        display: flex;
 
     }
+
     video::-webkit-media-controls-panel {
-  
-    background-image: linear-gradient(transparent, transparent) !important; 
+
+        background-image: linear-gradient(transparent, transparent) !important;
 
     }
+
     video::-webkit-media-controls-play-button {
         color: teal;
     }
+
     video::-webkit-media-controls-volume-slider {
         color: teal;
     }
+
     video::-webkit-media-controls-mute-button {
         color: teal;
     }
+
     video::-webkit-media-controls-timeline {
         color: teal;
     }
+
     video::-webkit-media-controls-current-time-display {
         color: teal;
     }
-    .video-container {
 
-
-        display: inline-block;
-
-        padding: 0px 2px;
-        border: 0px solid #c0c0c0;
-        border-radius: 8px;
-        background-color: #b9b9b9;
+    #intro-video {
+        width: 1000px;
+        height: 600px;
+        margin-left: 15%;
+        margin-right: auto;
     }
-    .centered{
+
+    .video-container {
+        width: 1520px;
+        height: 600px;
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+        /* display: inline-block; */
+
+        /* padding: 0px 2px; */
+        border: 0px solid #c0c0c0;
+        /* border-radius: 8px; */
+        background-color: #F2F2F2;
+        display: flex;
+    }
+
+    .centered {
+        padding-left: 20%;
+        padding-right: 10%;
+        padding-top: 35%;
+    }
+
+    .centered a {
         padding-left: 10%;
         padding-right: 10%;
         padding-top: 10%;
     }
 
-    .img-container {
+    .box-container {
         border: 0px solid #c0c0c0;
         /* margin-left: auto;
         margin-right: auto; */
         display: flex;
-        text-align:center ;
+        text-align: center;
         background-color: #CBDEC4;
         width: 400px;
-        height: 500px;
-        margin-right: 2%;
+        height: 600px;
+        margin-left: 0%;
+        margin-top: 0%;
+        margin-right: 0%;
         float: right;
-        border-radius: 8px;
+        padding-right: 0;
+        padding-left: 0;
+
+        /* border-radius: 8px; */
     }
+
     #createyourown {
         max-width: 100%;
         margin-top: 4%;
         margin-left: auto;
         margin-right: auto;
-        text-align: center;
-        font-size: 2rem;
-        font-weight: lighter;
-        font-family: "nunitoextralight";
+        text-align: left;
+        font-size: 3rem;
+        font-family: "nunitobold";
+        margin-bottom: 0;
 
     }
 
-    #uniqueposter {
+    #unique {
         max-width: 100%;
- 
+
         margin-left: auto;
         margin-right: auto;
         margin-top: 0;
-        text-align: center;
+        margin-bottom: 0;
+        text-align: left;
         font-size: 3rem;
+        font-weight: lighter;
+        font-family: "nunitoextralight";
+    }
+
+    #poster {
+        max-width: 100%;
+
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        text-align: left;
+        font-size: 3rem;
+        font-weight: lighter;
+        font-family: "nunitoextralight";
+    }
+
+
+    #create-here {
+        font-size: 1em;
         font-family: "nunitobold";
-    }
-
-  #create-here {
-    font-size: 1.5em;
-    font-family: "nunitoextralight";
-    text-decoration: none;
-    padding: 0.6em 3em;
-    border-radius: 8px;
-    color: #fff;
-    background-color: #57B0B1;
-    border: 0;
-    cursor: pointer;
- 
-  }
-
-
-
-    .btn {
-        background-color: #c2c2c2;
-        color: white;
-        padding: 12px;
-        margin-left: 0%;
-        margin-top: 2%;
-        border: none;
-        border-radius: 3px;
+        text-decoration: none;
+        padding: 1em 3em;
+        border-radius: 8px;
+        color: #fff;
+        background-color: #57B0B1;
+        border: 0;
         cursor: pointer;
-        font-size: 17px;
 
     }
 
-    .btn:hover {
-        background-color: #bbbbbb;
-    }
+    .logo {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+            width: 200px;
 
-  
+
+
+        }
+
+    
+
 
     #logo_img {
         width: 200px;
-        height: 100px;
         margin-left: auto;
         margin-right: auto;
-        padding: 0px 2px;
+        /* padding: 0px 2px;
         border: 0px solid #c0c0c0;
-        border-radius: 8px;
+        border-radius: 8px; */
     }
 
-  
+
     @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
 
         html {
@@ -218,63 +260,144 @@
 
         .col {
             width: 50%;
-            float: left;
+            /* float: left; */
         }
 
         .col-25 {
             -ms-flex: 25%;
             flex: 25%;
+            float: left;
 
         }
 
         .row {
-            margin: 2%;
+            margin: 0;
         }
 
-        .container {
-            padding: 0px 0px 0px 0px;
-
-
-        }
 
         .centered {
-
-        margin: auto;
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 5%;
         }
 
+        .centered a {
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 5%;
+        }
 
 
         .shopping-bag {
             padding-left: 90%;
         }
 
+        .container {
+            background-color: transparent;
+            padding: 0;
+            margin-top: 9%;
+            display: block;
+        }
+
+        #intro-video {
+            width: 375px;
+            height: 200px;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 20px;
+        }
+
+        .video-container {
+            width: 400px;
+            height: 200px;
+            margin-top: 0;
+            margin-left: auto;
+            margin-right: auto;
+            /* display: inline-block; */
+
+            padding: 0;
+            border: 0px solid #c0c0c0;
+            border-radius: 0px;
+            background-color: transparent;
+            display: block;
+        }
+
+        .box-container {
+            border: 0px solid #c0c0c0;
+            /* margin-left: auto;
+        margin-right: auto; */
+            display: block;
+            text-align: center;
+            background-color: #CBDEC4;
+            width: 375px;
+            height: 300px;
+            margin-left: 0%;
+            margin-top: 0%;
+            margin-right: 0%;
+            float: right;
+            padding-right: 0;
+            padding-left: 0;
+
+            /* border-radius: 8px; */
+        }
 
 
+        .logo {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+            width: 200px;
+            padding-left: 10%;
+
+
+        }
 
         #logo_img {
-            width: 30px;
-            height: 10px;
+            width: 100px;
+            height: 60px;
             margin-left: auto;
             margin-right: auto;
         }
 
         #createyourown {
-            padding-bottom: 0%;
-            max-width: 90%;
-            font-size: 1.5rem;
-            overflow: visible;
-
-            margin-left: 20%;
+            max-width: 100%;
+            margin-top: 4%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            font-size: 3rem;
+            font-family: "nunitobold";
+            margin-bottom: 0;
 
         }
 
-        #uniqueposter {
+        #unique {
             max-width: 100%;
-            overflow: visible;
-            font-size: 1.5rem;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-align: left;
+            font-size: 3rem;
             font-weight: lighter;
             font-family: "nunitoextralight";
-            margin-left: 30%;
+        }
+
+        #poster {
+            max-width: 100%;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0;
+            text-align: left;
+            font-size: 3rem;
+
+        }
+
+
+        #create-here {
+            font-size: 1em;
 
         }
 
@@ -286,7 +409,7 @@
     @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
 
 
-        .logo {
+        /* .logo {
             margin-left: auto;
             margin-right: auto;
             margin-top: 10%;
@@ -295,43 +418,50 @@
         }
 
         #logo_img {
-            /* width: 60%; */
-            margin-left: auto;
+             width: 60%;
+             margin-left: auto;
             margin-right: auto;
 
-        }
+        } */
 
     }
 </style>
 <div id="homepage">
     <div class="row">
         <div class="col-100">
+            <div class="logo">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-25">
+
+                            <img id="logo_img" src="images/Blokkers_logo.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="col-75">
                     <div class="video-container">
-                        <video id="intro-video" width="900" height="500" controls loop autoplay muted>
+                        <video id="intro-video" loop autoplay muted>
                             <source src="video/blokkers_intro.mp4" type="video/mp4">
                             <!-- <source src="movie.ogg" type="video/ogg"> -->
                         </video>
+
                     </div>
-             
-                        
 
-                        <div class="img-container">
-                            
-                            <div class="centered">
-                                <img id="logo_img" src="images/Blokkers_logo.png">
-                                <p id="createyourown" >CREATE YOUR OWN</p>
-                                <p id="uniqueposter" >UNIQUE POSTER</p>
-   
-                                <a  href="/createposter" id="create-here" >Create</a>
-
-                            </div>
-                            
+                </div>
+                <div class="col-25">
+                    <div class="box-container">
+                        <div class="centered">
+                            <p id="createyourown">Create your</p>
+                            <p id="unique">own unique</p>
+                            <p id="poster">poster</p>
+                            <a href="/createposter" id="create-here">Create here</a>
                         </div>
 
-                
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -340,13 +470,3 @@
 </body>
 
 </html>
-<!-- 
-    <div class="container">
-        <div class="logo">
-            <img id="logo_img" src="images/Blokkers_logo.png">
-        </div>
-        <div class="centered">
-            <h2 id="createyourown" class="bottomText">CREATE YOUR OWN</h2>
-            <h2 id="uniqueposter" class="bottomText">UNIQUE POSTER</h2>
-        </div>
-    </div> -->
