@@ -252,18 +252,33 @@
     }
 
     #choosecolor {
-        padding-bottom: 5%;
-        font-size: 25px;
+        padding-bottom: 10%;
+        font-size: 30px;
         font-family: "nunitolight";
     }
-
-    #chooseletter {
+    #original {
+        padding-bottom: 2%;
         font-size: 20px;
         font-family: "nunitolight";
-        margin-top: 10%;
+        color: rgb(151, 151, 151);
+    }
+    #seasonal {
+        padding-top: 5%;
+        padding-bottom: 2%;
+        font-size: 20px;
+        font-family: "nunitolight";
+        color: rgb(151, 151, 151);;
     }
 
+ 
+
     #colourtable {
+        border: 4px;
+        display: block;
+        border-collapse: collapse !important;
+
+    }
+    #colourtable2 {
         border: 4px;
         display: block;
         border-collapse: collapse !important;
@@ -278,7 +293,7 @@
         display: flow-root;
         vertical-align: middle;
         width: 424px;
-        margin-top: 20%;
+        margin-top: 5%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -286,7 +301,7 @@
     #done_div {
         margin-left: auto;
         margin-right: auto;
-        margin-top: 8%;
+        margin-top: 12%;
         width: 120px;
     }
 
@@ -471,18 +486,17 @@
             width: 3.5em;
             display: block;
         }
+        #colourtable2 img {
+            width: 3.5em;
+            display: block;
+        }
 
         #choosecolor {
             padding-bottom: 0%;
-            font-size: 20px;
+            font-size: 30px;
             font-family: "nunitolight";
         }
 
-        #chooseletter {
-            font-size: 20px;
-            font-family: "nunitolight";
-            margin-top: 2%;
-        }
 
 
         #done_button {
@@ -493,7 +507,7 @@
         #done_div {
             margin-left: auto;
             margin-right: auto;
-            margin-top: 5%;
+            margin-top: 10%;
             width: 120px;
         }
     }
@@ -666,15 +680,9 @@
         }
 
         #choosecolor {
-            padding-bottom: 5%;
-            font-size: 25px;
+            padding-bottom: 10%;
+            font-size: 30px;
             font-family: "nunitolight";
-        }
-
-        #chooseletter {
-            font-size: 20px;
-            font-family: "nunitolight";
-            margin-top: 10%;
         }
 
         #tableposter td,
@@ -717,18 +725,18 @@
             width: 4em;
             display: block;
         }
+        #colourtable2 img {
+            width: 4em;
+            display: block;
+        }
 
         #choosecolor {
-            padding-bottom: 5%;
-            font-size: 20px;
+            padding-bottom: 10%;
+            font-size: 25px;
             font-family: "nunitolight";
         }
 
-        #chooseletter {
-            font-size: 15px;
-            font-family: "nunitolight";
-            margin-top: 10%;
-        }
+  
     }
 
     @media only screen and (min-device-width: 1680px) and (max-device-width: 2000px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -862,14 +870,8 @@
 
         #choosecolor {
             padding-bottom: 5%;
-            font-size: 25px;
+            font-size: 30px;
             font-family: "nunitolight";
-        }
-
-        #chooseletter {
-            font-size: 20px;
-            font-family: "nunitolight";
-            margin-top: 10%;
         }
 
         #tableposter img {
@@ -912,18 +914,18 @@
             width: 4em;
             display: block;
         }
+        #colourtable2 img {
+            width: 4em;
+            display: block;
+        }
 
         #choosecolor {
-            padding-bottom: 5%;
-            font-size: 20px;
+            padding-bottom: 10%;
+            font-size: 25px;
             font-family: "nunitolight";
         }
 
-        #chooseletter {
-            font-size: 15px;
-            font-family: "nunitolight";
-            margin-top: 10%;
-        }
+ 
 
     }
 
@@ -981,12 +983,6 @@
             margin-top: auto;
         }
 
-        #changecolour {
-            width: 264px;
-            display: block;
-            margin-left: auto;
-            margin-right: 5%;
-        }
   
 
      
@@ -994,11 +990,12 @@
         #done_div {
             margin-left: auto;
             margin-right: auto;
-            margin-top: 8%;
+            margin-top: 12%;
             width: 120px;
         }
 
         #changecolour {
+            margin-top: 5%;
             width: 350px;
             display: block;
             margin-left: auto;
@@ -1068,9 +1065,11 @@
             width: 5em;
             display: block;
         }
-        #chooseletter {
-        font-size: 16px;
+        #colourtable2 img {
+            width: 5em;
+            display: block;
         }
+
 
         .basket-table table td,
         tr {
@@ -1197,6 +1196,8 @@
                     <div class="col-25">
                         <div id="changecolour" hidden>
                             <table id="colourtable">
+                            </table>
+                            <table id="colourtable2">
                             </table>
                             <div id="done_div">
                                 <button type="submit" id="done_button" onclick="getSrc()" hidden>Done</button>

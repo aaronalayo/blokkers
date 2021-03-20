@@ -173,15 +173,20 @@ function getName() {
 //displays the different letter design
 function showColor(id) {
   $("#colourtable").show();
+  $("#colourtable2").show();
   $('#colourtable').html('');
+  $('#colourtable2').html('');
   // $('#choosecolor').html('');
   // $('#chooseletter').html('');
   let src = document.getElementById(id).childNodes[0].src;
   let parts = src.split('/');
   let lastSegment = parts.pop();
-
+  $('#colourtable').append('<caption id="original"></caption>');
   $('#colourtable').append('<caption id="choosecolor"></caption>');
-  for (let i = 0; i < 2; i++) {
+
+
+  for (let i = 0; i < 1; i++) {
+    
     $('#colourtable').append('<tr>');
     for (let j = 0; j < 4; j++) {
       let key = (j+1)+(i*4);
@@ -199,6 +204,7 @@ function showColor(id) {
           $('#colourtable').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/-${key}.png">` + '</td>');
           break;
         default:
+        
           $('#colourtable').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${key}.png">` + '</td>');     
       }
       
@@ -207,10 +213,41 @@ function showColor(id) {
     $('#colourtable').append('</tr>');
     
   }
+  $('#colourtable2').append('<caption id="seasonal"></caption>')
+
+  for (let i = 0; i < 1; i++) {
+    
+    $('#colourtable2').append('<tr>');
+    for (let j = 4; j < 8; j++) {
+      let key = (j+1)+(i*4);
+      switch (parts[parts.length - 1]) {
+        case 'å':
+          $('#colourtable2').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/aa${key}.png" >` + '</td>');
+          break;
+        case 'æ':
+          $('#colourtable2').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/ae${key}.png">` + '</td>');
+          break;
+        case 'ø':
+          $('#colourtable2').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/oe${key}.png">` + '</td>');
+          break;
+        case '-':
+          $('#colourtable2').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/-${key}.png">` + '</td>');
+          break;
+        default:
+        
+          $('#colourtable2').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${key}.png">` + '</td>');     
+      }
+      
+    }
+
+    $('#colourtable2').append('</tr>');
+    
+  }
+
   
-  $('#colourtable').append('<caption style="caption-side:bottom" id="chooseletter"></caption>')
-  $('#choosecolor').text("Choose your color");
-  $('#chooseletter').text("Click on the letter to change the color");
+  $('#original').text("Original frisky");
+  $('#choosecolor').text("Click on the letter to choose your color");
+  $('#seasonal').text("Seasonal harmony");
   $("#done_button").show();
 };
 
