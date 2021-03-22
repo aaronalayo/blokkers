@@ -292,14 +292,24 @@
     }
 
     html {
-      /* -webkit-overflow-scrolling: auto !important; */
-      scroll-snap-type: y mandatory;
-      overflow-y: scroll;
-      scroll-snap-stop: always;
-      -webkit-overflow-scrolling: touch !important;
-      /* Lets it scroll lazy */
+            -webkit-overflow-scrolling: auto !important;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scroll-snap-stop: always;
+            
+        }
+        ::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 7px;
+        }
 
-    }
+        ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .5);
+            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+
+
 
 
     .col {
@@ -329,10 +339,6 @@
 
       padding-left: 30%;
       padding-top: 15%;
-    }
-
-    .page {
-      height: 110vh;
     }
 
     .centered {

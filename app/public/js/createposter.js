@@ -137,6 +137,7 @@ function getName() {
   // $('#posterfooter').html('');
   $('#tableposter').html('');
   $('#colourtable').html('');
+  $('#colourtable2').html('');
   // $('#choosecolor').html('');
   // $('#chooseletter').html('');
 
