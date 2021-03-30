@@ -77,7 +77,7 @@ Model.knex(knex);
 //Read html files
 const navbar = fs.readFileSync("./public/navbar.html", "utf8");
 const homePage = fs.readFileSync("./public/homepage.html", "utf8");
-const inspirationsPage = fs.readFileSync("./public/inspirationspage.html", "utf8");
+const inspirationPage = fs.readFileSync("./public/inspirationpage.html", "utf8");
 const footerPage = fs.readFileSync("./public/footer.html", "utf8");
 const satisfiedPage = fs.readFileSync("./public/satisfied.html", 'utf8');
 const basketPage = fs.readFileSync("./public/basket.html", 'utf8');
@@ -93,7 +93,7 @@ const Discount = require("./model/Discount.js");
 
 //Routes
 const home = "/";
-const inspirations = "/inspirations"
+const inspiration = "/inspiration"
 const satisfied = "/satisfied";
 const basket = "/basket";
 const checkout = "/checkout";
@@ -103,23 +103,21 @@ const about = "/about";
 const contact = "/contact";
 const createPoster = "/createposter";
 const discounts = "/discounts";
-const footer = "/footer"
 
-app.get(footer, (req, res) => {
-  return res.send(navbar +footerPage);
-});
+
+
 
 app.get(home, (req, res) => {
-  return res.send(navbar + homePage);
+  return res.send(navbar + homePage + footerPage);
 });
-app.get(inspirations, (req, res) => {
-  return res.send(navbar + inspirationsPage);
-});
+
 app.get(satisfied, (req, res) => {
 
   return res.send(navbar + satisfiedPage + footerPage );
 });
-
+app.get(inspiration, (req, res) => {
+  return res.send(navbar + inspirationPage + footerPage );
+});
 app.get(basket, (req, res) => {
   return res.send(navbar + basketPage + footerPage);
 });

@@ -1,31 +1,22 @@
 <style>
-    body {
-        /* font-family: "nunitobold"; */
-        /* font-size: 17px; */
-        /* padding: 10px; */
-        /* height: 1000px; */
-        /* margin: 0;
-        padding: 0; */
-
+    html {
+        -webkit-overflow-scrolling: auto !important;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        scroll-snap-stop: always;
+        max-width: fit-content;
     }
 
-    /* html {
-            -webkit-overflow-scrolling: touch !important;
-            -webkit-overflow-scrolling: auto !important;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            scroll-snap-stop: always
-        }
-        ::-webkit-scrollbar {
-            -webkit-appearance: none;
-            width: 7px;
-        }
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
 
-        ::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, .5);
-            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        } */
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
 
     * {
         box-sizing: border-box;
@@ -34,9 +25,6 @@
 
 
     .row {
-
-        /* padding-left: 5%;
-        padding-right: 5%; */
         display: -ms-flexbox;
         /* IE10 */
         display: flex;
@@ -55,8 +43,7 @@
         -ms-flex: 25%;
         /* IE10 */
         flex: 25%;
-        /* width: 600px; */
-        float: right;
+
     }
 
 
@@ -65,9 +52,6 @@
         -ms-flex: 75%;
         /* IE10 */
         flex: 75%;
-
-
-
     }
 
     .col-100 {
@@ -78,19 +62,14 @@
 
     .col-25,
     .col-75 {
-        /* padding: 10px 16px; */
         padding: 0;
         margin: 0;
-        /* display: flex; */
     }
 
     .container {
-        /* overflow: visible !important; */
         background-color: transparent;
-        /* padding: 10px 10px 15px 10px; */
         padding: 0;
         margin-top: 1%;
-        /* width: 1910px; */
         display: flex;
 
     }
@@ -101,58 +80,23 @@
 
     }
 
-    video::-webkit-media-controls-play-button {
-        color: teal;
-    }
-
-    video::-webkit-media-controls-volume-slider {
-        color: teal;
-    }
-
-    video::-webkit-media-controls-mute-button {
-        color: teal;
-    }
-
-    video::-webkit-media-controls-timeline {
-        color: teal;
-    }
-
-    video::-webkit-media-controls-current-time-display {
-        color: teal;
-    }
 
     #intro-video {
-        width: 1000px;
-        height: 600px;
-        margin-left: 15%;
-        margin-right: auto;
+        width: 1960px;
+        height: 1000px;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .video-container {
-        width: 1520px;
-        height: 600px;
+        width: 1960px;
+        height: 1000px;
         margin-top: 0;
         margin-left: auto;
-        margin-right: auto;
-        /* display: inline-block; */
-
-        /* padding: 0px 2px; */
+        margin-right: 1.5%;
         border: 0px solid #c0c0c0;
-        /* border-radius: 8px; */
         background-color: #F2F2F2;
         display: flex;
-    }
-
-    .centered {
-        padding-left: 20%;
-        padding-right: 10%;
-        padding-top: 35%;
-    }
-
-    .centered a {
-        padding-left: 10%;
-        padding-right: 10%;
-        padding-top: 10%;
     }
 
     .box-container {
@@ -162,17 +106,32 @@
         display: flex;
         text-align: center;
         background-color: #CBDEC4;
-        width: 400px;
-        height: 600px;
-        margin-left: 0%;
+        width: 600px;
+        height: 1000px;
+        margin-left: 5%;
         margin-top: 0%;
         margin-right: 0%;
-        float: right;
+        /* float: right; */
         padding-right: 0;
         padding-left: 0;
-
-        /* border-radius: 8px; */
     }
+
+    .center {
+        padding-left: 15%;
+        padding-right: 15%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 40%;
+    }
+
+
+
+    .centered a {
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 20%;
+    }
+
 
     #createyourown {
         max-width: 100%;
@@ -183,6 +142,7 @@
         font-size: 3rem;
         font-family: "nunitobold";
         margin-bottom: 0;
+        width: 300px;
 
     }
 
@@ -209,46 +169,325 @@
         font-size: 3rem;
         font-weight: lighter;
         font-family: "nunitoextralight";
+        margin-bottom: 50%;
+
     }
 
-
     #create-here {
-        font-size: 1em;
+        font-size: 1.5em;
         font-family: "nunitobold";
         text-decoration: none;
-        padding: 1em 3em;
+        padding: 1em 2em;
         border-radius: 8px;
         color: #fff;
-        background-color: #57B0B1;
+        background-color: #DA6B31;
         border: 0;
         cursor: pointer;
-
+        margin-top: 5%;
     }
 
     .logo {
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 5%;
-            width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        width: 200px;
 
-
-
-        }
-
-    
-
+    }
 
     #logo_img {
         width: 200px;
         margin-left: auto;
         margin-right: auto;
-        /* padding: 0px 2px;
-        border: 0px solid #c0c0c0;
-        border-radius: 8px; */
+    }
+
+    .img-container {
+        background-color: transparent;
+        padding: 0px 0px 0px 0px;
+
+    }
+
+    #receive {
+        max-width: 100%;
+
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        font-size: 3rem;
+        font-family: "nunitobold";
+        margin-bottom: 0;
+        width: 400px;
+
+    }
+
+    #firstorder {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: left;
+        font-size: 3rem;
+        font-weight: lighter;
+        font-family: "nunitoextralight";
+        width: 400px;
+    }
+
+    input[type=text] {
+        margin-left: auto;
+        margin-right: auto;
+        width: 400px;
+        margin-top: 30%;
+        margin-bottom: 20px;
+        padding: 0.65em 3em;
+        border: transparent;
+        /* border-radius: 8px; */
+        height: 50px;
+        font-family: 'nunitobold';
+        outline: none;
+        text-decoration: none;
     }
 
 
+    #containerinspiration {
+        border: 0px solid #c0c0c0;
+        display: flex;
+        text-align: center;
+        background-color: #E79B70;
+        width: 600px;
+        height: 1000px;
+        margin-left: 0%;
+        margin-top: 0%;
+        margin-right: 0%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .btn-box {
+        display: inline-block;
+        margin-right: auto;
+        margin-left: auto;
+
+        margin-top: 20%;
+
+
+    }
+
+    #suscribe-button {
+        font-size: 1.25em;
+        font-family: "nunitobold";
+        text-decoration: none;
+        padding: 0.65em 2em;
+        border-radius: 8px;
+        color: #fff;
+        background-color: #DA6B31;
+        border: 0;
+        cursor: pointer;
+        margin-top: 5%;
+        margin-right: auto;
+        margin-left: auto;
+        width: 200px;
+    }
+
+    ::-webkit-input-placeholder {
+        /* Edge */
+        color: rgb(0, 0, 0);
+        font-size: 1em;
+    }
+
+    :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: rgb(0, 0, 0);
+        font-size: 1em;
+    }
+
+    ::placeholder {
+        color: rgb(0, 0, 0);
+        font-size: 1em;
+    }
+
+    /* 
+    .inspiration_img {
+        display: block;
+        margin-left: 1.15%;
+        margin-right: 0;
+        width: 1960px;
+        height: 1000px;
+        object-fit: cover;
+        position: absolute;
+        z-index: -1;
+    } */
+
+    #inspiration-text {
+        max-height: 100%;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        position: absolute;
+        left: 58%;
+        margin-top: 35%;
+        text-align: center;
+        font-size: 3.5em;
+        font-family: "nunitobold";
+        color: #ffffff;
+    }
+
+    .hr-text {
+        text-align: center;
+        border: 0.6px solid #ffffff;
+        margin-right: 10%;
+        margin-inline-start: 0%;
+        width: 10.5%;
+        position: absolute;
+        left: 58%;
+        display: block;
+        margin-top: 38%;
+    }
+
+    /* .center-right {
+        float: right;
+        padding-top: 10%;
+    }
+
+    .center-left {
+        float: left;
+        padding-top: 10%;
+    } */
+    /* 
+    #icon_right {
+        max-height: 100%;
+        display: block;
+        margin-left: auto;
+        position: absolute;
+        margin-top: 18%;
+        right: 3%;
+        text-align: right;
+        font-size: 120px;
+        z-index: -1;
+    }
+
+    #icon_left {
+        max-height: 100%;
+        display: block;
+        margin-right: auto;
+        position: absolute;
+        left: 28%;
+        margin-top: 18%;
+        text-align: left;
+        font-size: 120px;
+        z-index: -1;
+    } 
+
+    /* .fa.fa-angle-left:hover {
+        color: rgb(136, 135, 135) !important;
+
+    }
+
+    .fa.fa-angle-right:hover {
+        color: rgb(136, 135, 135) !important;
+    }
+
+    .fa-animate {
+
+        opacity: 1;
+        transition: all 0.3s cubic-bezier(0.16, 0.08, 0.355, 1);
+    } */
+    .mySlides {
+        display: none;
+    }
+
+    .mySlides-mobile {
+        display: none;
+    }
+
+    .mySlides img {
+        height: 1000px;
+    }
+
+    img {
+        vertical-align: middle;
+
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+        width: 1960px;
+        height: 1000px;
+        display: block;
+        position: absolute;
+        margin-left: 1.15%;
+        margin-right: 0;
+        object-fit: cover;
+        /* z-index: -1; */
+
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 40px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 2%;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+
+    }
+
+    .active,
+    .dot:hover {
+        background-color: #717171;
+    }
+
+    .content-desktop {
+        display: flex;
+    }
+
+    .content-mobile {
+        display: none;
+    }
+
     @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        .content-desktop {
+            display: none;
+        }
+
+        .mySlides-mobile {
+            display: none;
+        }
+
+        .content-mobile {
+            display: flex;
+        }
 
         html {
 
@@ -260,7 +499,6 @@
 
         .col {
             width: 50%;
-            /* float: left; */
         }
 
         .col-25 {
@@ -274,6 +512,20 @@
             margin: 0;
         }
 
+        .logo {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+            width: 200px;
+            padding-left: 10%;
+        }
+
+        #logo_img {
+            width: 100px;
+            height: 60px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         .centered {
             padding-left: 10%;
@@ -295,138 +547,166 @@
         .container {
             background-color: transparent;
             padding: 0;
-            margin-top: 9%;
+            margin: 0;
             display: block;
         }
 
         #intro-video {
             width: 375px;
-            height: 200px;
-            margin-left: 0;
-            margin-right: 0;
-            padding-left: 20px;
+            height: 250px;
         }
 
         .video-container {
-            width: 400px;
-            height: 200px;
-            margin-top: 0;
-            margin-left: auto;
-            margin-right: auto;
-            /* display: inline-block; */
-
-            padding: 0;
+            width: 375px;
+            height: 230px;
+            margin-left: 0%;
+            margin-top: 0%;
+            margin-right: 0%;
+            float: right;
+            padding-bottom: 0;
             border: 0px solid #c0c0c0;
             border-radius: 0px;
-            background-color: transparent;
             display: block;
         }
 
         .box-container {
             border: 0px solid #c0c0c0;
-            /* margin-left: auto;
-        margin-right: auto; */
-            display: block;
+            display: -webkit-inline-box;
             text-align: center;
             background-color: #CBDEC4;
             width: 375px;
-            height: 300px;
+            height: 200px;
             margin-left: 0%;
             margin-top: 0%;
             margin-right: 0%;
-            float: right;
+            /* float: right; */
             padding-right: 0;
             padding-left: 0;
 
-            /* border-radius: 8px; */
         }
 
 
-        .logo {
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 5%;
+
+        .center {
+            padding-left: 2%;
+            padding-right: 2%;
+            padding-top: 5%;
             width: 200px;
-            padding-left: 10%;
-
-
-        }
-
-        #logo_img {
-            width: 100px;
-            height: 60px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-left: 0;
+            margin-right: 0;
         }
 
         #createyourown {
-            max-width: 100%;
-            margin-top: 4%;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: left;
-            font-size: 3rem;
-            font-family: "nunitobold";
-            margin-bottom: 0;
-
+            margin-top: 15%;
+            font-size: 1.5em;
         }
 
         #unique {
-            max-width: 100%;
-
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 0;
-            margin-bottom: 0;
-            text-align: left;
-            font-size: 3rem;
-            font-weight: lighter;
-            font-family: "nunitoextralight";
+            font-size: 1.5em;
         }
 
         #poster {
-            max-width: 100%;
-
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 0;
-            text-align: left;
-            font-size: 3rem;
+            font-size: 1.5em;
 
         }
 
 
         #create-here {
+
             font-size: 1em;
+            margin-top: 30%;
+            height: 50px;
+        }
+
+        #btn-create {
+            float: right;
+            display: flex;
+            width: 200px;
+        }
+
+        #containerinspiration {
+
+            width: 375px;
+            height: 200px;
+
+        }
+
+        #receive {
+            font-size: 1.5em;
+        }
+
+        #firstorder {
+            font-size: 1.5em;
+        }
+
+        input[type=text] {
+            margin-left: auto;
+            margin-right: auto;
+            width: 200px;
+            margin-top: 10%;
+            font-size: 0.7em;
+            padding: 0.1em 3em;
+        }
+
+        #suscribe-button {
+            font-size: 1em;
+            margin-right: auto;
+            margin-left: auto;
+            width: 150px;
+            margin-top: 29%;
+            height: 50px;
+
 
         }
 
 
+
+        #inspiration-text {
+            font-size: 1em;
+            width: 50px;
+            width: 10.5%;
+            top: 16%;
+            left: 38.5%;
+        }
+    
+
+    .hr-text {
+        width: 10.5%;
+        top: 18%;
+        left: 38.5%;
+        display: flex;
+        width: 80px;
+    }
+
+    .prev,
+    .next {
+        font-size: 11px;
+        padding: 10px;
+        margin-top: 15%;
+    }
+
+    .slideshow-container {
+        width: fit-content;
+        height: 350px;
+        display: block;
+        position: absolute;
+        margin-left: 0;
 
 
     }
 
-    @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
 
 
-        /* .logo {
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 10%;
-            width: 600px;
+    #inspirationssection {
+        width: fit-content;
+        height: fit-content;
+        padding-bottom: 220px;
+    }
 
-        }
-
-        #logo_img {
-             width: 60%;
-             margin-left: auto;
-            margin-right: auto;
-
-        } */
 
     }
 </style>
-<div id="homepage">
+<div id="homepage" class="content-desktop">
     <div class="row">
         <div class="col-100">
             <div class="logo">
@@ -442,7 +722,7 @@
             <div class="container">
                 <div class="col-75">
                     <div class="video-container">
-                        <video id="intro-video" loop autoplay muted>
+                        <video id="intro-video" loop playsinline autoplay muted>
                             <source src="video/blokkers_intro.mp4" type="video/mp4">
                             <!-- <source src="movie.ogg" type="video/ogg"> -->
                         </video>
@@ -452,12 +732,13 @@
                 </div>
                 <div class="col-25">
                     <div class="box-container">
-                        <div class="centered">
+                        <div class="center">
                             <p id="createyourown">Create your</p>
                             <p id="unique">own unique</p>
                             <p id="poster">poster</p>
-                            <a href="/createposter" id="create-here">Create here</a>
+                            <a href="/createposter" id="create-here">Click here!</a>
                         </div>
+
 
                     </div>
                 </div>
@@ -466,7 +747,234 @@
         </div>
     </div>
 </div>
+<div id="inspirationssection" class="content-desktop">
 
-</body>
 
-</html>
+    <div class="col-100">
+        <div class="container" style="padding-bottom: 10%;">
+            <div class="row">
+                <div class="col-25">
+                    <div id="containerinspiration">
+
+                        <div class="center">
+                            <p id="receive">Receive 10% off</p>
+                            <p id="firstorder">your first order</p>
+
+                            <input type='text' name='suscribe' size="30" placeholder="Enter your email here">
+                            <button id="suscribe-button" type="submit">Suscribe to newsletter</button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="img-container">
+                    <div class="col-75">
+                        <div class="slideshow-container">
+                            <div class="mySlides fade">
+                                <!-- <div class="numbertext">1 / 4</div> -->
+                                <img src="images/agnete2 kopi.png" style="width:100%">
+                                <!-- <div class="text">Caption Text</div> -->
+                            </div>
+
+                            <div class="mySlides fade">
+                                <!-- <div class="numbertext">2 / 4</div> -->
+                                <img src="images/august2.png" style="width:100%">
+                                <!-- <div class="text">Caption Two</div> -->
+                            </div>
+
+                            <div class="mySlides fade">
+                                <!-- <div class="numbertext">3 / 4</div> -->
+                                <img src="images/marie2 kopi.png" style="width:100%">
+
+                            </div>
+
+                            <div class="mySlides fade">
+                                <!-- <div class="numbertext">4 / 4</div> -->
+                                <img src="images/blm2 kopi.png" style="width:100%">
+                                <!-- <div class="text">Caption Four</div> -->
+                            </div>
+                            <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+
+                        </div>
+                        <div>
+                            <p id="inspiration-text">Inspiration</p>
+                            <hr class="hr-text">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="homepage" class="content-mobile">
+    <div class="row">
+        <div class="col-100">
+            <div class="logo">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-25">
+
+                            <img id="logo_img" src="images/Blokkers_logo.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="col-25">
+                    <div class="box-container">
+                        <div class="center">
+                            <p id="createyourown">Create your </p>
+                            <p id="unique">own unique</p>
+                            <p id="poster">poster</p>
+
+                        </div>
+                        <div id="btn-create">
+                            <a href="/createposter" id="create-here">Click here!</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-75">
+                    <div class="video-container">
+                        <video id="intro-video" loop playsinline autoplay muted>
+                            <source src="video/blokkers_intro.mp4" type="video/mp4">
+                            <!-- <source src="movie.ogg" type="video/ogg"> -->
+                        </video>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="inspirationssection" class="content-mobile">
+
+
+    <div class="col-100">
+        <div class="container" style="padding-bottom: 10%;">
+            <div class="row">
+                <div class="col-25">
+                    <div id="containerinspiration">
+
+                        <div class="center">
+                            <p id="receive">Receive 10% off</p>
+                            <p id="firstorder">your first order</p>
+
+                            <input type='text' name='suscribe' size="30" placeholder="Enter your email here">
+
+
+                        </div>
+                        <button id="suscribe-button" type="submit">Suscribe to newsletter</button>
+                    </div>
+                </div>
+                <div class="col-75">
+                    <div class="img-container">
+
+                        <div class="slideshow-container">
+                            <div class="mySlides-mobile fade">
+                                <!-- <div class="numbertext">1 / 4</div> -->
+                                <img src="images/agnete2 kopi.png" style="width:100%">
+                                <!-- <div class="text">Caption Text</div> -->
+                            </div>
+
+                            <div class="mySlides-mobile fade">
+                                <!-- <div class="numbertext">2 / 4</div> -->
+                                <img src="images/august2.png" style="width:100%">
+                                <!-- <div class="text">Caption Two</div> -->
+                            </div>
+
+                            <div class="mySlides-mobile fade">
+                                <!-- <div class="numbertext">3 / 4</div> -->
+                                <img src="images/marie2 kopi.png" style="width:100%">
+
+                            </div>
+
+                            <div class="mySlides-mobile fade">
+                                <!-- <div class="numbertext">4 / 4</div> -->
+                                <img src="images/blm2 kopi.png" style="width:100%">
+                                <!-- <div class="text">Caption Four</div> -->
+                            </div>
+                            <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                    <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+                            <p id="inspiration-text">Inspiration</p>
+                            <hr class="hr-text">
+                        </div>
+                        <div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+    let slideIndexMob = 0;
+    showSlidesMob();
+
+    function showSlidesMob() {
+        let i;
+        let slidesMob = document.getElementsByClassName("mySlides-mobile");
+        for (i = 0; i < slidesMob.length; i++) {
+            slidesMob[i].style.display = "none";
+        }
+        slideIndexMob++;
+        if (slideIndexMob > slidesMob.length) { slideIndexMob = 1 }
+        slidesMob[slideIndexMob - 1].style.display = "block";
+        setTimeout(showSlidesMob, 2000); // Change image every 2 seconds
+    }
+
+</script>
+
+
+<!-- <div class="img-container">
+                    <div class="col-75">
+                        <div class="mySlides fade">
+                            <img class="inspiration_img" id="img1" src="images/agnete2 kopi.png">
+                        </div>
+                        <div class="mySlides fade">
+                            <img class="inspiration_img" id="img2" src="images/August kopi.jpg">
+                        </div>
+                        <div class="mySlides fade">
+                            <img class="inspiration_img" id="img3" src="images/marie2 kopi.png">
+                        </div>
+                        <div class="mySlides fade">
+                            <img class="inspiration_img" id="img4" src="images/blm2 kopi.png">
+                        </div>
+
+                        <div class="center-left">
+                            <span><i class="fa fa-angle-left " id="icon_left" onclick="plusSlides(1)"></i></span>
+                        </div>
+                        <div class="center-right">
+                            <span><i class="fa fa-angle-right fa-animate" id="icon_right"
+                                    onclick="plusSlides(-1)"></i></span>
+                        </div>
+                        <div>
+                            <p id="inspiration-text">Inspiration</p>
+                            <hr class="hr-text">
+                        </div>
+                    </div>
+                </div> -->
