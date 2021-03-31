@@ -60,9 +60,11 @@
     #offering {
         margin-right: 20%;
     }
-    #fastdelivery{
+
+    #fastdelivery {
         margin-left: 20%;
     }
+
     #nav-header a {
         padding: 4px 4px 4px 4px;
         text-decoration: none;
@@ -71,8 +73,9 @@
         display: block;
         transition: 0.3s;
     }
+
     #paragraf {
-      width: 700px;
+        width: 700px;
     }
 
     #nav-header.closebtn {
@@ -82,31 +85,39 @@
         font-size: 36px;
         margin-left: 50px;
     }
-  
+
     @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         #offering {
-        margin-right: 10%;
-        margin-left: 20%;
+            margin-right: 10%;
+            margin-left: 20%;
+        }
+
+        #fastdelivery {
+            margin-left: 35%;
+            margin-right: 10%;
+        }
+
+        #nav-header p {
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #paragraf {
+            width: 900px;
+        }
     }
-    #fastdelivery{
-        margin-left: 35%;
-        margin-right: 10%;
+    @media only screen and (max-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 1) {
+   
     }
-    #nav-header p {
-      width: 375px;
-      margin-left: auto;
-      margin-right: auto;
-    }
- 
-}
 </style>
 
 <body>
 
     <nav role="navigation" id="nav-bar">
         <div id="nav-header">
-            <div id="paragraf"style="margin: auto;  color: white;">
-                <span  id="offering">Now offering free shipping! <i class="fa fa-check" aria-hidden="true"></i></span>
+            <div id="paragraf" style="margin: auto;  color: white;">
+                <span id="offering">Now offering free shipping! <i class="fa fa-check" aria-hidden="true"></i></span>
 
                 <span id="fastdelivery">Fast delivery! <i class="fa fa-check" aria-hidden="true"></i></span>
 

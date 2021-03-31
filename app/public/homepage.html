@@ -1,25 +1,29 @@
 <style>
-    html {
-        -webkit-overflow-scrolling: auto !important;
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-        scroll-snap-stop: always;
-        max-width: fit-content;
-    }
+   html {
+            /* -webkit-overflow-scrolling: touch !important; */
+            -webkit-overflow-scrolling: auto !important;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scroll-snap-stop: always;
+            /* overflow-x: hidden; */
+        }
+        ::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 7px;
+        }
 
-    ::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 7px;
-    }
+        ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .5);
+            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
 
-    ::-webkit-scrollbar-thumb {
-        border-radius: 4px;
-        background-color: rgba(0, 0, 0, .5);
-        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-    }
+
 
     * {
         box-sizing: border-box;
+    
+        
 
     }
 
@@ -69,9 +73,9 @@
     .container {
         background-color: transparent;
         padding: 0;
-        margin-top: 1%;
+        margin-top: 1.2%;
         display: flex;
-
+       
     }
 
     video::-webkit-media-controls-panel {
@@ -82,14 +86,13 @@
 
 
     #intro-video {
-        width: 1960px;
-        height: 1000px;
-        margin-left: 0;
-        margin-right: 0;
+        width: 1400px;
+        height: 900px;
+        margin: auto;
     }
 
     .video-container {
-        width: 1960px;
+        width: 110em;
         height: 1000px;
         margin-top: 0;
         margin-left: auto;
@@ -106,9 +109,9 @@
         display: flex;
         text-align: center;
         background-color: #CBDEC4;
-        width: 600px;
+        width: 47.5em;
         height: 1000px;
-        margin-left: 5%;
+        margin-left: 4.2%;
         margin-top: 0%;
         margin-right: 0%;
         /* float: right; */
@@ -121,7 +124,8 @@
         padding-right: 15%;
         margin-left: auto;
         margin-right: auto;
-        padding-top: 40%;
+        padding-top: 35%;
+        padding-bottom: 25%;
     }
 
 
@@ -129,20 +133,20 @@
     .centered a {
         padding-left: 10%;
         padding-right: 10%;
-        padding-top: 20%;
+        padding-top: 10%;
     }
 
 
     #createyourown {
         max-width: 100%;
-        margin-top: 4%;
+        margin-top: 0%;
         margin-left: auto;
         margin-right: auto;
         text-align: left;
-        font-size: 3rem;
+        font-size: 5rem;
         font-family: "nunitobold";
         margin-bottom: 0;
-        width: 300px;
+        width: 500px;
 
     }
 
@@ -154,7 +158,7 @@
         margin-top: 0;
         margin-bottom: 0;
         text-align: left;
-        font-size: 3rem;
+        font-size: 5rem;
         font-weight: lighter;
         font-family: "nunitoextralight";
     }
@@ -166,24 +170,24 @@
         margin-right: auto;
         margin-top: 0;
         text-align: left;
-        font-size: 3rem;
+        font-size: 5rem;
         font-weight: lighter;
         font-family: "nunitoextralight";
-        margin-bottom: 50%;
+        margin-bottom: 35%;
 
     }
 
     #create-here {
-        font-size: 1.5em;
+        font-size: 2.25em;
         font-family: "nunitobold";
         text-decoration: none;
-        padding: 1em 2em;
+        padding: 1em 1.5em;
         border-radius: 8px;
         color: #fff;
         background-color: #DA6B31;
         border: 0;
         cursor: pointer;
-        margin-top: 5%;
+        margin-top: 0%;
     }
 
     .logo {
@@ -209,14 +213,14 @@
 
     #receive {
         max-width: 100%;
-
+        margin-top: 0;
         margin-left: auto;
         margin-right: auto;
         text-align: left;
-        font-size: 3rem;
+        font-size: 4.5rem;
         font-family: "nunitobold";
         margin-bottom: 0;
-        width: 400px;
+        width: 600px;
 
     }
 
@@ -226,26 +230,47 @@
         margin-top: 0;
         margin-bottom: 0;
         text-align: left;
-        font-size: 3rem;
+        font-size: 4.5rem;
         font-weight: lighter;
         font-family: "nunitoextralight";
-        width: 400px;
+        width: 600px;
     }
 
     input[type=text] {
         margin-left: auto;
         margin-right: auto;
-        width: 400px;
-        margin-top: 30%;
+        width: 500px;
+        margin-top: 15%;
         margin-bottom: 20px;
         padding: 0.65em 3em;
         border: transparent;
         /* border-radius: 8px; */
         height: 50px;
         font-family: 'nunitobold';
+        font-size: 1.15em;
         outline: none;
         text-decoration: none;
+
     }
+
+    ::-webkit-input-placeholder {
+        /* Edge */
+        color: rgb(0, 0, 0);
+        font-size: 1.10em;
+        appearance: none;
+    }
+
+    :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: rgb(0, 0, 0);
+        font-size: 1.10em;
+    }
+
+    ::placeholder {
+        color: rgb(0, 0, 0);
+        font-size: 1.10em;
+    }
+
 
 
     #containerinspiration {
@@ -253,7 +278,7 @@
         display: flex;
         text-align: center;
         background-color: #E79B70;
-        width: 600px;
+        width: 47.5em;
         height: 1000px;
         margin-left: 0%;
         margin-top: 0%;
@@ -263,20 +288,16 @@
     }
 
     .btn-box {
-        display: inline-block;
-        margin-right: auto;
-        margin-left: auto;
-
-        margin-top: 20%;
-
-
+        display: block;
+        padding-right: 15%;
+        padding-top: 10%;
     }
 
-    #suscribe-button {
-        font-size: 1.25em;
+    #subscribe-button {
+        font-size: 2.25em;
         font-family: "nunitobold";
         text-decoration: none;
-        padding: 0.65em 2em;
+        padding: 1em 1.5em;
         border-radius: 8px;
         color: #fff;
         background-color: #DA6B31;
@@ -285,37 +306,8 @@
         margin-top: 5%;
         margin-right: auto;
         margin-left: auto;
-        width: 200px;
-    }
 
-    ::-webkit-input-placeholder {
-        /* Edge */
-        color: rgb(0, 0, 0);
-        font-size: 1em;
     }
-
-    :-ms-input-placeholder {
-        /* Internet Explorer 10-11 */
-        color: rgb(0, 0, 0);
-        font-size: 1em;
-    }
-
-    ::placeholder {
-        color: rgb(0, 0, 0);
-        font-size: 1em;
-    }
-
-    /* 
-    .inspiration_img {
-        display: block;
-        margin-left: 1.15%;
-        margin-right: 0;
-        width: 1960px;
-        height: 1000px;
-        object-fit: cover;
-        position: absolute;
-        z-index: -1;
-    } */
 
     #inspiration-text {
         max-height: 100%;
@@ -323,7 +315,7 @@
         margin-right: auto;
         margin-left: auto;
         position: absolute;
-        left: 58%;
+        left: 61.5%;
         margin-top: 35%;
         text-align: center;
         font-size: 3.5em;
@@ -338,59 +330,12 @@
         margin-inline-start: 0%;
         width: 10.5%;
         position: absolute;
-        left: 58%;
+        left: 61.5%;
         display: block;
         margin-top: 38%;
     }
 
-    /* .center-right {
-        float: right;
-        padding-top: 10%;
-    }
 
-    .center-left {
-        float: left;
-        padding-top: 10%;
-    } */
-    /* 
-    #icon_right {
-        max-height: 100%;
-        display: block;
-        margin-left: auto;
-        position: absolute;
-        margin-top: 18%;
-        right: 3%;
-        text-align: right;
-        font-size: 120px;
-        z-index: -1;
-    }
-
-    #icon_left {
-        max-height: 100%;
-        display: block;
-        margin-right: auto;
-        position: absolute;
-        left: 28%;
-        margin-top: 18%;
-        text-align: left;
-        font-size: 120px;
-        z-index: -1;
-    } 
-
-    /* .fa.fa-angle-left:hover {
-        color: rgb(136, 135, 135) !important;
-
-    }
-
-    .fa.fa-angle-right:hover {
-        color: rgb(136, 135, 135) !important;
-    }
-
-    .fa-animate {
-
-        opacity: 1;
-        transition: all 0.3s cubic-bezier(0.16, 0.08, 0.355, 1);
-    } */
     .mySlides {
         display: none;
     }
@@ -410,63 +355,15 @@
 
     /* Slideshow container */
     .slideshow-container {
-        width: 1960px;
+        width: 110em;
         height: 1000px;
         display: block;
         position: absolute;
-        margin-left: 1.15%;
+        margin-left: 1.25%;
         margin-right: 0;
         object-fit: cover;
-        /* z-index: -1; */
-
     }
 
-    /* Next & previous buttons */
-    .prev,
-    .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        padding: 16px;
-        margin-top: -22px;
-        color: white;
-        font-weight: bold;
-        font-size: 40px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
-    }
-
-    /* Position the "next button" to the right */
-    .next {
-        right: 2%;
-        border-radius: 3px 0 0 3px;
-    }
-
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    /* The dots/bullets/indicators */
-    .dot {
-        cursor: pointer;
-        height: 15px;
-        width: 15px;
-        margin: 0 2px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.6s ease;
-
-    }
-
-    .active,
-    .dot:hover {
-        background-color: #717171;
-    }
 
     .content-desktop {
         display: flex;
@@ -481,9 +378,7 @@
             display: none;
         }
 
-        .mySlides-mobile {
-            display: none;
-        }
+
 
         .content-mobile {
             display: flex;
@@ -495,6 +390,7 @@
             overflow-y: scroll !important;
             scroll-snap-stop: always;
             -webkit-overflow-scrolling: touch !important;
+           
         }
 
         .col {
@@ -575,7 +471,7 @@
             text-align: center;
             background-color: #CBDEC4;
             width: 375px;
-            height: 200px;
+            height: 150px;
             margin-left: 0%;
             margin-top: 0%;
             margin-right: 0%;
@@ -588,16 +484,16 @@
 
 
         .center {
-            padding-left: 2%;
+            padding-left: 5%;
             padding-right: 2%;
-            padding-top: 5%;
-            width: 200px;
+            padding-top: 8%;
+            width: 230px;
             margin-left: 0;
             margin-right: 0;
         }
 
         #createyourown {
-            margin-top: 15%;
+
             font-size: 1.5em;
         }
 
@@ -614,12 +510,12 @@
         #create-here {
 
             font-size: 1em;
-            margin-top: 30%;
+            margin-top: 20%;
             height: 50px;
         }
 
         #btn-create {
-            float: right;
+            /* float: right; */
             display: flex;
             width: 200px;
         }
@@ -643,18 +539,19 @@
             margin-left: auto;
             margin-right: auto;
             width: 200px;
-            margin-top: 10%;
+            margin-top: 15%;
             font-size: 0.7em;
             padding: 0.1em 3em;
         }
 
-        #suscribe-button {
+        #subscribe-button {
             font-size: 1em;
-            margin-right: auto;
+            margin-right: 4.5%;
             margin-left: auto;
-            width: 150px;
-            margin-top: 29%;
+            width: 120px;
+            margin-top: 34%;
             height: 50px;
+            display: inline-block;
 
 
         }
@@ -664,43 +561,172 @@
         #inspiration-text {
             font-size: 1em;
             width: 50px;
-            width: 10.5%;
+
             top: 16%;
             left: 38.5%;
         }
+
+
+        .hr-text {
+            width: 10.5%;
+            top: 18%;
+            left: 38.5%;
+            display: flex;
+            width: 80px;
+        }
+
+      
+
+        .mySlides-mobile {
+            display: none;
+        }
+
+        .slideshow-container {
+            width: fit-content;
+            height: 350px;
+            display: block;
+            position: absolute;
+            margin-left: 0;
+
+
+        }
+
+
+
+        #inspirationssection {
+            width: fit-content;
+            height: fit-content;
+            padding-bottom: 220px;
+        }
+
+
+    }
+
+    @media only screen and (min-device-width: 1920px) and (max-device-width: 2159px) and (-webkit-min-device-pixel-ratio: 1) {
+        html {
+            -webkit-overflow-scrolling: auto !important;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scroll-snap-stop: always;
+          
+           
+        }
+
+        ::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .5);
+            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+
+        #content-desktop {
+            display: flex;
+        }
+
+        #content-mobile {
+            display: none;
+        }
+
+        #intro-video {
+            width: 1000px;
+            height: 600px;
+            margin: auto;
+        }
+
+        .video-container {
+            width: 80em;
+            height: 760px;
+
+        }
+
+        .box-container {
+
+            width: 37.9em;
+            height: 760px;
+
+        }
+
+        #containerinspiration {
+            width: 37.9em;
+            height: 760px;
+
+        }
+
+        .slideshow-container {
+            width: 80em;
+            height: 760px;
+
+
+        }
+
+        .mySlides img {
+            height: 760px;
+        }
+
+        #createyourown {
+            width: 400px;
+            font-size: 3.5em;
+        }
+
+        #unique {
+            width: 400px;
+            font-size: 3.5em;
+        }
+
+        #poster {
+            width: 400px;
+            font-size: 3.5em;
+
+        }
+
+        #receive {
+            font-size: 3em;
+            width: 520px;
+        }
+
+        #firstorder {
+            font-size: 3em;
+             width: 520px;
+        }
+        input[type=text] {
+
+        width: 350px;
+        margin-top: 15%;
+        margin-bottom: 20px;
+        height: 50px;
+        font-size: 1.15em;
+    }
+    .btn-box {
+    display: -webkit-box;
+    /* padding-right: 35%; */
+    padding-top: 10%;
+    width: 300px;
+}
     
+
+    #subscribe-button {
+        font-size: 2.25em;
+        margin-top: 5%;
+        margin-right: auto;
+        margin-left: auto;
+
+    }
+
+    #inspiration-text {
+
+        left: 60.5%;
+        margin-top: 35%;
+        font-size: 2.5em;
+    }
 
     .hr-text {
         width: 10.5%;
-        top: 18%;
-        left: 38.5%;
-        display: flex;
-        width: 80px;
-    }
+        left: 60.5%;
 
-    .prev,
-    .next {
-        font-size: 11px;
-        padding: 10px;
-        margin-top: 15%;
-    }
-
-    .slideshow-container {
-        width: fit-content;
-        height: 350px;
-        display: block;
-        position: absolute;
-        margin-left: 0;
-
-
-    }
-
-
-
-    #inspirationssection {
-        width: fit-content;
-        height: fit-content;
-        padding-bottom: 220px;
     }
 
 
@@ -760,13 +786,17 @@
                             <p id="receive">Receive 10% off</p>
                             <p id="firstorder">your first order</p>
 
-                            <input type='text' name='suscribe' size="30" placeholder="Enter your email here">
-                            <button id="suscribe-button" type="submit">Suscribe to newsletter</button>
+                            <div class="btn-box">
+                                <input type='text' name='subscribe' size="30" placeholder="Enter your email here">
+                                <button id="subscribe-button" type="submit">Subscribe</button>
+                            </div>
 
                         </div>
 
+
                     </div>
                 </div>
+
                 <div class="img-container">
                     <div class="col-75">
                         <div class="slideshow-container">
@@ -866,11 +896,11 @@
                             <p id="receive">Receive 10% off</p>
                             <p id="firstorder">your first order</p>
 
-                            <input type='text' name='suscribe' size="30" placeholder="Enter your email here">
+                            <input type='text' name='subscribe' size="30" placeholder="Enter your email here">
 
 
                         </div>
-                        <button id="suscribe-button" type="submit">Suscribe to newsletter</button>
+                        <button id="subscribe-button" type="submit">Subscribe</button>
                     </div>
                 </div>
                 <div class="col-75">
@@ -950,31 +980,3 @@
 </script>
 
 
-<!-- <div class="img-container">
-                    <div class="col-75">
-                        <div class="mySlides fade">
-                            <img class="inspiration_img" id="img1" src="images/agnete2 kopi.png">
-                        </div>
-                        <div class="mySlides fade">
-                            <img class="inspiration_img" id="img2" src="images/August kopi.jpg">
-                        </div>
-                        <div class="mySlides fade">
-                            <img class="inspiration_img" id="img3" src="images/marie2 kopi.png">
-                        </div>
-                        <div class="mySlides fade">
-                            <img class="inspiration_img" id="img4" src="images/blm2 kopi.png">
-                        </div>
-
-                        <div class="center-left">
-                            <span><i class="fa fa-angle-left " id="icon_left" onclick="plusSlides(1)"></i></span>
-                        </div>
-                        <div class="center-right">
-                            <span><i class="fa fa-angle-right fa-animate" id="icon_right"
-                                    onclick="plusSlides(-1)"></i></span>
-                        </div>
-                        <div>
-                            <p id="inspiration-text">Inspiration</p>
-                            <hr class="hr-text">
-                        </div>
-                    </div>
-                </div> -->

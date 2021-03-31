@@ -361,6 +361,8 @@ img {
 
 
 @media only screen and (min-device-width: 2160px) and (max-device-width: 2880px) and (-webkit-min-device-pixel-ratio: 2){
+  #content-desktop {display: flex;}
+  #content-mobile {display: none;}
   ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 7px;
@@ -371,15 +373,15 @@ img {
     background-color: rgba(0, 0, 0, .5);
     box-shadow: 0 0 1px rgba(255, 255, 255, .5);
     }
-    #content-desktop {display: flex;}
-    #content-mobile {display: none;}
+
     html {
       
-    -webkit-overflow-scrolling: touch !important; 
-    -webkit-overflow-scrolling: auto !important;
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    scroll-snap-stop: always
+      -webkit-overflow-scrolling: auto !important;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      scroll-snap-stop: always;
+      width: fit-content;
+    
 }
 
   .basket-items {
