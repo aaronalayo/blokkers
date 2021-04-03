@@ -121,7 +121,6 @@ function createTable() {
   }
 };
 
-
 //displays a poster with the name
 function getName() {
   // $("#posterdiv").show();
@@ -140,7 +139,6 @@ function getName() {
   $('#colourtable2').html('');
   // $('#choosecolor').html('');
   // $('#chooseletter').html('');
-
   //creates a new table and fills it with the new name letters
   createTable();
   let k = 0;
@@ -170,9 +168,9 @@ function getName() {
   $('#posterfooter').text("Click on a letter to change the color");
 };
 
-
 //displays the different letter design
 function showColor(id) {
+ 
   $("#colourtable").show();
   $("#colourtable2").show();
   $('#colourtable').html('');
@@ -182,9 +180,9 @@ function showColor(id) {
   let src = document.getElementById(id).childNodes[0].src;
   let parts = src.split('/');
   let lastSegment = parts.pop();
+  
+  
   $('#colourtable').append('<caption id="original"></caption>');
-  $('#colourtable').append('<caption id="choosecolor"></caption>');
-
 
   for (let i = 0; i < 1; i++) {
     
@@ -207,12 +205,9 @@ function showColor(id) {
         default:
         
           $('#colourtable').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${key}.png">` + '</td>');     
-      }
-      
+      }     
     }
-
-    $('#colourtable').append('</tr>');
-    
+    $('#colourtable').append('</tr>');   
   }
   $('#colourtable2').append('<caption id="seasonal"></caption>')
 
@@ -246,8 +241,9 @@ function showColor(id) {
   }
 
   
-  $('#original').text("Original frisky");
+  
   $('#choosecolor').text("Click on the letter to choose your color");
+  $('#original').text("Original frisky");
   $('#seasonal').text("Seasonal harmony");
   $("#done_button").show();
 };
@@ -322,8 +318,7 @@ $(function() {
 });
 
 function loadPosterEdit() {
-  console.log('Loading poster first time');
-
+  // console.log('Loading poster first time');
   $('#tableposter').html('');
   createTable();
     let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));

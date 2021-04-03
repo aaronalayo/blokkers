@@ -363,6 +363,7 @@ img {
 @media only screen and (min-device-width: 2160px) and (max-device-width: 2880px) and (-webkit-min-device-pixel-ratio: 2){
   #content-desktop {display: flex;}
   #content-mobile {display: none;}
+
   ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 7px;
@@ -382,33 +383,17 @@ img {
       scroll-snap-stop: always;
       width: fit-content;
     
-}
+    }
 
-  .basket-items {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2%;
-    width: 400px;
+  
 
  
-  }
- .container{
-  min-height: 90vh;
- }
- .footer {
-
-  position: relative; 
-  }
+  
   #proceed-button {
     margin: 16%;
   }
-  
-  #total-amount-box {
-    margin-right: auto;
-    margin-left: 10%;
-    margin-top: 2%;
 
-  }
+
 
   .basket-table td,
   tr {
@@ -458,20 +443,13 @@ tr {
     height: 100%;
   }
 
-  #colourtable {
-    border: none;
-    display: block;
-    border-collapse: collapse;
-  }
+ 
 
   #inspirationspage {
     width: auto;
   }
 
-  #colourtable img {
-    width: 6.5em;
-    display: block;
-  }
+ 
   #chooseletter {
     font-size: 20px;
     font-family: "nunitolight";
@@ -482,43 +460,8 @@ tr {
   #cancel_button {
     margin-top: 1%;
   }
-  .coupon input[type=text] {
+ 
 
-    width: 75%;
-    margin-bottom: 20px;
-    padding: 0.65em 2em;
-    border: transparent;
-    border-radius: 8px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    font-family: 'nunitobold';
-    outline: none;
-    text-decoration: none;
-  }
-  .coupon{
-    display: inline-block;
-    margin-right: auto;
-    margin-left: 12%;
-    width: 240px;
-    margin-top: 5%;
-    text-align: center;
-  }
-  #add-button {
-    /* text-decoration: none; */
-    text-align: left;
-    padding: 0.65em 2em;;
-    border-radius: 7px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-
-    border: 0;
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-    width: 25%;
-    outline: none;
-    font-family: 'nunitobold';
-    margin: 0 auto;
-  }
 }
 
 

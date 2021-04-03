@@ -86,7 +86,7 @@
         padding: 10px 10px 15px 10px;
         border-radius: 3px;
         align-items: baseline;
-
+        min-height: 90vh;
     }
 
 
@@ -248,9 +248,10 @@
     }
 
     #choosecolor {
-        padding-bottom: 10%;
-        font-size: 30px;
+        padding-bottom: 5%;
+        font-size: 40px;
         font-family: "nunitolight";
+        text-align: center;
     }
     #original {
         padding-bottom: 2%;
@@ -266,32 +267,40 @@
         color: rgb(151, 151, 151);;
     }
 
- 
+
 
     #colourtable {
         border: 4px;
         display: block;
         border-collapse: collapse !important;
-
+        margin-left: auto;
+        margin-right: auto;
     }
     #colourtable2 {
         border: 4px;
         display: block;
         border-collapse: collapse !important;
-
+        margin-left: auto;
+        margin-right: auto;
     }
 
- 
+    #colourtable2 img {
+    width: 6em;
+    display: block;
+}
 
+    #colourtable img {
+    width: 6em;
+    display: block;
+  }
 
 
     #changecolour {
-        display: flow-root;
-        vertical-align: middle;
-        width: 424px;
-        margin-top: 5%;
-        margin-left: auto;
-        margin-right: auto;
+    display: block;
+    width: 400px;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
     }
 
     #done_div {
@@ -349,7 +358,13 @@
     .basket {
         margin: 4%;
     }
+    #content-desktop {
+            display: flex;
+        }
 
+        #content-mobile {
+            display: none;
+        }
     @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         body {
             height: 1500px;
@@ -494,8 +509,9 @@
 
         #choosecolor {
             padding-bottom: 0%;
-            font-size: 30px;
+            font-size:  20px;
             font-family: "nunitolight";
+            text-align: center;
         }
 
 
@@ -935,13 +951,14 @@
             padding-bottom: 10%;
             font-size: 25px;
             font-family: "nunitolight";
+            text-align: center;
         }
 
  
 
     }
 
-    @media only screen and (min-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 1) {
+    @media only screen and (min-device-width: 1920px) and (max-device-width: 2159px) and (-webkit-min-device-pixel-ratio: 1) {
 
         .row {
             margin: 0 50px;
@@ -1207,7 +1224,9 @@
                     </div>
                     <div class="col-25">
                         <div id="changecolour" hidden>
+                            <p id="choosecolor"></p>
                             <table id="colourtable">
+                             
                             </table>
                             <table id="colourtable2">
                             </table>

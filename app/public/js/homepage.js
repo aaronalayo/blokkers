@@ -4,7 +4,7 @@ let currentPos = 0;
 
 
 
-$(document).ready(function() {
+function playVideo() {
     document.getElementById('intro-video').play();
     for(let i = 0; i < $('.page').length; i++){
         let elm = $('.page')[i];
@@ -13,56 +13,57 @@ $(document).ready(function() {
         }
         
     }
+}
     // document.addEventListener("touchmove", scrollUp, true);
     // document.addEventListener("scroll", scrollDown, true);
-    document.addEventListener('touchmove', function(e) {e.preventDefault();}, true);
-    document.addEventListener('scroll', function(e) {e.preventDefault();}, true);
-    $(document).bind('DOMMouseScroll', { passive: false }, function(e){
+//     document.addEventListener('touchmove', function(e) {e.preventDefault();}, true);
+//     document.addEventListener('scroll', function(e) {e.preventDefault();}, true);
+//     $(document).bind('DOMMouseScroll', { passive: false }, function(e){
  
-        if(e.originalEvent.detail > 0) {
-            scrollDown();
-        }else {
-            scrollUp();   
-        }
-        return false;
-    });
+//         if(e.originalEvent.detail > 0) {
+//             scrollDown();
+//         }else {
+//             scrollUp();   
+//         }
+//         return false;
+//     });
 
-    $(document).bind('mousewheel', { passive: false }, function(e){
-        e.preventDefault();
-        if(e.originalEvent.wheelDelta < 0) {
-            scrollDown();
-        }else {
-            scrollUp();     
-        }
-        return false;
-    });
-});
+//     $(document).bind('mousewheel', { passive: false }, function(e){
+//         e.preventDefault();
+//         if(e.originalEvent.wheelDelta < 0) {
+//             scrollDown();
+//         }else {
+//             scrollUp();     
+//         }
+//         return false;
+//     });
+// };
     
-function scrollUp(){
-    if(!scrolling && currentPos > 0 ){
-        scrolling = true;
-        currentPos --;
-        let scrollToElement = $('.page')[currentPos];
-        $('html, body').animate({
-            scrollTop: $(scrollToElement).offset().top
-        }, 400, function(){
-            scrolling = false;
-        });      
-    }
-};   
+// function scrollUp(){
+//     if(!scrolling && currentPos > 0 ){
+//         scrolling = true;
+//         currentPos --;
+//         let scrollToElement = $('.page')[currentPos];
+//         $('html, body').animate({
+//             scrollTop: $(scrollToElement).offset().top
+//         }, 400, function(){
+//             scrolling = false;
+//         });      
+//     }
+// };   
 
-function scrollDown(){   
-    if(!scrolling && currentPos < $('.page').length-1  ){
-        scrolling = true;
-        currentPos ++;
-        let scrollToElement = $('.page')[currentPos];
-        $('html, body').animate({
-            scrollTop: $(scrollToElement).offset().top
-        }, 400,function(){
-            scrolling = false;
-        }); 
-    }
-};    
+// function scrollDown(){   
+//     if(!scrolling && currentPos < $('.page').length-1  ){
+//         scrolling = true;
+//         currentPos ++;
+//         let scrollToElement = $('.page')[currentPos];
+//         $('html, body').animate({
+//             scrollTop: $(scrollToElement).offset().top
+//         }, 400,function(){
+//             scrolling = false;
+//         }); 
+//     }
+// };    
 
 
 // let slideIndex = 1;

@@ -1,11 +1,12 @@
 
-let posters = JSON.parse(sessionStorage.getItem("posters"));
+
 
 
 
 // console.log(posters)
 //displays all posters that are added to basket
 function displayPosters() {
+    let posters = JSON.parse(sessionStorage.getItem("posters"));
     //checks if there are posters added, if not it shows empty-basket div
     if (typeof posters === undefined || !posters || posters === "" || posters.length < 1) {
         $("#basket-header").hide();
@@ -70,16 +71,19 @@ function displayPosters() {
 };
 
 function updateQuantity(poster, quantity) {
-    posters.forEach(p => {
-        if (p.pname === poster.pname) {
-            p.quantity = quantity;
-            
-            let price = p.price * p.quantity;
-            sessionStorage.setItem("posters", JSON.stringify(posters));
-            $("#" + poster.pname + "-price").text(price.toFixed(2)+" DKK");
-            calculateTotal();
-        }
-    });
+    let posters = JSON.parse(sessionStorage.getItem("posters"));
+    if (posters) {
+        posters.forEach(p => {
+            if (p.pname === poster.pname) {
+                p.quantity = quantity;
+
+                let price = p.price * p.quantity;
+                sessionStorage.setItem("posters", JSON.stringify(posters));
+                $("#" + poster.pname + "-price").text(price.toFixed(2) + " DKK");
+                calculateTotal();
+            }
+        });
+    }
 };
 
 //increments the quantity of the poster 
@@ -110,16 +114,19 @@ function decrement(poster) {
 
 //removes a poster from the sessionStorage
 function remove(poster) {
-    posters.forEach(p => {
-        if (p.pname === poster.pname) {
-            const index = posters.indexOf(p);
-            if (index > -1) {
-                posters.splice(index, 1);
-                sessionStorage.setItem("posters", JSON.stringify(posters));
-                window.location.href = window.location.href
+    let posters = JSON.parse(sessionStorage.getItem("posters"));
+    if (posters) {
+        posters.forEach(p => {
+            if (p.pname === poster.pname) {
+                const index = posters.indexOf(p);
+                if (index > -1) {
+                    posters.splice(index, 1);
+                    sessionStorage.setItem("posters", JSON.stringify(posters));
+                    window.location.href = window.location.href
+                }
             }
-        }
-    });
+        });
+    }
 };
 
 //gets the formats with their prices and returns them as Promise
@@ -161,7 +168,7 @@ async function calculatePosterPrice(poster) {
 };
 
 function calculateTotal() {
-
+    let posters = JSON.parse(sessionStorage.getItem("posters"));
     let total = 0;
     let subTotal = 0;
     let taxes = 0;
@@ -213,7 +220,7 @@ async function applyDiscount() {
     total = parseFloat(total.substr(0, 6)).toFixed(2);
     let node = document.getElementById('discount-amount');
     let discountText = node.textContent || node.innerText;
-        console.log(discountText);
+        // console.log(discountText);
     await getDiscounts().then(data => {
         if (data) {
             for (let [key] of Object.entries(data.discounts)) {

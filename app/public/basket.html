@@ -73,7 +73,7 @@
   .container {
     background-color: transparent;
     padding: 10px 10px 10px 10px;
-
+    min-height: 90vh;
   }
 
   .btn {
@@ -264,17 +264,26 @@
     background-color: white;
 
   }
-  
+
 
   #total-amount-box {
-
     background-color: #c0c0c0;
-    /* float: right; */
     padding: 2%;
     width: 260px;
     height: 200px;
     border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
   }
+  .basket-items {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    width: 600px;
+ 
+  }
+
 
   #empty-basket {
     text-align: center;
@@ -290,35 +299,40 @@
     margin: 2%;
   }
   input[type=text] {
-background-color: rgb(190, 190, 190);
+    background-color: rgb(190, 190, 190);
     margin-bottom: 20px;
     padding: 0.65em 2em;
     border: transparent;
     border-radius: 8px;
-
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     font-family: 'nunitobold';
     outline: none;
     text-decoration: none;
+    width: 180px;
   }
-  .coupon{
+
+    .coupon {
     display: inline-block;
     margin-right: auto;
-    margin-left: 12%;
-
+    margin-left: 25%;
     margin-top: 5%;
     text-align: center;
   }
-  #add-button {
-    background-color: rgb(148, 139, 139);
-    text-decoration: none;
-    text-align: center;
-    padding: 0.65em 2em;
+   #add-button {
+    /* text-decoration: none; */
+    padding: 0.65em 2em;;
+    border-radius: 7px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
     border: 0;
     cursor: pointer;
-    color: rgb(255, 255, 255);
+    background-color: #919191;
+    width: 25%;
     outline: none;
     font-family: 'nunitobold';
-
+    margin: 0 auto;
   }
 
   @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -645,7 +659,7 @@ background-color: rgb(190, 190, 190);
   }
 
 }
-@media only screen and (min-device-width: 1680px) and (max-device-width: 2000px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 1680px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 2) {
   html {
 
 scroll-snap-type: y mandatory;
@@ -737,7 +751,7 @@ scroll-snap-stop: always;
 
 }
 
-@media only screen and  (min-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 1920px) and (max-device-width: 2159px) and (-webkit-min-device-pixel-ratio: 1) {
   ::-webkit-scrollbar {
         -webkit-appearance: none;
         width: 7px;
@@ -883,4 +897,3 @@ margin: 0 auto;
  
 </body>
 
-</html>

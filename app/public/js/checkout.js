@@ -47,15 +47,17 @@ function displayCart(){
 
 //Display the total for all posters in the cart
 function countInPosters() {
+  if(sessionStorage.posters){
   let posters = JSON.parse(sessionStorage.posters);
   let count = 0;
   let totalItems = 0;
   for (let i = 0; i < posters.length; i++) {
     count = posters[i].quantity;
     totalItems+= count
-    console.log(totalItems)
+    // console.log(totalItems)
   }
   return totalItems
+}
 };
 
 $("#totalItems").text(countInPosters())
@@ -93,6 +95,7 @@ function getDiscounts() {
 };
 //Sets the total price 
 async function setTotal() {
+  if(sessionStorage.posters){
   let posters = JSON.parse(sessionStorage.posters);
   let totalOrder = 0;
   let subTotal;
@@ -122,15 +125,17 @@ async function setTotal() {
       subTotal = poster.price * poster.quantity
       // console.log(subTotal)
       totalOrder += subTotal;
-      console.log(totalOrder);
+      // console.log(totalOrder);
     });
     totalOrder = totalOrder.toFixed(Math.max(((totalOrder+'').split(".")[1]||"").length, 2)); 
     $("#totalprice").text(totalOrder+" DKK");
   }
   return totalOrder
+}
 };
 
 function setTaxes(){
+  if(sessionStorage.posters){
   let posters = JSON.parse(sessionStorage.posters);
   let taxes= 0;
  let subTotal;
@@ -141,6 +146,7 @@ function setTaxes(){
   taxes = taxes.toFixed(Math.max(((taxes+'').split(".")[1]||"").length, 2));
   $("#totalTaxes").text(taxes);
   return taxes
+}
 };
 
 //Regex expressions for form validation

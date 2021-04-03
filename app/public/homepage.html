@@ -120,8 +120,7 @@
     }
 
     .center {
-        padding-left: 15%;
-        padding-right: 15%;
+
         margin-left: auto;
         margin-right: auto;
         padding-top: 35%;
@@ -288,8 +287,7 @@
     }
 
     .btn-box {
-        display: block;
-        padding-right: 15%;
+        padding-right: 0;
         padding-top: 10%;
     }
 
@@ -371,6 +369,16 @@
 
     .content-mobile {
         display: none;
+    }
+    #subscribe-text{
+        font-family: "nunitoregular";
+    font-size: 1rem;
+    text-align: justify;
+    width: 700px;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    margin-top: 15%;
+    display: inline-block;
     }
 
     @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -523,9 +531,16 @@
         #containerinspiration {
 
             width: 375px;
-            height: 200px;
+            height: 250px;
 
         }
+        #subscribe-text{
+        width: 340px;
+        font-size: 0.7em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1%;
+    }
 
         #receive {
             font-size: 1.5em;
@@ -666,6 +681,14 @@
         .mySlides img {
             height: 760px;
         }
+        .center {
+        padding-left: 0%; 
+        padding-right: 0%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 35%;
+        padding-bottom: 25%;
+        }
 
         #createyourown {
             width: 400px;
@@ -686,11 +709,13 @@
         #receive {
             font-size: 3em;
             width: 520px;
+            padding-left: 10%;
         }
 
         #firstorder {
             font-size: 3em;
-             width: 520px;
+            width: 520px;
+            padding-left: 10%;
         }
         input[type=text] {
 
@@ -702,9 +727,12 @@
     }
     .btn-box {
     display: -webkit-box;
-    /* padding-right: 35%; */
+    padding-right: 0;
+    padding-left: 0;
     padding-top: 10%;
-    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 520px;
 }
     
 
@@ -715,7 +743,13 @@
         margin-left: auto;
 
     }
-
+    #subscribe-text{
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+   
+        margin-top: 15%;
+    }
     #inspiration-text {
 
         left: 60.5%;
@@ -732,9 +766,10 @@
 
     }
 </style>
+<body onload=" playVideo()">
 <div id="homepage" class="content-desktop">
     <div class="row">
-        <div class="col-100">
+        <!-- <div class="col-100"> -->
             <div class="logo">
                 <div class="container">
                     <div class="row">
@@ -770,7 +805,7 @@
                 </div>
 
             </div>
-        </div>
+        <!-- </div> -->
     </div>
 </div>
 <div id="inspirationssection" class="content-desktop">
@@ -784,15 +819,19 @@
 
                         <div class="center">
                             <p id="receive">Receive 10% off</p>
-                            <p id="firstorder">your first order</p>
+                            <p id="firstorder">your first order*</p>
 
                             <div class="btn-box">
                                 <input type='text' name='subscribe' size="30" placeholder="Enter your email here">
                                 <button id="subscribe-button" type="submit">Subscribe</button>
+                                <p id="subscribe-text">
+                                    *Sign up for the BLOKKERS newsletter and receive a coupon code by mail that gives you 10% off your first order. 
+                                    When you subscribe you agree to receiving news and other special offers by mail.
+                                </p>
                             </div>
-
+                        
                         </div>
-
+                     
 
                     </div>
                 </div>
@@ -894,10 +933,13 @@
 
                         <div class="center">
                             <p id="receive">Receive 10% off</p>
-                            <p id="firstorder">your first order</p>
+                            <p id="firstorder">your first order*</p>
 
                             <input type='text' name='subscribe' size="30" placeholder="Enter your email here">
-
+                            <p id="subscribe-text">
+                                *Sign up for the BLOKKERS newsletter and receive a coupon code by mail that gives you 10% off your first order. 
+                                When you subscribe you agree to receiving news and other special offers by mail.
+                            </p>
 
                         </div>
                         <button id="subscribe-button" type="submit">Subscribe</button>
@@ -946,7 +988,7 @@
         </div>
     </div>
 </div>
-
+</body>
 <script>
     let slideIndex = 0;
     showSlides();
