@@ -40,7 +40,7 @@
         margin-right: 10%; 
         font-family: "nunitobold"; 
     }
-    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
     .footer {
     padding-top: 10%;
     position: sticky; 
@@ -77,16 +77,45 @@
         margin-right: 0;
     }
 }
-    @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 767px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+
+
+#social-logos {
+    width: 25%;
+    margin-left: 28%;
+}
+#facebook{
+    margin-left: 8%;
+    margin-right: 8%;
+}
+#pinterest{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.fab, .far {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+  }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
     .footer {
     position: sticky; 
     bottom: 0;
-    
+    padding-top: 10%;
     }
     #tac p{
        
        text-align: start;
      }
+     #conditions-column {
+    width: 30%;
+    margin-right: 8%;
+}
+
     }
     @media only screen and  (max-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 1) {
 
@@ -105,12 +134,12 @@
                 <p>København</p>
             </span>
         </div>
-        <div id="social-logos"  style="">
+        <div id="social-logos">
             <a href="https://www.instagram.com/blokkersdk/" target="_blank" rel="noopener noreferrer"><i  class="fab fa-instagram" style="font-size:45px; margin-left: 1%;margin-right: 1%;"></i></a>
-            <i class="fab fa-facebook" style="font-size:45px; margin-left: 1%;margin-right: 1%;"></i>
-            <a href="https://www.pinterest.dk/5520bde8c9abe992b0f6af36ff5c80/_saved/" target="_blank" rel="noopener noreferrer"><i class="fab fa-pinterest" style="font-size:45px; margin-left: 1%;margin-right: 1%;"></i></a>
+            <a id="facebook" href="https://www.facebook.com/Blokkers-100834935458639/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" style="font-size:45px; margin-left: 1%;margin-right: 1%;" ></i></a>
+            <a href="https://www.pinterest.dk/5520bde8c9abe992b0f6af36ff5c80/_saved/" target="_blank" rel="noopener noreferrer"><i class="fab fa-pinterest" style="font-size:45px; margin-left: 1%;margin-right: 1%;" id="pinterest"></i></a>
         </div>
-       <div id="conditions-column" style="">
+       <div id="conditions-column">
         <span >
             <p ><a id="tac" href="mailto:hello@blokkers.dk" >Terms & Conditions</a></p>
             <p style="margin-top: 2%;"><a href="mailto:hello@blokkers.dk" >Privacy policy</a></p>

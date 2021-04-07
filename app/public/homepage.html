@@ -1,29 +1,30 @@
 <style>
-   html {
-            /* -webkit-overflow-scrolling: touch !important; */
-            -webkit-overflow-scrolling: auto !important;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            scroll-snap-stop: always;
-            /* overflow-x: hidden; */
-        }
-        ::-webkit-scrollbar {
-            -webkit-appearance: none;
-            width: 7px;
-        }
+    html {
+        /* -webkit-overflow-scrolling: touch !important; */
+        -webkit-overflow-scrolling: auto !important;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        scroll-snap-stop: always;
+        /* overflow-x: hidden; */
+    }
 
-        ::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, .5);
-            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        }
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
 
 
 
     * {
         box-sizing: border-box;
-    
-        
+
+
 
     }
 
@@ -39,6 +40,7 @@
          */
         margin: 0;
         padding: 0;
+        width: 100%;
 
     }
 
@@ -72,10 +74,10 @@
 
     .container {
         background-color: transparent;
-        padding: 0;
-        margin-top: 1.2%;
+        padding-top: 1%;
         display: flex;
-       
+        width: fit-content;
+
     }
 
     video::-webkit-media-controls-panel {
@@ -84,109 +86,8 @@
 
     }
 
-
-    #intro-video {
-        width: 1400px;
-        height: 900px;
-        margin: auto;
-    }
-
-    .video-container {
-        width: 110em;
-        height: 1000px;
-        margin-top: 0;
-        margin-left: auto;
-        margin-right: 1.5%;
-        border: 0px solid #c0c0c0;
-        background-color: #F2F2F2;
-        display: flex;
-    }
-
-    .box-container {
-        border: 0px solid #c0c0c0;
-        /* margin-left: auto;
-        margin-right: auto; */
-        display: flex;
-        text-align: center;
-        background-color: #CBDEC4;
-        width: 47.5em;
-        height: 1000px;
-        margin-left: 4.2%;
-        margin-top: 0%;
-        margin-right: 0%;
-        /* float: right; */
-        padding-right: 0;
-        padding-left: 0;
-    }
-
-    .center {
-
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 35%;
-        padding-bottom: 25%;
-    }
-
-
-
-    .centered a {
-        padding-left: 10%;
-        padding-right: 10%;
-        padding-top: 10%;
-    }
-
-
-    #createyourown {
-        max-width: 100%;
-        margin-top: 0%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
-        font-size: 5rem;
-        font-family: "nunitobold";
-        margin-bottom: 0;
-        width: 500px;
-
-    }
-
-    #unique {
-        max-width: 100%;
-
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 0;
-        margin-bottom: 0;
-        text-align: left;
-        font-size: 5rem;
-        font-weight: lighter;
-        font-family: "nunitoextralight";
-    }
-
-    #poster {
-        max-width: 100%;
-
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 0;
-        text-align: left;
-        font-size: 5rem;
-        font-weight: lighter;
-        font-family: "nunitoextralight";
-        margin-bottom: 35%;
-
-    }
-
-    #create-here {
-        font-size: 2.25em;
-        font-family: "nunitobold";
-        text-decoration: none;
-        padding: 1em 1.5em;
-        border-radius: 8px;
-        color: #fff;
-        background-color: #DA6B31;
-        border: 0;
-        cursor: pointer;
-        margin-top: 0%;
+    #inspirationssection {
+        padding-bottom: 10%;
     }
 
     .logo {
@@ -194,32 +95,142 @@
         margin-right: auto;
         margin-top: 3%;
         margin-bottom: 3%;
-        width: 200px;
-
+        width: 100%;
+        border: 0px solid #c0c0c0;
+        background-color: transparent;
+        height: intrinsic;
     }
 
     #logo_img {
-        width: 200px;
+        width: 10%;
         margin-left: auto;
         margin-right: auto;
+        height: intrinsic;
     }
 
-    .img-container {
+    #intro-video {
+        position: relative;
+        width: 80%;
+        height: auto;
+        margin: auto;
+    }
+
+    .video-container {
+        width: 65%;
+        height: auto;
+        border: 0px solid #c0c0c0;
+        background-color: #F2F2F2;
+        display: flex;
+    }
+
+    .box-container {
+        border: 0px solid #c0c0c0;
+        display: flex;
+        text-align: center;
+        background-color: #CBDEC4;
+        /* width: 100%; */
+        height: 100%;
+        margin-left: 3%;
+    }
+
+    #containerinspiration {
+        border: 0px solid #c0c0c0;
+        display: flex;
+        text-align: center;
+        background-color: #E79B70;
+        /* width: 100%; */
+        height: 100%;
+
+
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+        display: flex;
+        position: relative;
+        /* object-fit: fill; */
+        width: 98.5%;
+        height: auto;
+        max-height: 100%;
+        border: 0px solid #c0c0c0;
         background-color: transparent;
-        padding: 0px 0px 0px 0px;
-
+        margin-left: 1.5%;
     }
+
+
+    .center-box-container {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25%;
+        padding-bottom: 20%;
+    }
+
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30%;
+        padding-bottom: 2%;
+    }
+
+    .centered a {
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 10%;
+    }
+
+    #createyourown {
+        max-width: 100%;
+        margin-top: 0%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 7.15vmin;
+        font-family: "nunitobold";
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    #unique {
+        width: 100%;
+
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: center;
+        font-size: 7.15vmin;
+        font-weight: lighter;
+        font-family: "nunitoextralight";
+        padding-bottom: 20%;
+    }
+
+    #create-here {
+        font-size: 4vmin;
+        font-family: "nunitoextrabold";
+        text-decoration: none;
+        padding: 0.65em 1em;
+        border-radius: 15px;
+        color: #fff;
+        background-color: #004942;
+        border: 0;
+        cursor: pointer;
+        margin-top: auto;
+        width: auto;
+    }
+
+
+
 
     #receive {
         max-width: 100%;
         margin-top: 0;
         margin-left: auto;
         margin-right: auto;
-        text-align: left;
-        font-size: 4.5rem;
+        text-align: center;
+        font-size: 5vmin;
         font-family: "nunitobold";
         margin-bottom: 0;
-        width: 600px;
+        width: 100%;
 
     }
 
@@ -228,25 +239,25 @@
         margin-right: auto;
         margin-top: 0;
         margin-bottom: 0;
-        text-align: left;
-        font-size: 4.5rem;
+        text-align: center;
+        font-size: 5vmin;
         font-weight: lighter;
         font-family: "nunitoextralight";
-        width: 600px;
+        width: 100%;
     }
 
     input[type=text] {
         margin-left: auto;
         margin-right: auto;
-        width: 500px;
+        width: 80%;
         margin-top: 15%;
-        margin-bottom: 20px;
+        margin-bottom: 5%;
         padding: 0.65em 3em;
         border: transparent;
         /* border-radius: 8px; */
-        height: 50px;
+        /* height: 50px; */
         font-family: 'nunitobold';
-        font-size: 1.15em;
+        font-size: 2.15vmin;
         outline: none;
         text-decoration: none;
 
@@ -255,44 +266,33 @@
     ::-webkit-input-placeholder {
         /* Edge */
         color: rgb(0, 0, 0);
-        font-size: 1.10em;
+        font-size: 2.15vmin;
         appearance: none;
     }
 
     :-ms-input-placeholder {
         /* Internet Explorer 10-11 */
         color: rgb(0, 0, 0);
-        font-size: 1.10em;
+        font-size: 2.15vmin;
     }
 
     ::placeholder {
         color: rgb(0, 0, 0);
-        font-size: 1.10em;
+        font-size: 2.15vmin;
     }
 
 
 
-    #containerinspiration {
-        border: 0px solid #c0c0c0;
-        display: flex;
-        text-align: center;
-        background-color: #E79B70;
-        width: 47.5em;
-        height: 1000px;
-        margin-left: 0%;
-        margin-top: 0%;
-        margin-right: 0%;
-        padding-right: 0;
-        padding-left: 0;
-    }
+
 
     .btn-box {
         padding-right: 0;
-        padding-top: 10%;
+        padding-top: 5%;
+        padding-bottom: 38%;
     }
 
     #subscribe-button {
-        font-size: 2.25em;
+        font-size: 2vmin;
         font-family: "nunitobold";
         text-decoration: none;
         padding: 1em 1.5em;
@@ -304,20 +304,33 @@
         margin-top: 5%;
         margin-right: auto;
         margin-left: auto;
+        width: auto;
+    }
 
+    #subscribe-text {
+        font-family: "nunitoregular";
+        font-size: 1.15vmin;
+        text-align: justify;
+        width: 80%;
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+        margin-top: auto;
+        margin-bottom: 0;
+        padding-bottom: 0%;
+        display: inline-block;
     }
 
     #inspiration-text {
-        max-height: 100%;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
         position: absolute;
-        left: 61.5%;
-        margin-top: 35%;
+        left: 58.85%;
+        margin-top: -8%;
         text-align: center;
-        font-size: 3.5em;
+        font-size: 3.5vmin;
         font-family: "nunitobold";
+        color: black;
+        margin-bottom: 0;
+        z-index: 1;
+        /* width: auto; */
         color: #ffffff;
     }
 
@@ -326,11 +339,11 @@
         border: 0.6px solid #ffffff;
         margin-right: 10%;
         margin-inline-start: 0%;
-        width: 10.5%;
+        width: 100%;
         position: absolute;
-        left: 61.5%;
+        left: 40;
         display: block;
-        margin-top: 38%;
+        margin-top: -15%;
     }
 
 
@@ -342,25 +355,16 @@
         display: none;
     }
 
-    .mySlides img {
-        height: 1000px;
-    }
+    /* .mySlides img {
+        height: 100%;
+    } */
 
     img {
         vertical-align: middle;
 
     }
 
-    /* Slideshow container */
-    .slideshow-container {
-        width: 110em;
-        height: 1000px;
-        display: block;
-        position: absolute;
-        margin-left: 1.25%;
-        margin-right: 0;
-        object-fit: cover;
-    }
+
 
 
     .content-desktop {
@@ -370,18 +374,9 @@
     .content-mobile {
         display: none;
     }
-    #subscribe-text{
-        font-family: "nunitoregular";
-    font-size: 1rem;
-    text-align: justify;
-    width: 700px;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-    margin-top: 15%;
-    display: inline-block;
-    }
 
-    @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+
+    @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
         .content-desktop {
             display: none;
         }
@@ -398,7 +393,7 @@
             overflow-y: scroll !important;
             scroll-snap-stop: always;
             -webkit-overflow-scrolling: touch !important;
-           
+
         }
 
         .col {
@@ -408,7 +403,7 @@
         .col-25 {
             -ms-flex: 25%;
             flex: 25%;
-            float: left;
+
 
         }
 
@@ -416,19 +411,29 @@
             margin: 0;
         }
 
+        .container {
+            background-color: transparent;
+            padding: 0;
+            margin: 0;
+            display: block;
+            width: auto;
+        }
+
         .logo {
             margin-left: auto;
             margin-right: auto;
             margin-top: 5%;
-            width: 200px;
-            padding-left: 10%;
+            width: 100%;
+            height: intrinsic;
+
         }
 
         #logo_img {
-            width: 100px;
-            height: 60px;
+            width: 30%;
+            height: auto;
             margin-left: auto;
             margin-right: auto;
+            height: intrinsic;
         }
 
         .centered {
@@ -448,38 +453,52 @@
             padding-left: 90%;
         }
 
-        .container {
-            background-color: transparent;
-            padding: 0;
-            margin: 0;
-            display: block;
+        .center {
+            padding-left: 5%;
+            padding-right: 2%;
+            padding-top: 10%;
+            width: auto;
+            height: 140px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0%;
+            margin-bottom: 8%;
+        }
+
+        .center-box-container {
+            padding-left: 5%;
+            padding-right: 2%;
+            padding-top: 0;
+            width: auto;
+            height: 140px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0%;
+            margin-bottom: 8%;
+
         }
 
         #intro-video {
-            width: 375px;
-            height: 250px;
+            width: 100%;
+            height: auto;
         }
 
         .video-container {
-            width: 375px;
-            height: 230px;
+            width: 100%;
+            height: 100%;
             margin-left: 0%;
             margin-top: 0%;
             margin-right: 0%;
             float: right;
-            padding-bottom: 0;
-            border: 0px solid #c0c0c0;
-            border-radius: 0px;
             display: block;
         }
 
         .box-container {
-            border: 0px solid #c0c0c0;
+
             display: -webkit-inline-box;
-            text-align: center;
-            background-color: #CBDEC4;
-            width: 375px;
-            height: 150px;
+
+            width: 100%;
+            height: 200px;
             margin-left: 0%;
             margin-top: 0%;
             margin-right: 0%;
@@ -491,106 +510,114 @@
 
 
 
-        .center {
-            padding-left: 5%;
-            padding-right: 2%;
-            padding-top: 8%;
-            width: 230px;
-            margin-left: 0;
-            margin-right: 0;
-        }
+
 
         #createyourown {
 
-            font-size: 1.5em;
+            font-size: 7.5vmin;
+            text-align: center;
+            margin-top: 18%;
         }
 
         #unique {
-            font-size: 1.5em;
+            font-size: 7.5vmin;
+            text-align: center;
+            margin-bottom: 0%;
+            padding-bottom: 10%;
         }
 
-        #poster {
-            font-size: 1.5em;
+        /* #poster {
+            font-size:  7.5vmin;
 
-        }
+        } */
 
-
-        #create-here {
-
-            font-size: 1em;
-            margin-top: 20%;
-            height: 50px;
-        }
 
         #btn-create {
-            /* float: right; */
             display: flex;
-            width: 200px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 15%;
         }
+
+        #create-here {
+            font-size: 5vmin;
+            border-radius: 8px;
+        }
+
+
 
         #containerinspiration {
 
-            width: 375px;
-            height: 250px;
+            width: 100%;
+            height: 300px;
+
 
         }
-        #subscribe-text{
-        width: 340px;
-        font-size: 0.7em;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1%;
-    }
+
+        #subscribe-text {
+            width: fit-content;
+            font-size: 3vmin;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+        }
 
         #receive {
-            font-size: 1.5em;
+            font-size: 7.5vmin;
+            text-align: center;
         }
 
         #firstorder {
-            font-size: 1.5em;
+            font-size: 7.5vmin;
+            text-align: center;
         }
 
         input[type=text] {
             margin-left: auto;
-            margin-right: auto;
-            width: 200px;
-            margin-top: 15%;
-            font-size: 0.7em;
-            padding: 0.1em 3em;
+            margin-right: 5%;
+            width: 50%;
+            font-size: 4vmin;
+            padding: 0.2em 1em;
+            height: 50px;
+        }
+
+        ::-webkit-input-placeholder {
+            /* Edge */
+            color: rgb(0, 0, 0);
+            font-size: 3vmin;
+            appearance: none;
+        }
+
+        :-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: rgb(0, 0, 0);
+            font-size: 3vmin;
+        }
+
+        ::placeholder {
+            color: rgb(0, 0, 0);
+            font-size: 3vmin;
         }
 
         #subscribe-button {
-            font-size: 1em;
-            margin-right: 4.5%;
+            font-size: 5vmin;
+            margin: auto;
+            height: fit-content;
             margin-left: auto;
-            width: 120px;
-            margin-top: 34%;
-            height: 50px;
-            display: inline-block;
-
+            margin-right: auto;
+            margin-top: 10%;
 
         }
 
 
 
         #inspiration-text {
-            font-size: 1em;
-            width: 50px;
-
-            top: 16%;
-            left: 38.5%;
+            left: 42%;
+            margin-top: 45%;
         }
 
 
-        .hr-text {
-            width: 10.5%;
-            top: 18%;
-            left: 38.5%;
-            display: flex;
-            width: 80px;
-        }
-
-      
 
         .mySlides-mobile {
             display: none;
@@ -617,7 +644,45 @@
 
     }
 
-    @media only screen and (min-device-width: 1920px) and (max-device-width: 2159px) and (-webkit-min-device-pixel-ratio: 1) {
+    @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+
+        #containerinspiration {
+            height: 400px;
+        }
+
+        #inspiration-text {
+            left: 42.5%;
+            margin-top: 45%;
+            font-size: 5.5vmin;
+
+        }
+
+        #inspirationssection {
+            padding-bottom: 250px;
+        }
+
+        #social-logos {
+            width: 15%;
+            margin-left: 32%;
+        }
+    }
+
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 1) {
+        .video-container {
+            display: block;
+        }
+
+        .btn-box {
+            padding-bottom: 25%;
+        }
+
+        #subscribe-text {
+            font-size: 1.5vmin;
+
+        }
+    }
+
+    /* @media only screen and (min-device-width: 1920px) and (max-device-width: 2159px) and (-webkit-min-device-pixel-ratio: 1) {
         html {
             -webkit-overflow-scrolling: auto !important;
             scroll-snap-type: y mandatory;
@@ -764,56 +829,59 @@
     }
 
 
-    }
+    } */
 </style>
-<body onload=" playVideo()">
-<div id="homepage" class="content-desktop">
-    <div class="row">
-        <!-- <div class="col-100"> -->
-            <div class="logo">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-25">
 
-                            <img id="logo_img" src="images/Blokkers_logo.png">
-                        </div>
+<body onload=" playVideo()">
+    <div id="homepage" class="content-desktop">
+
+        <div class="row">
+            <div class="col-100">
+                <div class="logo">
+                    <!-- <div class="container"> -->
+                    <div class="row">
+                        <!-- <div class="col-25"> -->
+
+                        <img id="logo_img" src="images/Blokkers_logo.png">
+                        <!-- </div> -->
                     </div>
+                    <!-- </div> -->
                 </div>
-            </div>
-            <div class="container">
-                <div class="col-75">
+                <div class="container">
+
+                    <!-- <div class="col-75"> -->
                     <div class="video-container">
                         <video id="intro-video" loop playsinline autoplay muted>
-                            <source src="video/blokkers_intro.mp4" type="video/mp4">
+                            <source src="video/blokkers_intro_4k.m4v" type="video/mp4">
                             <!-- <source src="movie.ogg" type="video/ogg"> -->
                         </video>
 
                     </div>
 
-                </div>
-                <div class="col-25">
-                    <div class="box-container">
-                        <div class="center">
-                            <p id="createyourown">Create your</p>
-                            <p id="unique">own unique</p>
-                            <p id="poster">poster</p>
-                            <a href="/createposter" id="create-here">Click here!</a>
+                    <!-- </div> -->
+                    <div class="col-25">
+                        <div class="box-container">
+                            <div class="center-box-container">
+                                <p id="createyourown">Create your own </p>
+                                <p id="unique">unique poster</p>
+                                <!-- <p id="poster"></p> -->
+                                <a href="/createposter" id="create-here">Start now!</a>
+                            </div>
+
+
                         </div>
-
-
                     </div>
+
                 </div>
-
+                <!-- </div> -->
             </div>
-        <!-- </div> -->
+        </div>
     </div>
-</div>
-<div id="inspirationssection" class="content-desktop">
+    <div id="inspirationssection" class="content-desktop">
 
 
-    <div class="col-100">
-        <div class="container" style="padding-bottom: 10%;">
-            <div class="row">
+        <div class="row">
+            <div class="container">
                 <div class="col-25">
                     <div id="containerinspiration">
 
@@ -824,170 +892,181 @@
                             <div class="btn-box">
                                 <input type='text' name='subscribe' size="30" placeholder="Enter your email here">
                                 <button id="subscribe-button" type="submit">Subscribe</button>
-                                <p id="subscribe-text">
-                                    *Sign up for the BLOKKERS newsletter and receive a coupon code by mail that gives you 10% off your first order. 
-                                    When you subscribe you agree to receiving news and other special offers by mail.
-                                </p>
-                            </div>
-                        
-                        </div>
-                     
-
-                    </div>
-                </div>
-
-                <div class="img-container">
-                    <div class="col-75">
-                        <div class="slideshow-container">
-                            <div class="mySlides fade">
-                                <!-- <div class="numbertext">1 / 4</div> -->
-                                <img src="images/agnete2 kopi.png" style="width:100%">
-                                <!-- <div class="text">Caption Text</div> -->
-                            </div>
-
-                            <div class="mySlides fade">
-                                <!-- <div class="numbertext">2 / 4</div> -->
-                                <img src="images/august2.png" style="width:100%">
-                                <!-- <div class="text">Caption Two</div> -->
-                            </div>
-
-                            <div class="mySlides fade">
-                                <!-- <div class="numbertext">3 / 4</div> -->
-                                <img src="images/marie2 kopi.png" style="width:100%">
 
                             </div>
 
-                            <div class="mySlides fade">
-                                <!-- <div class="numbertext">4 / 4</div> -->
-                                <img src="images/blm2 kopi.png" style="width:100%">
-                                <!-- <div class="text">Caption Four</div> -->
-                            </div>
-                            <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                            <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
-
-                        </div>
-                        <div>
-                            <p id="inspiration-text">Inspiration</p>
-                            <hr class="hr-text">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<div id="homepage" class="content-mobile">
-    <div class="row">
-        <div class="col-100">
-            <div class="logo">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-25">
-
-                            <img id="logo_img" src="images/Blokkers_logo.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="col-25">
-                    <div class="box-container">
-                        <div class="center">
-                            <p id="createyourown">Create your </p>
-                            <p id="unique">own unique</p>
-                            <p id="poster">poster</p>
-
-                        </div>
-                        <div id="btn-create">
-                            <a href="/createposter" id="create-here">Click here!</a>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-75">
-                    <div class="video-container">
-                        <video id="intro-video" loop playsinline autoplay muted>
-                            <source src="video/blokkers_intro.mp4" type="video/mp4">
-                            <!-- <source src="movie.ogg" type="video/ogg"> -->
-                        </video>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
-    </div>
-</div>
-<div id="inspirationssection" class="content-mobile">
-
-
-    <div class="col-100">
-        <div class="container" style="padding-bottom: 10%;">
-            <div class="row">
-                <div class="col-25">
-                    <div id="containerinspiration">
-
-                        <div class="center">
-                            <p id="receive">Receive 10% off</p>
-                            <p id="firstorder">your first order*</p>
-
-                            <input type='text' name='subscribe' size="30" placeholder="Enter your email here">
                             <p id="subscribe-text">
-                                *Sign up for the BLOKKERS newsletter and receive a coupon code by mail that gives you 10% off your first order. 
+                                *Sign up for the BLOKKERS newsletter and receive a coupon code by mail that gives you
+                                10% off your first order.
                                 When you subscribe you agree to receiving news and other special offers by mail.
                             </p>
-
                         </div>
-                        <button id="subscribe-button" type="submit">Subscribe</button>
+
+
+
+
                     </div>
                 </div>
+
+
                 <div class="col-75">
-                    <div class="img-container">
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <!-- <div class="numbertext">1 / 4</div> -->
+                            <img src="images/agnete2 kopi.png" style="width:100%; height: auto;">
+                            <!-- <div class="text">Caption Text</div> -->
+                        </div>
 
-                        <div class="slideshow-container">
-                            <div class="mySlides-mobile fade">
-                                <!-- <div class="numbertext">1 / 4</div> -->
-                                <img src="images/agnete2 kopi.png" style="width:100%">
-                                <!-- <div class="text">Caption Text</div> -->
+                        <div class="mySlides fade">
+                            <!-- <div class="numbertext">2 / 4</div> -->
+                            <img src="images/august2.png" style="width:100%; height: auto;">
+                            <!-- <div class="text">Caption Two</div> -->
+                        </div>
+
+                        <div class="mySlides fade">
+                            <!-- <div class="numbertext">3 / 4</div> -->
+                            <img src="images/marie2 kopi.png" style="width:100%; height: auto;">
+
+                        </div>
+
+                        <div class="mySlides fade">
+                            <!-- <div class="numbertext">4 / 4</div> -->
+                            <img src="images/blm2 kopi.png" style="width:100%; height: auto;">
+                            <!-- <div class="text">Caption Four</div> -->
+                        </div>
+                        <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+
+                    </div>
+                    <div id="inspiration-text">
+                        <p>Inspiration</p>
+                        <hr class="hr-text">
+                    </div>
+
+                </div>
+                <!-- </div> -->
+            </div>
+
+        </div>
+
+    </div>
+    <div id="homepage" class="content-mobile">
+        <div class="row">
+            <div class="col-100">
+                <div class="logo">
+                    <!-- <div class="container"> -->
+                    <div class="row">
+                        <!-- <div class="col-25"> -->
+
+                        <img id="logo_img" src="images/Blokkers_logo.png">
+                    </div>
+                    <!-- </div> -->
+                    <!-- </div> -->
+                </div>
+                <div class="container">
+                    <div class="col-25">
+                        <div class="box-container">
+                            <div class="center-box-container">
+                                <p id="createyourown">Create your own</p>
+                                <p id="unique">unique poster</p>
+                                <!-- <p id="poster"></p> -->
+                                <div id="btn-create">
+                                    <a href="/createposter" id="create-here">Start now!</a>
+                                </div>
+
                             </div>
 
-                            <div class="mySlides-mobile fade">
-                                <!-- <div class="numbertext">2 / 4</div> -->
-                                <img src="images/august2.png" style="width:100%">
-                                <!-- <div class="text">Caption Two</div> -->
+                        </div>
+                    </div>
+                    <div class="col-75">
+                        <div class="video-container">
+                            <video id="intro-video" loop playsinline autoplay muted>
+                                <source src="video/blokkers_intro_hd.m4v" type="video/mp4">
+                                <!-- <source src="movie.ogg" type="video/ogg"> -->
+                            </video>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="inspirationssection" class="content-mobile">
+
+
+        <div class="col-100">
+            <div class="container" style="padding-bottom: 10%;">
+                <div class="row">
+                    <div class="col-25">
+                        <div id="containerinspiration">
+
+                            <div class="center">
+                                <p id="receive">Receive 10% off</p>
+                                <p id="firstorder">your first order*</p>
+
+                                <input type='text' name='subscribe' size="30" placeholder="Enter your email here">
+                                <button id="subscribe-button" type="submit">Subscribe</button>
+                                <p id="subscribe-text">
+                                    *Sign up for the BLOKKERS newsletter and receive a coupon code by mail that gives
+                                    you 10% off your first order.
+                                    When you subscribe you agree to receiving news and other special offers by mail.
+                                </p>
+
                             </div>
 
-                            <div class="mySlides-mobile fade">
-                                <!-- <div class="numbertext">3 / 4</div> -->
-                                <img src="images/marie2 kopi.png" style="width:100%">
+                        </div>
 
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-75">
+                            <div class="img-container">
 
-                            <div class="mySlides-mobile fade">
-                                <!-- <div class="numbertext">4 / 4</div> -->
-                                <img src="images/blm2 kopi.png" style="width:100%">
-                                <!-- <div class="text">Caption Four</div> -->
-                            </div>
-                            <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                <div class="slideshow-container">
+                                    <div class="mySlides-mobile fade">
+                                        <!-- <div class="numbertext">1 / 4</div> -->
+                                        <img src="images/agnete2 kopi.png" style="width:100%">
+                                        <!-- <div class="text">Caption Text</div> -->
+                                    </div>
+
+                                    <div class="mySlides-mobile fade">
+                                        <!-- <div class="numbertext">2 / 4</div> -->
+                                        <img src="images/august2.png" style="width:100%">
+                                        <!-- <div class="text">Caption Two</div> -->
+                                    </div>
+
+                                    <div class="mySlides-mobile fade">
+                                        <!-- <div class="numbertext">3 / 4</div> -->
+                                        <img src="images/marie2 kopi.png" style="width:100%">
+
+                                    </div>
+
+                                    <div class="mySlides-mobile fade">
+                                        <!-- <div class="numbertext">4 / 4</div> -->
+                                        <img src="images/blm2 kopi.png" style="width:100%">
+                                        <!-- <div class="text">Caption Four</div> -->
+                                    </div>
+                                    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                                     <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
-                            <p id="inspiration-text">Inspiration</p>
-                            <hr class="hr-text">
-                        </div>
-                        <div>
+                                    <!-- <p id="inspiration-text">Inspiration</p>
+                            <hr class="hr-text"> -->
+                                </div>
+                            </div>
+                            <div id="inspiration-text">
+                                <p>Inspiration</p>
+                                <hr class="hr-text">
+                            </div>
 
                         </div>
-
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-</div>
+    </div>
 </body>
 <script>
     let slideIndex = 0;
@@ -1020,5 +1099,3 @@
     }
 
 </script>
-
-

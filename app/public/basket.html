@@ -73,7 +73,7 @@
   .container {
     background-color: transparent;
     padding: 10px 10px 10px 10px;
-    min-height: 90vh;
+    min-height: 110vh;
   }
 
   .btn {
@@ -104,7 +104,7 @@
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    width: 1200px;
+    width: 70%;
 }
 
   #proceed-button {
@@ -114,14 +114,9 @@
     background-color:  #57B0B1;
     border: 0;
     cursor: pointer;
-    /* height: fit-content; */
-    /* margin-top: 20px; */
-    /* margin-bottom: auto; */
     color: rgb(255, 255, 255);
-    margin: 22%;
-    cursor: pointer;
     outline: none;
-
+    margin: 25%;
   }
 
   #create-button {
@@ -179,7 +174,7 @@
     border: 0.6px solid #c0c0c0;
     margin-right: 10%;
     margin-inline-start: 0%;
-    width: 120%;
+    width: 100%;
   }
 
   .size-poster {
@@ -309,14 +304,14 @@
     font-family: 'nunitobold';
     outline: none;
     text-decoration: none;
-    width: 180px;
+    width: 70%;
   }
 
     .coupon {
     display: inline-block;
     margin-right: auto;
-    margin-left: 25%;
-    margin-top: 5%;
+    margin-left: auto;
+    margin-top: 20%;
     text-align: center;
   }
    #add-button {
@@ -329,13 +324,13 @@
     border: 0;
     cursor: pointer;
     background-color: #919191;
-    width: 25%;
+    width: 30%;
     outline: none;
     font-family: 'nunitobold';
     margin: 0 auto;
   }
 
-  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
     html {
 
       scroll-snap-type: y mandatory;
@@ -351,6 +346,7 @@
 
 
     }
+    
 
     .col {
       width: 50%;
@@ -393,9 +389,7 @@
     .basket-items {
       margin-left: auto;
       margin-right: auto;
-      /* margin: 2%; */
-    /* display: inline-block; */
-    width: 100%;
+      width: 100%;
     }
  
     .basket-table {
@@ -562,28 +556,20 @@
     vertical-align: middle;
   }
   }
-  @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
-    ::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 7px;
-        }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 1) {
+    .row {
 
-        ::-webkit-scrollbar-thumb {
-        border-radius: 4px;
-        background-color: rgba(0, 0, 0, .5);
-        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        }
-        
-        html {
-          -webkit-overflow-scrolling: auto;
-        -webkit-overflow-scrolling: touch !important; 
-        -webkit-overflow-scrolling: auto !important;
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-        scroll-snap-stop: always
-    }
-.container{
-  min-height: 50vh;
+padding-left: 5%;
+padding-right: 5%;
+display: -ms-flexbox;
+/* IE10 */
+display: flex;
+-ms-flex-wrap: wrap;
+/* IE10 */
+flex-wrap: wrap;
+margin: 0 80px;
+
+
 }
     .remove-poster-btn {
     border: none;
@@ -592,7 +578,7 @@
   }
   #basket-header {
     margin-top: 10%;
-    width: 800px;
+    width: 100%;
 }
 #empty-basket {
     margin-left: auto;
@@ -603,32 +589,28 @@
     font-size: 30px;
 
   }
-  .basket-items {
+   .basket-items {
     margin-left: auto;
     margin-right: auto;
     margin-top: 2%;
-    width: 400px;
+    width: 100%;
   }
-  
-  #total-amount-box {
-    margin-right: 10%;
-    margin-top: 2%;
-
+  .basket-devider{
+    width: 100%;
   }
 
 
   #total-amount-box {
-    width: 200px;
-    height: 200px;
-    padding: 2%;
-    margin-left: auto;
-    margin-right: auto;
-    float: none;
+    width: 220px;
+    height: 210px;
+
   }
+
 
   #proceed-button {
-    margin: 16%;
+    margin: 22%;
   }
+  /*
   input[type=text] {
 
     width: 75%;
@@ -656,10 +638,10 @@
     width: 50%;
     margin: 0 auto;
     vertical-align: middle;
-  }
+  } */
 
 }
-@media only screen and (min-device-width: 1680px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 2) {
+/* @media only screen and (min-device-width: 1680px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 2) {
   html {
 
 scroll-snap-type: y mandatory;
@@ -734,7 +716,7 @@ scroll-snap-stop: always;
     text-align: center;
   }
   #add-button {
-    /* text-decoration: none; */
+
     text-align: center;
     padding: 0.65em 2em;;
     border-radius: 7px;
@@ -839,7 +821,7 @@ font-family: 'nunitobold';
 margin: 0 auto;
 }
 
-}
+} */
 </style>
 <body onload=" displayPosters(),calculateTotal()">
 <div class="row">
@@ -881,12 +863,15 @@ margin: 0 auto;
               style="float: right;" id="discount-amount" ></span></p>
             <p style="margin-bottom: 12%;"><span style="font-size: 15px;margin-bottom: 14%;">Total</span><span
                 style="float: right;" id="total-amount"></span></p>
-            <a href="/checkout" class="mbtn button" id="proceed-button">Checkout</a>
-           
-            </div>
+                <div>
+                  <a href="/checkout" class="mbtn button" id="proceed-button">Checkout</a>
+                </div>
+            
             <div class="coupon">
               <input type="text" id="discount" placeholder="Enter discount code"><button id="add-button" type="submit" onclick="applyDiscount()">Add</button>  
             </div>
+            </div>
+           
           </div>
         </div>
       </div>

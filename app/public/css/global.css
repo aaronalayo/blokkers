@@ -381,7 +381,7 @@ img {
       scroll-snap-type: y mandatory;
       overflow-y: scroll;
       scroll-snap-stop: always;
-      width: fit-content;
+      /* width: fit-content; */
     
     }
 
