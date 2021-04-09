@@ -381,7 +381,7 @@
 
         .col {
             width: 50%;
-            float: left;
+           
         }
 
         .col-25 {
@@ -391,12 +391,15 @@
 
         }
 
+        .col-25, .col-50, .col-75 {
+        padding: 0;
+        }
         .row {
-            margin: 2%;
+            margin: 0;
         }
 
         .container {
-            padding: 0px 0px 0px 10px;
+            padding: 0px 0px 0px 0px;
             min-height: 200vh;
 
         }
@@ -416,8 +419,8 @@
 
 
         #choose-size {
-            padding-top: 1%;
-            padding-right: 0%;
+        padding-top: 10%;
+        padding-right: 0%;
         }
 
         #choose-size span {
@@ -429,54 +432,75 @@
         }
 
         #write_name {
-            width: 240px;
-            margin-left: auto;
-            margin-right: 0;
-            font-size: 90%;
-            margin-bottom: 10%;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 5vmin;
+        margin-bottom: 10%;
+        }
+        #write_name p, input {
+        font-size: 4vmin;
         }
 
         #write_name #type {
             margin-top: 2%;
-        }  
-    #seasonal {
-        padding-top: 5%;
-        padding-bottom: 2%;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    }
+        #write_name #something {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: -10%;
 
-        #write_name input {
-
-            width: 55%;
-
+        }
+       
+        #write_name #maxletters {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -8%;
+     
+        }
+        .fa-2x {
+        font-size: 2.5em;
+        }
+        .set-width {
+            width: 70%;
         }
 
         #posterfooter {
-            font-size: 0.9em;
+            font-size: 4vmin;
         }
 
-        #posterdiv {
-            width: 240px;
+      
+        #tablealfabet {
+        font-size: 5.5vmin;
+        width: 100%;
+        }
+        #next_button {
 
+        margin-left: auto;
+        margin-right: auto;
+        }
+        #posterdiv {
             margin-left: auto;
             margin-right: auto;
 
         }
-
         #tableposter {
-            width: 240px;
+            width: fit-content;
             margin-left: auto;
             margin-right: auto;
         }
 
         #tableposter img {
-            width: 5em;
+            width: 5.5em;
 
         }
 
         #changecolour {
-            width: 232px;
-            ;
+            width: 100%;
+           
             display: block;
             margin-left: auto;
             margin-right: auto;
@@ -493,19 +517,27 @@
         #colourtable img {
             width: 3.5em;
             display: block;
-           
+            
+        }
+        #colourtable{
+            width: fit-content;
+        }
+        #colourtable2{
+            width: fit-content;
         }
         #colourtable2 img {
             width: 3.5em;
             display: block;
-           
         }
 
         #choosecolor {
-            padding-bottom: 0%;
-            font-size:  20px;
-            font-family: "nunitolight";
-            text-align: center;
+        padding-bottom: 0%;
+        font-size: 5.5vmin;
+        font-family: "nunitolight";
+        text-align: center;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
         }
 
 
@@ -1116,6 +1148,7 @@
         }
     } */
 </style>
+<body >
 <div id="createposter">
     <div class="row">
         <div class="col-75">
