@@ -1,22 +1,258 @@
 <style>
-    html{
-        overflow: scroll;
+    html {
+        /* -webkit-overflow-scrolling: touch !important; */
+        -webkit-overflow-scrolling: auto !important;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        scroll-snap-stop: always;
+        /* overflow-x: hidden; */
+    }
+
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
+
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .row {
+        display: -ms-flexbox;
+        /* IE10 */
+        display: flex;
+        -ms-flex-wrap: wrap;
+        /* IE10 */
+        flex-wrap: wrap;
+        margin: 0 100px;
+
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+    }
+
+    .container {
+        padding: 10px 10px 10px 10px;
+        min-height: 100vh;
+        background-color: transparent;
+        display: flex;
+        width: 100%;
+
+    }
+
+    .col-25 {
+        -ms-flex: 25%;
+        /* IE10 */
+        flex: 25%;
+    }
+
+    .centered {
+        padding-right: 30%;
+        padding-left: 30%;
+        padding-top: 5%;
+    }
+
+    .img-container {
+        width: 100%;
+        height: auto;
+        border: 0px solid #c0c0c0;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about-container {
+        width: 100%;
+        height: auto;
+        border: 0px solid #c0c0c0;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #about_image {
+        width: 80%;
+        height: auto;
+    }
+
+    .about_container {
+        width: 100%;
+        height: 100%;
+        border: 0px solid #c0c0c0;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #about {
+        text-align: center;
+        font-family: "nunitobold";
+    }
+
+    #about_text {
+        font-family: "nunitolight";
+        font-size: 1.55vmin;
+
+        text-align: start;
+        text-indent: 0px;
+        line-height: 1.6;
+        display: flex;
+        margin-top: 0;
+        width: 90%;
+
+    }
+
+    /* p { margin-top: 0 !important; margin-left: 0 !important; text-indent:0 !important;} */
+    #quot_text {
+        font-family: "nunitolight_italic";
+        font-size: 1.55vmin;
+
+        text-align: left;
+        text-indent: 0px;
+        line-height: 1.6;
+        display: flex;
+        margin-top: 20%;
+        width: 90%;
+    }
+
+    #wecreated {
+        text-align: center;
+        font-family: "nunitolight";
+        font-size: 2vmin;
+        margin-top: 5%;
+        margin-bottom: 1%;
+    }
+
+    #now {
+        text-align: center;
+        font-family: "nunitobold";
+        font-size: 2vmin;
+        margin-bottom: 10%;
+        margin-top: 0;
+    }
+    hr{
+        width:50%; 
+        text-align:center;
+    }
+
+    @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+        html {
+
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll !important;
+            scroll-snap-stop: always;
+            -webkit-overflow-scrolling: touch !important;
+
+        }
+
+        .col {
+            width: 50%;
+        }
+
+        .row {
+            margin: 0;
+            display: block;
+        }
+
+        .centered {
+            padding-right: 10%;
+            padding-left: 10%;
+            padding-top: 5%;
+        }
+
+
+
+        #about_image {
+            width:100%;
+            height: intrinsic;
+        }
+
+        #about_text {
+            margin-top: 10%;
+            text-align: center;
+            font-size: 4.3vmin;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #quot_text {
+            font-family: "nunitolight_italic";
+            font-size: 4.3vmin;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #wecreated {
+        font-size: 4vmin;
+
+    }
+
+    #now {
+        font-size: 4vmin;
+    }
+        hr{
+        width:80%; 
+        text-align:center;
+        }
     }
 </style>
-<div class="centered">
-    <h1 id="about">ABOUT</h1>
-    <hr style= "width:100%; text-align:center">
-    <h3 id="abouttext">
-        Behind Blokkers is Danish Pinkorange Studio, which dedicates 
-        their work to creating thoughtful and influential design solutions. 
-        We have a love for colors and know of their positive impact on people. 
-        Therefore, we want, with our design, to show that one should not be afraid 
-        to put colors together in different ways. The posters combine modern and 
-        contrasting color combinations with a geometric design, which results in 
-        a bold and timeless design. Here at our webshop, you put the finishing 
-        touches on the design through your own choice of letters, shapes and colors. 
-        We hope you will love creating the final look just as much as we have loved 
-        perfecting the graphic elements and amazing color combinations. 
-        And then we hope the final poster will bring joy to the nursery, office, 
-        living room or anywhere else in your home.</h3>
+<div class="container">
+    <div class="centered">
+        <h1 id="about">ABOUT</h1>
+        <hr id="divider" >
+        <div class="row">
+            <div class="col-25">
+                <div id="about-header">
+                    <p id="wecreated">
+                        WE CREATED THE BLOCKS
+                    </p>
+                    <p id="now">
+                        NOW YOU BUILD THE POSTER
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-25">
+                <div class="img-container">
+                    <img id="about_image" src="images/about_image.jpg">
+                </div>
+
+            </div>
+            <div class="col-25">
+                <div calss="about-container">
+                    <p id="about_text">
+                        BLOKKERS is a modern poster concept designed by
+                        the danish design duo Pinkorange Studio who makes
+                        sustainable and influential solutions come to life. The
+                        posters combine unique and contrasting colors with a
+                        geometric design resulting in a bold yet timeless look.
+                        At BLOKKERS we hope that your one-of-a-kind poster
+                        will bring joy to the nursery, office, living room or
+                        anywhere else in your home.
+
+                    </p>
+                    <p id="quot_text">
+                        “We have a love for colors and their impact on people.
+                        The goal with our design is to show that you shouldn’t
+                        be afraid of frisky and brave color combinations”
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </div>
+</body>
+
+</html>

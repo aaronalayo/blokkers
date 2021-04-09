@@ -272,17 +272,7 @@ button.mbtn {
 
 
 
-#about {
-  font-family: "nunitoextrabold";
-  text-align: center;
-}
-#abouttext {
-  font-family: "nunitolight";
-  font-size: 20px;
-  text-align: justify;
-  text-indent: 50px;
-  line-height: 1.6;
-}
+
 
 .radiowrapper input[type="radio"] {
   visibility: hidden;
