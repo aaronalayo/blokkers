@@ -558,9 +558,6 @@
 
     @media only screen and (min-device-width: 768px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 1) {
 
-        /* body {
-            height: 800px;
-        } */
         html {
             /* -webkit-overflow-scrolling: touch !important; */
             -webkit-overflow-scrolling: auto !important;
@@ -595,7 +592,6 @@
         }
 
         .col-25 {
-            width: 200px;
             -ms-flex: 25%;
             flex: 25%;
 
@@ -607,8 +603,8 @@
         }
 
         .container {
-            padding: 0px 0px 0px 10px;
-            height: 90vh;
+            padding: 0px 0px 0px 0px;
+            height: 80vh;
 
         }
 
@@ -625,30 +621,32 @@
             margin: 0%;
 
         }
-
-        #choose-size span {
-            font-size: 10px;
-            margin: 0%;
-        }
-
         #choose-size p {
             margin: 0%;
-            font-size: 20px;
+            font-size: 25px;
 
         }
         
+        #choose-size span {
+            font-size: 20px;
+        }
+
+        
         #write_name {
-            margin-top: 0;
-            width: 240px;
-            margin-left: 0;
-            margin-right: 0;
-            font-size: 70%;
-            margin-bottom: 10%;
+            /* margin-top: 10%; */
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 2vmin;
+            /* margin-bottom: 50%; */
         }
         #tableposter {
         border: none;
         display: block;
         border-collapse: collapse;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
 
     }
 
@@ -659,26 +657,9 @@
         }
 
         #tableposter img {
-            width: 5em;
+            width: 5.5em;
         }
 
-        #choose-size span {
-            font-size: 20px;
-        }
-
-        #choose-size p {
-            font-size: 25px;
-            margin: 0%;
-        }
-
-        #write_name {
-            margin-top: -2%;
-            width: 240px;
-            margin-left: 0;
-            margin-right: 0;
-            font-size: 80%;
-            margin-bottom: 50%;
-        }
 
         #write_name #type {
             margin-left: -25%;
@@ -742,10 +723,10 @@
     }
 
         #posterdiv {
-            width: 240px;
             margin-top: 2%;
             margin-left: auto;
             margin-right: auto;
+            width: fit-content;
         }
         #done_div{
             width: 110px;

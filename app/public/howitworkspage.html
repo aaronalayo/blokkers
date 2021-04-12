@@ -1,0 +1,192 @@
+<style>
+    html {
+        /* -webkit-overflow-scrolling: touch !important; */
+        -webkit-overflow-scrolling: auto !important;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        scroll-snap-stop: always;
+        /* overflow-x: hidden; */
+    }
+
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
+
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .row {
+        display: -ms-flexbox;
+        /* IE10 */
+        display: flex;
+        -ms-flex-wrap: wrap;
+        /* IE10 */
+        flex-wrap: wrap;
+        margin: 0 100px;
+
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+    }
+
+    .container {
+        padding: 10px 10px 10px 10px;
+        min-height: 90vh;
+        background-color: transparent;
+        display: flex;
+        width: fit-content;
+
+    }
+
+    .col-25 {
+        -ms-flex: 25%;
+        /* IE10 */
+        flex: 25%;
+    }
+
+    .centered {
+        padding-left: 30%;
+        padding-right: 30%;
+        padding-top: 5%;
+    }
+    #title {
+        text-align: center;
+        font-family: "nunitobold";
+    }
+    hr{
+        width:40%; 
+        text-align:center;
+    }
+    .how-container p{
+    font-family: "nunitolight";
+    font-size: 0.8vw;
+    text-align: left;
+    text-indent: 0px;
+    line-height: 1.2;
+    margin-top: 0; 
+    }
+    #header{
+    font-family: "nunitolight";
+    font-size: 0.8vw;
+    text-align: left;
+    text-indent: 0px;
+    line-height: 1.2;
+    margin-top: 0; 
+    }
+    #how-header{
+        margin-top: 5%;
+    }
+    .how-container{
+        margin-top: 10%;
+    }
+    .btn-container{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+        width: fit-content;
+    }
+    #create-here {
+    font-size: 2vmin;
+    font-family: "nunitoextrabold";
+    text-decoration: none;
+    padding: 0.65em 1em;
+    border-radius: 15px;
+    color: #fff;
+    background-color: #cac7c7;
+    border: 0;
+    cursor: pointer;
+    margin-top: auto;
+    width: auto;
+    }
+    @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+        .centered {
+    padding-left: 12%;
+    padding-right: 12%;
+    padding-top: 5%;
+    }
+    .how-header, .how-container p {
+    font-size: 4.5vmin;
+    text-align: -webkit-center;
+    }
+    #create-here {
+    font-size: 4vmin;
+    }
+    }
+
+</style>
+<div class="container">
+    <div class="centered">
+        <h1 id="title">How it works</h1>
+        <hr id="divider" >
+        <div class="row">
+            <div class="col-25">
+                <div id="how-header">
+                    <p id="header">
+                        Here at our webshop you put the finishing touches on the posters through your own choice of
+                        letters, shapes, colors and sizes. With 29 letters in 8 different color schemes there are more than a
+                        billion different combinations. The sky is quite literally the limit! We hope you’ll love creating your
+                        own poster as much as we’ve loved perfecting the building blocks.
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <div class="how-container">
+                    <p>
+                        <strong>1. Pick your prefered size</strong> between our 3 options A3 (297 x 420 mm), A2 (420 x 594 mm) and A1
+                        (594 x 841 mm). Your poster will be printed by professionals on semi matte 170 g. FSC®-certified
+                        photo paper with vibrant high quality colors and vegetable inks. We’re committed to environmental
+                        
+                        protection with a modern and sustainable use of paper. Posters are printed and shipped from Denmark also ensuring low environmental impact.
+                    </p>
+                    <p>
+                        <strong>2. Now use the on-screen keyboard to type whatever you want.</strong> It can be your name, hometown,
+                        a quote you love or simply a random word. The graphic form of the letters and the 8 different color
+                        variations allow you to create endless shapes and patterns. Explore the opportunities and have fun
+                        with it! Need inspiration? Check out our instagram.
+                    </p>
+                    <p>
+                    <strong>3. After creating your final design we’ll ask you if you’re satisfied - If yes you can complete the 
+                        order</strong> by filling out your contact, shipping and payment information. We accept all cards and Mobile-
+                        Pay for a secure and easy transaction.
+                    </p>
+                    <p> 
+                        <strong>4. Shortly after completing the order you’ll receive a confirmation by email</strong> confirming product
+                        and shipping details. If you have no objections to the information stated in the email all there’s left to
+                        do is to wait for your package to arrive.
+                    </p>
+                    <p>  
+                        <strong>5. When you receive your poster hang it somewhere nice from where it can spark happiness</strong> to
+                        
+                        everyone who passes it. It’s our recommendation that you place it in a frame to protect it from poten-
+                        tial damage caused by sunlight, dirt or humidity. We would love to see your final design hanging in
+                        
+                        your home! Share it on your socials or DM us a photo at @blokkersdk.
+
+                    </p>
+             
+                </div>
+                <div class="btn-container">
+                    <a href="/createposter" id="create-here">Start now!</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>

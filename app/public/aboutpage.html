@@ -41,10 +41,10 @@
 
     .container {
         padding: 10px 10px 10px 10px;
-        min-height: 100vh;
+        min-height: 90vh;
         background-color: transparent;
         display: flex;
-        width: 100%;
+        width: fit-content;
 
     }
 
@@ -55,42 +55,36 @@
     }
 
     .centered {
-        padding-right: 30%;
         padding-left: 30%;
+        padding-right: 30%;
         padding-top: 5%;
     }
 
     .img-container {
-        width: 100%;
+        width: 80%;
         height: auto;
         border: 0px solid #c0c0c0;
-        display: flex;
-        margin-left: auto;
-        margin-right: auto;
+        display: block;
+        margin-left: 2%;
+        margin-right: 2%;
     }
 
     .about-container {
         width: 100%;
-        height: auto;
+    
+        
         border: 0px solid #c0c0c0;
-        display: flex;
-        margin-left: auto;
-        margin-right: auto;
+        display: block;
+        margin-left: 2%;
+        margin-right: 2%;
+
     }
 
     #about_image {
-        width: 80%;
-        height: auto;
-    }
-
-    .about_container {
-        width: 100%;
-        height: 100%;
-        border: 0px solid #c0c0c0;
-        display: flex;
-        margin-left: auto;
-        margin-right: auto;
-    }
+    width: 100%;
+    height: auto;
+    min-width: 200px;
+}
 
     #about {
         text-align: center;
@@ -98,29 +92,23 @@
     }
 
     #about_text {
-        font-family: "nunitolight";
-        font-size: 1.55vmin;
-
-        text-align: start;
-        text-indent: 0px;
-        line-height: 1.6;
-        display: flex;
-        margin-top: 0;
-        width: 90%;
-
+    font-family: "nunitolight";
+    font-size: 1vw;
+    text-align: start;
+    text-indent: 0px;
+    line-height: 1.2;
+    margin-top: 0; 
     }
 
     /* p { margin-top: 0 !important; margin-left: 0 !important; text-indent:0 !important;} */
     #quot_text {
-        font-family: "nunitolight_italic";
-        font-size: 1.55vmin;
-
-        text-align: left;
-        text-indent: 0px;
-        line-height: 1.6;
-        display: flex;
-        margin-top: 20%;
-        width: 90%;
+    font-family: "nunitolight";
+    font-size: 1vw;
+    text-align: start;
+    text-indent: 0px;
+    line-height: 1.2;
+    margin-top: 7%;
+        
     }
 
     #wecreated {
@@ -168,24 +156,29 @@
             padding-top: 5%;
         }
 
+        .img-container {
 
+    margin-left: auto;
+    margin-right: auto;
+}
 
         #about_image {
             width:100%;
             height: intrinsic;
+            min-width: 200px;
         }
 
         #about_text {
             margin-top: 10%;
             text-align: center;
-            font-size: 4.3vmin;
+            font-size: 4vmin;
             margin-left: auto;
             margin-right: auto;
         }
 
         #quot_text {
             font-family: "nunitolight_italic";
-            font-size: 4.3vmin;
+            font-size: 4vmin;
             text-align: center;
             margin-left: auto;
             margin-right: auto;
@@ -229,7 +222,7 @@
 
             </div>
             <div class="col-25">
-                <div calss="about-container">
+                <div class="about-container">
                     <p id="about_text">
                         BLOKKERS is a modern poster concept designed by
                         the danish design duo Pinkorange Studio who makes

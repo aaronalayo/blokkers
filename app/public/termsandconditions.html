@@ -1,0 +1,276 @@
+<style>
+    html {
+        /* -webkit-overflow-scrolling: touch !important; */
+        -webkit-overflow-scrolling: auto !important;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        scroll-snap-stop: always;
+        /* overflow-x: hidden; */
+    }
+
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
+
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .row {
+        display: -ms-flexbox;
+        /* IE10 */
+        display: flex;
+        -ms-flex-wrap: wrap;
+        /* IE10 */
+        flex-wrap: wrap;
+        margin: 0 100px;
+
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+    }
+
+    .container {
+        padding: 10px 10px 10px 10px;
+        min-height: 90vh;
+        background-color: transparent;
+        display: flex;
+        width: fit-content;
+
+    }
+
+    .col-25 {
+        -ms-flex: 25%;
+        /* IE10 */
+        flex: 25%;
+    }
+
+    .centered {
+        padding-left: 30%;
+        padding-right: 30%;
+        padding-top: 5%;
+    }
+
+    #title {
+        text-align: center;
+        font-family: "nunitobold";
+    }
+
+    hr {
+        width: 40%;
+        text-align: center;
+    }
+
+    .tac-container p {
+        font-family: "nunitolight";
+        font-size: 0.8vw;
+        text-align: left;
+        text-indent: 0px;
+        line-height: 1.2;
+        margin-top: 0;
+    }
+
+    .bullet-points {
+        font-family: "nunitobold";
+        display: list-item;
+    }
+
+    #header {
+        font-family: "nunitolight";
+        font-size: 0.8vw;
+        text-align: left;
+        text-indent: 0px;
+        line-height: 1.2;
+        margin-top: 0;
+    }
+
+    #how-header {
+        margin-top: 5%;
+    }
+
+    .tac-container {
+        margin-top: 5%;
+    }
+
+    .btn-container {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+        width: fit-content;
+    }
+
+    #create-here {
+        font-size: 2vmin;
+        font-family: "nunitoextrabold";
+        text-decoration: none;
+        padding: 0.65em 1em;
+        border-radius: 15px;
+        color: #fff;
+        background-color: #cac7c7;
+        border: 0;
+        cursor: pointer;
+        margin-top: auto;
+        width: auto;
+    }
+
+    @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+        .centered {
+            padding-left: 12%;
+            padding-right: 12%;
+            padding-top: 5%;
+        }
+        #header{
+            font-size: 4vmin;;
+        }
+        .how-header,
+        .tac-container p {
+            font-size: 4vmin;
+            
+        }
+
+        #create-here {
+            font-size: 4vmin;
+        }
+    }
+</style>
+<div class="container">
+    <div class="centered">
+        <h1 id="title">Terms & Conditions</h1>
+        <hr id="divider">
+        <div class="row">
+            <div class="col-25">
+                <div id="how-header">
+                    <p id="header">
+                        Last updated: 18 February 2021
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <div class="tac-container">
+                    <p class="bullet-points">
+                        <strong>Introduction:</strong>
+                    </p>
+                    <p>
+                        Use of the BLOKKERS website and service constitutes the acceptance of the present terms and
+                        conditions.
+                        BLOKKERS reserves the right to modify the agreement at any time for any reason and the customer
+                        is responsible for reviewing any such modifications.
+
+                    </p>
+                    <p class="bullet-points">
+                        <strong>Product:</strong>
+                    </p>
+                    <p>
+                        The properties of the products can be found on www.blokkers.dk, where we do our best to
+                        represent each product truthfully.
+                        However BLOKKERS can not guarantee that online images, colors and descriptions are 100% truthful
+                        representations of the product.
+                        Any questions regarding product information can be directed to BLOKKERS at hello@blokkers.dk or
+                        +45 4234 9362.
+                    </p>
+                    <p class="bullet-points">
+                        <strong>Purchase of a product:</strong>
+                    </p>
+                    <p>
+                        Orders are placed by the customer exclusively on the BLOKKERS website. When the customer
+                        fulfills an order on www.blokkers.dk,
+                        the order is a binding offer to buy products under the terms and conditions shown here. BLOKKERS
+                        will ask the customer to approve
+                        both the design and the final order before completing the purchase. The customer is responsible
+                        for editing or deleting unwanted
+                        products from the shopping cart and for updating any mistakes in the information provided in
+                        regards to the order. An order is not
+                        binding or dispatched until the customer has clicked "approve order".
+                    </p>
+                    <p class="bullet-points">
+                        <strong>Payment:</strong>
+                    </p>
+                    <p>
+                        When placing an order the customer will be charged with the current fees as listed on the
+                        website at the time of purchase.
+                        Alle prices on the website are listed in Danish krone (DKK) and include delivery in Denmark and
+                        Europe. A customer who is
+                        located outside of the European Union is responsible for paying possible sales tax and custom
+                        duties. The customer is responsible
+                        for paying all fees, payments and applicable taxes associated with the product. The customer can
+                        pay with Dankort, VISA-Dankort,
+                        Mastercard, VISA, VISA Electron, Maestro, JCB Cards and MobilePay without fees. The total price
+                        which includes delivery must be
+                        made in full before dispatch of the order. After BLOKKERS receives an order the customer will
+                        receive a written confirmation on
+                        email that holds the description, price and further details of the order. Upon receiving the
+                        order confirmation it’s recommended
+                        that the customer reviews it for errors and inconsistencies immediately and contacts BLOKKERS if
+                        any are found.
+
+                    </p>
+                    <p class="bullet-points">
+                        <strong>Delivery:</strong>
+                    </p>
+                    <p>
+                        The estimated delivery dates given upon order and purchase can not be guaranteed by BLOKKERS.
+                        BLOKKERS will do their best to
+                        inform the customer of any significant delays in delivery.
+                    </p>
+                    <p class="bullet-points">
+                        <strong>Return policy:</strong>
+                    </p>
+                    <p>
+                        As the BLOKKERS products are produced uniquely according to each individual order the customer
+                        has no right to withdraw a product.
+                        This also means that gifts can’t be returned.
+                    </p>
+                    <p>However customers will have a period of 6 hours from the time the order is placed to modify or
+                        cancel the order. BLOKKERS is not
+                        obligated to make changes to any orders that are over 6 hours old. Instructions for modifying
+                        and cancelling
+                        a placed order can be found in the confirmation e-mail.
+                    </p>
+                    <p class="bullet-points">
+                        <strong>Warranty disclaimer:</strong>
+                    </p>
+                    <p>
+                        If a product is missing, damaged or wrongfully printed according to the customer's order
+                        BLOKKERS will replace this product
+                        with a new product without charge. BLOKKERS will not issue refunds in situations where the
+                        customer provided misinformation
+                        (ex. misspelling or invalid or misleading addresses) in the process of designing and ordering.
+                        If any customer wishes to issue
+                        a refund based on a missing, damaged or wrongfully printed product they should contact BLOKKERS
+                        on hello@blokkers.dk or +45 4234 9362.
+                        Return request will be processed promptly.
+
+                    </p>
+                    <p>
+                        A BLOKKERS poster is produced using high quality color printing and in order to care for the
+                        product it mustn’t be exposed
+                        to factors including, but not limited to humidity, dirt, direct sunlight or other forms of
+                        damage. The customer is responsible
+                        for applying the right product care and BLOKKERS can’t be held accountable for any fading in
+                        color or motive based on the aforementioned reasons.
+                    </p>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>

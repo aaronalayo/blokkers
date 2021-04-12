@@ -86,6 +86,8 @@ const paymentPage = fs.readFileSync("./public/paymentpage.html", 'utf8');
 const aboutPage = fs.readFileSync("./public/aboutpage.html", 'utf8');
 const contactPage = fs.readFileSync("./public/contactpage.html", 'utf8');
 const createPosterPage = fs.readFileSync("./public/createposterpage.html", 'utf8');
+const howItWorksPage = fs.readFileSync("./public/howitworkspage.html", "utf8");
+const termsAndConditions = fs.readFileSync("./public/termsandconditions.html", "utf8");
 const Format = require("./model/Format.js");
 const Order = require("./model/Order.js");
 const Item = require("./model/Item.js");
@@ -103,7 +105,8 @@ const about = "/about";
 const contact = "/contact";
 const createPoster = "/createposter";
 const discounts = "/discounts";
-
+const howitworks = "/howitworks";
+const termsandconditions = "/termsandcontions";
 
 
 
@@ -127,7 +130,16 @@ app.get(checkout, (req, res) => {
   res.send(navbar + checkoutPage + footerPage);
 
 });
+app.get(howitworks, (req, res) => {
 
+  res.send(navbar + howItWorksPage + footerPage);
+
+});
+app.get(termsandconditions, (req, res) => {
+
+  res.send(navbar + termsAndConditions + footerPage);
+
+});
 app.get(formats, async (req, res)=> {   
   const formats = await Format.query().select();
   res.json({ 'formats' : formats});
