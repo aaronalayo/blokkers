@@ -15,7 +15,7 @@ services:
       - "web-root:/var/www/html"
   nodejs: 
     build: 
-      context: "."
+      context: .
       dockerfile: Dockerfile
     container_name: blokkers-app
     image: blokkers-app
@@ -41,14 +41,14 @@ services:
       - "dhparam:/etc/ssl/certs"
 version: "3.8"
 volumes: 
-  certbot-etc: ~
-  certbot-var: ~
+  certbot-etc: 
+  certbot-var: 
   dhparam: 
     device: /home/aaron/blokkers/app/dhparam/
-    driver: local
-    type: none
-    driver_opts: ~
-    o: bind 
+    driver_opts:
+      driver: local
+      type: none
+      o: bind 
   web-root: 
     driver: local
     driver_opts:
