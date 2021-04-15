@@ -53,7 +53,7 @@ volumes:
     driver: local
     driver_opts: 
         type: none
-        device: /home/aaron/blokkers/dhparam
+        device: /home/aaron/blokkers/app/dhparam
         o: bind
 
 networks:
