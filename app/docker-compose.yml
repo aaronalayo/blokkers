@@ -5,8 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: blokkers-app
-    container_name: blokkers-app
+    image: blokkers
+    container_name: blokkers
     restart: unless-stopped
     networks:
       - app-network
