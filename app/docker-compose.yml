@@ -1,6 +1,7 @@
 version: '3.8'
 
-services: nodejs:
+services: 
+nodejs:
     build:
       context: .
       dockerfile: Dockerfile
