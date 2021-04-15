@@ -42,17 +42,16 @@ services:
 version: "3.8"
 volumes: 
   certbot-etc: 
-  certbot-var: 
-  dhparam: 
-    device: /home/aaron/blokkers/app/dhparam/
-    driver_opts:
-      driver: local
-      type: none
-      o: bind 
+  certbot-var:  
   web-root: 
     driver: local
     driver_opts:
       type: none
       device: /home/aaron/blokkers/app/public
       o: bind
-      
+  dhparam: 
+    device: /home/aaron/blokkers/app/dhparam/
+    driver_opts:
+    driver: local
+    type: none
+    o: bind
