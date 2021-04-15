@@ -5,8 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: nodejs
-    container_name: nodejs
+    image: blokkers-app
+    container_name: blokkers-app
     restart: unless-stopped
     networks:
       - app-network
