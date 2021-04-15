@@ -12,13 +12,13 @@ COPY / ./
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 3000:3000
 ENV HOST 0.0.0.0
 
 RUN npm install
 
 #RUN npm i dotenv
-ENV PORT=8080
+ENV PORT=3000
 
 
 CMD [ "npm", "run", "start-dev" ]

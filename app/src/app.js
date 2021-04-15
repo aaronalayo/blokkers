@@ -2,6 +2,9 @@
 const express = require("express");
 const helmet = require("helmet");
 const app = express();
+const server = require("http").createServer(app);
+let bodyParser = require('body-parser')
+const cookieParser = require("cookie-parser");
 const session = require('express-session');
 const request = require('request');
 
@@ -19,8 +22,31 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions))
 
-const server = require("http").createServer(app);
-let bodyParser = require('body-parser')
+app.use(cookieParser());
+app.use(session({
+  secret:'secret',
+  resave:false,
+  saveUninitialized:false,
+  cookie:{
+  maxAge:10000
+  }}));
+app.use(function (req, res, next) {
+  // check if client sent cookie
+  var cookie = req.cookies.cookieName;
+  if (cookie === undefined) {
+    // no: set a new cookie
+    var randomNumber=Math.random().toString();
+    randomNumber=randomNumber.substring(2,randomNumber.length);
+    res.cookie('www.blokkers.dk',randomNumber, { maxAge: 900000, httpOnly: true });
+    // console.log('cookie created successfully');
+  } else {
+    // yes, cookie was already present 
+    console.log('cookie exists', cookie);
+  } 
+  next(); // <-- important!
+});
+
+
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,20 +57,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true })); 
 app.use(express.json()); 
 
-// app.use(helmet());
-// '\'sha256-1XgMsIi6szxMi7JX5ZCg4KWReddGOu15C+cKuzlVaf4=\''
 
-// app.use(helmet.contentSecurityPolicy({
-//   directives:{
-//     defaultSrc:["'self'",'https:', "'unsafe-inline'" ],
-//     scriptSrc:["'self'","'unsafe-inline'",'http://*','ajax.googleapis.com','https://test.checkout.dibspayment.eu/v1/',"'unsafe-inline'","'unsafe-eval'"],
-//     styleSrc:["'self'",'cdnjs.cloudflare.com',"'unsafe-inline'",'https://test.checkout.dibspayment.eu/v1/assets/css/checkout.css','https://*'],
-//     // styleSrcElem:["'self'",'cdnjs.cloudflare.com','test.checkout.dibspayment.eu/v1/payments','unpkg.com/axios/dist/axios.min.js',"'unsafe-inline'","'unsafe-eval'"],
-//     fontSrc:["'self'",'cdnjs.cloudflare.com',"'unsafe-inline'"],
-//     frameSrc:["'self'"],
-//     // ,'https://test.checkout.dibspayment.eu/v1/payments','https://test.checkout.dibspayment.eu/'
-//     connectSrc: ["'self'"]}}));
-//     // , 'https://test.api.dibspayment.eu/v1/payments','https://test.checkout.dibspayment.eu/api/v1/theming/checkout'
 app.use(helmet.permittedCrossDomainPolicies());
 app.use(helmet.referrerPolicy());
 app.use(helmet.xssFilter());
@@ -111,7 +124,11 @@ const termsandconditions = "/termsandcontions";
 
 
 app.get(home, (req, res) => {
-  return res.send(navbar + homePage + footerPage);
+ 
+ 
+    return res.send(navbar + homePage + footerPage);
+  
+
 });
 
 app.get(satisfied, (req, res) => {
@@ -218,7 +235,7 @@ app.use(createRoute);
 
 
 //Server port
-const port = process.env.PORT ? process.env.PORT : 8080;
+const port = process.env.PORT ? process.env.PORT : 3000;
 const port2 = '0.0.0.0';
 
 server.listen(port, port2, (error) => {

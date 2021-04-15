@@ -370,6 +370,35 @@
     .content-mobile {
         display: none;
     }
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+
+
 
 
     @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -1059,7 +1088,7 @@
 
         </div>
     </div>
-    </div>
+
 </body>
 <script>
     let slideIndex = 0;
@@ -1090,5 +1119,6 @@
         slidesMob[slideIndexMob - 1].style.display = "block";
         setTimeout(showSlidesMob, 2000); // Change image every 2 seconds
     }
+
 
 </script>
