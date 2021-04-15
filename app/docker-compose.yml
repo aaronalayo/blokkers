@@ -36,7 +36,7 @@ services:
       - web-root:/var/www/html
     depends_on:
       - webserver
-    command: certonly --webroot --webroot-path=/var/www/html --email aaron.aa@me.com --agree-tos --no-eff-email --staging -d blokkers.dk  -d www.blokkers.dk
+    command: certonly --webroot --webroot-path=/var/www/html --email aaron.aa@me.com --agree-tos --no-eff-email --force-renewal -d blokkers.dk  -d www.blokkers.dk
 
 volumes:
   certbot-etc:
