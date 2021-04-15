@@ -1,60 +1,57 @@
-version: '3.8'
-
+--- 
+networks: 
+  app-network: 
+    driver: bridge
 services: 
-nodejs:
-    build:
-      context: .
+  certbot: 
+    command: "certonly --webroot --webroot-path=/var/www/html --email aaron.aa@me.com --agree-tos --no-eff-email --force-renewal -d blokkers.dk  -d www.blokkers.dk"
+    container_name: certbot
+    depends_on: 
+      - webserver
+    image: certbot/certbot
+    volumes: 
+      - "certbot-etc:/etc/letsencrypt"
+      - "certbot-var:/var/lib/letsencrypt"
+      - "web-root:/var/www/html"
+  nodejs: 
+    build: 
+      context: "."
       dockerfile: Dockerfile
-    image: blokkers-app
     container_name: blokkers-app
-    restart: unless-stopped
-    networks:
+    image: blokkers-app
+    networks: 
       - app-network
-
-  webserver:
-    image: nginx:mainline-alpine
-    container_name: webserver
     restart: unless-stopped
-    ports:
+  webserver: 
+    container_name: webserver
+    depends_on: 
+      - nodejs
+    image: "nginx:mainline-alpine"
+    networks: 
+      - app-network
+    ports: 
       - "80:80"
       - "443:443"
-    volumes:
-      - web-root:/var/www/html
-      - ./nginx-conf:/etc/nginx/conf.d
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
-      - dhparam:/etc/ssl/certs
-   depends_on:
-      - nodejs
-    networks:
-      - app-network
-
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
-    volumes:
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
-      - web-root:/var/www/html
-    depends_on:
-      - webserver
-    command: certonly --webroot --webroot-path=/var/www/html --email aaron.aa@me.com --agree-tos --no-eff-email --force-renewal -d blokkers.dk  -d www.blokkers.dk
-
-volumes:
-  certbot-etc:
-  certbot-var:
-  web-root:
+    restart: unless-stopped
+    volumes: 
+      - "web-root:/var/www/html"
+      - "./nginx-conf:/etc/nginx/conf.d"
+      - "certbot-etc:/etc/letsencrypt"
+      - "certbot-var:/var/lib/letsencrypt"
+      - "dhparam:/etc/ssl/certs"
+version: "3.8"
+volumes: 
+  certbot-etc: ~
+  certbot-var: ~
+  dhparam: 
+    device: /home/aaron/blokkers/app/dhparam/
     driver: local
-    driver_opts:
-      type: none
+    driver_opts: ~
+    o: bind
+    type: none
+  web-root: 
+    driver: local
+    driver_opts: 
       device: /home/aaron/blokkers/app/public
       o: bind
-  dhparam:
-    driver: local
-    driver_opts:
       type: none
-      device: /home/aaron/blokkers/app/dhparam/
-      o: bind
-networks:
-  app-network:
-    driver: bridge
