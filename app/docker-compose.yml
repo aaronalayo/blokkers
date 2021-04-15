@@ -46,12 +46,13 @@ volumes:
   dhparam: 
     device: /home/aaron/blokkers/app/dhparam/
     driver: local
-    driver_opts: ~
-    o: bind
     type: none
+    driver_opts: ~
+    o: bind 
   web-root: 
     driver: local
-    driver_opts: 
+    driver_opts:
+      type: none
       device: /home/aaron/blokkers/app/public
       o: bind
-      type: none
+      
