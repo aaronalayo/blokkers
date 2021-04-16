@@ -16,6 +16,7 @@ EXPOSE 8080:8080
 ENV HOST 0.0.0.0
 
 RUN npm install
+RUN chown -R app /blokkers/app
 
 #RUN npm i dotenv
 ENV PORT=8080

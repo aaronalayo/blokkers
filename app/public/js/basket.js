@@ -1,6 +1,6 @@
 
 
-
+let posters = JSON.parse(sessionStorage.getItem("posters"));
 
 
 // console.log(posters)
@@ -160,6 +160,7 @@ async function calculatePosterPrice(poster) {
 
                 amount = poster.price * poster.quantity;
             }
+            
             sessionStorage.setItem("posters", JSON.stringify(posters));
         }
         $("#" + poster.pname + "-price").text(amount.toFixed(2)+" DKK");
