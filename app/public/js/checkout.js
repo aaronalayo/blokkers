@@ -210,7 +210,7 @@ function getInfo() {
 
       sessionStorage.setItem("customer", JSON.stringify(customer));
       let discountCode = JSON.parse(sessionStorage.getItem('discount'));
-
+      let posters = JSON.parse(sessionStorage.getItem("posters"));
       //Ajax POST method to send to create order route
       if (shippingfullname, email, shippingphone, shippingaddress, shippingcity, shippingzip) {
         $.ajax({
