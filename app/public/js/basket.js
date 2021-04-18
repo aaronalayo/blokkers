@@ -1,7 +1,5 @@
 
 
-let posters = JSON.parse(sessionStorage.getItem("posters"));
-
 
 // console.log(posters)
 //displays all posters that are added to basket
@@ -65,7 +63,9 @@ function displayPosters() {
 
             $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
             $("#size").text(poster.size);
+            
             calculatePosterPrice(poster);
+            
         });
     }
 };
@@ -145,6 +145,7 @@ function getFormats() {
 
 //calculates the poster price based on the format and quantity
 async function calculatePosterPrice(poster) {
+let posters = JSON.parse(sessionStorage.getItem("posters"));
 
     // console.log(poster.size)
     let price = 0;
@@ -159,14 +160,25 @@ async function calculatePosterPrice(poster) {
                 poster.price = price;
 
                 amount = poster.price * poster.quantity;
+               
+                update(price);
             }
             
-            sessionStorage.setItem("posters", JSON.stringify(posters));
+            
         }
         $("#" + poster.pname + "-price").text(amount.toFixed(2)+" DKK");
     });
     return price
 };
+
+function update(price){
+    let posters = JSON.parse(sessionStorage.getItem('posters'));
+    posters.forEach(p => {
+        p.price = price;
+    })
+    sessionStorage.setItem('posters', JSON.stringify(posters));
+}
+
 
 function calculateTotal() {
     let posters = JSON.parse(sessionStorage.getItem("posters"));
