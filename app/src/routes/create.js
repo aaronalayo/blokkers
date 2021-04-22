@@ -145,7 +145,7 @@ route.post("/createpaymentorder", async (req, res) => {
         },
       };
       // console.log(consumer)
-      let host = 'http://127.0.0.1:8080';
+      let host = 'http://www.blokkers.dk';
       let options = {
 
         host: host + "/createorder",
