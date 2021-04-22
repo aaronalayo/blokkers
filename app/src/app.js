@@ -124,11 +124,7 @@ const termsandconditions = "/termsandcontions";
 
 
 app.get(home, (req, res) => {
- 
- 
     return res.send(navbar + homePage + footerPage);
-  
-
 });
 
 app.get(satisfied, (req, res) => {
@@ -153,9 +149,7 @@ app.get(howitworks, (req, res) => {
 
 });
 app.get(termsandconditions, (req, res) => {
-
   res.send(navbar + termsAndConditions + footerPage);
-
 });
 app.get(formats, async (req, res)=> {   
   const formats = await Format.query().select();
@@ -187,8 +181,6 @@ request(options, function (error, response, body) {
   // console.log("body:", body);
   data = body
 });
-    
-
 return res.status(200).send(navbar + paymentPage + footerPage);
       
 }else {

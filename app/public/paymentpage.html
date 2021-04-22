@@ -2,28 +2,26 @@
   body {
     font-family: "nunitobold";
     font-size: 17px;
-    padding: 8px;
-
   }
 
   ::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 7px;
-        }
+    -webkit-appearance: none;
+    width: 7px;
+  }
 
-        ::-webkit-scrollbar-thumb {
-        border-radius: 4px;
-        background-color: rgba(0, 0, 0, .5);
-        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        }
-        
-        html {
-        -webkit-overflow-scrolling: touch !important; 
-        -webkit-overflow-scrolling: auto !important;
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-        scroll-snap-stop: always
-    }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  }
+
+  html {
+    -webkit-overflow-scrolling: touch !important;
+    -webkit-overflow-scrolling: auto !important;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-snap-stop: always
+  }
 
   * {
     box-sizing: border-box;
@@ -31,9 +29,6 @@
   }
 
   .row {
-    padding-top: 0%;
-    padding-left: 20%;
-    padding-right: 20%;
     display: -ms-flexbox;
     /* IE10 */
     display: flex;
@@ -61,14 +56,20 @@
   .col-50 {
     padding: 0 16px;
   }
+  .center_doc{
+    padding-top: 0%;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
 
-
-  /* .container {
-  background-color: #f2f2f2;
-  padding: 10px 10px 15px 10px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-} */
+  .container {
+    /* background-color: #f2f2f2; */
+    margin-left: auto;
+    margin-right: auto;
+    /* padding: 10px 10px 15px 10px; */
+    border: 0px solid lightgrey;
+    border-radius: 3px;
+  }
 
   input[type=text] {
     width: 100%;
@@ -144,7 +145,7 @@
   }
 
   .order-table img {
-    width: 1.5em;
+    width: 2em;
     border-collapse: collapse;
     display: flex;
   }
@@ -160,8 +161,7 @@
   .order-table table td,
   tr {
     padding: 0;
-    cursor: pointer;
-    vertical-align: middle;
+
   }
 
   .basket-devider {
@@ -219,74 +219,77 @@
 <body onload="getData()">
   <div id="payment">
     <div class="row">
-      <div class="col-75">
-        <div class="container">
-          <div class="logo">
-            <img id="logo_img" src="images/Blokkers_logo.png">
-          </div>
-          <div class="row">
-            <div class="col-25">
-              <h1 id="paymentsuccesful">Payment Succesful!</h1>
+      <div class="container">
+        <div class="col-75">
+          <div class="center_doc">
+            <div class="logo">
+              <img id="logo_img" src="images/Blokkers_logo.png">
             </div>
-          </div>
-          <div class="row">
-            <div class="col-25">
-              <h1 id="Summary">Summary</h1>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-50">
-              <h2 id="date"></h2>
-              <h2 id="orderNumber"></h2>
-              <div class="order-container">
+            <div class="row">
+              <div class="col-25">
+                <h1 id="paymentsuccesful">Payment Succesful!</h1>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-25">
-              <div id="total-amount-box">
-                <!-- <a style="font-size: 30px;">Total amount</a> -->
-                <p><span style="font-size: 15px;">Subtotal</span><span style="float: right;"
-                    id="subtotal-amount"></span>
-                </p>
-                <p><span style="font-size: 15px;color: rgb(97, 97, 97);">shipping</span>
-                  <span style="float: right; color:rgb(97, 97, 97);" id="shipping">0 DKK</span>
-                </p>
-                <p><span style="font-size: 15px;color: rgb(97, 97, 97);">taxes</span>
-                  <span style="float: right; color:rgb(97, 97, 97);" id="taxes-amount"></span>
-                </p>
-                <hr style="color: lightgrey;">
-                <p style="margin-bottom: 12%;"><span style="font-size: 15px;margin-bottom: 14%;">Total</span><span
-                    style="float: right;" id="total-amount"></span></p>
+            <div class="row">
+              <div class="col-25">
+                <h1 id="Summary">Summary</h1>
               </div>
-             
             </div>
-            <hr class="basket-devider">
-          </div>
-          
-          <div class="row">       
-            <div class="col-25">
-              <h3>Shipping Address :</h3>
-              <p><span id="shippingname" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-              <p><span id="shippingaddress" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-              <p><span id="shippingzip" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-              <p><span id="shippingcity" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-              <p><span id="shippingcountry" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-              <p><span id="shippingemail" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-            </p>
+            <div class="row">
+              <div class="col-50">
+                <h2 id="date"></h2>
+                <h2 id="orderNumber"></h2>
+                <div class="order-container">
+                </div>
+              </div>
             </div>
-            <div class="col-25" style="float: right;margin-left: 40%;width: 232px;">
-              <h3>Billing Address :</h3>
+            <div class="row">
+              <div class="col-25">
+                <div id="total-amount-box">
+                  <!-- <a style="font-size: 30px;">Total amount</a> -->
+                  <p><span style="font-size: 15px;">Subtotal</span><span style="float: right;"
+                      id="subtotal-amount"></span>
+                  </p>
+                  <p><span style="font-size: 15px;color: rgb(97, 97, 97);">shipping</span>
+                    <span style="float: right; color:rgb(97, 97, 97);" id="shipping">0 DKK</span>
+                  </p>
+                  <p><span style="font-size: 15px;color: rgb(97, 97, 97);">taxes</span>
+                    <span style="float: right; color:rgb(97, 97, 97);" id="taxes-amount"></span>
+                  </p>
+                  <hr style="color: lightgrey;">
+                  <p style="margin-bottom: 12%;"><span style="font-size: 15px;margin-bottom: 14%;">Total</span><span
+                      style="float: right;" id="total-amount"></span></p>
+                </div>
+
+              </div>
+              <hr class="basket-devider">
+            </div>
+
+            <div class="row">
+              <div class="col-25">
+                <h3>Shipping Address :</h3>
+                <p><span id="shippingname" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
+                <p><span id="shippingaddress" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
+                <p><span id="shippingzip" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
+                <p><span id="shippingcity" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
+                <p><span id="shippingcountry" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
+                <p><span id="shippingemail" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
+                </p>
+              </div>
+              <div class="col-25" style="float: right;margin-left: 40%;width: 232px;">
+                <h3>Billing Address :</h3>
                 <p><span id="billingname" style="font-size: 20px;color: rgb(97, 97, 97)">Julia Sand Skovsted</span>
-                <p><span id="billingaddress" style="font-size: 20px;color: rgb(97, 97, 97)">Jægersborggade 21, 1. tv</span>
+                <p><span id="billingaddress" style="font-size: 20px;color: rgb(97, 97, 97)">Jægersborggade 21, 1.
+                    tv</span>
                 <p><span id="billingzip" style="font-size: 20px;color: rgb(97, 97, 97)">2200</span>
                 <p><span id="billingcity" style="font-size: 20px;color: rgb(97, 97, 97)">København</span>
                 <p><span id="billingcountry" style="font-size: 20px;color: rgb(97, 97, 97)">DK</span>
                 <p><span id="billingemail" style="font-size: 20px;color: rgb(97, 97, 97)">juliasand@me.com</span>
+              </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
 
     </div>
