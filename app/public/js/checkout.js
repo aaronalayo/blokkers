@@ -243,7 +243,7 @@ function getInfo() {
               storeOrder(paymentID);
               // initCheckout(paymentID,hostedPayPageUrl);
               window.location = hostedPayPageUrl;
-              sessionStorage.clear();
+              // sessionStorage.clear();
             } else {
               console.log("error")
             }
@@ -276,7 +276,6 @@ function storeOrder(paymentId){
     ContentType: 'application/json',
     dataType: "json",
   }).done(function (data) {
-    spinner.hide();
     console.log('success', data);
   }).fail(function (jqXHR, textStatus, errorThrown) {
     var contentType = jqXHR.getResponseHeader("Content-Type");

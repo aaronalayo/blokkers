@@ -29,6 +29,7 @@ function getData() {
       setTotalPay(paymentDetails.payment);
       setCustomerInfo(orderDetails);
       if (paymentId) {
+        console.log("trying to send files");
         sendFiles(paymentId);
       } else {
         console.log("waiting for data")

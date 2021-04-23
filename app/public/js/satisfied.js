@@ -14,10 +14,11 @@ function displayPoster(){
     for (let i = 0; i <= 3; i++) {
       $("#satisfiedtable").append("<tr>");
       for (let j = k; j <= k + 2; j++) {
-        $("#satisfiedtable").append(`<td id=${j + 1} >`);
-        $("#" + (j + 1)).append(`<img src="${posterToEdit.paths[j]}">`);
+        $("#satisfiedtable").append(`<td id=${j + 1}><img src="${posterToEdit.paths[j]}">`);
+        $("#satisfiedtable").append("</td>");
+        $("#satisfiedtable").append("</tr>");
       }
-      $("#satisfiedtable").append("</tr>");
+      
       k = k + 3;
     }
 

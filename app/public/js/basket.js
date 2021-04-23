@@ -251,7 +251,6 @@ async function applyDiscount() {
 
                     sessionStorage.setItem("total", JSON.stringify(total));
                     sessionStorage.setItem("discount", JSON.stringify(code));
-
                 } else if (code === "" || code !== data.discounts[key].discount_code ) {
                     $("#discount").val("");
                     alert("There is no discount for this code!");

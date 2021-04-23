@@ -1,10 +1,9 @@
 const route = require("express").Router();
-const request = require('request');
+const request = require("request");
 
 const fs = require("fs");
 const builder = require("xmlbuilder", { encoding: "utf-8" });
 const fsExtra = require("fs-extra");
-
 
 const Customer = require("../model/Customer.js");
 const Order = require("../model/Order.js");
@@ -19,7 +18,6 @@ const createPoster = require("../middelware/createPoster.js");
 const setValueNull = require("../middelware/setValueNull.js");
 
 route.post("/createpaymentorder", async (req, res) => {
-
   const {
     discountCode,
     posters,
@@ -52,9 +50,8 @@ route.post("/createpaymentorder", async (req, res) => {
   const billingZipCode = setValueToNull(billingzip);
 
   try {
-    if
-      (
-      discountCode,
+    if (
+      (discountCode,
       newPosters,
       shippingFullName,
       shippingPhone,
@@ -62,13 +59,12 @@ route.post("/createpaymentorder", async (req, res) => {
       shippingCity,
       shippingZipCode,
       email,
-      newsletter) {
-
+      newsletter)
+    ) {
       const formats = await Format.query().select();
 
       let items = [];
       let amount = 0;
-
 
       // console.log(formats[i].price)
 
@@ -81,77 +77,89 @@ route.post("/createpaymentorder", async (req, res) => {
         discount = null;
       }
       if (discountCode) {
-        discount = await Discount.query().select('amount').where({ "discount_code": discountCode }).skipUndefined();
+        discount = await Discount.query()
+          .select("amount")
+          .where({ discount_code: discountCode })
+          .skipUndefined();
       }
       for (let i = 0; i < formats.length; i++) {
         newPosters.forEach((poster) => {
           if (parseFloat(poster.price) === parseFloat(formats[i].price)) {
             let subAmount = 0;
             let item = {
-              "reference": `${poster.pname}`,
-              "name": `${poster.pname}`,
-              "quantity": `${poster.quantity}`,
-              "unit": "poster",
-              "unitPrice": (formats[i].price * 100) - 2500,
-              "taxRate": 2500,
-              "taxAmount": ((formats[i].price * 25) / 100) * 100,
-              "grossTotalAmount": formats[i].price * poster.quantity * 100,
-              "netTotalAmount": ((formats[i].price * 100) - 2500) * poster.quantity
+              reference: `${poster.pname}`,
+              name: `${poster.pname}`,
+              quantity: `${poster.quantity}`,
+              unit: "poster",
+              unitPrice: formats[i].price * 100 - 2500,
+              taxRate: 2500,
+              taxAmount: ((formats[i].price * 25) / 100) * 100,
+              grossTotalAmount: formats[i].price * poster.quantity * 100,
+              netTotalAmount: (formats[i].price * 100 - 2500) * poster.quantity,
             };
 
             if (discount) {
-
-              rate = (((formats[i].price * 100) - 2500) * discount[0].amount) / 100;
-              totalRate = ((formats[i].price * poster.quantity * 100) * discount[0].amount) / 100;
-              netRate = ((((formats[i].price * 100) - 2500) * poster.quantity) * discount[0].amount) / 100;
+              rate =
+                ((formats[i].price * 100 - 2500) * discount[0].amount) / 100;
+              totalRate =
+                (formats[i].price *
+                  poster.quantity *
+                  100 *
+                  discount[0].amount) /
+                100;
+              netRate =
+                ((formats[i].price * 100 - 2500) *
+                  poster.quantity *
+                  discount[0].amount) /
+                100;
             } else {
               rate = 0;
               totalRate = 0;
               netRate = 0;
             }
             let discountItem = {
-              "reference": "discount",
-              "name": "discount",
-              "quantity": poster.quantity,
-              "unit": "units",
-              "unitPrice": -rate,
-              "taxRate": 0,
-              "taxAmount": 0,
-              "grossTotalAmount": -totalRate,
-              "netTotalAmount": -netRate
+              reference: "discount",
+              name: "discount",
+              quantity: poster.quantity,
+              unit: "units",
+              unitPrice: -rate,
+              taxRate: 0,
+              taxAmount: 0,
+              grossTotalAmount: -totalRate,
+              netTotalAmount: -netRate,
             };
-            console.log(discountItem)
+            console.log(discountItem);
             items.push(item, discountItem);
 
-            subAmount = (parseInt(formats[i].price) * parseInt(poster.quantity) * 100) - totalRate;
+            subAmount =
+              parseInt(formats[i].price) * parseInt(poster.quantity) * 100 -
+              totalRate;
             amount += subAmount;
           }
-
         });
       }
       const consumer = {
-        "reference": "1",
-        "email": `${email}`,
-        "shippingshippingAddress": {
-          "shippingaddressLine1": `${shippingshippingAddress}`,
-          "shippingaddressLine2": "",
-          "postalCode": `${shippingZipCode}`,
-          "shippingcity": `${shippingCity}`,
-          "country": "DNK"
+        reference: "1",
+        email: `${email}`,
+        shippingshippingAddress: {
+          shippingaddressLine1: `${shippingshippingAddress}`,
+          shippingaddressLine2: "",
+          postalCode: `${shippingZipCode}`,
+          shippingcity: `${shippingCity}`,
+          country: "DNK",
         },
-        "phoneNumber": {
-          "prefix": "+45",
-          "number": `${shippingPhone.substring(3)}`
+        phoneNumber: {
+          prefix: "+45",
+          number: `${shippingPhone.substring(3)}`,
         },
       };
       // console.log(consumer)
-      let host = 'http://www.blokkers.dk';
+      let host = "http://127.0.0.1:8080";
       let options = {
-
         host: host + "/createorder",
-        uri: 'https://test.api.dibspayment.eu/v1/payments',//test
+        uri: "https://test.api.dibspayment.eu/v1/payments", //test
         // uri: 'https://api.dibspayment.eu/v1/payments',//live
-        method: 'POST',
+        method: "POST",
         body: `{
       "order": {
         "items": ${JSON.stringify(items)},
@@ -191,24 +199,21 @@ route.post("/createpaymentorder", async (req, res) => {
       }
     }`,
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': 'ef160d0b15ef4bf3b243c8f6a6183b85'
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: "ef160d0b15ef4bf3b243c8f6a6183b85",
           // 'Authorization': 'b7989e81d50b47228ac61d7763986548'
         },
       };
-      console.log(options)
+      console.log(options);
       request(options, function (error, response, body) {
-        console.log('error:', error); // Print the error if one occurred
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+        console.log("error:", error); // Print the error if one occurred
+        console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
         console.log("body:", body);
         if (body) {
           res.status(response.statusCode).json(body);
         }
-
-
       });
-
     }
   } catch (error) {
     console.log(error);
@@ -216,12 +221,7 @@ route.post("/createpaymentorder", async (req, res) => {
 });
 
 route.post("/createorder", async (req, res) => {
-
-  const {
-    posters,
-    customer,
-    paymentId
-  } = req.body;
+  const { posters, customer, paymentId } = req.body;
   // //Check if values are empty or null
   const newPosters = checkParameter(posters);
   const shippingFullName = checkParameter(customer.shippingfullname);
@@ -229,7 +229,7 @@ route.post("/createorder", async (req, res) => {
   const shippingshippingAddress = checkParameter(customer.shippingaddress);
   const shippingCity = checkParameter(customer.shippingcity);
   const shippingZipCode = checkParameter(customer.shippingzip);
-  const newPaymentId = checkParameter(paymentId)
+  const newPaymentId = checkParameter(paymentId);
   //Check if values are empty set them to null
   const billingFullname = setValueToNull(customer.billingfullname);
   const billingPhone = setValueToNull(customer.billingphone);
@@ -240,14 +240,14 @@ route.post("/createorder", async (req, res) => {
   try {
     if (
       (newPosters,
-        shippingFullName,
-        shippingPhone,
-        shippingshippingAddress,
-        shippingCity,
-        shippingZipCode,
-        customer.email,
-        customer.newsletter,
-        newPaymentId)
+      shippingFullName,
+      shippingPhone,
+      shippingshippingAddress,
+      shippingCity,
+      shippingZipCode,
+      customer.email,
+      customer.newsletter,
+      newPaymentId)
     ) {
       const customerFound = await Customer.query()
         .select()
@@ -258,7 +258,6 @@ route.post("/createorder", async (req, res) => {
         .limit(1);
       //Find if customer exists in the database
       if (customerFound.length > 0) {
-
         newPosters.forEach(async (poster) => {
           const format = await Format.query()
             .select()
@@ -273,28 +272,36 @@ route.post("/createorder", async (req, res) => {
             item_paths: poster.paths,
             amount: poster.quantity,
             price_per_item: format[0].price,
-            total_price: (format[0].price * poster.quantity).toFixed(Math.max((((format[0].price * poster.quantity) + '').split(".")[1] || "").length, 2)),
+            total_price: (format[0].price * poster.quantity).toFixed(
+              Math.max(
+                ((format[0].price * poster.quantity + "").split(".")[1] || "")
+                  .length,
+                2
+              )
+            ),
             customer_uuid: customerFound[0].customer_uuid,
             format_uuid: format[0].format_uuid,
-            payment_id: paymentId
+            payment_id: paymentId,
           });
         });
         const newItem = await Item.query()
           .select()
           .where({ customer_uuid: customerFound[0].customer_uuid })
           .limit(1);
-        console.log(newItem)
+        console.log(newItem);
         //Insert a new order in the database
         //for an existing customer
-        await Order.query().insert({
-
-          customer_uuid: customerFound[0].customer_uuid,
-          payment_id: paymentId
-        }).returning("order_uuid").then(function (orders) {
-          if (orders) {
-            // console.log(orders)
-          }
-        });
+        await Order.query()
+          .insert({
+            customer_uuid: customerFound[0].customer_uuid,
+            payment_id: paymentId,
+          })
+          .returning("order_uuid")
+          .then(function (orders) {
+            if (orders) {
+              // console.log(orders)
+            }
+          });
       } else {
         //Insert a new customer in the database
         await Customer.query().insert({
@@ -331,28 +338,33 @@ route.post("/createorder", async (req, res) => {
             item_paths: poster.paths,
             amount: poster.quantity,
             price_per_item: format[0].price,
-            total_price: (format[0].price * poster.quantity).toFixed(Math.max((((format[0].price * poster.quantity) + '').split(".")[1] || "").length, 2)),
+            total_price: (format[0].price * poster.quantity).toFixed(
+              Math.max(
+                ((format[0].price * poster.quantity + "").split(".")[1] || "")
+                  .length,
+                2
+              )
+            ),
             customer_uuid: newCustomer[0].customer_uuid,
             format_uuid: format[0].format_uuid,
-            payment_id: paymentId
+            payment_id: paymentId,
           });
-
-
         });
         const newItem = await Item.query()
           .select()
           .where({ customer_uuid: newCustomer[0].customer_uuid })
           .limit(1);
-        await Order.query().insert({
-
-          customer_uuid: newCustomer[0].customer_uuid,
-          payment_id: paymentId
-        }).returning("order_uuid").then(function (orders) {
-          if (orders) {
-            // console.log(orders)
-          }
-        });
-
+        await Order.query()
+          .insert({
+            customer_uuid: newCustomer[0].customer_uuid,
+            payment_id: paymentId,
+          })
+          .returning("order_uuid")
+          .then(function (orders) {
+            if (orders) {
+              // console.log(orders)
+            }
+          });
       }
 
       return res.json({ ok: true });
@@ -364,19 +376,19 @@ route.post("/createorder", async (req, res) => {
 
 //Route to send the files to the FTP server
 route.post("/sendfiles", async (req, res) => {
-  // console.log(req.body);
   const { customer, posters, paymentId } = req.body;
-
   let orderSent = [];
   try {
     const order = await Order.query()
       .select()
+      .where({ payment_id: paymentId })
+      .withGraphJoined("customer");
+      console.log(order)
+    const items = await Item.query()
+      .select()
       .where({ payment_id: paymentId });
-    console.log(order[0].order_confirmed);
-
-
+    console.log(items);
     if (customer, posters) {
-
       const output = "./public/output/";
 
       //Empty the output folder
@@ -387,33 +399,24 @@ route.post("/sendfiles", async (req, res) => {
         xml: ".xml",
       };
 
-      const orders = await Order.query()
-        .select()
-        .where({ payment_id: paymentId })
-        .withGraphJoined("customer")
-        .where({ full_name: customer.shippingfullname })
-        .where({ email: customer.email })
-        .withGraphJoined("item");
+      items.forEach((item) => {
+        orderSent.push(order[0].order_no);
 
-      orders.forEach((order) => {
-        orderSent.push(order.order_no);
-
-
-        const orderNo = order.order_no;
+        const orderNo = order[0].order_no;
         const shopNo = "949452";
-        const deliveryShopName = order.customer.full_name;
-        const deliveryAddress = order.customer.shippingaddress;
-        const deliveryZipCode = order.customer.shippingzip;
-        const deliveryCity = order.customer.shippingcity;
-        const deliveryEmail = order.customer.email;
-        const itemNo = order.item.item_no; //Defined by PinkOrange
-        const itemName = order.item.item_name;
+        const deliveryShopName = order[0].customer.shipping_full_name;
+        const deliveryAddress = order[0].customer.shipping_address;
+        const deliveryZipCode = order[0].customer.shipping_zip_code;
+        const deliveryCity = order[0].customer.shipping_city;
+        const deliveryEmail = order[0].customer.email;
+        const itemNo = item.item_no; //Defined by PinkOrange
+        const itemName = item.item_name;
         const dimension = "Plakater " + itemNo;
         const pages = 1;
-        const amount = order.item.amount;
+        const amount = item.amount;
         const pdfFileName = orderNo + "_" + itemName + "_" + "Blokkers";
-        const pricePerItem = order.item.price_per_item;
-        const TotalPrice = order.item.total_price;
+        const pricePerItem = item.price_per_item;
+        const TotalPrice = item.total_price;
         const ftp_addr = "ftp://EksternTest:h242svgw@94.231.99.28";
 
         let localPdf = output + pdfFileName + ext["pdf"];
@@ -440,9 +443,10 @@ route.post("/sendfiles", async (req, res) => {
           A10: [73.7, 104.88],
         };
 
-        let pdfSize = sizes[order.item.item_format];
+        let pdfSize = sizes[item.item_format];
 
         for (let i = 0; i < posters.length; i++) {
+          
           let poster = posters[i];
           poster.pdfLocal = localPdf;
           poster.pdfSize = pdfSize;
@@ -486,10 +490,7 @@ route.post("/sendfiles", async (req, res) => {
             console.log("XML saved!");
           }
         });
-
-
       });
-
       sendXmlPdf();
       //Update the order after the files are sent to FTP server
       orderSent.forEach(async (sentOrder) => {
@@ -502,16 +503,10 @@ route.post("/sendfiles", async (req, res) => {
           })
           .where({ order_no: sentOrder });
       });
-
-
-
-
     }
-
   } catch (error) {
     console.log(error);
   }
 });
-
 
 module.exports = route;
