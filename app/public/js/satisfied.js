@@ -5,6 +5,7 @@ function displayPoster(){
   let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
 
   if (posterToEdit === null) {
+    console.log(posterToEdit)
     window.location.href = "http://localhost:8080/";
     $("#addbasket_button").hide();
     $("#cancel_button").hide();
@@ -14,14 +15,14 @@ function displayPoster(){
     for (let i = 0; i <= 3; i++) {
       $("#satisfiedtable").append("<tr>");
       for (let j = k; j <= k + 2; j++) {
-        $("#satisfiedtable").append(`<td id=${j + 1}><img src="${posterToEdit.paths[j]}">`);
+        $("#satisfiedtable").append(`<td id=${j + 1}><img src="${posterToEdit.paths[j]}" srcset="${posterToEdit.paths[j]} 1x, ${posterToEdit.paths[j]} 2x" data-src="..." data-srcset="...">`);
         $("#satisfiedtable").append("</td>");
         $("#satisfiedtable").append("</tr>");
       }
       
       k = k + 3;
     }
-
+    
       // $("#addbasket_button").show(2000);
       // $("#cancel_button").show();
 
