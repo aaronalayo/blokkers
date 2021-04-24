@@ -40,6 +40,8 @@
     "fs-extra": "^9.1.0",
     "helmet": "^4.4.1",
     "knex": "^0.21.19",
+    "mongoose": "^5.12.5",
+    "mongoose-session": "0.0.4",
     "nodemon": "^2.0.7",
     "objection": "^2.2.15",
     "pdfkit": "^0.11.0",
