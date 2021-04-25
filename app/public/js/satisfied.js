@@ -15,11 +15,9 @@ function displayPoster(){
     for (let i = 0; i <= 3; i++) {
       $("#satisfiedtable").append(`<tr id=${`posterRow`+i}></tr>`);
       for (let j = k; j <= k + 2; j++) {
-        $(`#${`posterRow`+i}`).append(`<td id=${j + 1}></td>`);
-        $(`#${j + 1}`).append(`<img src="${posterToEdit.paths[j]}">`);
-
-      }
-      
+        $(`#${`posterRow`+i}`).append(`<td id= ${`satisfied`+ (j + 1)}></td>`);
+        $(`#${`satisfied`+ (j + 1)}`).append(`<img src="${posterToEdit.paths[j]}">`);
+      }   
       k = k + 3;
     }
     
