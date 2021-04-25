@@ -112,9 +112,9 @@ function addCircles() {
 function createTable() {
   let k = 0;
   for (let i = 0; i <= 3; i++) {
-    $('#tableposter').append('<tr>');
+    $('#tableposter').append(`<tr id=${`posterRow`+i}>`);
     for (let j = k; j <= k + 2; j++) {
-      $('#tableposter').append(`<td id=${j + 1} onclick=showColor(this.id) >`);
+      $(`#${`posterRow`+i}`).append(`<td id=${j + 1} onclick=showColor(this.id) >`);
     }
     $('#tableposter').append('</tr>');
     k = k + 3;
@@ -186,25 +186,25 @@ function showColor(id) {
 
   for (let i = 0; i < 1; i++) {
     
-    $('#colourtable').append('<tr>');
+    $('#colourtable').append(`<tr id=${`colourRow1`+i}>`);
     for (let j = 0; j < 4; j++) {
       let key = (j+1)+(i*4);
       switch (parts[parts.length - 1]) {
         case 'å':
-          $('#colourtable').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/aa${key}.png" >` + '</td>');
+          $(`#${`colourRow1`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/aa${key}.png" >` + '</td>');
           break;
         case 'æ':
-          $('#colourtable').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/ae${key}.png">` + '</td>');
+          $(`#${`colourRow1`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/ae${key}.png">` + '</td>');
           break;
         case 'ø':
-          $('#colourtable').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/oe${key}.png">` + '</td>');
+          $(`#${`colourRow1`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/oe${key}.png">` + '</td>');
           break;
         case '-':
-          $('#colourtable').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/-${key}.png">` + '</td>');
+          $(`#${`colourRow1`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/-${key}.png">` + '</td>');
           break;
         default:
         
-          $('#colourtable').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${key}.png">` + '</td>');     
+          $(`#${`colourRow1`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${key}.png">` + '</td>');     
       }     
     }
     $('#colourtable').append('</tr>');   
@@ -213,25 +213,25 @@ function showColor(id) {
 
   for (let i = 0; i < 1; i++) {
     
-    $('#colourtable2').append('<tr>');
+    $('#colourtable2').append(`<tr id=${`colourRow2`+i}>`);
     for (let j = 4; j < 8; j++) {
       let key = (j+1)+(i*4);
       switch (parts[parts.length - 1]) {
         case 'å':
-          $('#colourtable2').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/aa${key}.png" >` + '</td>');
+          $(`#${`colourRow2`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/aa${key}.png" >` + '</td>');
           break;
         case 'æ':
-          $('#colourtable2').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/ae${key}.png">` + '</td>');
+          $(`#${`colourRow2`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/ae${key}.png">` + '</td>');
           break;
         case 'ø':
-          $('#colourtable2').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/oe${key}.png">` + '</td>');
+          $(`#${`colourRow2`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/oe${key}.png">` + '</td>');
           break;
         case '-':
-          $('#colourtable2').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/-${key}.png">` + '</td>');
+          $(`#${`colourRow2`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/-${key}.png">` + '</td>');
           break;
         default:
         
-          $('#colourtable2').append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${key}.png">` + '</td>');     
+          $(`#${`colourRow2`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${key}.png">` + '</td>');     
       }
       
     }
