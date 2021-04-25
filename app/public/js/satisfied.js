@@ -5,7 +5,7 @@ function displayPoster(){
   let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
 
   if (posterToEdit === null) {
-    console.log(posterToEdit)
+    // console.log(posterToEdit)
     window.location.href = "http://localhost:8080/";
     $("#addbasket_button").hide();
     $("#cancel_button").hide();
@@ -13,9 +13,9 @@ function displayPoster(){
     $("#satisfieddiv").show();
     let k = 0;
     for (let i = 0; i <= 3; i++) {
-      $("#satisfiedtable").append(`<tr id=${`posterRow`+i}></tr>`);
+      $("#satisfiedtable").append(`<tr id=${`satisfiedRow`+i}></tr>`);
       for (let j = k; j <= k + 2; j++) {
-        $(`#${`posterRow`+i}`).append(`<td id= ${`satisfied`+ (j + 1)}></td>`);
+        $(`#${`satisfiedRow`+i}`).append(`<td id= ${`satisfied`+ (j + 1)}></td>`);
         $(`#${`satisfied`+ (j + 1)}`).append(`<img src="${posterToEdit.paths[j]}">`);
       }   
       k = k + 3;
