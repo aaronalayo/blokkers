@@ -16,6 +16,7 @@ function displayPoster(){
       $("#satisfiedtable").append(`<tr id=${`posterRow`+i}>`);
       for (let j = k; j <= k + 2; j++) {
         $(`#${`posterRow`+i}`).append(`<td id=${j + 1}>`);
+        console.log("Creating image posterRow: " + i + "td "+ j + 1);
         $(`#${j + 1}`).append(`<img src="${posterToEdit.paths[j]}">`);
 
       }
