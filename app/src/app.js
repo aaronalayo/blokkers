@@ -10,7 +10,7 @@ const morgan = require('morgan');
 
 app.set('trust proxy', 1);
 // app.use(morgan('dev'));
-app.use(cors());
+// app.use(cors());
 const request = require('request');
 const dotenv = require('dotenv');
 dotenv.config();
