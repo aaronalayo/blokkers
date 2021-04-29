@@ -1,17 +1,17 @@
 'use strict';
 const express = require("express");
-const session = require('express-session');
+// const session = require('express-session');
 const app = express();
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 // var MongoDBStore = require('connect-mongodb-session')(session);
 // const mongoose = require('mongoose');
 
 // app.set('trust proxy', 1);
 // app.use(morgan('dev'));
 // app.use(cors());
-const request = require('request');
-const dotenv = require('dotenv');
-dotenv.config();
+// const request = require('request');
+// const dotenv = require('dotenv');
+// dotenv.config();
 
 // // const main = require("../mongo.js");
 // let store = new MongoDBStore({
@@ -274,16 +274,10 @@ app.get("*", (req, res) => {
 
 
 const createRoute = require('./routes/create.js');
-const { Session } = require("inspector");
-
-
-
-
-// const paymentRoute = require('./routes/payment.js');
 
 
 app.use(createRoute);
-// app.use(paymentRoute);
+
 
 
 //Server port
