@@ -112,11 +112,10 @@ function addCircles() {
 function createTable() {
   let k = 0;
   for (let i = 0; i <= 3; i++) {
-    $('#tableposter').append(`<tr id=${`posterRow`+i}>`);
+    $('#tableposter').append(`<tr id=${`posterRow`+i}></tr>`);
     for (let j = k; j <= k + 2; j++) {
-      $(`#${`posterRow`+i}`).append(`<td id=${j + 1} onclick=showColor(this.id) >`);
+      $(`#${`posterRow`+i}`).append(`<td id=${j + 1} onclick=showColor(this.id)></td>`);
     }
-    $('#tableposter').append('</tr>');
     k = k + 3;
   }
 };
@@ -186,7 +185,7 @@ function showColor(id) {
 
   for (let i = 0; i < 1; i++) {
     
-    $('#colourtable').append(`<tr id=${`colourRow1`+i}>`);
+    $('#colourtable').append(`<tr id=${`colourRow1`+i}></tr>`);
     for (let j = 0; j < 4; j++) {
       let key = (j+1)+(i*4);
       switch (parts[parts.length - 1]) {
@@ -206,14 +205,13 @@ function showColor(id) {
         
           $(`#${`colourRow1`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${key}.png">` + '</td>');     
       }     
-    }
-    $('#colourtable').append('</tr>');   
+    } 
   }
   $('#colourtable2').append('<caption id="seasonal"></caption>')
 
   for (let i = 0; i < 1; i++) {
     
-    $('#colourtable2').append(`<tr id=${`colourRow2`+i}>`);
+    $('#colourtable2').append(`<tr id=${`colourRow2`+i}></tr>`);
     for (let j = 4; j < 8; j++) {
       let key = (j+1)+(i*4);
       switch (parts[parts.length - 1]) {
@@ -235,8 +233,6 @@ function showColor(id) {
       }
       
     }
-
-    $('#colourtable2').append('</tr>');
     
   }
 
@@ -282,6 +278,7 @@ function getSrc() {
   let pname = $("#name").val().toLowerCase();
   let size = $("input[name='size']:checked").val();
   let posterToEdit = {
+    "id": Date.now(),
     "pname": pname,
     "paths": paths,
     "size": size.toUpperCase(),
@@ -330,7 +327,7 @@ function loadPosterEdit() {
       for (let i = 0; i <= 3; i++) {
        
         for (let j = k; j <= k + 2; j++) {
-          $("#tableposter").append(`<td id=${j + 1} >`);
+          $("#tableposter").append(`<td id=${j + 1} ></td>`);
           $("#" + (j + 1)).append(`<img src="${posterToEdit.paths[j]}">`);
         }
 

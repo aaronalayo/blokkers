@@ -1,21 +1,94 @@
 'use strict';
 const express = require("express");
 const session = require('express-session');
-
-var MongoDBStore = require('connect-mongodb-session')(session);
 const app = express();
-// let mongoose = require('mongoose');
-// mongoose.connect(
-//   'mongodb://localhost/db', {
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const morgan = require('morgan');
+// var MongoDBStore = require('connect-mongodb-session')(session);
+// const mongoose = require('mongoose');
+
+app.set('trust proxy', 1);
+// app.use(morgan('dev'));
+app.use(cors());
+const request = require('request');
+const dotenv = require('dotenv');
+dotenv.config();
+
+// // const main = require("../mongo.js");
+// let store = new MongoDBStore({
+//   uri: `${process.env.DB_HOST}${process.env.DB}`,
+//   collection: "posters",
+//   touchAfter: 24 * 3600, // time period in seconds
+//   connectionOptions: {
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true,
 //     serverSelectionTimeoutMS: 10000
 //   }
-
-// );
-
+// });
 
 
+// app.use(cookieParser());
+// app.use(session({
+//   saveUninitialized: false, // don't create session until something stored
+//   resave: false, //don't save session if unmodified
+//   store: store,
+//   secret: process.env.SESSION_SECRET,
+//   saveUninitialized: true,
+//   unset: 'destroy',
+//   name: 'blokkers',
+//   domain: ".blokkers.dk",
+//   SameSite: 'none',
+//   cookie: {
+//       maxAge: 1000 * 60 * 60 * 24 * 15, // 2 week
+//       httpOnly: false,
+//       secure: false // TODO: Update this on production     
+//      }
+// }));
+// app.use(function(req, res, next){
+//   res.locals.session = req.session;
+//   next();
+// })
+async function main() {
+
+  try {
+ 
+      const mongoDbUrl = process.env.DB_HOST;
+      // mongoCon();
+      // Use new url parser and unified topology to fix deprecation warning
+      MongoDBStore = mongoose.connect(mongoDbUrl, { useNewUrlParser: true, useUnifiedTopology: true }).then(async function() {
+          console.log(`Successfully connected to MongoDB database at ${mongoDbUrl}!`);
+      }).catch(function(error) {
+          console.log(`Error whilst connecting to MongoDB database at ${mongoDbUrl}! ${error}`);
+      });
+      mongoose.set('useCreateIndex', true); // Fixes deprecation warning
+      // mongoose.Collection('posters');
+  } catch (err) {
+      console.log(`Error whilst doing database setup! ${err}`);
+  }
+  try {
+    app.use(cookieParser());
+    app.use(session({
+      saveUninitialized: true, // don't create session until something stored
+      resave: false, //don't save session if unmodified
+      store: store,
+      secret: process.env.SESSION_SECRET,
+      unset: 'destroy',
+      name: 'blokkers',
+      domain: ".blokkers.dk",
+      cookie: {
+          maxAge: 1000 * 60 * 60 * 24 * 15, // 2 week
+          httpOnly: false,
+          secure: false // TODO: Update this on production     
+         }
+    }));
+    
+      console.log("Sessions successfully initialized!");
+  } catch (err) {
+      console.log(`Error setting up a mongo session store! ${err}`);
+  }
+}
+main();
 
 const server = require("http").createServer(app);
 
@@ -32,9 +105,8 @@ app.use(helmet.xssFilter());
 app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
 
 app.use(express.static('public'));
-const request = require('request');
 
-app.set('trust proxy', 1);
+
 
 // Setup Objection + Knex
 const { Model } = require("objection");
@@ -87,7 +159,37 @@ const termsandconditions = "/termsandcontions";
 
 
 
-app.get(home, (req, res) => {
+
+// let cart = require("./model/cart");
+app.post("/updatecart", async (req, res) => {
+   const posters = req.body.posters;
+   let options = {
+     maxAge: 1000 * 60 * 60 * 24 * 15, // would expire after 2 weeks
+     httpOnly: true, // The cookie only accessible by the web server
+     signed: false, // Indicates if the cookie should be signed
+     secret: process.env.SESSION_SECRET,
+     secure: false, // TODO: Update this on production
+     
+ }
+ 
+ // Set cookie
+ res.cookie('cart', posters, options) // options is optional
+ res.redirect(basket);
+ });
+
+app.get('/cart', async (req, res) => {
+  console.log("sending to frontend")
+  const newCart = req.cookies.cart;
+  console.log("new Cart:"+ newCart);
+  if(newCart){
+    res.json({"cart": newCart })
+  }else{
+    res.redirect(home);
+  }
+  
+});
+
+app.get(home, (req, res) => { 
   return res.send(navbar + homePage + footerPage);
 });
 
@@ -99,6 +201,7 @@ app.get(inspiration, (req, res) => {
   return res.send(navbar + inspirationPage + footerPage );
 });
 app.get(basket, (req, res) => {
+  
   return res.send(navbar + basketPage + footerPage);
 });
 

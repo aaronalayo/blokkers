@@ -1,5 +1,6 @@
 
 
+
 function displayPoster(){
   $("#satisfiedtable").html('');
   let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
@@ -29,40 +30,13 @@ function displayPoster(){
 };
 
 
-
-// setTimeout(function () {
-//   window.location.href = location.origin;
-// }, 0); 
-
 function editPoster(){
 $("#satisfiedtable").html('');
 
 };
 
 function addtobasket(){
-  
-  // imgs = document.getElementById('satisfiedtable').getElementsByTagName("img");
-  // var imgSrcs = [];
-  // let origin = window.location.origin;
-  // for (var i = 0; i < imgs.length; i++) {
-  
-  //   imgSrcs.push(imgs[i].src.substr(origin.length));
-  // }
-  // const paths =[];
-
-
-  // for (const key in imgSrcs) {
-    
-  //   paths.push(imgSrcs[key]);
-  // }
-
-  // let poster = {
-  //     "pname": pname,
-  //     "paths": paths,
-  //     "size": size,
-  //     "quantity": 1,
-  //     "price": 0   
-  // };
+ 
   let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
   let posters = [];
   if(sessionStorage.getItem("posters") != null){
@@ -71,7 +45,31 @@ function addtobasket(){
   posters.push(posterToEdit);
   sessionStorage.setItem("posters", JSON.stringify(posters));
   sessionStorage.removeItem('posterToEdit');
+  addToCart();
 };
 
 
+
+function addToCart(){
+  let posters = JSON.parse(sessionStorage.getItem('posters'));
+  
+  $.ajax({
+    global: false,
+    type: 'POST',
+    url: '/updatecart',
+    data: {
+      posters:posters
+    },
+    ContentType: 'application/json',
+    dataType: "json",
+  }).done(function (data) {
+    console.log('success', data);
+  }).fail(function (jqXHR, textStatus, errorThrown) {
+    var contentType = jqXHR.getResponseHeader("Content-Type");
+    if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
+      window.location.href = "/";
+      console.log('FAILED! ERROR: ' + errorThrown);
+    }
+  });
+};
 

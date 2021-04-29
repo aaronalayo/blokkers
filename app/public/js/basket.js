@@ -29,20 +29,18 @@ function displayPosters() {
                 poster.pname = name;
                 sessionStorage.setItem("posters", JSON.stringify(posters));
             }
-            $(".basket-items").append(`<div id="poster-display-${name}">`);
-            $(`#poster-display-${name}`).append(`<div class="basket-table" id=${name}>`);
-            $(`#${name}`).append(`<table class="basket-table" id="table-${name}">`);
+            $(".basket-items").append(`<div id="poster-display-${name}"></div`);
+            $(`#poster-display-${name}`).append(`<div class="basket-table" id=${name}></div>`);
+            $(`#${name}`).append(`<table class="basket-table" id="table-${name}"></table>`);
             let k = 0;
             for (let i = 0; i <= 3; i++) {
-                $(`#table-${name}`).append(`<tr id=tr-${i + 1}-${name}>`)
+                $(`#table-${name}`).append(`<tr id=tr-${i + 1}-${name}></tr>`)
                 for (let j = k; j <= k + 2; j++) {
-                    $(`#tr-${i + 1}-${name}`).append(`<td id=${j + 1}-${name}> `);
+                    $(`#tr-${i + 1}-${name}`).append(`<td id=${j + 1}-${name}></td> `);
                     $(`#${j + 1}-${name}`).append(`<img src="${poster.paths[j]}">`);
                 }
-                $(`#table-${name}`).append("</tr>");
                 k = k + 3;
             }
-            $(`#${name}`).append("</table>");
             $(`#poster-display-${name}`).append(`
         <div class="size-poster">
             <span>${poster.size}</span><span> poster</span>
