@@ -3,12 +3,10 @@ const express = require("express");
 const session = require('express-session');
 const app = express();
 const cookieParser = require('cookie-parser');
-const cors = require('cors');
-const morgan = require('morgan');
 // var MongoDBStore = require('connect-mongodb-session')(session);
 // const mongoose = require('mongoose');
 
-app.set('trust proxy', 1);
+// app.set('trust proxy', 1);
 // app.use(morgan('dev'));
 // app.use(cors());
 const request = require('request');
