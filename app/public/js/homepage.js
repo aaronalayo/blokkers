@@ -87,25 +87,25 @@ function playVideo() {
 
 // }
 
-function getCart() {
-    const fetchJson = async url => {
-        const response = await fetch(url)
-        return response.json()
-    }
-    return new Promise(function (resolve) {
-        const cart = fetchJson('/cart');
-        setTimeout(function () {
-            resolve(cart)
-        }, 200);
-    });
-};
-async function updateCart() {
-        await getCart().then(data => {
-            console.log(data.cart);
-            sessionStorage.setItem("posters", JSON.stringify(data.cart));
+// function getCart() {
+//     const fetchJson = async url => {
+//         const response = await fetch(url)
+//         return response.json()
+//     }
+//     return new Promise(function (resolve) {
+//         const cart = fetchJson('/cart');
+//         setTimeout(function () {
+//             resolve(cart)
+//         }, 200);
+//     });
+// };
+// async function updateCart() {
+//         await getCart().then(data => {
+//             console.log(data.cart);
+//             sessionStorage.setItem("posters", JSON.stringify(data.cart));
         
-            })
-    };
+//             })
+//     };
 
 
 

@@ -161,33 +161,31 @@ const termsandconditions = "/termsandcontions";
 
 
 // let cart = require("./model/cart");
-app.post("/updatecart", async (req, res) => {
-   const posters = req.body.posters;
-   let options = {
-     maxAge: 1000 * 60 * 60 * 24 * 15, // would expire after 2 weeks
-     httpOnly: true, // The cookie only accessible by the web server
-     signed: false, // Indicates if the cookie should be signed
-     secret: process.env.SESSION_SECRET,
-     secure: false, // TODO: Update this on production
+// app.post("/updatecart", async (req, res) => {
+//    const posters = req.body.posters;
+//    let options = {
+//      maxAge: 1000 * 60 * 60 * 24 * 15, // would expire after 2 weeks
+//      httpOnly: true, // The cookie only accessible by the web server
+//      signed: false, // Indicates if the cookie should be signed
+//      secret: process.env.SESSION_SECRET,
+//      secure: false, // TODO: Update this on production
      
- }
+//  }
  
- // Set cookie
- res.cookie('cart', posters, options) // options is optional
- res.redirect(basket);
- });
+//  // Set cookie
+//  res.cookie('cart', posters, options) // options is optional
+//  res.redirect(basket);
+//  });
 
-app.get('/cart', async (req, res) => {
-  console.log("sending to frontend")
-  const newCart = req.cookies.cart;
-  console.log("new Cart:"+ newCart);
-  if(newCart){
-    res.json({"cart": newCart })
-  }else{
-    res.redirect(home);
-  }
+// app.get('/cart', async (req, res) => {
+//   const newCart = req.cookies.cart;
+//   if(newCart){
+//     res.json({"cart": newCart })
+//   }else{
+//     res.redirect(home);
+//   }
   
-});
+// });
 
 app.get(home, (req, res) => { 
   return res.send(navbar + homePage + footerPage);

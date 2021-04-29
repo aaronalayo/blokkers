@@ -45,7 +45,7 @@ function addtobasket(){
   posters.push(posterToEdit);
   sessionStorage.setItem("posters", JSON.stringify(posters));
   sessionStorage.removeItem('posterToEdit');
-  addToCart();
+  // addToCart();
 };
 
 
