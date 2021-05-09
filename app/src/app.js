@@ -1,22 +1,22 @@
-'use strict';
-const express = require("express");
-// const session = require('express-session');
-const app = express();
-// const cookieParser = require('cookie-parser');
-// var MongoDBStore = require('connect-mongodb-session')(session);
-// const mongoose = require('mongoose');
 
-// app.set('trust proxy', 1);
+const express = require("express");
+const session = require('express-session');
+const app = express();
+app.use(express.static('public'));
+const cookieParser = require('cookie-parser');
+var MongoDBStore = require('connect-mongodb-session')(session);
+
+
+app.set('trust proxy', 1);
 // app.use(morgan('dev'));
 // app.use(cors());
-// const request = require('request');
-// const dotenv = require('dotenv');
-// dotenv.config();
+const request = require('request');
+const dotenv = require('dotenv');
+dotenv.config();
 
-// // const main = require("../mongo.js");
+
 // let store = new MongoDBStore({
-//   uri: `${process.env.DB_HOST}${process.env.DB}`,
-//   collection: "posters",
+//   uri: `${process.env.DB_HOST}/${process.env.DB}`,
 //   touchAfter: 24 * 3600, // time period in seconds
 //   connectionOptions: {
 //     useNewUrlParser: true,
@@ -24,69 +24,26 @@ const app = express();
 //     serverSelectionTimeoutMS: 10000
 //   }
 // });
+app.use(cookieParser());
+let middleSession = session({
+      saveUninitialized: true, // don't create session until something stored
+      resave: true, //don't save session if unmodified
+      // store: store,
+      secret: process.env.SESSION_SECRET,
+      unset: 'destroy',
+      domain: ".blokkers.dk",
+      cookie: {
+          maxAge: 1000 * 60 * 60 * 24 * 15, // 2 week
+          httpOnly: false,
+          secure: true // TODO: Update this on production     
+         }
+    });
+app.use(middleSession);
 
-
-// app.use(cookieParser());
-// app.use(session({
-//   saveUninitialized: false, // don't create session until something stored
-//   resave: false, //don't save session if unmodified
-//   store: store,
-//   secret: process.env.SESSION_SECRET,
-//   saveUninitialized: true,
-//   unset: 'destroy',
-//   name: 'blokkers',
-//   domain: ".blokkers.dk",
-//   SameSite: 'none',
-//   cookie: {
-//       maxAge: 1000 * 60 * 60 * 24 * 15, // 2 week
-//       httpOnly: false,
-//       secure: false // TODO: Update this on production     
-//      }
-// }));
-// app.use(function(req, res, next){
-//   res.locals.session = req.session;
-//   next();
-// })
-// async function main() {
-
-//   try {
- 
-//       const mongoDbUrl = process.env.DB_HOST;
-//       // mongoCon();
-//       // Use new url parser and unified topology to fix deprecation warning
-//       MongoDBStore = mongoose.connect(mongoDbUrl, { useNewUrlParser: true, useUnifiedTopology: true }).then(async function() {
-//           console.log(`Successfully connected to MongoDB database at ${mongoDbUrl}!`);
-//       }).catch(function(error) {
-//           console.log(`Error whilst connecting to MongoDB database at ${mongoDbUrl}! ${error}`);
-//       });
-//       mongoose.set('useCreateIndex', true); // Fixes deprecation warning
-//       // mongoose.Collection('posters');
-//   } catch (err) {
-//       console.log(`Error whilst doing database setup! ${err}`);
-//   }
-//   try {
-//     app.use(cookieParser());
-//     app.use(session({
-//       saveUninitialized: true, // don't create session until something stored
-//       resave: false, //don't save session if unmodified
-//       store: store,
-//       secret: process.env.SESSION_SECRET,
-//       unset: 'destroy',
-//       name: 'blokkers',
-//       domain: ".blokkers.dk",
-//       cookie: {
-//           maxAge: 1000 * 60 * 60 * 24 * 15, // 2 week
-//           httpOnly: false,
-//           secure: false // TODO: Update this on production     
-//          }
-//     }));
-    
-//       console.log("Sessions successfully initialized!");
-//   } catch (err) {
-//       console.log(`Error setting up a mongo session store! ${err}`);
-//   }
-// }
-// main();
+app.use(function(req, res, next){
+  res.locals.session = req.session;
+  next();
+})
 
 const server = require("http").createServer(app);
 
@@ -102,7 +59,7 @@ app.use(helmet.referrerPolicy());
 app.use(helmet.xssFilter());
 app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
 
-app.use(express.static('public'));
+
 
 
 
@@ -158,34 +115,21 @@ const termsandconditions = "/termsandcontions";
 
 
 
-// let cart = require("./model/cart");
-// app.post("/updatecart", async (req, res) => {
-//    const posters = req.body.posters;
-//    let options = {
-//      maxAge: 1000 * 60 * 60 * 24 * 15, // would expire after 2 weeks
-//      httpOnly: true, // The cookie only accessible by the web server
-//      signed: false, // Indicates if the cookie should be signed
-//      secret: process.env.SESSION_SECRET,
-//      secure: false, // TODO: Update this on production
-     
-//  }
- 
-//  // Set cookie
-//  res.cookie('cart', posters, options) // options is optional
-//  res.redirect(basket);
-//  });
 
-// app.get('/cart', async (req, res) => {
-//   const newCart = req.cookies.cart;
-//   if(newCart){
-//     res.json({"cart": newCart })
-//   }else{
-//     res.redirect(home);
-//   }
+app.get('/cart', async (req, res) => {
+  const newCart = req.cookies.cart;
+
+  if(!newCart){
+    res.redirect(home);
   
-// });
+  }else{
+    res.json({"cart": newCart });
+  }
+
+});
 
 app.get(home, (req, res) => { 
+  // console.log(req.cookies)
   return res.send(navbar + homePage + footerPage);
 });
 
@@ -240,6 +184,7 @@ request(options, function (error, response, body) {
   // console.log("body:", body);
   data = body
 });
+res.clearCookie('cart', {domain: 'localhost', path: '/'});
 return res.status(200).send(navbar + paymentPage + footerPage);
       
 }else {
@@ -274,10 +219,11 @@ app.get("*", (req, res) => {
 
 
 const createRoute = require('./routes/create.js');
+const cartRoute = require('./routes/cart');
 
 
 app.use(createRoute);
-
+app.use(cartRoute,middleSession);
 
 
 //Server port

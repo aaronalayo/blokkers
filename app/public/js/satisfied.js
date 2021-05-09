@@ -36,7 +36,6 @@ $("#satisfiedtable").html('');
 };
 
 function addtobasket(){
- 
   let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
   let posters = [];
   if(sessionStorage.getItem("posters") != null){
@@ -45,31 +44,10 @@ function addtobasket(){
   posters.push(posterToEdit);
   sessionStorage.setItem("posters", JSON.stringify(posters));
   sessionStorage.removeItem('posterToEdit');
-  // addToCart();
-};
-
-
-
-function addToCart(){
-  let posters = JSON.parse(sessionStorage.getItem('posters'));
   
-  $.ajax({
-    global: false,
-    type: 'POST',
-    url: '/updatecart',
-    data: {
-      posters:posters
-    },
-    ContentType: 'application/json',
-    dataType: "json",
-  }).done(function (data) {
-    console.log('success', data);
-  }).fail(function (jqXHR, textStatus, errorThrown) {
-    var contentType = jqXHR.getResponseHeader("Content-Type");
-    if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
-      window.location.href = "/";
-      console.log('FAILED! ERROR: ' + errorThrown);
-    }
-  });
 };
+
+
+
+
 

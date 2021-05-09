@@ -1,7 +1,3 @@
-
-
-
-// console.log(posters)
 //displays all posters that are added to basket
 function displayPosters() {
     let posters = JSON.parse(sessionStorage.getItem("posters"));
@@ -15,7 +11,6 @@ function displayPosters() {
         //goes through each poster and displays it with it's size, price and quantity
         posters.forEach(poster => {
             let name;
-
             //checks if element with id same as the poster name exist
             //if yes it changes the name of the poster so a new row can be added for a poster with same name
             if (!$("#" + poster.pname).length) {
@@ -58,12 +53,9 @@ function displayPosters() {
         <span id="trash" onclick="remove(`+ JSON.stringify(poster).replace(/"/g, '&quot;') + `)"><i class="fa fa-trash-o" style="font-size:18px" aria-hidden="true""></i></span>
         </div>
         `);
-
             $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
-            $("#size").text(poster.size);
-            
-            calculatePosterPrice(poster);
-            
+            $("#size").text(poster.size);      
+            calculatePosterPrice(poster);       
         });
     }
 };
@@ -79,6 +71,7 @@ function updateQuantity(poster, quantity) {
                 sessionStorage.setItem("posters", JSON.stringify(posters));
                 $("#" + poster.pname + "-price").text(price.toFixed(2) + " DKK");
                 calculateTotal();
+                updateCart();
             }
         });
     }
@@ -119,7 +112,9 @@ function remove(poster) {
                 const index = posters.indexOf(p);
                 if (index > -1) {
                     posters.splice(index, 1);
+                    deleteCart();
                     sessionStorage.setItem("posters", JSON.stringify(posters));
+                    
                     window.location.href = window.location.href
                 }
             }
@@ -156,15 +151,12 @@ let posters = JSON.parse(sessionStorage.getItem("posters"));
                 price = data.formats[key].price;
                 // console.log(price);
                 poster.price = price;
-
-                amount = poster.price * poster.quantity;
-               
+                amount = poster.price * poster.quantity;           
                 update(price);
-            }
-            
-            
+            }         
         }
         $("#" + poster.pname + "-price").text(amount.toFixed(2)+" DKK");
+        
     });
     return price
 };
@@ -175,6 +167,8 @@ function update(price){
         p.price = price;
     })
     sessionStorage.setItem('posters', JSON.stringify(posters));
+    addToCart();
+    
 }
 
 
@@ -243,8 +237,8 @@ async function applyDiscount() {
                     total = total - discount;
                     $("#total-amount").text(total.toFixed(2) + " DKK");
                     $("#discount").val("");
-                    $("#total-amount-box").css('height', "220px");
-                    $("#discount-amount").text(data.discounts[key].discount_rate);
+                    $("#total-amount-box").css('height', "230px");
+                    $("#discount-amount").text('-'+ data.discounts[key].discount_rate);
                     $("#discount-row").show();
 
                     sessionStorage.setItem("total", JSON.stringify(total));
@@ -257,4 +251,70 @@ async function applyDiscount() {
         }
     })
 };
+function addToCart(){
+    let posters = JSON.parse(sessionStorage.getItem('posters'));
+    console.log(posters)
+    $.ajax({
+      global: false,
+      type: 'POST',
+      url: '/setcart',
+      data: {
+        posters:posters
+      },
+      ContentType: 'application/json',
+      dataType: "json",
+    }).done(function (data) {
+      console.log('success', data);
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+      var contentType = jqXHR.getResponseHeader("Content-Type");
+      if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
+        // window.location.href = "/";
+        console.log('FAILED! ERROR: ' + errorThrown);
+      }
+    });
+  };
 
+function updateCart(){
+    let posters = JSON.parse(sessionStorage.getItem('posters'));
+ 
+    $.ajax({
+      global: false,
+      type: 'POST',
+      url: '/updatecart',
+      data: {
+        posters:posters
+      },
+      ContentType: 'application/json',
+      dataType: "json",
+    }).done(function (data) {
+      console.log('success', data);
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+    //   var contentType = jqXHR.getResponseHeader("Content-Type");
+    //   if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
+    //     // window.location.href = "/";
+    //     console.log('FAILED! ERROR: ' + errorThrown);
+    //   }
+    });
+  };
+  function deleteCart(){
+    // let posters = JSON.parse(sessionStorage.getItem('posters'));
+    $.ajax({
+      global: false,
+      type: 'POST',
+      url: '/deletecart',
+    //   data: {
+    //     posters:posters
+    //   },
+      ContentType: 'application/json',
+      dataType: "json",
+    }).done(function (data) {
+      console.log('success', data);
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+    //   var contentType = jqXHR.getResponseHeader("Content-Type");
+    //   if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
+    //     // window.location.href = "/";
+    //     console.log('FAILED! ERROR: ' + errorThrown);
+    //   }
+    });
+  };
+  

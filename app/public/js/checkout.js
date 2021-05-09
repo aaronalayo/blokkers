@@ -76,6 +76,7 @@ function displayForm() {
 function newsLetter() {
   $('.checknews').click(function () {
     $('.checknews').attr("checked", "checked");
+    
   })
   $('.checknews').click(function () {
     $('.checknews').removeAttr("checked");
@@ -272,6 +273,32 @@ function storeOrder(paymentId){
       posters:posters,
       customer:customer,
       paymentId: paymentId
+    },
+    ContentType: 'application/json',
+    dataType: "json",
+  }).done(function (data) {
+    console.log('success', data);
+  }).fail(function (jqXHR, textStatus, errorThrown) {
+    var contentType = jqXHR.getResponseHeader("Content-Type");
+    if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
+      window.location.href = "/";
+      console.log('FAILED! ERROR: ' + errorThrown);
+    }
+  });
+};
+
+
+function suscribe(paymentId){
+  
+  let email = $("#shippingemail").val();
+console.log(email)
+  $.ajax({
+    global: false,
+    type: 'POST',
+    url: 'https://blokkers.us1.list-manage.com/subscribe/post?u=c64ec13be070320812876301f&amp;id=8c0776ff43',
+    data: {
+      email:email,
+  
     },
     ContentType: 'application/json',
     dataType: "json",

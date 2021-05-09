@@ -297,20 +297,13 @@ if(sessionStorage.getItem("posterToEdit") != null){
 $(function() {
   $('a[href*=\\#]:not([href=\\#])').on('click', function() {
       var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.substr(1) +']');
-      
+      target = target.length ? target : $('[name=' + this.hash.substr(1) +']');   
       if (target.length) {
-          $('html,body').animate({
-            
-              scrollTop: target.position().top,
-              
-          }, 200);
-         
-          
-          
+          $('html,body').animate({         
+              scrollTop: target.position().top,             
+          }, 200);    
           return false;
-      }
-      
+      }      
   });
 });
 
