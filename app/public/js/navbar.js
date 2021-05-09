@@ -109,13 +109,13 @@ cookieconsent.run({
                                col4: 'description ...' ,
                                col5: 'Permanent cookie'
                            },
-                           // {
-                           //     col1: '_gid',
-                           //     col2: 'google.com',
-                           //     col3: '1 day',
-                           //     col4: 'description ...' ,
-                           //     col5: 'Permanent cookie'
-                           // }
+                           {
+                               col1: '_gid',
+                               col2: 'google.com',
+                               col3: '1 day',
+                               col4: 'description ...' ,
+                               col5: 'Permanent cookie'
+                           }
                        ]
                    },{
                        title : "More information",
