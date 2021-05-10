@@ -191,7 +191,7 @@
         margin-left: auto;
         margin-right: auto;
         text-align: center;
-        font-size: 6.5vmin;
+        font-size: 4vw;
         font-family: "nunitobold";
         margin-bottom: 0;
         width: 100%;
@@ -205,14 +205,14 @@
         margin-top: 0;
         margin-bottom: 0;
         text-align: center;
-        font-size: 6.5vmin;
+        font-size: 4vw;
         font-weight: lighter;
         font-family: "nunitoextralight";
         padding-bottom: 20%;
     }
 
     #create-here {
-        font-size: 4vmin;
+        font-size: 3vw;
         font-family: "nunitoextrabold";
         text-decoration: none;
         padding: 0.65em 1em;
@@ -235,7 +235,7 @@
         margin-left: auto;
         margin-right: auto;
         text-align: center;
-        font-size: 5vmin;
+        font-size: 3vw;
         font-family: "nunitobold";
         margin-bottom: 0;
         width: 100%;
@@ -248,7 +248,7 @@
         margin-top: 0;
         margin-bottom: 0;
         text-align: center;
-        font-size: 5vmin;
+        font-size: 3vw;
         font-weight: lighter;
         font-family: "nunitoextralight";
         width: 100%;
@@ -265,7 +265,7 @@
         /* border-radius: 8px; */
         /* height: 50px; */
         font-family: 'nunitobold';
-        font-size: 2.15vmin;
+        font-size: 2vw;
         outline: none;
         text-decoration: none;
 
@@ -274,19 +274,19 @@
     ::-webkit-input-placeholder {
         /* Edge */
         color: rgb(0, 0, 0);
-        font-size: 2.15vmin;
+        font-size: 2.vw;
         appearance: none;
     }
 
     :-ms-input-placeholder {
         /* Internet Explorer 10-11 */
         color: rgb(0, 0, 0);
-        font-size: 2.15vmin;
+        font-size: 2vw;
     }
 
     ::placeholder {
         color: rgb(0, 0, 0);
-        font-size: 2.15vmin;
+        font-size: 2vw;
     }
 
 
@@ -295,8 +295,8 @@
 
     .btn-box {
         padding-right: 0;
-        padding-top: 5%;
-        padding-bottom: 25%;
+        padding-top: 1vmin;
+        padding-bottom: 1vmin;
     }
 
     #subscribe-button {
@@ -316,10 +316,11 @@
         -webkit-appearance: none;
         
     }
+   
 
     #subscribe-text {
         font-family: "nunitoregular";
-        font-size: 1.15vmin;
+        font-size: 1vw;
         text-align: justify;
         width: 80%;
         /* margin-left: auto; */
@@ -615,16 +616,25 @@
             font-size: 3vmin;
         }
 
-        #subscribe-button {
-            font-size: 5vmin;
-            margin: auto;
-            height: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 10%;
-
-        }
-
+   
+        #subscribe-button-mob {
+        font-size: 4vmin;
+        font-family: "nunitobold";
+        text-decoration: none;
+        padding: 1em 1.5em;
+        border-radius: 8px;
+        color: #fff;
+        background-color: #DA6B31;
+        border: 0;
+        cursor: pointer;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+        width: auto;
+        -webkit-appearance: none;
+        
+    }
 
 
         #inspiration-text {
@@ -683,17 +693,7 @@
     }
 
 
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 1) {
 
-        .btn-box {
-            padding-bottom: 25%;
-        }
-
-        #subscribe-text {
-            font-size: 1.5vmin;
-
-        }
-    }
 
     /* @media only screen and (min-device-width: 1920px) and (max-device-width: 2159px) and (-webkit-min-device-pixel-ratio: 1) {
         html {
@@ -907,14 +907,8 @@
                             <!-- Begin Mailchimp Signup Form -->
                             <div id="mc_embed_signup">
                             <form action="https://blokkers.us1.list-manage.com/subscribe/post?u=c64ec13be070320812876301f&amp;id=8c0776ff43" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                                <!-- <div id="mc_embed_signup_scroll"> -->
                                     <input type='text' value="" name="EMAIL" size="30" placeholder="Enter your email here" required>
                                     <button id="subscribe-button" value="Subscribe" name="subscribe" type="submit">Subscribe</button>
-                                <!-- <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required> -->
-                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                <!-- <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c64ec13be070320812876301f_8c0776ff43" tabindex="-1" value=""></div> -->
-                                <!-- <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                                </div> -->
                             </form>
                             </div>
                             </div>
@@ -1030,9 +1024,12 @@
                             <div class="center">
                                 <p id="receive">Receive 10% off</p>
                                 <p id="firstorder">your first order*</p>
-
-                                <input type='text' name='subscribe' size="30" placeholder="Enter your email here">
-                                <button id="subscribe-button" type="submit">Subscribe</button>
+                                <div id="mc_embed_signup_mob">
+                                    <form action="https://blokkers.us1.list-manage.com/subscribe/post?u=c64ec13be070320812876301f&amp;id=8c0776ff43" method="post" id="mc-embedded-subscribe-form_mob" name="mc-embedded-subscribe-form_mob" class="validate" target="_blank" novalidate>
+                                            <input type='text' value="" name="EMAIL" size="30" placeholder="Enter your email here" required>
+                                            <button id="subscribe-button-mob" value="Subscribe" name="subscribe" type="submit">Subscribe</button>
+                                        </div>
+                                    </form>
                                 <p id="subscribe-text">
                                     *Sign up for the BLOKKERS newsletter and receive a coupon code by mail that gives
                                     you 10% off your first order.

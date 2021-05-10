@@ -15,20 +15,20 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
-// let store = new MongoDBStore({
-//   uri: `${process.env.DB_HOST}/${process.env.DB}`,
-//   touchAfter: 24 * 3600, // time period in seconds
-//   connectionOptions: {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     serverSelectionTimeoutMS: 10000
-//   }
-// });
+let store = new MongoDBStore({
+  uri: `${process.env.DB_HOST}/${process.env.DB}`,
+  touchAfter: 24 * 3600, // time period in seconds
+  connectionOptions: {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 10000
+  }
+});
 app.use(cookieParser());
 let middleSession = session({
-      saveUninitialized: true, // don't create session until something stored
+      saveUninitialized: false, // don't create session until something stored
       resave: true, //don't save session if unmodified
-      // store: store,
+      store: store,
       secret: process.env.SESSION_SECRET,
       unset: 'destroy',
       domain: ".blokkers.dk",

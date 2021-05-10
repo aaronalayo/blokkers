@@ -350,7 +350,7 @@ img {
 
 
 
-@media only screen and (min-device-width: 2160px) and (max-device-width: 2880px) and (-webkit-min-device-pixel-ratio: 2){
+/* @media only screen and (min-device-width: 2160px) and (max-device-width: 2880px) and (-webkit-min-device-pixel-ratio: 2){
   #content-desktop {display: flex;}
   #content-mobile {display: none;}
 
@@ -373,13 +373,13 @@ img {
       scroll-snap-stop: always;
       /* width: fit-content; */
     
-    }
+    /* } */
 
   
 
  
   
-  #proceed-button {
+  /* #proceed-button {
     margin: 16%;
   }
 
@@ -449,10 +449,10 @@ tr {
   }
   #cancel_button {
     margin-top: 1%;
-  }
+  } */
  
 
-}
+/* }  */
 
 
 /* @media (-webkit-min-device-pixel-ratio: 1.1) {

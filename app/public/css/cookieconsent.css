@@ -495,7 +495,9 @@
   width: 3.6em;
   height: 1.6em;
   border-radius: 4em;
+  text-align: start;
 }
+
 #cc_div .c_b_toggle .sc_toggle.sc_readonly {
   cursor: not-allowed;
 }

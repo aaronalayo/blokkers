@@ -83,9 +83,18 @@ cookieconsent.run({
                        description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.',
                        toggle : {
                            value : 'necessary_cookies',
-                           enabled : true,
-                           readonly: true
-                       }
+                           enabled : false,
+                           readonly: false
+                       },
+                       cookie_table: [
+                        {
+                            col1: 'connect_sid',
+                            col2: 'blokkers.dk',
+                            col3: '30 days',
+                            col4: 'description ...' ,
+                            col5: 'Permanent cookie'
+                        },
+                    ]
                    },{
                        title : "Analytics cookies",
                        description: 'These cookies ollect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you.',
