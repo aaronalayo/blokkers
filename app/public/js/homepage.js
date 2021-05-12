@@ -100,14 +100,24 @@ function getCart() {
     });
 };
 async function setCart() {
-        await getCart().then(data => {
-            // console.log(data.cart);
-            if(data){
+    try {
+        await getCart().then((data) => {
+            
+            if(typeof data === undefined ||
+                !data ||
+                data === "" ||
+                data.length < 1){
+                console.log("no data")
+                
+            }else{
                 sessionStorage.setItem("posters", JSON.stringify(data.cart));
             }
             
-        
             })
+    } catch (error) {
+        console.log(error)
+    }
+       
     };
 
 

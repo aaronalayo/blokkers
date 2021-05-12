@@ -260,12 +260,14 @@
     width: 80%;
     margin-top: 15%;
     margin-bottom: 5%;
-    padding: 0.2em 1em;
+    /* padding: 0.65em 2em; */
     border: transparent;
     /* border-radius: 8px; */
     /* height: 50px; */
     font-family: 'nunitobold';
-    font-size: 2vw;
+    font-size: 4vmin;
+    padding: 0.2em 1em;
+    height: 50px;
     outline: none;
     text-decoration: none;
 
@@ -274,19 +276,20 @@
     ::-webkit-input-placeholder {
         /* Edge */
         color: rgb(0, 0, 0);
-        font-size: 2vw;
+        font-size: 1vw;
         appearance: none;
+        vertical-align: middle;
     }
 
     :-ms-input-placeholder {
         /* Internet Explorer 10-11 */
         color: rgb(0, 0, 0);
-        font-size: 2vw;
+        font-size: 1vw;
     }
 
     ::placeholder {
         color: rgb(0, 0, 0);
-        font-size: 2vw;
+        font-size: 1vw;
     }
 
 
@@ -696,154 +699,6 @@
 
 
 
-    /* @media only screen and (min-device-width: 1920px) and (max-device-width: 2159px) and (-webkit-min-device-pixel-ratio: 1) {
-        html {
-            -webkit-overflow-scrolling: auto !important;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            scroll-snap-stop: always;
-          
-           
-        }
-
-        ::-webkit-scrollbar {
-            -webkit-appearance: none;
-            width: 7px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, .5);
-            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        }
-
-        #content-desktop {
-            display: flex;
-        }
-
-        #content-mobile {
-            display: none;
-        }
-
-        #intro-video {
-            width: 1000px;
-            height: 600px;
-            margin: auto;
-        }
-
-        .video-container {
-            width: 80em;
-            height: 760px;
-
-        }
-
-        .box-container {
-
-            width: 37.9em;
-            height: 760px;
-
-        }
-
-        #containerinspiration {
-            width: 37.9em;
-            height: 760px;
-
-        }
-
-        .slideshow-container {
-            width: 80em;
-            height: 760px;
-
-
-        }
-
-        .mySlides img {
-            height: 760px;
-        }
-        .center {
-        padding-left: 0%; 
-        padding-right: 0%;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 35%;
-        padding-bottom: 25%;
-        }
-
-        #createyourown {
-            width: 400px;
-            font-size: 3.5em;
-        }
-
-        #unique {
-            width: 400px;
-            font-size: 3.5em;
-        }
-
-        #poster {
-            width: 400px;
-            font-size: 3.5em;
-
-        }
-
-        #receive {
-            font-size: 3em;
-            width: 520px;
-            padding-left: 10%;
-        }
-
-        #firstorder {
-            font-size: 3em;
-            width: 520px;
-            padding-left: 10%;
-        }
-        input[type=text] {
-
-        width: 350px;
-        margin-top: 15%;
-        margin-bottom: 20px;
-        height: 50px;
-        font-size: 1.15em;
-    }
-    .btn-box {
-    display: -webkit-box;
-    padding-right: 0;
-    padding-left: 0;
-    padding-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 520px;
-}
-    
-
-    #subscribe-button {
-        font-size: 2.25em;
-        margin-top: 5%;
-        margin-right: auto;
-        margin-left: auto;
-
-    }
-    #subscribe-text{
-        width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-   
-        margin-top: 15%;
-    }
-    #inspiration-text {
-
-        left: 60.5%;
-        margin-top: 35%;
-        font-size: 2.5em;
-    }
-
-    .hr-text {
-        width: 10.5%;
-        left: 60.5%;
-
-    }
-
-
-    } */
 </style>
 
 <body onload=" playVideo(),setCart()">
@@ -906,12 +761,12 @@
                             <div class="btn-box">
                                
                             <!-- Begin Mailchimp Signup Form -->
-                            <div id="mc_embed_signup">
+                            <!-- <div id="mc_embed_signup"> -->
                             <form action="https://blokkers.us1.list-manage.com/subscribe/post?u=c64ec13be070320812876301f&amp;id=8c0776ff43" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                                     <input type='text' value="" name="EMAIL" size="30" placeholder="Enter your email" required>
                                     <button id="subscribe-button" value="Subscribe" name="subscribe" type="submit">Subscribe</button>
                             </form>
-                            </div>
+                            <!-- </div> -->
                             </div>
 
                             <p id="subscribe-text">

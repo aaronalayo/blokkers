@@ -228,14 +228,14 @@ route.post("/createorder", async (req, res) => {
   const newPosters = checkParameter(posters);
   const shippingFullName = checkParameter(customer.shippingfullname);
   const shippingPhone = checkParameter(customer.shippingphone);
-  const shippingshippingAddress = checkParameter(customer.shippingaddress);
+  const shippingAddress = checkParameter(customer.shippingaddress);
   const shippingCity = checkParameter(customer.shippingcity);
   const shippingZipCode = checkParameter(customer.shippingzip);
   const newPaymentId = checkParameter(paymentId);
   //Check if values are empty set them to null
   const billingFullname = setValueToNull(customer.billingfullname);
   const billingPhone = setValueToNull(customer.billingphone);
-  const billingshippingAddress = setValueToNull(customer.billingaddress);
+  const billingAddress = setValueToNull(customer.billingaddress);
   const billingCity = setValueToNull(customer.billingcity);
   const billingZipCode = setValueToNull(customer.billingzip);
 
@@ -244,7 +244,7 @@ route.post("/createorder", async (req, res) => {
       (newPosters,
       shippingFullName,
       shippingPhone,
-      shippingshippingAddress,
+      shippingAddress,
       shippingCity,
       shippingZipCode,
       customer.email,
@@ -309,13 +309,13 @@ route.post("/createorder", async (req, res) => {
         await Customer.query().insert({
           email: customer.email,
           shipping_full_name: shippingFullName,
-          shipping_address: shippingshippingAddress,
+          shipping_address: shippingAddress,
           shipping_phone: shippingPhone,
           shipping_zip_code: shippingZipCode,
           shipping_city: shippingCity,
           billing_full_name: billingFullname,
           billing_phone: billingPhone,
-          billing_shippingaddress: billingshippingAddress,
+          billing_address: billingAddress,
           billing_zip_code: billingCity,
           billing_city: billingZipCode,
           enable_newsletter: customer.newsletter,

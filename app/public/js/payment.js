@@ -12,7 +12,7 @@ function getData() {
     // You would do something with both sets of data here
     // console.log(data);
     if (data === undefined || !data) {
-      console.log("Waiting for data");
+      // console.log("Waiting for data");
     } else {
       let paymentDetails = data[0].data;
       paymentDetails = JSON.parse(paymentDetails);
@@ -22,14 +22,14 @@ function getData() {
       date = date.toUTCString();
       $('#date').text(date.toString().substr(0, 22));
       let orderDetails = data[0].order;
-      console.log(orderDetails)
+      // console.log(orderDetails)
       $('#orderNumber').text("Order #" + orderDetails[0].order_no);
       let itemsDetails = data[0].items;
       displayOrder(itemsDetails);
       setTotalPay(paymentDetails.payment);
       setCustomerInfo(orderDetails);
       if (paymentId) {
-        console.log("trying to send files");
+        // console.log("trying to send files");
         sendFiles(paymentId);
       } else {
         console.log("waiting for data")
@@ -48,7 +48,7 @@ function displayOrder(items) {
     let paths = JSON.stringify(items[i].item_paths).replace(/"/g, '').replace(/\\/g, '').replace(/[{}]/g, '');
 
     paths = paths.split(",");
-    console.log(paths)
+    // console.log(paths)
 
 
 
@@ -86,7 +86,7 @@ function displayOrder(items) {
 
 function setTotalPay(payment) {
   if (payment === undefined || !payment) {
-    console.log("Waiting for data");
+    // console.log("Waiting for data");
   } else {
     let totalPay = payment.orderDetails.amount / 100;
 
@@ -107,6 +107,14 @@ function setCustomerInfo(order) {
   let shippingCountry = "DK";
   let shippingEmail = order[0].customer.email;
 
+  let billingName = order[0].customer.billing_full_name != null ? order[0].customer.billing_full_name : shippingName;
+  let billingAddress = order[0].customer.billing_address != null ? order[0].customer.billing_address : shippingAddress;
+  let billingZip = order[0].customer.billing_zip_code != null ? order[0].customer.billing_zip_code : shippingZip;
+  let billingCity = order[0].customer.billing_city != null ? order[0].customer.billing_city : shippingCity;
+  let billingCountry = order[0].customer.billing_country != null ? order[0].customer.billing_country : shippingCountry;
+  let billingEmail = order[0].customer.email;
+
+  
   $("#shippingname").text(shippingName);
   $("#shippingaddress").text(shippingAddress);
   $("#shippingzip").text(shippingZip);
@@ -114,12 +122,12 @@ function setCustomerInfo(order) {
   $("#shippingcountry").text(shippingCountry);
   $("#shippingemail").text(shippingEmail);
 
-  $("#billingname").text(shippingName);
-  $("#billingaddress").text(shippingAddress);
-  $("#billingzip").text(shippingZip);
-  $("#billingcity").text(shippingCity);
-  $("#billingcountry").text(shippingCountry);
-  $("#billingemail").text(shippingEmail);
+  $("#billingname").text(billingName);
+  $("#billingaddress").text(billingAddress);
+  $("#billingzip").text(billingZip);
+  $("#billingcity").text(billingCity);
+  $("#billingcountry").text(billingCountry);
+  $("#billingemail").text(billingEmail);
 }
 function sendFiles(paymentId) {
 
