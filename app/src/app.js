@@ -118,7 +118,7 @@ const termsandconditions = "/termsandcontions";
 
 app.get('/cart', async (req, res) => {
   const newCart = req.cookies.cart;
-  console.log(newCart)
+  
   if(typeof newCart === undefined ||
     !newCart ||
     newCart === "" ||
