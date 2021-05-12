@@ -51,6 +51,7 @@
         flex: 25%;
 
     }
+
     .col-50 {
         -ms-flex: 50%;
         /* IE10 */
@@ -104,30 +105,31 @@
     }
 
     video::-webkit-media-controls-panel {
-    background-image: linear-gradient(transparent, transparent) !important;
-    overflow: hidden;
+        background-image: linear-gradient(transparent, transparent) !important;
+        overflow: hidden;
     }
+
     #intro-video {
-    position: relative;
-    width: 100%;
-    height: auto;
-    margin: auto;
-    display: block;
-    padding: 5%;
-    overflow: hidden;
-    object-fit: cover;
-    border: 0;
-    background-color: transparent;
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin: auto;
+        display: block;
+        padding: 5%;
+        overflow: hidden;
+        object-fit: cover;
+        border: 0;
+        background-color: transparent;
     }
 
     .video-container {
-    width: 100%;
-    height: 100%;
-    border: 0px solid #c0c0c0;
-    background-color: #F2F2F2;
-    display:-webkit-box;
-    margin-right: 2%;
-    overflow: hidden;
+        width: 100%;
+        height: 100%;
+        border: 0px solid #c0c0c0;
+        background-color: #F2F2F2;
+        display: -webkit-box;
+        margin-right: 2%;
+        overflow: hidden;
     }
 
     .box-container {
@@ -256,20 +258,20 @@
 
     input[type=text] {
         margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    margin-top: 15%;
-    margin-bottom: 5%;
-    /* padding: 0.65em 2em; */
-    border: transparent;
-    /* border-radius: 8px; */
-    /* height: 50px; */
-    font-family: 'nunitobold';
-    font-size: 4vmin;
-    padding: 0.2em 1em;
-    height: 50px;
-    outline: none;
-    text-decoration: none;
+        margin-right: auto;
+        width: 80%;
+        margin-top: 15%;
+        margin-bottom: 5%;
+        /* padding: 0.65em 2em; */
+        border: transparent;
+        /* border-radius: 8px; */
+        /* height: 50px; */
+        font-family: 'nunitobold';
+        font-size: 4vmin;
+        padding: 0.2em 1em;
+        height: 50px;
+        outline: none;
+        text-decoration: none;
 
     }
 
@@ -317,21 +319,21 @@
         margin-left: auto;
         width: auto;
         -webkit-appearance: none;
-        
+
     }
-   
+
 
     #subscribe-text {
         font-family: "nunitoregular";
-    font-size: 1vw;
-    text-align: justify;
-    width: 80%;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-    /* margin-top: auto; */
-    margin-bottom: 0;
-    padding-bottom: 0%;
-    display: inline-block;
+        font-size: 1vw;
+        text-align: justify;
+        width: 80%;
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+        /* margin-top: auto; */
+        margin-bottom: 0;
+        padding-bottom: 0%;
+        display: inline-block;
 
     }
 
@@ -514,26 +516,18 @@
         }
 
         .box-container {
-
             display: -webkit-inline-box;
-
             width: 100%;
-            height: 200px;
+            height: 250px;
             margin-left: 0%;
             margin-top: 0%;
             margin-right: 0%;
             /* float: right; */
             padding-right: 0;
             padding-left: 0;
-
         }
 
-
-
-
-
         #createyourown {
-
             font-size: 7.5vmin;
             text-align: center;
             margin-top: 18%;
@@ -570,7 +564,7 @@
         #containerinspiration {
 
             width: 100%;
-            height: 320px;
+            height: 350px;
 
 
         }
@@ -620,25 +614,25 @@
             font-size: 3vmin;
         }
 
-   
+
         #subscribe-button-mob {
-        font-size: 4vmin;
-        font-family: "nunitobold";
-        text-decoration: none;
-        padding: 1em 1.5em;
-        border-radius: 8px;
-        color: #fff;
-        background-color: #DA6B31;
-        border: 0;
-        cursor: pointer;
-        height: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 10%;
-        width: auto;
-        -webkit-appearance: none;
-        
-    }
+            font-size: 4vmin;
+            font-family: "nunitobold";
+            text-decoration: none;
+            padding: 1em 1.5em;
+            border-radius: 8px;
+            color: #fff;
+            background-color: #DA6B31;
+            border: 0;
+            cursor: pointer;
+            height: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10%;
+            width: auto;
+            -webkit-appearance: none;
+
+        }
 
 
         #inspiration-text {
@@ -695,10 +689,6 @@
             margin-left: 32%;
         }
     }
-
-
-
-
 </style>
 
 <body onload=" playVideo(),setCart()">
@@ -717,16 +707,14 @@
                     <!-- </div> -->
                 </div>
                 <div class="container">
-
                     <div class="col-50">
-                    <div class="video-container">
-                        <video id="intro-video" preload="auto" loop playsinline autoplay muted oncontextmenu="return false;">
-                            <source src="video/blokkers_intro_4k.m4v" type="video/mp4">
-                            <!-- <source src="movie.ogg" type="video/ogg"> -->
-                        </video>
-
-                    </div>
-
+                        <div class="video-container">
+                            <video id="intro-video" preload="auto" loop playsinline autoplay muted
+                                oncontextmenu="return false;">
+                                <source src="video/blokkers_intro_4k.m4v" type="video/mp4">
+                                <!-- <source src="movie.ogg" type="video/ogg"> -->
+                            </video>
+                        </div>
                     </div>
                     <div class="col-25">
                         <div class="box-container">
@@ -736,8 +724,6 @@
                                 <!-- <p id="poster"></p> -->
                                 <a href="/createposter" id="create-here">Start now!</a>
                             </div>
-
-
                         </div>
                     </div>
 
@@ -747,8 +733,6 @@
         </div>
     </div>
     <div id="inspirationssection" class="content-desktop">
-
-
         <div class="row">
             <div class="container">
                 <div class="col-25">
@@ -759,26 +743,26 @@
                             <p id="firstorder">your first order*</p>
 
                             <div class="btn-box">
-                               
-                            <!-- Begin Mailchimp Signup Form -->
-                            <!-- <div id="mc_embed_signup"> -->
-                            <form action="https://blokkers.us1.list-manage.com/subscribe/post?u=c64ec13be070320812876301f&amp;id=8c0776ff43" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                                    <input type='text' value="" name="EMAIL" size="30" placeholder="Enter your email" required>
-                                    <button id="subscribe-button" value="Subscribe" name="subscribe" type="submit">Subscribe</button>
-                            </form>
-                            <!-- </div> -->
-                            </div>
 
+                                <!-- Begin Mailchimp Signup Form -->
+                                <!-- <div id="mc_embed_signup"> -->
+                                <form
+                                    action="https://blokkers.us1.list-manage.com/subscribe/post?u=c64ec13be070320812876301f&amp;id=8c0776ff43"
+                                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                                    class="validate" target="_blank" novalidate>
+                                    <input type='text' value="" name="EMAIL" size="30" placeholder="Enter your email"
+                                        required>
+                                    <button id="subscribe-button" value="Subscribe" name="subscribe"
+                                        type="submit">Subscribe</button>
+                                </form>
+                                <!-- </div> -->
+                            </div>
                             <p id="subscribe-text">
                                 *Sign up for the BLOKKERS newsletter and receive a coupon code by mail that gives you
                                 10% off your first order.
                                 When you subscribe you agree to receiving news and other special offers by mail.
                             </p>
                         </div>
-
-
-
-
                     </div>
                 </div>
 
@@ -881,11 +865,17 @@
                                 <p id="receive">Receive 10% off</p>
                                 <p id="firstorder">your first order*</p>
                                 <div id="mc_embed_signup_mob">
-                                    <form action="https://blokkers.us1.list-manage.com/subscribe/post?u=c64ec13be070320812876301f&amp;id=8c0776ff43" method="post" id="mc-embedded-subscribe-form_mob" name="mc-embedded-subscribe-form_mob" class="validate" target="_blank" novalidate>
-                                            <input type='text' value="" name="EMAIL" size="30" placeholder="Enter your email here" required>
-                                            <button id="subscribe-button-mob" value="Subscribe" name="subscribe" type="submit">Subscribe</button>
-                                        </div>
-                                    </form>
+                                    <form
+                                        action="https://blokkers.us1.list-manage.com/subscribe/post?u=c64ec13be070320812876301f&amp;id=8c0776ff43"
+                                        method="post" id="mc-embedded-subscribe-form_mob"
+                                        name="mc-embedded-subscribe-form_mob" class="validate" target="_blank"
+                                        novalidate>
+                                        <input type='text' value="" name="EMAIL" size="30"
+                                            placeholder="Enter your email here" required>
+                                        <button id="subscribe-button-mob" value="Subscribe" name="subscribe"
+                                            type="submit">Subscribe</button>
+                                </div>
+                                </form>
                                 <p id="subscribe-text">
                                     *Sign up for the BLOKKERS newsletter and receive a coupon code by mail that gives
                                     you 10% off your first order.
