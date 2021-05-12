@@ -30,15 +30,15 @@
 
   .row {
 
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 20%;
+    padding-right: 15%;
     display: -ms-flexbox;
     /* IE10 */
     display: flex;
     -ms-flex-wrap: wrap;
     /* IE10 */
     flex-wrap: wrap;
-    margin: 0 150px;
+
 
 
   }
@@ -73,7 +73,7 @@
   .container {
     background-color: transparent;
     padding: 10px 10px 10px 10px;
-    min-height: 110vh;
+    min-height: 80vh;
   }
 
   .btn {
@@ -105,6 +105,7 @@
     margin-right: auto;
     display: flex;
     width: 70%;
+    
 }
 
   #proceed-button {
@@ -275,7 +276,8 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 2%;
-    width: 600px;
+    
+   
  
   }
 
@@ -360,6 +362,7 @@
 
     .row {
       margin: 0;
+      padding: 10%;
     }
 
     #basket-header p {
@@ -393,7 +396,7 @@
     }
  
     .basket-table {
-      width: 216px;
+      width: 100%;
       margin-left: auto;
       margin-right: auto;
       display: block;
@@ -402,7 +405,7 @@
 
 
   .basket-table img {
-    width: 4.5em;
+    width: 20.5vmin;
 
   }
 
@@ -472,12 +475,12 @@
 
   .poster-price {
     margin-top: 10%;
-    width: 216px;
+    width: max-content;
     font-size: 24px;
-    margin-left: 20%;
+    margin-left: auto;
     margin-right: auto;
     vertical-align: middle;
-    display: inline-block;
+    display: flex;
   }
 
   .remove-poster-btn {
@@ -559,20 +562,17 @@
   }
   }
   @media only screen and (min-device-width: 768px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 1) {
-    .row {
-
-padding-left: 5%;
-padding-right: 5%;
-display: -ms-flexbox;
-/* IE10 */
-display: flex;
--ms-flex-wrap: wrap;
-/* IE10 */
-flex-wrap: wrap;
-margin: 0 80px;
-
-
-}
+  .row {
+    padding-left: 10%;
+    padding-right: 15%;
+  display: -ms-flexbox;
+  /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap;
+  /* IE10 */
+  flex-wrap: wrap;
+  /* margin: 0 80px; */
+  }
     .remove-poster-btn {
     border: none;
     background-color: white;
@@ -611,8 +611,8 @@ margin: 0 80px;
 
   #proceed-button {
     margin: 22%;
-  }
-  /*
+  } 
+  
   input[type=text] {
 
     width: 75%;
@@ -623,13 +623,12 @@ margin: 0 80px;
     margin-left: auto;
     margin-right: auto;
   }
-  .coupon{
+  .coupon {
     display: inline-block;
-    margin-left: 20%;
+    margin-left: auto;
     margin-right: auto;
-    width: 235px;
-    margin-top: 10%;
-  }
+   
+}
   #add-button {
 
     border-radius: 7px;
@@ -640,7 +639,7 @@ margin: 0 80px;
     width: 50%;
     margin: 0 auto;
     vertical-align: middle;
-  } */
+  } 
 
 }
 /* @media only screen and (min-device-width: 1680px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 2) {

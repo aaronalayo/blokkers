@@ -152,6 +152,8 @@
     -webkit-appearance: none;
     font-family: 'nunitobold';
     outline: none;
+    text-align: center;
+    /* width: 20%; */
   }
 
   /* .btn:hover {
@@ -212,12 +214,19 @@
     white-space: nowrap;
   }
 
-  .basket {
+  /* .basket {
     margin-top: 2%;
     
-  }
+  } */
   #basket-btn{
   background-color: #ccc;
+}
+.submit{
+  /* display: grid; */
+}
+.submit span{
+  margin-bottom: 2%;
+
 }
 
   @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -279,111 +288,22 @@
     #shipping {
       width: max-content;
     }
+    .submit span {
+    margin-bottom: 5%;
+    display: grid;
+}
   }
-
-  /* @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
-    body {
-      height: 800px;
-    }
-
-    html {
-            -webkit-overflow-scrolling: auto !important;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            scroll-snap-stop: always;
-            
-        }
-        ::-webkit-scrollbar {
-            -webkit-appearance: none;
-            width: 7px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, .5);
-            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        }
-
-
-
-
-    .col {
-      width: 20%;
-
-    }
-
-    .col-25 {
-      width: 200px;
-      -ms-flex: 25%;
-      flex: 25%;
-
-    }
-
-
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 1) {
     .row {
       margin: 2%;
-    }
-
-    .container {
-      padding: 0px 0px 0px 0px;
+      padding-left: 5%;
+      padding-right: 5%;
 
 
     }
 
-    .centered {
+  }
 
-      padding-left: 30%;
-      padding-top: 15%;
-    }
-
-    .centered {
-
-      padding-left: 0%;
-      padding-top: 0%;
-    }
-
-    input[type=text] {
-      width: 100%;
-
-    }
-
-    input[type="checkbox"]:checked {
-
-      vertical-align: middle;
-
-      background: rgb(0, 0, 0);
-
-      -webkit-appearance: inherit;
-      -moz-appearance: none;
-      appearance: none;
-      transition: box-shadow 200ms;
-    }
-
-    #contactinformation {
-      text-align: center;
-      padding-right: 0%;
-      padding-left: 0%;
-      padding-top: 10%;
-
-    }
-
-
-    #newsletter {
-      text-align: justify;
-    }
-
-    .basket {
-      margin-top: 3%;
-    }
-
-    .basket-container {
-      margin-bottom: 5%;
-    }
-
-    #shipping {
-      width: max-content;
-    }
-  } */
 </style>
 
 
@@ -481,14 +401,18 @@
           </div>
           <div class="row">
             <div class="col-25 ">
-              <div id="submit">
-                <span><input type="button" id="CreatePayment" value="Go to payment" id="submit" class="btn"
-                    onclick="getInfo()"></span>
-
+              <div class="submit">
+                <span>
+                  <input type="button" id="CreatePayment" value="Payment" id="submit" class="btn"
+                    onclick="getInfo()">
+                  </span>
+                <span>
+                  <a type="button" id="basket-btn" href="/basket" class="btn">Basket</a>
+                </span>
               </div>
-              <div class="basket">
+              <!-- <div class="basket">
                 <span><a id="basket-btn" href="/basket" class="btn">View Basket</a></span>
-              </div>
+              </div> -->
             </div>
           </div>
 

@@ -300,7 +300,7 @@ async function updateDiscount() {
 }
 function addToCart() {
   let posters = JSON.parse(sessionStorage.getItem("posters"));
-  console.log(posters);
+  // console.log(posters);
   $.ajax({
     global: false,
     type: "POST",

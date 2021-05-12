@@ -78,7 +78,7 @@
         padding: 10px 10px 15px 10px;
         border-radius: 3px;
         align-items: baseline;
-        min-height: 90vh;
+        min-height: 70vh;
     }
 
 
@@ -370,6 +370,17 @@
             -webkit-overflow-scrolling: touch !important;
             -webkit-overflow-scrolling: auto !important;
         }
+        .row {
+        display: -ms-flexbox;
+        /* IE10 */
+        display:block;
+        -ms-flex-wrap: wrap;
+        /* IE10 */
+        flex-wrap: wrap;
+        margin: 0 100px;
+
+
+        }
 
         #content-desktop {
             display: none;
@@ -485,6 +496,7 @@
         #posterdiv {
             margin-left: auto;
             margin-right: auto;
+            width: auto;
 
         }
         #tableposter {
@@ -556,10 +568,10 @@
     }
 
 
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 1) {
+    /* @media only screen and (min-device-width: 768px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 1) {
 
         html {
-            /* -webkit-overflow-scrolling: touch !important; */
+            -webkit-overflow-scrolling: touch !important;
             -webkit-overflow-scrolling: auto !important;
             scroll-snap-type: y mandatory;
             overflow-y: scroll;
@@ -588,7 +600,7 @@
 
         .col {
             width: 20%;
-            /* float: left; */
+            float: left;
         }
 
         .col-25 {
@@ -633,12 +645,12 @@
 
         
         #write_name {
-            /* margin-top: 10%; */
+            margin-top: 10%;
             width: 70%;
             margin-left: auto;
             margin-right: auto;
             font-size: 2vmin;
-            /* margin-bottom: 50%; */
+            margin-bottom: 50%;
         }
         #tableposter {
         border: none;
@@ -769,7 +781,7 @@
             font-family: "nunitolight";
         }
   
-    }
+    } */
 
     /* @media only screen and (min-device-width: 1680px) and (max-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 2) {
         html {

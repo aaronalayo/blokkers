@@ -1,157 +1,174 @@
-
 <style>
-
-.footer {
-    border: 0px solid #c0c0c0;
-    position: relative;
-    /* left: 0; */
-    bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    font-size: 18px;
-    font-family: "nunitolight";
-    background-color: transparent;
-    width: 100%;
-    padding-top: 10%;
+    .footer {
+        border: 0px solid #c0c0c0;
+        position: relative;
+        /* left: 0; */
+        bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        font-size: 1vw;;
+        font-family: "nunitolight";
+        background-color: transparent;
+        width: 100%;
+        padding-top: 10%;
 
     }
-.footer a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    transition: 0.3s;
-    cursor: pointer;
+
+    .footer a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        transition: 0.3s;
+        cursor: pointer;
     }
-    #contact-column{
-        float: left; 
+
+    #contact-column {
+        float: left;
         margin-left: 7%;
-        width: 400px;
+        width: 38%;
     }
-    #social-logos{
+
+    #social-logos {
         width: 100%;
         text-align: center;
         margin: auto;
     }
-    #conditions-column{
+
+    #conditions-column {
         float: right;
         width: 30%;
         text-align: end;
-        margin-right: 10%; 
-        font-family: "nunitobold"; 
+        margin-right: 10%;
+        font-family: "nunitobold";
     }
+
     @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
-    .footer {
-    padding-top: 10%;
-    position: sticky; 
-    bottom: 0;
-    font-size: 10px;
-    margin-left: 5%;
-    margin-right: 5%;
-    width:auto;
-    }
-    .fab.fa-instagram::before{
-        font-size:20px;
-    }
-    .fab.fa-facebook::before{
-        font-size:20px;
-    }
-    .fab.fa-pinterest::before{
-        font-size:20px;
-    }
-    #tac{
-       
-      text-align: left;
-    }
-    #contact-column{
-        width: 100px;
-        margin-left: 2%;
-    }
-    #social-logos{
-        width: 10%;
-        margin: auto;
-    }
-    #conditions-column{
-        width: 35%;
-        margin-right: 0;
-    }
-    .fab, .far {
+        .footer {
+            padding-top: 10%;
+            position: sticky;
+            bottom: 0;
+            font-size: 10px;
+            margin-left: 5%;
+            margin-right: 5%;
+            width: auto;
+        }
 
-    line-height: 0.5;
-}
-}
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 767px) 
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: landscape) { 
+        .fab.fa-instagram::before {
+            font-size: 20px;
+        }
 
+        .fab.fa-facebook::before {
+            font-size: 20px;
+        }
 
-#social-logos {
-    width: 25%;
-    margin-left: 20%;
-}
-#facebook{
-    margin-left: 8%;
-    margin-right: 8%;
-}
-#pinterest{
-    margin-left: 2%;
-    margin-right: 2%;
-}
-.fab, .far {
+        .fab.fa-pinterest::before {
+            font-size: 20px;
+        }
 
-    line-height: 0.7;
-}
-  }
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
-    .footer {
-    position: sticky; 
-    bottom: 0;
-    padding-top: 10%;
-    }
-    #tac p{
-       
-       text-align: start;
-     }
-     #conditions-column {
-    width: 30%;
-    margin-right: 8%;
-}
-.fa, .fab, .fad, .fal, .far, .fas {
+        #tac {
 
-    line-height: 0.7;
-}
+            text-align: left;
+        }
+
+        #contact-column {
+            width: 30%;
+            margin-left: 2%;
+        }
+
+        #social-logos {
+            width: 10%;
+            margin: auto;
+        }
+
+        #conditions-column {
+            width: 30%;
+            margin-right: 0;
+        }
+
+        .fab,
+        .far {
+
+            line-height: 0.5;
+        }
     }
 
+
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 1) {
+        .footer {
+            position: sticky;
+            bottom: 0;
+            padding-top: 10%;
+        }
+
+        #tac p {
+
+            text-align: start;
+        }
+
+        #conditions-column {
+            width: 30%;
+            margin-right: 8%;
+        }
+
+        .fa,
+        .fab,
+        .fad,
+        .fal,
+        .far,
+        .fas {
+
+            line-height: 0.7;
+        }
+
+        .fab.fa-facebook::before {
+            font-size: 35px;
+        }
+
+        .fab.fab.fa-instagram::before {
+            font-size: 35px;
+        }
+
+        .fab.fab.fab.fa-pinterest::before {
+            font-size: 35px;
+        }
+    }
 </style>
 <footer>
 
 
-<div class="footer">
+    <div class="footer">
+
         <div id="contact-column">
-            <span >
+            <span>
                 <p style="font-family: nunitobold;">Contact</p>
-                <a href="mailto:hello@blokkers.dk" >hello@blokkers.dk</a>
+                <a href="mailto:hello@blokkers.dk">hello@blokkers.dk</a>
                 <p>Kolding vej 80,</p>
                 <p>6040 Egtved</p>
             </span>
         </div>
-        <div id="social-logos">
-            <a href="https://www.instagram.com/blokkersdk/" target="_blank" rel="noopener noreferrer"><i  class="fab fa-instagram" style="font-size:45px; margin-left: 1%;margin-right: 1%;"></i></a>
-            <a id="facebook" href="https://www.facebook.com/Blokkers-100834935458639/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" style="font-size:45px; margin-left: 0.5%;margin-right: 0.5%;" ></i></a>
-            <a href="https://www.pinterest.dk/5520bde8c9abe992b0f6af36ff5c80/_saved/" target="_blank" rel="noopener noreferrer"><i class="fab fa-pinterest" style="font-size:45px; margin-left: 1%;margin-right: 1%;" id="pinterest"></i></a>
-        </div>
-       <div id="conditions-column">
-        <span >
-            <p ><a id="tac" href="/termsandcontions" >Terms & Conditions</a></p>
-            <p style="margin-top: 2%;"><a href="mailto:hello@blokkers.dk" >Privacy policy & Cookies</a></p>
-            <p style="margin-top: 2%;"><a href="/about" >About</a></p>
-        </span>
-       </div> 
-        
 
-</div>
+
+        <div id="social-logos">
+            <a href="https://www.instagram.com/blokkersdk/" target="_blank" rel="noopener noreferrer"><i
+                    class="fab fa-instagram" style="font-size:45px; margin-left: 1%;margin-right: 1%;"></i></a>
+            <a id="facebook" href="https://www.facebook.com/Blokkers-100834935458639/" target="_blank"
+                rel="noopener noreferrer"><i class="fab fa-facebook"
+                    style="font-size:45px; margin-left: 0.5%;margin-right: 0.5%;"></i></a>
+            <a href="https://www.pinterest.dk/5520bde8c9abe992b0f6af36ff5c80/_saved/" target="_blank"
+                rel="noopener noreferrer"><i class="fab fa-pinterest"
+                    style="font-size:45px; margin-left: 1%;margin-right: 1%;" id="pinterest"></i></a>
+        </div>
+
+        <div id="conditions-column">
+            <span>
+                <p><a id="tac" href="/termsandcontions">Terms & Conditions</a></p>
+                <p style="margin-top: 2%;"><a href="mailto:hello@blokkers.dk">Privacy policy & Cookies</a></p>
+                <p style="margin-top: 2%;"><a href="/about">About</a></p>
+            </span>
+        </div>
+    </div>
+    </div>
 </footer>
 </body>
-</html>
 
+</html>
