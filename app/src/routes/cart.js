@@ -7,7 +7,7 @@ route.use(cookieParser());
 const home = "/";
 const basket = "/basket";
 
-const db = require("../model/Mongo");
+// const db = require("../model/Mongo");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -69,12 +69,14 @@ dotenv.config();
 route.post("/setcart", async (req, res) => {
     // console.log("setting cart")
     const posters = req.body.posters;
+    
     let options = {
       maxAge: 1000 * 60 * 60 * 24 * 15, // would expire after 2 weeks
       httpOnly: true, // The cookie only accessible by the web server
       signed: false, // Indicates if the cookie should be signed
       secret: process.env.SESSION_SECRET,
       secure: false, // TODO: Update this on production
+      
 
   }
 
@@ -137,8 +139,8 @@ route.post("/setcart", async (req, res) => {
  });
  route.post("/deletecart", async (req, res) => {
     // let cart = req.cookies.cart;
-    res.clearCookie('cart', {domain: 'localhost', path: '/'});
-    res.redirect(basket);
+    res.clearCookie('cart', { path: '/' }).redirect(basket);
+  
 
  });
 

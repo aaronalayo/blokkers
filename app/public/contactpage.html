@@ -1,15 +1,182 @@
+<style>
+    html {
+        /* -webkit-overflow-scrolling: touch !important; */
+        -webkit-overflow-scrolling: auto !important;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        scroll-snap-stop: always;
+        /* overflow-x: hidden; */
+    }
 
-    <style>
-        html{
-            overflow: scroll;
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
+
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .row {
+        display: -ms-flexbox;
+        /* IE10 */
+        display: flex;
+        -ms-flex-wrap: wrap;
+        /* IE10 */
+        flex-wrap: wrap;
+        margin: 0 100px;
+
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+    }
+
+    .container {
+        padding: 10px 10px 10px 10px;
+        min-height: 90vh;
+        background-color: transparent;
+        /* display: flex; */
+        /* width: fit-content; */
+
+    }
+
+    .col-50 {
+        -ms-flex: 50%;
+        /* IE10 */
+        flex: 50%;
+    }
+
+    .centered {
+        padding-left: 30%;
+        padding-right: 30%;
+        padding-top: 5%;
+    }
+
+    #title {
+        text-align: center;
+        font-family: "nunitobold";
+    }
+
+    hr {
+        width: 40%;
+        text-align: center;
+    }
+
+    .tac-container p {
+        font-family: "nunitolight";
+        font-size: 1vw;
+        text-align: center;
+        text-indent: 0px;
+        line-height: 1.2;
+        margin-top: 0;
+    }
+
+    .bullet-points {
+        font-family: "nunitobold";
+        display: list-item;
+    }
+
+    #header {
+        font-family: "nunitolight";
+        font-size: 1vw;
+        text-align: left;
+        text-indent: 0px;
+        line-height: 1.2;
+        margin-top: 0;
+    }
+
+    #how-header {
+        margin-top: 5%;
+    }
+
+    .tac-container {
+        margin-top: 5%;
+    }
+
+    .btn-container {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+        width: fit-content;
+    }
+
+    #create-here {
+        font-size: 2vmin;
+        font-family: "nunitoextrabold";
+        text-decoration: none;
+        padding: 0.65em 1em;
+        border-radius: 15px;
+        color: #fff;
+        background-color: #cac7c7;
+        border: 0;
+        cursor: pointer;
+        margin-top: auto;
+        width: auto;
+    }
+
+    strong {
+        font-family: "nunitobold";
+    }
+
+    @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+        .centered {
+            padding-left: 12%;
+            padding-right: 12%;
+            padding-top: 5%;
         }
-    </style>
+
+        #header {
+            font-size: 4vmin;
+            ;
+        }
+
+        .how-header,
+        .tac-container p {
+            font-size: 4vmin;
+
+        }
+
+        #create-here {
+            font-size: 4vmin;
+        }
+    }
+</style>
+<div class="container">
     <div class="centered">
-        <h1 id="about">CONTACT</h1>
-        <hr style= "width:40%; text-align:center">
-     
-            <a  href="mailto:hello@blokkers.dk" class="mail">hello@blokkers.dk</a>
-            <h4  id="about">+45 42349362</h4>
-            <h4 id="about"> BloxHub, Copenhagen </h4>
+        <h1 id="title">Contact</h1>
+        <hr id="divider">
+
+        <div class="row">
+            <div class="col-50">
+                <div class="tac-container">
+                    <p>
+                        BLOKKERS
+                    </p>
+                    <p> Koldingvej 80, 6040 Egtved
+                    </p>
+                    <p> +45 4234 9362
+                    </p>
+                    <p>
+                        <a href="mailto:hello@blokkers.dk">hello@blokkers.dk</a>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
+</div>
+</body>
+
+</html>

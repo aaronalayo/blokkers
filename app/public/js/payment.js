@@ -1,5 +1,7 @@
 
+
 function getData() {
+  
   Promise.all([
     fetch('/data'),
   ]).then(function (responses) {
@@ -20,40 +22,56 @@ function getData() {
       let paymentId = paymentDetails.payment.paymentId;
       let date = new Date(paymentDetails.payment.created);
       date = date.toUTCString();
-      $('#date').text(date.toString().substr(0, 22));
+      $("#date").text(date.toString().substr(0, 22));
       let orderDetails = data[0].order;
       // console.log(orderDetails)
-      $('#orderNumber').text("Order #" + orderDetails[0].order_no);
+      $("#orderNumber").text("Order #" + orderDetails[0].order_no);
       let itemsDetails = data[0].items;
       displayOrder(itemsDetails);
       setTotalPay(paymentDetails.payment);
       setCustomerInfo(orderDetails);
       if (paymentId) {
-        // console.log("trying to send files");
-        sendFiles(paymentId);
+        if (!localStorage.paymentId || localStorage.paymentId === 'undefined' ) {
+          // console.log('setting payment status in LS')
+          localStorage.setItem("paymentId", "true");
+          sendFiles(paymentId);
+          // console.log( localStorage.paymentId)
+        } else {
+          console.log(localStorage.paymentId);
+          // for (let i = 0; i < localStorage.length; i++) {
+          //   let storedValue = localStorage.key(i);
+          //   console.log(`Item at ${i}: ${storedValue}`);
+          // }
+          window.location.href = "/";
+          localStorage.clear();
+          sessionStorage.clear();
+          // console.log( localStorage.paymentId == 'true')
+        }
+        // if(!storedValue || storedValue == null ){
+        //   sendFiles(paymentId);
+        //   localStorage.setItem('paymentId', "true");
+        //  }else {
+        //   if(localStorage.localStorage.key(0) === true){
+        //     window.location.href = "/";
+        //   }
+        //  }
       } else {
-        console.log("waiting for data")
+        console.log("waiting for data");
       }
     }
-
   }).catch(function (error) {
     // if there's an error, log it
     console.log(error);
   });
 
 };
-function displayOrder(items) {
 
+function displayOrder(items) {
   for (let i = 0; i < items.length; i++) {
     let paths = JSON.stringify(items[i].item_paths).replace(/"/g, '').replace(/\\/g, '').replace(/[{}]/g, '');
-
     paths = paths.split(",");
     // console.log(paths)
-
-
-
     let name = items[i].item_name;
-
     $(".order-container").append(`<div id="poster-display-${name}"></div>`);
     $(`#poster-display-${name}`).append(`<div class="order-table" id=${name}></div>`);
     $(`#${name}`).append(`<table class="order-table" id="table-${name}"></table>`);
@@ -69,19 +87,17 @@ function displayOrder(items) {
     $(`#poster-display-${name}`).append(`
         <div class="size-poster">
             <span>${items[i].item_format}</span><span> poster </span><span class="poster" id=${name}>${name} - </span>
-        </div>
-        
+        </div>      
         <div class="quantity">
             <span id="${name}-quantity">${items[i].amount}</span>
         </div>
         <div class="poster-price">
             <span id="${name}-price">${items[i].total_price + " DKK"}</span>
         </div>
-
         `);
     $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
-
   }
+  
 };
 
 function setTotalPay(payment) {
@@ -130,9 +146,10 @@ function setCustomerInfo(order) {
   $("#billingemail").text(billingEmail);
 }
 function sendFiles(paymentId) {
-
+ 
   let customer = JSON.parse(sessionStorage.getItem('customer'));
   let posters = JSON.parse(sessionStorage.getItem('posters'));
+  console.log(customer, posters)
   $.ajax({
     global: false,
     type: 'POST',
@@ -145,12 +162,19 @@ function sendFiles(paymentId) {
     ContentType: 'application/json',
     dataType: "json",
   }).done(function (data) {
+ 
     console.log('success', data);
   }).fail(function (jqXHR, textStatus, errorThrown) {
     var contentType = jqXHR.getResponseHeader("Content-Type");
     if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
       window.location.href = "/";
       console.log('FAILED! ERROR: ' + errorThrown);
+      
     }
+    
   });
+
 };
+// window.onbeforeunload = function() {
+  
+// };

@@ -4,7 +4,7 @@ const session = require('express-session');
 const app = express();
 app.use(express.static('public'));
 const cookieParser = require('cookie-parser');
-var MongoDBStore = require('connect-mongodb-session')(session);
+// var MongoDBStore = require('connect-mongodb-session')(session);
 
 
 app.set('trust proxy', 1);
@@ -60,7 +60,15 @@ app.use(helmet.xssFilter());
 app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
 
 
-
+const favicon = new Buffer.from('AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREQAAAAAAEAAAEAAAAAEAAAABAAAAEAAAAAAQAAAQAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AAD8HwAA++8AAPf3AADv+wAA7/sAAP//AAD//wAA+98AAP//AAD//wAA//8AAP//AAD//wAA', 'base64'); 
+ app.get("/favicon.ico", function(req, res) {
+  res.statusCode = 200;
+  res.setHeader('Content-Length', favicon.length);
+  res.setHeader('Content-Type', 'image/x-icon');
+  res.setHeader("Cache-Control", "public, max-age=2592000");                // expiers after a month
+  res.setHeader("Expires", new Date(Date.now() + 2592000000).toUTCString());
+  res.end(favicon);
+ });
 
 
 // Setup Objection + Knex
@@ -92,6 +100,7 @@ const contactPage = fs.readFileSync("./public/contactpage.html", 'utf8');
 const createPosterPage = fs.readFileSync("./public/createposterpage.html", 'utf8');
 const howItWorksPage = fs.readFileSync("./public/howitworkspage.html", "utf8");
 const termsAndConditions = fs.readFileSync("./public/termsandconditions.html", "utf8");
+const privacyPolicy = fs.readFileSync("./public/privacypolicy.html", "utf8");
 const Format = require("./model/Format.js");
 const Order = require("./model/Order.js");
 const Item = require("./model/Item.js");
@@ -111,7 +120,7 @@ const createPoster = "/createposter";
 const discounts = "/discounts";
 const howitworks = "/howitworks";
 const termsandconditions = "/termsandcontions";
-
+const privacypolicy = "/privacypolicy";
 
 
 
@@ -132,7 +141,7 @@ app.get('/cart', async (req, res) => {
 });
 
 app.get(home, (req, res) => { 
-  // console.log(req.cookies)
+  console.log(req.cookies)
   return res.send(navbar + homePage + footerPage);
 });
 
@@ -157,6 +166,9 @@ app.get(howitworks, (req, res) => {
 app.get(termsandconditions, (req, res) => {
   res.send(navbar + termsAndConditions + footerPage);
 });
+app.get(privacypolicy, (req, res) => {
+  res.send(navbar + privacyPolicy + footerPage);
+});
 app.get(formats, async (req, res)=> {   
   const formats = await Format.query().select();
   res.json({ 'formats' : formats});
@@ -171,7 +183,7 @@ let paymentId;
 app.get(payment, async (req, res) => {
   paymentId = req.query.paymentid;
   if(paymentId){
-console.log(paymentId)
+// console.log(paymentId)
   let options = {
 
     uri: 'https://test.api.dibspayment.eu/v1/payments/'+paymentId,
@@ -187,7 +199,7 @@ request(options, function (error, response, body) {
   // console.log("body:", body);
   data = body
 });
-res.clearCookie('cart', {domain: 'localhost', path: '/'});
+
 return res.status(200).send(navbar + paymentPage + footerPage);
       
 }else {
@@ -198,8 +210,8 @@ return res.status(200).send(navbar + paymentPage + footerPage);
 app.get('/data', async (req, res) => {
   const order = await Order.query().select().where({'payment_id':paymentId}).withGraphJoined('customer');
   const items = await Item.query().select().where({'payment_id':paymentId,'customer_uuid':order[0].customer_uuid});
-  console.log(items)
-  res.json({'order':order, 'items':items,'data':data});
+  // console.log(items)
+  res.clearCookie('cart', { path: '/' }).json({'order':order, 'items':items,'data':data});  
 });
 
 

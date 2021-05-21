@@ -156,7 +156,7 @@ route.post("/createpaymentorder", async (req, res) => {
         },
       };
       // console.log(consumer)
-      let host = "http://127.0.0.1:8080";
+      let host = "http://localhost:8080";
       let options = {
         host: host + "/createorder",
         uri: "https://test.api.dibspayment.eu/v1/payments", //test
@@ -290,7 +290,7 @@ route.post("/createorder", async (req, res) => {
           .select()
           .where({ customer_uuid: customerFound[0].customer_uuid })
           .limit(1);
-        console.log(newItem);
+        // console.log(newItem);
         //Insert a new order in the database
         //for an existing customer
         await Order.query()
@@ -379,17 +379,18 @@ route.post("/createorder", async (req, res) => {
 //Route to send the files to the FTP server
 route.post("/sendfiles", async (req, res) => {
   const { customer, posters, paymentId } = req.body;
+  console.log(req.body)
   let orderSent = [];
   try {
     const order = await Order.query()
       .select()
       .where({ payment_id: paymentId })
       .withGraphJoined("customer");
-      console.log(order)
+      // console.log(order)
     const items = await Item.query()
       .select()
       .where({ payment_id: paymentId });
-    console.log(items);
+    // console.log(items);
     if (customer, posters) {
       const output = "./public/output/";
 
@@ -505,6 +506,7 @@ route.post("/sendfiles", async (req, res) => {
           })
           .where({ order_no: sentOrder });
       });
+      res.clearCookie('cart', { path: '/' });  
     }
   } catch (error) {
     console.log(error);

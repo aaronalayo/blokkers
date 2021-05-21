@@ -377,6 +377,7 @@
   color: var(--cc-btn-primary-text);
   background: #253b48;
   background: var(--cc-btn-primary-bg);
+  float: left;
 }
 #cc_div .c_b_toggle input:checked ~ .sc_toggle {
   background: #253b48;

@@ -7,6 +7,7 @@ let ftp = new EasyFtp();
 
 //Function to send PDL and XML files to FTP server
 module.exports = function sendPdfXml() {
+ try {
     const output = "./public/output/";
     let localPdf = [];
     let localXml = [];
@@ -34,7 +35,7 @@ module.exports = function sendPdfXml() {
   
     ftp.upload(arr, function (err) {
       if (err) {
-        console.log(err);
+        console.log("This is ftp :" + err);
         ftp.close();
       } else {
         console.log("Uploaded pdf and xml!");
@@ -42,4 +43,8 @@ module.exports = function sendPdfXml() {
       }
     });
     ftp.connect(config);
+      
+ } catch (error) {
+   console.log(error)
+}
   };

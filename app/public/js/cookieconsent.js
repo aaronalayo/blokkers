@@ -151,15 +151,15 @@
                   n = 0;
                 n < h;
                 n++
-              ) {
-                var w = m.cookie_table[n];
-                "" != Y(w[v]) &&
-                  ((w = w[v]),
-                  (document.cookie =
-                    w +
-                    "=; Path=/; Domain=" +
-                    window.location.hostname +
-                    "; Expires=Thu, 01 Jan 1970 00:00:01 GMT;"),
+                ) {
+                  var w = m.cookie_table[n];
+                  "" != Y(w[v]) &&
+                    ((w = w[v]),
+                    (document.cookie =
+                      w +
+                      "=; Path=/; Domain=" +
+                      window.location.hostname +
+                      "; Expires=Thu, 01 Jan 1970 00:00:01 GMT;"),
                   (document.cookie =
                     w +
                     "=; Path=/; Domain=." +
