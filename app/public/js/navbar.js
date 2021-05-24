@@ -82,7 +82,7 @@ cookieconsent.run({
                        description: 'We use cookies to ensure basic features and functionalities on the website and to enable optimization and targeting in the hopes of enhancing your experience with our brand. You can choose your cookie settings here.'
                    },{
                        title : "Necessary cookies",
-                       description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.',
+                       description: "These cookies are necessary for the proper functioning of the website and can’t be turned off. Without them the website wouldn't function.",
                        toggle : {
                            value : 'necessary_cookies',
                            enabled : true,
