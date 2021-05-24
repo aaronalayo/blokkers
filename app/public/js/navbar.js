@@ -79,7 +79,7 @@ cookieconsent.run({
                blocks : [
                    {
                        title : "Cookie settings",
-                       description: 'Blokkers use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.'
+                       description: 'We use cookies to ensure basic features and functionalities on the website and to enable optimization and targeting in the hopes of enhancing your experience with our brand. You can choose your cookie settings here.'
                    },{
                        title : "Necessary cookies",
                        description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.',
@@ -151,12 +151,10 @@ cookieconsent.run({
                        ]
                    },{
                        title : "More information",
-                       description: 'For any questions in relation to our privacy policy, use of cookies and your right and options, please read our <a class="cc-link" href="https://blokkers.dk">Privacy policy</a>.',
+                       description: 'For any questions in relation to our privacy policy, use of cookies and your right and options, please read our <a class="cc-link" href="/privacypolicy">Privacy policy</a>.',
                    }
                ]
            }
        }
    }
 });
-
-
