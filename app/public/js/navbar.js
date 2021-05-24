@@ -86,7 +86,7 @@ cookieconsent.run({
                        toggle : {
                            value : 'necessary_cookies',
                            enabled : true,
-                           readonly: false
+                           readonly: true
                        },
                        cookie_table: [
                         {
