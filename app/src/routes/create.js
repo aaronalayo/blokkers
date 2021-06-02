@@ -16,6 +16,7 @@ const checkParameter = require("../middelware/checkParameters.js");
 const setValueToNull = require("../middelware/setValueNull.js");
 const sendXmlPdf = require("../middelware/sendXmlPdf.js");
 const createPoster = require("../middelware/createPoster.js");
+const sendMail = require('../middelware/sendMail.js');
 const setValueNull = require("../middelware/setValueNull.js");
 
 
@@ -495,6 +496,7 @@ route.post("/sendfiles", async (req, res) => {
         });
       });
       sendXmlPdf();
+
       //Update the order after the files are sent to FTP server
       orderSent.forEach(async (sentOrder) => {
         await Order.query()

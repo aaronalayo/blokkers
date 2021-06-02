@@ -40,6 +40,7 @@
     "knex": "^0.21.19",
     "mongodb": "^3.6.6",
     "mongoose": "^5.12.8",
+    "nodemailer": "^6.6.1",
     "nodemon": "^2.0.7",
     "objection": "^2.2.15",
     "pdfkit": "^0.11.0",
