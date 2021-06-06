@@ -21,6 +21,7 @@ function getData() {
 
       let paymentId = paymentDetails.payment.paymentId;
       let date = new Date(paymentDetails.payment.created);
+      console.log(paymentDetails.payment.created)
       date = date.toUTCString();
       $("#date").text(date.toString().substr(0, 22));
       let orderDetails = data[0].order;

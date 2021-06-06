@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/aaronalayo/blokkers#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.19.0",
     "connect-mongodb-session": "^2.4.1",
     "cookie-parser": "^1.4.5",

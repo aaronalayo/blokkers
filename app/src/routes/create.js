@@ -402,7 +402,7 @@ route.post("/sendfiles", async (req, res) => {
         pdf: ".pdf",
         xml: ".xml",
       };
-
+      
       items.forEach((item) => {
         orderSent.push(order[0].order_no);
 
@@ -494,8 +494,12 @@ route.post("/sendfiles", async (req, res) => {
             console.log("XML saved!");
           }
         });
+      
       });
       sendXmlPdf();
+      
+      sendMail(customer.email);
+      
 
       //Update the order after the files are sent to FTP server
       orderSent.forEach(async (sentOrder) => {

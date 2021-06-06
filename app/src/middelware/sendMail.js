@@ -1,12 +1,20 @@
 const transporter = require("../nodemailer.js");
+const fs = require('fs');
+const { promisify } = require('util');
+const readFile = promisify(fs.readFile);
 
-module.exports = function sendMail(){
+
+
+module.exports = async function sendMail(email){
+  let paymentPage = await readFile("./public/paymentpage.html", 'utf8');
+
+ 
     const mailOptions = {
         from: 'Blokkers <hello@blokkers.dk>', 
-        to: "editoraaron@gmail.com",
+        to: email,
         subject: "Hello from Blokkers",
-        text: "This is the body",
-        // html: `<h1>Testing mail</h1>`,
+        text: "Thanks for shopping with us",
+        html:paymentPage,
     
       };
       
@@ -17,7 +25,8 @@ module.exports = function sendMail(){
             error,
           });
         } else {
-          res.status(200).send(info);
+          // res.status(200).send(info);
+          console.log('mail sent');
         }
       });
 
