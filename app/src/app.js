@@ -101,6 +101,7 @@ const createPosterPage = fs.readFileSync("./public/createposterpage.html", 'utf8
 const howItWorksPage = fs.readFileSync("./public/howitworkspage.html", "utf8");
 const termsAndConditions = fs.readFileSync("./public/termsandconditions.html", "utf8");
 const privacyPolicy = fs.readFileSync("./public/privacypolicy.html", "utf8");
+const emailPage = fs.readFileSync("./public/emailTemplate/email.html", 'utf8');
 const Format = require("./model/Format.js");
 const Order = require("./model/Order.js");
 const Item = require("./model/Item.js");
@@ -139,6 +140,10 @@ app.get('/cart', async (req, res) => {
   }
 
 });
+
+app.get("/email", (req, res)=>{
+  return res.send(emailPage)
+})
 
 app.get(home, (req, res) => { 
   console.log(req.cookies)

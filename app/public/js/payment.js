@@ -21,9 +21,10 @@ function getData() {
 
       let paymentId = paymentDetails.payment.paymentId;
       let date = new Date(paymentDetails.payment.created);
-      console.log(paymentDetails.payment.created)
-      date = date.toUTCString();
-      $("#date").text(date.toString().substr(0, 22));
+      // console.log(paymentDetails.payment.created)
+      // date = date.toLocaleString("da-DK");
+      date = date.toString().substr(0, 21);
+      $("#date").text(date);
       let orderDetails = data[0].order;
       // console.log(orderDetails)
       $("#orderNumber").text("Order #" + orderDetails[0].order_no);
@@ -36,9 +37,10 @@ function getData() {
           // console.log('setting payment status in LS')
           localStorage.setItem("paymentId", "true");
           sendFiles(paymentId);
+          sendMail(paymentId,date);
           // console.log( localStorage.paymentId)
         } else {
-          console.log(localStorage.paymentId);
+          // console.log(localStorage.paymentId);
           // for (let i = 0; i < localStorage.length; i++) {
           //   let storedValue = localStorage.key(i);
           //   console.log(`Item at ${i}: ${storedValue}`);
@@ -121,7 +123,7 @@ function setCustomerInfo(order) {
   let shippingAddress = order[0].customer.shipping_address;
   let shippingZip = order[0].customer.shipping_zip_code;
   let shippingCity = order[0].customer.shipping_city
-  let shippingCountry = "DK";
+  let shippingCountry = "Demmark";
   let shippingEmail = order[0].customer.email;
 
   let billingName = order[0].customer.billing_full_name != null ? order[0].customer.billing_full_name : shippingName;
@@ -163,7 +165,38 @@ function sendFiles(paymentId) {
     ContentType: 'application/json',
     dataType: "json",
   }).done(function (data) {
+    
+    console.log('success', data);
+  }).fail(function (jqXHR, textStatus, errorThrown) {
+    var contentType = jqXHR.getResponseHeader("Content-Type");
+    if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
+      window.location.href = "/";
+      console.log('FAILED! ERROR: ' + errorThrown);
+      
+    }
+    
+  });
+
+};
+function sendMail(paymentId, date) {
  
+  let customer = JSON.parse(sessionStorage.getItem('customer'));
+  let posters = JSON.parse(sessionStorage.getItem('posters'));
+  
+  $.ajax({
+    global: false,
+    type: 'POST',
+    url: '/sendmail',
+    data: {
+      // posters: posters,
+      // customer: customer,
+      paymentId: paymentId,
+      date:date
+    },
+    ContentType: 'application/json',
+    dataType: "json",
+  }).done(function (data) {
+    
     console.log('success', data);
   }).fail(function (jqXHR, textStatus, errorThrown) {
     var contentType = jqXHR.getResponseHeader("Content-Type");
@@ -177,5 +210,5 @@ function sendFiles(paymentId) {
 
 };
 // window.onbeforeunload = function() {
-  
+//   localStorage.clear();
 // };

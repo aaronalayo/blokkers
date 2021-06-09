@@ -225,6 +225,7 @@ route.post("/createpaymentorder", async (req, res) => {
 
 route.post("/createorder", async (req, res) => {
   const { posters, customer, paymentId } = req.body;
+  // console.log("Creating order", customer)
   // //Check if values are empty or null
   const newPosters = checkParameter(posters);
   const shippingFullName = checkParameter(customer.shippingfullname);
@@ -380,7 +381,7 @@ route.post("/createorder", async (req, res) => {
 //Route to send the files to the FTP server
 route.post("/sendfiles", async (req, res) => {
   const { customer, posters, paymentId } = req.body;
-  console.log(req.body)
+  // console.log(req.body)
   let orderSent = [];
   try {
     const order = await Order.query()
@@ -422,6 +423,7 @@ route.post("/sendfiles", async (req, res) => {
         const pricePerItem = item.price_per_item;
         const TotalPrice = item.total_price;
         const ftp_addr = "ftp://EksternTest:h242svgw@94.231.99.28";
+        // const ftp_addr = "ftp://Import:h240svgw@94.231.99.28";
 
         let localPdf = output + pdfFileName + ext["pdf"];
         let localXml = output + pdfFileName + ext["xml"];
@@ -497,8 +499,7 @@ route.post("/sendfiles", async (req, res) => {
       
       });
       sendXmlPdf();
-      
-      sendMail(customer.email);
+    
       
 
       //Update the order after the files are sent to FTP server
@@ -518,5 +519,27 @@ route.post("/sendfiles", async (req, res) => {
     console.log(error);
   }
 });
+
+route.post("/sendmail", async (req, res) => {
+  const { date, paymentId } = req.body;
+  try {
+    const order = await Order.query()
+      .select()
+      .where({ payment_id: paymentId })
+      .withGraphJoined("customer");
+      // console.log(order);
+    const items = await Item.query()
+      .select()
+      .where({ payment_id: paymentId });
+    // console.log(items);
+ sendMail(order, items, date)
+  } catch (error) {
+    console.log(error);
+  }
+  
+      
+});
+
+
 
 module.exports = route;
