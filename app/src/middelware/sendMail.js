@@ -3,12 +3,13 @@ const fs = require('fs');
 const { promisify } = require('util');
 const readFile = promisify(fs.readFile);
 const parse = require('node-html-parser').parse;
-
+const Node = require('node-html-parser').Node;
+const { transcode } = require("buffer");
 
 
 
 module.exports = async function sendMail(order, items, date){
-  let paymentPage = await readFile("./public/emailTemplate/email.html", 'utf8', (err,html)=>{
+  await readFile("./public/emailTemplate/email.html", 'utf8', (err,html)=>{
     if(err){
        throw err;
     }
@@ -50,35 +51,33 @@ module.exports = async function sendMail(order, items, date){
     let name = items[i].item_name;
     orderContainer.set_content(`<div id="poster-display-${name}">
   <div class="order-table" id=${name}>
-  <table class="order-table" id="table-${name}" style="   margin-left: auto;margin-right: auto;display: block;display: inline-table;"></table>
+  <table class="order-table" id="table-${name}" style="margin-left: auto;margin-right: auto;display: block;display: inline-table;"></table>
   </div>
   </div>`);
-  let tableName = root.querySelector(`#table-${name}`);   
+  let table = root.querySelector(`#table-${name}`);   
+  
   let k = 0;
-  let array = [];
-  for (let i = 0; i <= 3; i++) {
+  for (let l = 0; l <= 3; l++) {
+    let trNode = new Node(`<tr id=tr-${l + 1}-${name}></tr>`);
+    console.log(trNode['parentNode'])
+    table.set_content(trNode['parentNode']);
+    
+    // let tr = root.querySelector(trNode.parentNode);
    
+    // for (let j = k; j <= k + 2; j++) {
+    //   let tdChild = new Node(`<td id=${j + 1}-${name} style="padding: 0;"></td>`);
+    //  tr.appendChild(tdChild);
+    //  let td = root.querySelector(`#${j + 1}-${name}`);
+
+    //  td.set_content(`<img src="https://blokkers.dk${paths[j]}" style="width: 2em;border-collapse: collapse;display: flex;pointer-events: none;">`);
      
-   
-    tableName.set_content(`<tr id=tr-${i + 1}-${name}></tr>`);
-    let trName =  root.querySelector(`#tr-${i + 1}-${name}`);
-   
-    for (let j = k; j <= k + 2; j++) {
-     trName.set_content(`<td id=${j + 1}-${name} style="padding: 0;"></td>`);
-     let tdName = root.querySelector(`#${j + 1}-${name}`);
- 
-    //  console.log("adding img");
-     tdName.set_content(`<img src="https://blokkers.dk${paths[j]}" style="width: 2em;border-collapse: collapse;display: flex;pointer-events: none;">`);
-    }
+    // }
     k = k + 3;
-    // console.log("adding k");
   }
 
-console.log(root.toString())
+  console.log(root.toString())
 
-
-
-
+}
 
 
     // const mailOptions = {
@@ -86,7 +85,7 @@ console.log(root.toString())
     //     to: order[0].customer.email,
     //     subject: "Order confirmation #"+order[0].order_no,
     //     text: "Thanks for shopping with us",
-    //     html:html,
+    //     html:root.toString(),
     
     //   };
       
@@ -101,7 +100,7 @@ console.log(root.toString())
     //       console.log('mail sent');
     //     }
     //   });
-    }
+   
     });   
     
 }
