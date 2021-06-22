@@ -2,7 +2,8 @@ const PDFDocument = require("pdfkit");
 const fs = require("fs");
 
 //Function to create a PDF file from a poster
-module.exports = function createPoster(poster) {
+module.exports = async function createPoster(poster) {
+  // console.log(poster);
     let pathArr = [];
     for (let i = 0; i < poster.paths.length; i++) {
       pathArr.push(poster.paths[i]);
@@ -21,7 +22,7 @@ module.exports = function createPoster(poster) {
       },
     });
   
-const fs = require("fs");
+
     doc.pipe(fs.createWriteStream(localPdf));
   
     let x = 0;

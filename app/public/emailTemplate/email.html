@@ -1,117 +1,156 @@
-<!DOCTYPE html>
-<html lang="en">
+  
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta content="Access-Control-Allow-Origin *">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="HandheldFriendly" content="true">
-   
-    <link rel="stylesheet" type="text/css" href="css/global.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
-    <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/cookieconsent.css" media="print" onload="this.media='all'; this.onload=null;">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta name="x-apple-disable-message-reformatting">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="telephone=no" name="format-detection">
+<title>Email</title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="favicon_io/site.webmanifest">
-    <link rel="mask-icon" href="favicon_io/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="icon" href="favicon_io/favicon.ico">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <script src="./js/payment.js"></script>
-
-    <title>Email</title>
-
+<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+<style>
+  a{
+     color:#000000!important;
+     text-decoration:none!important;
+     
+   }
+   .a5q {display: none !important;}
+   img {
+  pointer-events: none;
+  cursor: no-drop;
+}
+ </style>
 </head>
 
 
 
-<body onload="getData()" style="box-sizing: border-box;">
-    <div id="payment" style="box-sizing: border-box;padding-top: 5%;">
-      <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;">
-        <div class="container" style="box-sizing: border-box;margin-left: auto;margin-right: auto;border: 0px solid lightgrey;border-radius: 3px;">
-          <div class="col-75" style="box-sizing: border-box;">
-            <div class="center_doc" style="box-sizing: border-box;padding-top: 0%;padding-left: 20%;padding-right: 20%;">
-              <div class="logo" style="box-sizing: border-box;width: 30%;margin-left: auto;margin-right: auto;">
-                <img id="logo_img" src="https://blokkers.dk/images/Blokkers_logo.png" style="box-sizing: border-box;max-width: 100%;margin-left: auto;margin-right: auto;">
-              </div>
-              <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;">
-                <div class="col-25" style="box-sizing: border-box;-ms-flex: 25%;flex: 25%;padding: 0 16px;">
-                  <h1 id="paymentsuccesful" style="box-sizing: border-box;text-align: center;font-size: 20px">Thanks for your order</h1>
-                </div>
-              </div>
-              <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;">
-                <div class="col-25" style="box-sizing: border-box;-ms-flex: 25%;flex: 25%;padding: 0 16px;">
-                  <h1 id="Summary" style="box-sizing: border-box; text-align: center; font-size: 20px">Your order confirmation is below. We will notify you with your tracking
-                    number when your order has shipped.</h1>
-                </div>
-              </div>
-              <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;">
-                <div class="col-50" style="box-sizing: border-box;-ms-flex: 50%;flex: 50%;padding: 0 16px;">
-                  <h2 id="date" style="box-sizing: border-box;float: right;font-size:20px;">{date}</h2>
-                  <h2 id="orderNumber" style="box-sizing: border-box;font-size:20px;">Order #{orderNumber}</h2>
-                  <div class="order-container" style="box-sizing: border-box;width: 100%;display: inline-block;">
-                  </div>
-                </div>
-              </div>
-              <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;">
-                <div class="col-25" style="box-sizing: border-box;-ms-flex: 25%;flex: 25%;padding: 0 16px;">
-                  <div id="total-amount-box" style="box-sizing: border-box;float: right;width: 260px;margin-right: 0%;margin-left: auto;margin-top: 2%;">
-                    <!-- <a style="font-size: 30px;">Total amount</a> -->
-                    <p style="box-sizing: border-box;"><span style="font-size:20px;box-sizing: border-box;">Subtotal</span><span style="float: right;box-sizing: border-box;" id="subtotal-amount">{subtotal-amount} DKK</span>
-                    </p>
-                    <p style="box-sizing: border-box;"><span style="font-size:20px;box-sizing: border-box;">shipping</span>
-                      <span style="float: right;box-sizing: border-box;" id="shipping">0 DKK</span>
-                    </p>
-                    <p style="box-sizing: border-box;"><span style="font-size:20px;box-sizing:border-box;">taxes</span>
-                      <span style="float: right;box-sizing: border-box;" id="taxes-amount">{taxes-amount} DKK</span>
-                    </p>
-                    <hr style="color: lightgrey;box-sizing: border-box;border: 1px solid lightgrey;">
-                    <p style="margin-bottom: 12%;box-sizing: border-box;"><span style="font-size:20px;margin-bottom: 14%;box-sizing: border-box;">Total</span>
-                        <span style="float: right;box-sizing: border-box;" id="total-amount">{total-amount} DKK</span></p>
-                  </div>
+
+<body style="box-sizing: border-box;" align="center">
+    <table class="es-content" cellspacing="0" cellpadding="0" align="center">
+      <tbody>
+          <tr>
+              <td class="esd-stripe" esd-custom-block-id="6344" align="center">
+                  <table class="es-content-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff"
+                      align="center">
+                      <tbody>
+                          <tr>
+                              <td class="esd-structure" align="left">
+                                  <table width="100%" cellspacing="0" cellpadding="0">
+                                      <tbody>
+                                          <tr>
+                                              <td class="esd-container-frame" width="800" valign="top" align="left">
+                                                  <table
+                                                      style="border-radius: 4px; border-collapse: separate; "
+                                                      width="100%" cellspacing="0" cellpadding="0">
+                                                      <tbody>
+                                                        <tr>
+                                                          <td class="esd-block-text es-m-txt-l es-p35t es-p30r es-p30l" style="color: rgb(0, 0, 0);font-size: 20px;font-weight: bold;">
+                                                            <!-- <div class="center_doc" style="box-sizing: border-box;padding-top: 0%;padding-left: 30%;padding-right: 30%;"> -->
+                                                              <div class="logo" style="box-sizing: border-box;width: 30%;margin-left: auto;margin-right: auto;">
+                                                                <img id="logo_img" src="https://blokkers.dk/images/Blokkers_logo.png" style="box-sizing: border-box;max-width: 100%;margin-left: auto;margin-right: auto;">
+                                                              </div>
+                                                            <!-- </div> -->
+
+                                                          </td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td class="esd-block-text es-m-txt-l es-p35t es-p30r es-p30l" style="color: rgb(0, 0, 0);font-size: 20px;font-weight: bold;">
+                                                            <h1 id="paymentsuccesful" style="box-sizing: border-box;text-align: center; font-weight:bold;font-size: 20px;">Thanks for your order</h1>
+
+                                                          </td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td class="esd-block-text es-m-txt-l es-p35t es-p30r es-p30l" style="color: rgb(0, 0, 0);font-size: 20px;font-weight: bold;">
+                                                            <h1 id="Summary" style="box-sizing: border-box; font-weight: bold; text-align: center;font-size: 20px;">Your order confirmation is below. We will notify you with your tracking
+                                                              number when your order has shipped.</h1>
+                                                          </td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td class="esd-block-text es-m-txt-l es-p35t es-p30r es-p30l" style="color: rgb(0, 0, 0);font-size: 20px;font-weight: bold;">
+                                                            <h2>
+                                                              <span id="orderNumber" style="box-sizing: border-box; font-weight: bold;font-size: 20px;">Order #{orderNumber}</span>
+                                                                <span id="date" style="box-sizing: border-box;float: right;font-size:20px;">{date}</span>
+                                                            </h2>
+                                                          </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                          <tr>
+                                                            <td class="esd-block-text es-m-txt-l es-p35t es-p30r es-p30l" style="color: rgb(0, 0, 0);font-size: 20px;font-weight: bold;">
+                                                              <div class="order-container" style="box-sizing: border-box;width: 100%;display: inline-block;">
+                                                              </div>
+                                                            </td>
   
-                </div>
-                <!-- <hr class="basket-devider" style="box-sizing: border-box;border: 0.6px solid #c0c0c0;text-align: left;margin-inline-start: 0%;width: 100%;"> -->
-              </div>
-  
-              <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;">
-                <div class="col-25" style="box-sizing: border-box;-ms-flex: 25%;flex: 25%;padding: 0 16px;">
-                  <h3 style="box-sizing: border-box;">Shipping Address :</h3>
-                  <p style="box-sizing: border-box;"><span id="shippingname" style="font-size: 20px;color: rgb(97, 97, 97);box-sizing: border-box;">{shippingname}</span>
-                  </p><p style="box-sizing: border-box;"><span id="shippingaddress" style="font-size: 20px;color: rgb(97, 97, 97);box-sizing: border-box;">{shippingaddress}</span>
-                  </p><p style="box-sizing: border-box;"><span id="shippingzip" style="font-size: 20px;color: rgb(97, 97, 97);box-sizing: border-box;">{shippingzip}</span>
-                  </p><p style="box-sizing: border-box;"><span id="shippingcity" style="font-size: 20px;color: rgb(97, 97, 97);box-sizing: border-box;">{shippingcity}</span>
-                  </p><p style="box-sizing: border-box;"><span id="shippingcountry" style="font-size: 20px;color: rgb(97, 97, 97);box-sizing: border-box;">{shippingcountry}</span>
-                  </p><p style="box-sizing: border-box;"><span id="shippingemail" style="font-size: 20px;color: rgb(97, 97, 97);box-sizing: border-box;">{shippingemail}</span>
-                  </p>
-                </div>
-                <div class="col-25" style="float: right;margin-left: 25%;width: 232px;box-sizing: border-box;-ms-flex: 25%;flex: 25%;padding: 0 16px;">
-                  <h3 style="box-sizing: border-box;">Billing Address :</h3>
-                  <p style="box-sizing: border-box;"><span id="billingname" style="font-size: 20px;color: rgb(97, 97, 97);box-sizing: border-box;">{billingname}</span>
-                  </p><p style="box-sizing: border-box;"><span id="billingaddress" style="font-size: 20px;color: rgb(97, 97, 97);box-sizing: border-box;">{billingaddress}</span>
-                  </p><p style="box-sizing: border-box;"><span id="billingzip" style="font-size: 20px;color: rgb(97, 97, 97);box-sizing: border-box;">{billingzip}</span>
-                  </p><p style="box-sizing: border-box;"><span id="billingcity" style="font-size: 20px;color: rgb(97, 97, 97);box-sizing: border-box;">{billingcity}</span>
-                  </p><p style="box-sizing: border-box;"><span id="billingcountry" style="font-size: 20px;color: rgb(97, 97, 97);box-sizing: border-box;">{billingcountry}</span>
-                  </p><p style="box-sizing: border-box;"><span id="billingemail" style="font-size: 20px;color: rgb(97, 97, 97);box-sizing: border-box;">{billingemail}</span>
-                </p></div>
-              </div>
-            </div>
-  
-          </div>
-        </div>
-  
-      </div>
-  
-    </div>
-  
-  
+                                                          </tr>
+                                                          <tr>
+                                                          <td  style="color: rgb(0, 0, 0);font-size: 20px;font-weight: bold;">
+                                                            <!-- <div id="total-amount-box" style="box-sizing: border-box;margin-left: auto;margin-right: 0;width: 100%;margin-top:5%;float: right;padding: 0 2% 0 40%;font-weight: bold;"> -->
+                                                              <!-- <a style="font-size: 30px;">Total amount</a> -->
+                                                              <p style="box-sizing: border-box;"><span style="box-sizing: border-box;font-size: 20px;">Subtotal</span><span style="font-size: 20px;float: right;box-sizing: border-box;" id="subtotal-amount">{subtotal-amount} DKK</span>
+                                                              </p>
+                                                              <p style="box-sizing: border-box;"><span style="box-sizing: border-box;font-size: 20px;">shipping</span>
+                                                                <span style="float: right;box-sizing: border-box;font-size: 20px;" id="shipping">0 DKK</span>
+                                                              </p>
+                                                              <p style="box-sizing: border-box;"><span style="box-sizing:border-box;font-size: 20px;">taxes</span>
+                                                                <span style="float: right;box-sizing: border-box;font-size: 20px;" id="taxes-amount">{taxes-amount} DKK</span>
+                                                              </p>
+                                                              <hr style="color: rgb(0, 0, 0);box-sizing: border-box;border: 1px solid rgb(0, 0, 0);">
+                                                              <p style="margin-bottom: 12%;box-sizing: border-box;"><span style="margin-bottom: 14%;box-sizing: border-box;font-size: 20px;">Total</span>
+                                                                  <span style="float: right;box-sizing: border-box;font-size: 20px;" id="total-amount">{total-amount} DKK</span></p>
+                                                            <!-- </div> -->
+                                                          </td>
+                                                            
+                                                        </tr>
+                                                        <table
+                                                      style="border-radius: 4px; border-collapse: separate; "
+                                                      width="130%" cellspacing="0" cellpadding="0">
+                                                      <tbody>
+                                                          <tr>
+                                                              <td style="color: rgb(0, 0, 0);font-size: 20px;font-weight: bold;">
+                                                                  <h3 style="color: rgb(0, 0, 0);box-sizing: border-box;">Shipping Address :</h3>
+                                                                    <p style="box-sizing: border-box;"><span id="shippingname" style="color: rgb(0, 0, 0);box-sizing: border-box;">{shippingname}</span>
+                                                                    </p><p style="box-sizing: border-box;text-decoration: none;color: rgb(0, 0, 0);"><span id="shippingaddress" style="color: rgb(0, 0, 0);box-sizing: border-box;text-decoration: none;">{shippingaddress}</span>
+                                                                    </p><p style="box-sizing: border-box;"><span id="shippingzip" style="color: rgb(0, 0, 0);box-sizing: border-box;">{shippingzip}</span>
+                                                                    </p><p style="box-sizing: border-box;"><span id="shippingcity" style="color: rgb(0, 0, 0);box-sizing: border-box;">{shippingcity}</span>
+                                                                    </p><p style="box-sizing: border-box;"><span id="shippingcountry" style="color: rgb(0, 0, 0);box-sizing: border-box;">{shippingcountry}</span>
+                                                                    </p><p style="box-sizing: border-box;text-decoration: none;color: rgb(0, 0, 0);"><span id="shippingemail" style="color: rgb(0, 0, 0);box-sizing: border-box;text-decoration: none;">{shippingemail}</span>
+                                                                    </p>
+                                                              </td>
+                                                       
+                                                              <td class="esd-block-text es-m-txt-l es-p35t es-p30r es-p30l"style="color: rgb(0, 0, 0);font-size: 20px;font-weight: bold;">
+                                                              <h3 style="color: rgb(0, 0, 0);box-sizing: border-box;">Billing Address :</h3>
+                                                                  <p style="box-sizing: border-box;"><span id="billingname" style="color: rgb(0, 0, 0);box-sizing: border-box;">{billingname}</span>
+                                                                  </p><p style="box-sizing: border-box;text-decoration: none;color: rgb(0, 0, 0);"><span id="billingaddress" style="color: rgb(0, 0, 0);box-sizing: border-box;text-decoration: none;">{billingaddress}</span>
+                                                                  </p><p style="box-sizing: border-box;"><span id="billingzip" style="color: rgb(0, 0, 0);box-sizing: border-box;">{billingzip}</span>
+                                                                  </p><p style="box-sizing: border-box;"><span id="billingcity" style="color: rgb(0, 0, 0);box-sizing: border-box;">{billingcity}</span>
+                                                                  </p><p style="box-sizing: border-box;"><span id="billingcountry" style="color: rgb(0, 0, 0);box-sizing: border-box;">{billingcountry}</span>
+                                                                  </p><p style="box-sizing: border-box;text-decoration: none;color: rgb(0, 0, 0);"><span id="billingemail" style="color: rgb(2, 2, 2);box-sizing: border-box;text-decoration: none;">{billingemail}</span>
+                                                                </p>
+                                                          </td>
+                                            
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+
+                                                      </tbody>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </td>
+          </tr>
+      </tbody>
+  </table>
   
   
   </body>
-  
-  
+</html>

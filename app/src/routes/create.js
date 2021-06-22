@@ -94,16 +94,17 @@ route.post("/createpaymentorder", async (req, res) => {
               name: `${poster.pname}`,
               quantity: `${poster.quantity}`,
               unit: "poster",
-              unitPrice: formats[i].price * 100 - 2500,
+              // unitPrice: formats[i].price * 100 - 2500,
+              unitPrice: formats[i].price * 100,
               taxRate: 2500,
               taxAmount: ((formats[i].price * 25) / 100) * 100,
               grossTotalAmount: formats[i].price * poster.quantity * 100,
-              netTotalAmount: (formats[i].price * 100 - 2500) * poster.quantity,
+              netTotalAmount: (formats[i].price * 100 - ((formats[i].price * 25) / 100) * 100) * poster.quantity,
             };
 
             if (discount) {
               rate =
-                ((formats[i].price * 100 - 2500) * discount[0].amount) / 100;
+                ((formats[i].price) * discount[0].amount) / 100;
               totalRate =
                 (formats[i].price *
                   poster.quantity *
@@ -111,10 +112,7 @@ route.post("/createpaymentorder", async (req, res) => {
                   discount[0].amount) /
                 100;
               netRate =
-                ((formats[i].price * 100 - 2500) *
-                  poster.quantity *
-                  discount[0].amount) /
-                100;
+                (((formats[i].price * 100) - 2500) * poster.quantity * discount[0].amount) / 100;
             } else {
               rate = 0;
               totalRate = 0;
@@ -364,9 +362,9 @@ route.post("/createorder", async (req, res) => {
             payment_id: paymentId,
           })
           .returning("order_uuid")
-          .then(function (orders) {
-            if (orders) {
-              // console.log(orders)
+          .then(function (order) {
+            if (order) {
+              // console.log(order)
             }
           });
       }
@@ -380,8 +378,10 @@ route.post("/createorder", async (req, res) => {
 
 //Route to send the files to the FTP server
 route.post("/sendfiles", async (req, res) => {
+    //Empty the output folder
+    fsExtra.emptyDir("./public/output");
   const { customer, posters, paymentId } = req.body;
-  // console.log(req.body)
+  console.log(req.body)
   let orderSent = [];
   try {
     const order = await Order.query()
@@ -392,12 +392,11 @@ route.post("/sendfiles", async (req, res) => {
     const items = await Item.query()
       .select()
       .where({ payment_id: paymentId });
-    // console.log(items);
+    // console.log("This are ites in sendfiles"+ items[0]);
     if (customer, posters) {
       const output = "./public/output/";
 
-      //Empty the output folder
-      await fsExtra.emptyDir("./public/output");
+    
 
       const ext = {
         pdf: ".pdf",
@@ -426,6 +425,7 @@ route.post("/sendfiles", async (req, res) => {
         // const ftp_addr = "ftp://Import:h240svgw@94.231.99.28";
 
         let localPdf = output + pdfFileName + ext["pdf"];
+        console.log(localPdf)
         let localXml = output + pdfFileName + ext["xml"];
 
         fs.writeFile(localPdf, itemName, function (err) {
@@ -530,16 +530,24 @@ route.post("/sendmail", async (req, res) => {
       // console.log(order);
     const items = await Item.query()
       .select()
-      .where({ payment_id: paymentId });
+      .where({payment_id: paymentId});
     // console.log(items);
- sendMail(order, items, date)
+  sendMail(order, items, date)
   } catch (error) {
     console.log(error);
   }
+});
+// route.post("/sendmail", async (req, res) => {
+//   const { posters } = req.body;
+//   try {
+  
+//  sendMail(posters)
+//   } catch (error) {
+//     console.log(error);
+//   }
   
       
-});
-
+// });
 
 
 module.exports = route;

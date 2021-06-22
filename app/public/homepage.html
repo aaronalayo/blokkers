@@ -301,7 +301,8 @@
     .btn-box {
         padding-right: 0;
         padding-top: 1vmin;
-        padding-bottom: 1vmin;
+        /* padding-bottom: 40%; */
+        height: 60%;
     }
 
     #subscribe-button {
@@ -568,7 +569,12 @@
 
 
         }
-
+        .btn-box {
+            padding-right: 0;
+            padding-top: 1vmin;
+            /* padding-bottom: 40%; */
+            height: 130px;
+        }
         #subscribe-text {
             width: fit-content;
             font-size: 3vmin;
@@ -692,6 +698,12 @@
         }
 
     }
+    /* @media only screen and (min-device-width: 768px) and (max-device-width: 1800px) and (-webkit-min-device-pixel-ratio: 2) {
+        .btn-box {
+     
+        padding-bottom: 15%;
+    } */
+    /* } */
 </style>
 
 <body onload=" playVideo(),setCart()">
@@ -870,7 +882,7 @@
                             <div class="center">
                                 <p id="receive">Receive 10% off</p>
                                 <p id="firstorder">your first order*</p>
-                                <div id="mc_embed_signup_mob">
+                                <div class="btn-box">
                                     <form
                                         action="https://blokkers.us1.list-manage.com/subscribe/post?u=c64ec13be070320812876301f&amp;id=8c0776ff43"
                                         method="post" id="mc-embedded-subscribe-form_mob"

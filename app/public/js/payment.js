@@ -152,7 +152,7 @@ function sendFiles(paymentId) {
  
   let customer = JSON.parse(sessionStorage.getItem('customer'));
   let posters = JSON.parse(sessionStorage.getItem('posters'));
-  console.log(customer, posters)
+  console.log(customer, posters,paymentId)
   $.ajax({
     global: false,
     type: 'POST',
@@ -179,17 +179,14 @@ function sendFiles(paymentId) {
 
 };
 function sendMail(paymentId, date) {
- 
-  let customer = JSON.parse(sessionStorage.getItem('customer'));
-  let posters = JSON.parse(sessionStorage.getItem('posters'));
-  
+  let customer = JSON.parse(sessionStorage.getItem('customer'));  
   $.ajax({
     global: false,
     type: 'POST',
     url: '/sendmail',
     data: {
       // posters: posters,
-      // customer: customer,
+      customer: customer,
       paymentId: paymentId,
       date:date
     },

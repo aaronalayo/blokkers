@@ -146,7 +146,7 @@ app.get("/email", (req, res)=>{
 })
 
 app.get(home, (req, res) => { 
-  console.log(req.cookies)
+  // console.log(req.cookies)
   return res.send(navbar + homePage + footerPage);
 });
 
