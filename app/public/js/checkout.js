@@ -270,7 +270,7 @@ function storeOrder(paymentId){
   $.ajax({
     global: false,
     type: 'POST',
-    // url: '/createorder',
+    url: '/createorder',
     data: {
       posters:posters,
       customer:customer,
