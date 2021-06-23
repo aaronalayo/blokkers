@@ -1,22 +1,22 @@
 <style>
-  
     html {
-            -webkit-overflow-scrolling: auto !important;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            scroll-snap-stop: always;
-            
-        }
-        ::-webkit-scrollbar {
-            -webkit-appearance: none;
-            width: 7px;
-        }
+        -webkit-overflow-scrolling: auto !important;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        scroll-snap-stop: always;
 
-        ::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, .5);
-            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        }
+    }
+
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
 
 
     * {
@@ -35,7 +35,7 @@
         -ms-flex-wrap: wrap;
         /* IE10 */
         flex-wrap: wrap;
-        margin: 0 100px;
+        margin: 0 50px;
 
 
     }
@@ -113,11 +113,11 @@
     #choose-size p {
         text-align: center;
         font-family: "nunitolight";
-        font-size: 30px;
+        font-size: 1vw;
     }
 
     #choose-size span {
-        font-size: 35px;
+        font-size: 1vw;
         font-family: "nunitoextrabold";
     }
 
@@ -125,20 +125,20 @@
         display: flex;
         justify-content: center;
         font-family: "nunitolight";
-        font-size: 15px;
-        margin-bottom: 0%;
+        font-size: 1vw;
+        margin-bottom: 2%;
     }
 
     #choose-size #dimensionprise {
         text-align: center;
         justify-content: center;
         font-family: "nunitoextrabold";
-        font-size: 15px;
+        font-size: 1vw;
         margin-bottom: 0%;
     }
 
     #posterfooter {
-        font-size: 22px;
+        font-size: 1vw;
         font-family: "nunitoregular";
         margin-top: 1%;
         margin-left: auto;
@@ -147,15 +147,16 @@
     }
 
     #posterdiv {
-        width: 384px;
-        margin-left: auto;
-        margin-right: auto;
+        width: 80%;
+        margin: 0 auto;
     }
 
     #tableposter {
         border: none;
         display: block;
         border-collapse: collapse;
+        margin: 0 auto;
+        width: fit-content;
 
     }
 
@@ -166,19 +167,20 @@
     }
 
     #tableposter img {
-        width: 8em;
+        width: 6.5vw;
         display: block;
     }
 
     #write_name {
         /* display: inline-block; */
-        vertical-align: middle;
-        font-size: 120%;
+        /* vertical-align: middle; */
+        /* font-size: 2vmin; */
         font-family: "nunitobold";
-        width: 255px;
+        width: 100%;
         padding-bottom: 2%;
         margin-left: auto;
         margin-right: auto;
+        float: left;
     }
 
     #tablealfabet td,
@@ -193,119 +195,126 @@
 
     #tablealfabet {
         border: none;
-        display: block;
+        display: flex;
         border-collapse: collapse;
         font-family: "nunitobold";
-        font-size: 90%;
+        font-size: 0.8vw;
+        margin: 0 10%;
+        width: 100%;
     }
 
 
     #write_name #type {
-        margin-left: -25%;
-        font-size: 30px;
+
+        font-size: 2vw;
         font-family: "nunitoextrabold";
         text-align: center;
+        margin: 0 auto;
     }
 
     #write_name #something {
-        margin-left: -25%;
-        margin-top: -8%;
-        font-size: 30px;
+        /* margin-left: -25%; */
+        margin-top: 2%;
+        font-size: 2vw;
         font-family: "nunitoextralight";
         text-align: center;
     }
 
     #write_name #maxletters {
-        margin-left: -25%;
+        /* margin-left: -25%; */
         margin-top: -8%;
         position: relative;
         display: flex;
         justify-content: center;
         font-family: "nunitoextralight";
-        font-size: 15px;
+        font-size: 1vw;
     }
 
     #write_name p,
     input {
-        margin-left: 1em;
+        margin-left: 0em;
         outline: 0;
         border-width: 0 0 2px;
         background-color: transparent;
         font-family: "nunitoextrabold";
+        font-size: 1vw;
 
     }
 
     .set-width {
-        width: 170px;
+        width: 50%;
     }
 
     #choosecolor {
         padding-bottom: 5%;
-        font-size: 40px;
+        font-size: 1vw;
         font-family: "nunitolight";
         text-align: center;
     }
+
     #original {
         padding-bottom: 2%;
-        font-size: 1em;
+        font-size: 1vw;
         font-family: "nunitolight";
         color: rgb(151, 151, 151);
     }
+
     #seasonal {
         padding-top: 5%;
         padding-bottom: 2%;
-        font-size: 1em;
+        font-size: 1vw;
         font-family: "nunitolight";
-        color: rgb(151, 151, 151);;
+        color: rgb(151, 151, 151);
+        ;
     }
 
 
 
     #colourtable {
         border: 4px;
-        display: block;
         border-collapse: collapse !important;
         margin-left: auto;
         margin-right: auto;
+     
     }
+
     #colourtable2 {
         border: 4px;
-        display: block;
+
         border-collapse: collapse !important;
         margin-left: auto;
         margin-right: auto;
+
     }
 
     #colourtable2 img {
-    width: 6em;
-    display: block;
-}
+        width: 4vw;
+        display: block;
+    }
 
     #colourtable img {
-    width: 6em;
-    display: block;
-  }
+        width: 4vw;
+        display: block;
+    }
 
 
     #changecolour {
-    display: block;
-    width: 400px;
-    margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto;
+        display: block;
+        width: 100%;
+        /* margin-top: 5%; */
+        margin: 5 20%;
     }
 
     #done_div {
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 12%;
-        width: 120px;
+    width: 100%;
+    margin: 2% auto;
+    text-align: center;
     }
 
 
     #done_button {
 
-        font-size: 1.1em;
+        font-size: 1vw;
         font-family: "nunitoblack";
         text-decoration: none;
         padding: 0.6em 2em;
@@ -319,7 +328,7 @@
 
     #next_button {
 
-        font-size: 1.1em;
+        font-size: 1vw;
         font-family: "nunitoblack";
         text-decoration: none;
         padding: 0.6em 2em;
@@ -346,17 +355,29 @@
         opacity: 1;
         transition: all 0.3s cubic-bezier(0.16, 0.08, 0.355, 1);
     }
+    .fa-2x {
+            color: rgb(158, 158, 158);
+            font-size: 1.5vw;
+        }
 
     .basket {
         margin: 4%;
     }
-    #content-desktop {
-            display: flex;
-        }
 
-        #content-mobile {
-            display: none;
-        }
+    #content-desktop {
+        display: flex;
+        width: 50%;
+        margin: 0 18%;
+    }
+
+    #content-mobile {
+        display: none;
+    }
+    #typeHead{
+        float: left;
+        text-align: center;
+    }
+
     @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
         body {
             height: 1500px;
@@ -370,14 +391,15 @@
             -webkit-overflow-scrolling: touch !important;
             -webkit-overflow-scrolling: auto !important;
         }
+
         .row {
-        display: -ms-flexbox;
-        /* IE10 */
-        display:block;
-        -ms-flex-wrap: wrap;
-        /* IE10 */
-        flex-wrap: wrap;
-        margin: 0 100px;
+            display: -ms-flexbox;
+            /* IE10 */
+            display: block;
+            -ms-flex-wrap: wrap;
+            /* IE10 */
+            flex-wrap: wrap;
+            margin: 0 100px;
 
 
         }
@@ -392,7 +414,7 @@
 
         .col {
             width: 50%;
-           
+
         }
 
         .col-25 {
@@ -402,9 +424,12 @@
 
         }
 
-        .col-25, .col-50, .col-75 {
-        padding: 0;
+        .col-25,
+        .col-50,
+        .col-75 {
+            padding: 0;
         }
+
         .row {
             margin: 0;
         }
@@ -430,75 +455,93 @@
 
 
         #choose-size {
-        padding-top: 10%;
-        padding-right: 0%;
+            padding-top: 10%;
+            padding-right: 0%;
         }
 
         #choose-size span {
-            font-size: 25px;
+            font-size: 6vw;
         }
 
         #choose-size p {
             margin: 2%;
+            font-size: 10vw;
         }
+        #choose-size #dimension {
+        font-size: 5vw;
+    }
+
+    #choose-size #dimensionprise {
+        font-size: 5vw;
+    }
 
         #write_name {
-        width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 5vmin;
-        margin-bottom: 10%;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 5vmin;
+            margin-bottom: 10%;
         }
-        #write_name p, input {
-        font-size: 4vmin;
+
+        #write_name p,
+        input {
+            font-size: 4vmin;
         }
 
         #write_name #type {
             margin-top: 2%;
             margin-left: auto;
             margin-right: auto;
+            font-size: 10vw;
         }
 
         #write_name #something {
             margin-left: auto;
             margin-right: auto;
-            margin-top: -10%;
+            font-size: 10vw;
 
         }
-       
+
         #write_name #maxletters {
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: -8%;
-     
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 5vw;
+
+
         }
+
         .fa-2x {
-        font-size: 2.5em;
+            font-size: 8vw;
+            color: rgb(158, 158, 158);
         }
+
         .set-width {
-            width: 70%;
+            width: 55%;
         }
 
         #posterfooter {
             font-size: 4vmin;
         }
 
-      
+
         #tablealfabet {
-        font-size: 5.5vmin;
-        width: 100%;
+            font-size: 5.5vmin;
+            width: 100%;
         }
+
         #next_button {
 
-        margin-left: auto;
-        margin-right: auto;
+            margin-left: auto;
+            margin-right: auto;
         }
+
         #posterdiv {
             margin-left: auto;
             margin-right: auto;
             width: auto;
 
         }
+
         #tableposter {
             width: fit-content;
             margin-left: auto;
@@ -512,425 +555,15 @@
 
         #changecolour {
             width: 100%;
-           
+
             display: block;
             margin-left: auto;
             margin-right: auto;
             margin-top: auto;
 
         }
-
-        #tableposter td,
-        tr {
-            padding: 0;
-            cursor: pointer;
-        }
-
-        #colourtable img {
-            width: 3.5em;
-            display: block;
-            
-        }
-        #colourtable{
-            width: fit-content;
-        }
-        #colourtable2{
-            width: fit-content;
-        }
-        #colourtable2 img {
-            width: 3.5em;
-            display: block;
-        }
-
-        #choosecolor {
-        padding-bottom: 0%;
-        font-size: 5.5vmin;
-        font-family: "nunitolight";
-        text-align: center;
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-        }
-
-
-
-        #done_button {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #done_div {
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 10%;
-            width: 120px;
-        }
-    }
-
-
-    /* @media only screen and (min-device-width: 768px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 1) {
-
-        html {
-            -webkit-overflow-scrolling: touch !important;
-            -webkit-overflow-scrolling: auto !important;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            scroll-snap-stop: always
-        }
-        ::-webkit-scrollbar {
-            -webkit-appearance: none;
-            width: 7px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, .5);
-            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        }
-
-        #content-desktop {
-            display: flex;
-        }
-
-        #content-mobile {
-            display: none;
-        }
-
-    
-
-        .col {
-            width: 20%;
-            float: left;
-        }
-
-        .col-25 {
-            -ms-flex: 25%;
-            flex: 25%;
-
-        }
-
-
-        .row {
-            margin: 2%;
-        }
-
-        .container {
-            padding: 0px 0px 0px 0px;
-            height: 80vh;
-
-        }
-
-        .centered {
-
-            padding-left: 0%;
-            padding-top: 0%;
-        }
-
-        #choose-size {
-            padding-top: 0%;
-            padding-right: 0%;
-            margin-bottom: 0;
-            margin: 0%;
-
-        }
-        #choose-size p {
-            margin: 0%;
-            font-size: 25px;
-
-        }
-        
-        #choose-size span {
-            font-size: 20px;
-        }
-
-        
-        #write_name {
-            margin-top: 10%;
-            width: 70%;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 2vmin;
-            margin-bottom: 50%;
-        }
-        #tableposter {
-        border: none;
-        display: block;
-        border-collapse: collapse;
-        margin-left: auto;
-        margin-right: auto;
-        width: fit-content;
-
-    }
-
-        #tableposter td,
-        tr {
-            padding: 0;
-            cursor: pointer;
-        }
-
-        #tableposter img {
-            width: 5.5em;
-        }
-
-
-        #write_name #type {
-            margin-left: -25%;
-            font-size: 25px;
-            font-family: "nunitoextrabold";
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 1%;
-        }
-
-        #write_name #something {
-            margin-left: -25%;
-            margin-top: 1%;
-            font-size: 20px;
-            font-family: "nunitoextralight";
-            text-align: center;
-        }
-
-        #write_name #maxletters {
-            margin-left: -25%;
-            margin-top: -8%;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            font-family: "nunitoextralight";
-            font-size: 15px;
-
-        }
-
-        #write_name p,
-        input {
-            margin-left: 1em;
-            outline: 0;
-            border-width: 0 0 2px;
-            background-color: transparent;
-            font-family: "nunitoextrabold";
-        }
-
-        .set-width {
-            width: 110px;
-        }
-
-
-
-      
-        #posterfooter {
-        font-size: 0.9em;
-        margin-left: auto;
-        margin-right: auto;
-        display: table;
-    }
         #original {
-
-        font-size: 0.9em;
-      
-    }
-    #seasonal {
-
-        font-size: 0.9em;
-
-    }
-
-        #posterdiv {
-            margin-top: 2%;
-            margin-left: auto;
-            margin-right: auto;
-            width: fit-content;
-        }
-        #done_div{
-            width: 110px;
-        }
-
-        #done_button {
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 1em;
-            width: 110px;
-        }
-
-        #changecolour {
-            width: 264px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 0%;
-        }
-        #colourtable {
-        width: fit-content;
-        }
-        #colourtable2 {
-        width: fit-content;
-        }
-        #colourtable img {
-            width: 3.5em;
-            display: block;
-            
-        }
-        #colourtable2 img {
-            width: 3.5em;
-            display: block;
-            
-        }
-
-        #choosecolor {
-            padding-bottom: 5%;
-            font-size: 25px;
-            font-family: "nunitolight";
-        }
-  
-    } */
-
-    /* @media only screen and (min-device-width: 1680px) and (max-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 2) {
-        html {
-            -webkit-overflow-scrolling: auto !important;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            scroll-snap-stop: always
-        }
-
-        ::-webkit-scrollbar {
-            -webkit-appearance: none;
-            width: 7px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, .5);
-            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        }
-        
-        #content-desktop {
-            display: flex;
-        }
-
-        #content-mobile {
-            display: none;
-        }
-
-        .col {
-            width: 20%;
-            float: left;
-        }
-
-        .col-25 {
-            width: 200px;
-            -ms-flex: 25%;
-            flex: 25%;
-
-        }
-
-
-        .row {
-            margin: 2%;
-        }
-
-        .container {
-            padding: 10px 10px 10px 10px;
-            min-height: 75vh;
-
-        }
-
-        .centered {
-
-            padding-left: 30%;
-            padding-top: 15%;
-        }
-
-        .centered {
-
-            padding-left: 0%;
-            padding-top: 0%;
-        }
-
-        #choose-size {
-            padding-top: 0%;
-            padding-right: 0%;
-            margin-bottom: 0;
-            margin: 0%;
-
-        }
-
-        #choose-size span {
-            font-size: 10px;
-            margin: 0%;
-        }
-
-        #choose-size p {
-            margin: 0%;
-            font-size: 20px;
-
-        }
-
-        #choose-size span {
-            font-size: 20px;
-        }
-
-        #choose-size p {
-            margin: 0%;
-        }
-
-        #write_name {
-            margin-top: 4%;
-            width: 240px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 100%;
-            margin-bottom: 50%;
-        }
-
-        #write_name #type {
-            margin-left: -25%;
-            font-size: 25px;
-            font-family: "nunitoextrabold";
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 1%;
-        }
-
-        #write_name #something {
-            margin-left: -25%;
-            margin-top: 1%;
-            font-size: 20px;
-            font-family: "nunitoextralight";
-            text-align: center;
-        }
-
-        #write_name #maxletters {
-            margin-left: -25%;
-            margin-top: -8%;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            font-family: "nunitoextralight";
-            font-size: 15px;
-
-        }
-
-        #write_name p,
-        input {
-            margin-left: 1em;
-            outline: 0;
-            border-width: 0 0 2px;
-            background-color: transparent;
-            font-family: "nunitoextrabold";
-        }
-
-        .set-width {
-            width: 135px;
-        }
-
-        #choosecolor {
-            padding-bottom: 5%;
-            font-size: 30px;
-            font-family: "nunitolight";
-        }
-
-        #tableposter img {
-            width: 6em;
-
+        font-size: 3vw;
         }
 
         #tableposter td,
@@ -939,332 +572,192 @@
             cursor: pointer;
         }
 
-        #posterfooter {
-            font-size: 0.9em;
-        }
-
-        #posterdiv {
-            width: 290px;
-            margin-top: 2%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #done_button {
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 1em;
-            width: 110px;
-        }
-
-        #changecolour {
-            width: 264px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         #colourtable img {
-            width: 4em;
+            width: 3.5em;
             display: block;
+
         }
+
+        #colourtable {
+            width: fit-content;
+        }
+
+        #colourtable2 {
+            width: fit-content;
+        }
+
         #colourtable2 img {
-            width: 4em;
+            width: 3.5em;
             display: block;
         }
 
         #choosecolor {
-            padding-bottom: 10%;
-            font-size: 25px;
+            padding-bottom: 0%;
+            font-size: 5.5vmin;
             font-family: "nunitolight";
             text-align: center;
-        }
-
- 
-
-    } */
-
-    /* @media only screen and (min-device-width: 1920px) and (max-device-width: 2159px) and (-webkit-min-device-pixel-ratio: 1) {
-
-        .row {
-            margin: 0 50px;
-        }
-
-        .container {
-            min-height: 90vh;
-    padding-bottom: 20px;
-        }
-        html {
-            -webkit-overflow-scrolling: auto !important;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            scroll-snap-stop: always
-        }
-
-        ::-webkit-scrollbar {
-            -webkit-appearance: none;
-            width: 7px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, .5);
-            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        }
-
-        #content-desktop {
-            display: flex;
-        }
-
-        #content-mobile {
-            display: none;
-        }
-
-      
-
-        .set-width {
-            width: 130px;
-        }
-
-        #write_name {
-            display: inline-block;
-            vertical-align: middle;
-            font-size: 100%;
-            font-family: "nunitobold";
-            width: 255px;
-            padding-bottom: 2%;
-            margin-left: 0;
+            width: 50%;
+            margin-left: auto;
             margin-right: auto;
-            margin-top: auto;
         }
 
-  
+        #next_button {
+        font-size: 5vw;
+        }
 
-     
+        #done_button {
+            font-size: 5vw;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         #done_div {
             margin-left: auto;
             margin-right: auto;
-            margin-top: 12%;
+            margin-top: 10%;
             width: 120px;
         }
+        #typeHead{
+        float: none;
+        text-align: center;
+    }
+    #original {
+        font-size: 5vw;
+    }
 
-        #changecolour {
-            margin-top: 5%;
-            width: 350px;
-            display: block;
-            margin-left: auto;
-            margin-right: 5%;
-        }
-
-        #tableposter img {
-            width: 6.5em;
-
-        }
-
-        #tableposter {
-            margin-left: auto;
-            margin-right: auto;
-            border-collapse: collapse;
-            border: none;
-        }
-
-        #posterfooter {
-            font-size: 1em;
-        }
-
-        #tableposter td,
-        tr {
-            padding: 0;
-            cursor: pointer;
-        }
-
-        #posterdiv {
-            width: 300px;
-            margin-top: 2%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #content-desktop {
-            display: flex;
-        }
-
-        #content-mobile {
-            display: none;
-        }
-
-        #satisfied {
-            margin-left: 42.5%;
-        }
-
-        #cancel_button {
-            margin-top: 3%;
-        }
-
-        #addbasket_button {
-            margin-top: 3%;
-        }
-
-        .fas .fa-backspace {
-            font-size: 1em;
-        }
-
-
-        #satisfiedtable img {
-            width: 7em;
-            display: block;
-        }
-
-        #colourtable img {
-            width: 5em;
-            display: block;
-        }
-        #colourtable2 img {
-            width: 5em;
-            display: block;
-        }
-
-
-        .basket-table table td,
-        tr {
-            padding: 0;
-            cursor: pointer;
-        }
-
-        .basket-table img {
-            width: 2em;
-        }
-
-        #cancel_button {
-            margin-top: 1%;
-        }
-    } */
+    #seasonal {
+        font-size: 5vw;
+    }
+    }
 </style>
-<body >
-<div id="createposter">
-    <div class="row">
-        <div class="col-75">
-            <div class="container">
-                <div class="row">
-                    <div class="col-25">
-                        <div id="choose-size" class="centered">
-                            <p>Choose the size</p>
-                            <p>
-                                <span><i onclick="changeSizeLeft()" class="fa fa-angle-left"></i></span>
-                                <span class="radiowrapper" id="wrap3">
-                                    <input type="radio" name="size" value="a3" id="a3" onchange="getSizeDetails(this)">
-                                    <label for="a3">A3</label>
-                                </span>
-                                <span class="radiowrapper" id="wrap2">
-                                    <input type="radio" name="size" value="a2" id="a2" onchange="getSizeDetails(this)"
-                                        checked>
-                                    <label for="a2">A2</label>
-                                </span>
 
-                                <span class="radiowrapper" id="wrap1">
-                                    <input type="radio" name="size" value="a1" id="a1" onchange="getSizeDetails(this)">
-                                    <label for="a1">A1</label>
-                                </span>
-                                <span><i onclick="changeSizeRight()" class="fa fa-angle-right"></i></span>
-                                <span id="dimension"></span>
-                                <span id="dimensionprise"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+<body>
+    <div id="createposter">
+        <div class="row">
+            <div class="col-75">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-25">
+                            <div id="choose-size" class="centered">
+                                <p>Choose the size</p>
+                                <p>
+                                    <span><i onclick="changeSizeLeft()" class="fa fa-angle-left"></i></span>
+                                    <span class="radiowrapper" id="wrap3">
+                                        <input type="radio" name="size" value="a3" id="a3"
+                                            onchange="getSizeDetails(this)">
+                                        <label for="a3">A3</label>
+                                    </span>
+                                    <span class="radiowrapper" id="wrap2">
+                                        <input type="radio" name="size" value="a2" id="a2"
+                                            onchange="getSizeDetails(this)" checked>
+                                        <label for="a2">A2</label>
+                                    </span>
 
-                <div class="row">
-                    <div class="col-25">
-                        <div id="write_name">
-                            <div>
-                                <p id="type">Type</p>
-                                <p id="something">something</p>
-                                <p id="maxletters">(Max. 12 letters)</p>
-                                <input id="name" type='text' name='name' size="25" class="set-width"> <i
-                                    class="fas fa-backspace fa-2x" style="color: rgb(158, 158, 158);" value="DISABLE"
-                                    onclick="onPressBackspace(),disable()"></i>
-                            </div>
-                            <table id='tablealfabet'>
-                                <tr>
-                                    <td id="a" onclick="addLetter(this)">A</td>
-                                    <td id="b" onclick="addLetter(this)">B</td>
-                                    <td id="c" onclick="addLetter(this)">C</td>
-                                    <td id="d" onclick="addLetter(this)">D</td>
-                                    <td id="e" onclick="addLetter(this)">E</td>
-                                </tr>
-                                <tr>
-                                    <td id="f" onclick="addLetter(this)">F</td>
-                                    <td id="g" onclick="addLetter(this)">G</td>
-                                    <td id="h" onclick="addLetter(this)">H</td>
-                                    <td id="i" onclick="addLetter(this)">I</td>
-                                    <td id="j" onclick="addLetter(this)">J</td>
-                                </tr>
-                                <tr>
-                                    <td id="k" onclick="addLetter(this)">K</td>
-                                    <td id="l" onclick="addLetter(this)">L</td>
-                                    <td id="m" onclick="addLetter(this)">M</td>
-                                    <td id="n" onclick="addLetter(this)">N</td>
-                                    <td id="o" onclick="addLetter(this)">O</td>
-                                </tr>
-                                <tr>
-                                    <td id="p" onclick="addLetter(this)">P</td>
-                                    <td id="q" onclick="addLetter(this)">Q</td>
-                                    <td id="r" onclick="addLetter(this)">R</td>
-                                    <td id="s" onclick="addLetter(this)">S</td>
-                                    <td id="t" onclick="addLetter(this)">T</td>
-                                </tr>
-                                <tr>
-                                    <td id="u" onclick="addLetter(this)">U</td>
-                                    <td id="v" onclick="addLetter(this)">V</td>
-                                    <td id="w" onclick="addLetter(this)">W</td>
-                                    <td id="x" onclick="addLetter(this)">X</td>
-                                    <td id="y" onclick="addLetter(this)">Y</td>
-                                </tr>
-                                <tr>
-                                    <td id="z" onclick="addLetter(this)">Z</td>
-                                    <td id="æ" onclick="addLetter(this)">Æ</td>
-                                    <td id="ø" onclick="addLetter(this)">Ø</td>
-                                    <td id="å" onclick="addLetter(this)">Å</td>
-                                    <td id="-" onclick="addLetter(this)">-</td>
-                                </tr>
-                            </table>
-                            <div id='content-mobile' class="basket">
-                                <a href="#postercol" type="submit" name="next" value="Next" id="next_button"
-                                    onclick="validateForm()">Next</a>
-                            </div>
-                            <div id='content-desktop' class="basket">
-                                <button type="submit" name="next" value="Next" id="next_button"
-                                    onclick="validateForm()">Next</button>
+                                    <span class="radiowrapper" id="wrap1">
+                                        <input type="radio" name="size" value="a1" id="a1"
+                                            onchange="getSizeDetails(this)">
+                                        <label for="a1">A1</label>
+                                    </span>
+                                    <span><i onclick="changeSizeRight()" class="fa fa-angle-right"></i></span>
+                                    <span id="dimension"></span>
+                                    <span id="dimensionprise"></span>
+                                </p>
                             </div>
                         </div>
-
                     </div>
 
-                    <div id='postercol' class="col-25">
-
-                        <div id='posterdiv'>
-                            <form id="imageForm" action="/satisfied">
-                                <table id='tableposter'>
+                    <div class="row">
+                        <div class="col-25">
+                            <div id="write_name">
+                                <div id="typeHead">
+                                    <p id="type">Type</p>
+                                    <p id="something">something</p>
+                                    <p id="maxletters">(Max. 12 letters)</p>
+                                    <input id="name" type='text' name='name' size="25" class="set-width"> <i
+                                        class="fas fa-backspace fa-2x"
+                                        value="DISABLE"
+                                        onclick="onPressBackspace(),disable()"></i>
+                                </div>
+                                <table id='tablealfabet'>
+                                    <tr>
+                                        <td id="a" onclick="addLetter(this)">A</td>
+                                        <td id="b" onclick="addLetter(this)">B</td>
+                                        <td id="c" onclick="addLetter(this)">C</td>
+                                        <td id="d" onclick="addLetter(this)">D</td>
+                                        <td id="e" onclick="addLetter(this)">E</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="f" onclick="addLetter(this)">F</td>
+                                        <td id="g" onclick="addLetter(this)">G</td>
+                                        <td id="h" onclick="addLetter(this)">H</td>
+                                        <td id="i" onclick="addLetter(this)">I</td>
+                                        <td id="j" onclick="addLetter(this)">J</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="k" onclick="addLetter(this)">K</td>
+                                        <td id="l" onclick="addLetter(this)">L</td>
+                                        <td id="m" onclick="addLetter(this)">M</td>
+                                        <td id="n" onclick="addLetter(this)">N</td>
+                                        <td id="o" onclick="addLetter(this)">O</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="p" onclick="addLetter(this)">P</td>
+                                        <td id="q" onclick="addLetter(this)">Q</td>
+                                        <td id="r" onclick="addLetter(this)">R</td>
+                                        <td id="s" onclick="addLetter(this)">S</td>
+                                        <td id="t" onclick="addLetter(this)">T</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="u" onclick="addLetter(this)">U</td>
+                                        <td id="v" onclick="addLetter(this)">V</td>
+                                        <td id="w" onclick="addLetter(this)">W</td>
+                                        <td id="x" onclick="addLetter(this)">X</td>
+                                        <td id="y" onclick="addLetter(this)">Y</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="z" onclick="addLetter(this)">Z</td>
+                                        <td id="æ" onclick="addLetter(this)">Æ</td>
+                                        <td id="ø" onclick="addLetter(this)">Ø</td>
+                                        <td id="å" onclick="addLetter(this)">Å</td>
+                                        <td id="-" onclick="addLetter(this)">-</td>
+                                    </tr>
                                 </table>
+                                <div id='content-mobile' class="basket">
+                                    <a href="#postercol" type="submit" name="next" value="Next" id="next_button"
+                                        onclick="validateForm()">Next</a>
+                                </div>
+                                <div id='content-desktop' class="basket">
+                                    <button type="submit" name="next" value="Next" id="next_button"
+                                        onclick="validateForm()">Next</button>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="col-25">
-                        <div id="changecolour" hidden>
-                            <p id="choosecolor"></p>
-                            <table id="colourtable">
-                             
-                            </table>
-                            <table id="colourtable2">
-                            </table>
-                            <div id="done_div">
-                                <button type="submit" id="done_button" onclick="getSrc()" hidden>Done</button>
+
+                        <div id='postercol' class="col-25">
+
+                            <div id='posterdiv'>
+                                <form id="imageForm" action="/satisfied">
+                                    <table id='tableposter'>
+                                    </table>
+                            </div>
+                        </div>
+                        <div class="col-25">
+                            <div id="changecolour" hidden>
+                                <p id="choosecolor"></p>
+                                <table id="colourtable">
+
+                                </table>
+                                <table id="colourtable2">
+                                </table>
+                                <div id="done_div">
+                                    <button type="submit" id="done_button" onclick="getSrc()" hidden>Done</button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
     </div>
-</div>

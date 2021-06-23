@@ -37,27 +37,15 @@ function getData() {
           // console.log('setting payment status in LS')
           localStorage.setItem("paymentId", "true");
           sendFiles(paymentId);
-          sendMail(paymentId,date);
+          sendMail(paymentDetails,paymentId,date);
           // console.log( localStorage.paymentId)
         } else {
-          // console.log(localStorage.paymentId);
-          // for (let i = 0; i < localStorage.length; i++) {
-          //   let storedValue = localStorage.key(i);
-          //   console.log(`Item at ${i}: ${storedValue}`);
-          // }
+        
           window.location.href = "/";
           localStorage.clear();
           sessionStorage.clear();
-          // console.log( localStorage.paymentId == 'true')
         }
-        // if(!storedValue || storedValue == null ){
-        //   sendFiles(paymentId);
-        //   localStorage.setItem('paymentId', "true");
-        //  }else {
-        //   if(localStorage.localStorage.key(0) === true){
-        //     window.location.href = "/";
-        //   }
-        //  }
+
       } else {
         console.log("waiting for data");
       }
@@ -178,7 +166,7 @@ function sendFiles(paymentId) {
   });
 
 };
-function sendMail(paymentId, date) {
+function sendMail(paymentDetails, paymentId, date) {
   let customer = JSON.parse(sessionStorage.getItem('customer'));  
   $.ajax({
     global: false,
@@ -188,6 +176,7 @@ function sendMail(paymentId, date) {
       // posters: posters,
       customer: customer,
       paymentId: paymentId,
+      paymentDetails: paymentDetails,
       date:date
     },
     ContentType: 'application/json',

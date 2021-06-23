@@ -1,7 +1,7 @@
 <style>
   body {
     font-family: "nunitobold";
-    font-size: 17px;
+    font-size: 2vmin;
   }
 
   ::-webkit-scrollbar {
@@ -165,9 +165,9 @@
   }
 
   .basket-devider {
-    text-align: left;
+    /* text-align: left; */
     border: 0.6px solid #c0c0c0;
-    margin-inline-start: 0%;
+    /* margin-inline-start: 0%; */
     width: 100%;
   }
 
@@ -190,22 +190,45 @@
   .poster-price {
     /* display: inline-block; */
     vertical-align: middle;
-    margin-top: 7%;
+    margin-top: 8%;
     float: right;
   }
 
   #total-amount-box {
     float: right;
 
-    width: 260px;
+    width: 50%;
     margin-right: 0%;
     margin-left: auto;
     margin-top: 2%;
   }
+  #shippingCol{
+    color: rgb(97, 97, 97);
+  }
+  #billingCol{
+    float: right;
+    width: 100%;
+    color: rgb(97, 97, 97);
+  }
+  @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+    body {
+    font-size: 2vw;
+  }
+  #billingCol{
+    float: right;
+    margin-left: 0%;
+    width: 100%;
+ 
+    color: rgb(97, 97, 97)"
+  }
+  #shippingCol{
 
+    color: rgb(97, 97, 97)"
+  }
+  }
 
   /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
-  @media (max-width: 800px) {
+  /* @media (max-width: 800px) {
     .row {
       flex-direction: column-reverse;
     }
@@ -213,7 +236,7 @@
     .col-25 {
       margin-bottom: 20px;
     }
-  }
+  } */
 </style>
 
 <body onload="getData()">
@@ -247,43 +270,44 @@
               <div class="col-25">
                 <div id="total-amount-box">
                   <!-- <a style="font-size: 30px;">Total amount</a> -->
-                  <p><span style="font-size: 15px;">Subtotal</span><span style="float: right;"
+                  <p><span >Subtotal</span><span style="float: right;"
                       id="subtotal-amount"></span>
                   </p>
-                  <p><span style="font-size: 15px;color: rgb(97, 97, 97);">shipping</span>
+                  <p><span style="color: rgb(97, 97, 97);">shipping</span>
                     <span style="float: right; color:rgb(97, 97, 97);" id="shipping">0 DKK</span>
                   </p>
-                  <p><span style="font-size: 15px;color: rgb(97, 97, 97);">taxes</span>
+                  <p><span style="color: rgb(97, 97, 97);">taxes</span>
                     <span style="float: right; color:rgb(97, 97, 97);" id="taxes-amount"></span>
                   </p>
                   <hr style="color: lightgrey;">
-                  <p style="margin-bottom: 12%;"><span style="font-size: 15px;margin-bottom: 14%;">Total</span><span
-                      style="float: right;" id="total-amount"></span></p>
+                  <p style="margin-bottom: 12%;"><span style="margin-bottom: 14%;">Total</span>
+                    <span style="float: right;" id="total-amount"></span>
+                  </p>
                 </div>
-
+                <!-- <hr class="basket-devider"> -->
               </div>
-              <hr class="basket-devider">
+              
             </div>
 
             <div class="row">
-              <div class="col-25">
-                <h3>Shipping Address :</h3>
-                <p><span id="shippingname" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-                <p><span id="shippingaddress" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-                <p><span id="shippingzip" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-                <p><span id="shippingcity" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-                <p><span id="shippingcountry" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-                <p><span id="shippingemail" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
+              <div id=shippingCol class="col-25">
+                <p>Shipping Address :</p>
+                <p><span id="shippingname" ></span>
+                <p><span id="shippingaddress"></span>
+                <p><span id="shippingzip"></span>
+                <p><span id="shippingcity"></span>
+                <p><span id="shippingcountry"></span>
+                <p><span id="shippingemail"></span>
                 </p>
               </div>
-              <div class="col-25" style="float: right;margin-left: 25%;width: 232px;">
-                <h3>Billing Address :</h3>
-                <p><span id="billingname" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-                <p><span id="billingaddress" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-                <p><span id="billingzip" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-                <p><span id="billingcity" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-                <p><span id="billingcountry" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
-                <p><span id="billingemail" style="font-size: 20px;color: rgb(97, 97, 97)"></span>
+              <div id="billingCol" class="col-25">
+                <p>Billing Address :</p>
+                <p><span id="billingname"></span>
+                <p><span id="billingaddress" ></span>
+                <p><span id="billingzip"></span>
+                <p><span id="billingcity"></span>
+                <p><span id="billingcountry"></span>
+                <p><span id="billingemail"></span>
               </div>
             </div>
           </div>

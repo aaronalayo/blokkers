@@ -104,15 +104,13 @@ route.post("/createpaymentorder", async (req, res) => {
 
             if (discount) {
               rate =
-                ((formats[i].price) * discount[0].amount) / 100;
+                ((formats[i].price) * discount[0].amount) ;
               totalRate =
-                (formats[i].price *
-                  poster.quantity *
-                  100 *
-                  discount[0].amount) /
-                100;
+                (rate *
+                  poster.quantity
+                  ) ;
               netRate =
-                (((formats[i].price * 100) - 2500) * poster.quantity * discount[0].amount) / 100;
+                (rate * poster.quantity);
             } else {
               rate = 0;
               totalRate = 0;
@@ -521,7 +519,8 @@ route.post("/sendfiles", async (req, res) => {
 });
 
 route.post("/sendmail", async (req, res) => {
-  const { date, paymentId } = req.body;
+  const {paymentDetails, date, paymentId } = req.body;
+  console.log(paymentDetails)
   try {
     const order = await Order.query()
       .select()
@@ -537,17 +536,7 @@ route.post("/sendmail", async (req, res) => {
     console.log(error);
   }
 });
-// route.post("/sendmail", async (req, res) => {
-//   const { posters } = req.body;
-//   try {
-  
-//  sendMail(posters)
-//   } catch (error) {
-//     console.log(error);
-//   }
-  
-      
-// });
+
 
 
 module.exports = route;

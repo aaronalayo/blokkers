@@ -74,7 +74,7 @@ html = html.replace(/{total-amount}/g, total.toFixed(2));
     let amount = items[i].amount;
     let price = items[i].price_per_item;
   htmlString = htmlString + `<div id=poster-display-${name}>
-  <div class="order-table" id=${name} style="display:inline-flex;">
+  <div class="order-table" id=${name} style="display:inline-flex;margin-bottom: 2%;">
   <table class="order-table" id="table-${name}" style="margin-left: auto;margin-right: auto;border: none;display: block;border-collapse: collapse;border-spacing: 0;">`;    
     let k = 0;
 
@@ -90,22 +90,25 @@ html = html.replace(/{total-amount}/g, total.toFixed(2));
       htmlString = htmlString + "</tr>";
       k = k + 3;
     }
-    htmlString = htmlString + `</table>
-    </div>
-  
-        <div class="quantity" style="float: right;display: contents;vertical-align: middle;">
-            <span style="font-size:20px;font-weight:bold;margin-left: 5%;margin-top: 10%;" >${items[i].item_format}</span>
-            <span style="font-size:20px;font-weight:bold;margin-top: 10%;" > poster </span>
-            <span class="poster" id=${name} style="font-size:20px;font-weight:bold;margin-top: 10%;vertical-align: middle;"> ${name} - </span>
-            <span id="${name}-quantity" style="font-size:20px;font-weight:bold;margin-top: 10%;">${amount}</span>
-
-        <div class="poster-price" style="vertical-align: middle;margin-top: 10%;float: right;font-size:20px;font-weight:bold;">
-        
-          <span id="${name}-price" float: right;color: rgb(0, 0, 0);>${parseInt(price).toFixed(2)} DKK</span>
-          </div>
-    <hr box-sizing: border-box;text-align: left;border: 0.6px solid #000000;margin-inline-start: 0%;width: 100%;>
-  
-    </div>`;
+    htmlString = htmlString + `</table></div>
+  </td>
+  <td>
+    <table style="border-radius: 4px; border-collapse: separate;float:right;margin-top: 10%;" width="80%" cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+          <td style="color: rgb(0, 0, 0);font-size: 20px;font-weight: bold;">
+          <span style="font-size:20px;font-weight:bold;" >${items[i].item_format}</span>                                                   
+          <span style="font-size:20px;font-weight:bold;" > poster </span>                                     
+          <span class="poster" id=${name} style="font-size:20px;font-weight:bold;"> ${name} - </span>
+          <span id="${name}-quantity" style="font-size:20px;font-weight:bold;">${amount}</span>                                    
+          </td>        
+          <td class="esd-block-text es-m-txt-l es-p35t es-p30r es-p30l"style="color: rgb(0, 0, 0);font-size: 20px;font-weight: bold;float: right;">
+          <span id="${name}-price">${parseInt(price).toFixed(2)} DKK</span>                                    
+          </td>                          
+        </tr>
+      </tbody>
+    </table>
+    <hr box-sizing: border-box;text-align: left;border: 0.6px solid #000000;margin-inline-start: 0%;width: 100%;>`
   }
    // <span id="${name}-price" margin-right: 5%;float: right;color: rgb(0, 0, 0);>${parseInt(price).toFixed(2)} DKK</span>
   // console.log(htmlString)
@@ -143,3 +146,17 @@ html = html.replace(/{total-amount}/g, total.toFixed(2));
     
 }
 
+  // </div>
+    //     <div class="quantity" style="float: right;display: contents;vertical-align: middle;">
+    //         <span style="font-size:20px;font-weight:bold;margin-left: 5%;margin-top: 10%;" >${items[i].item_format}</span>
+    //         <span style="font-size:20px;font-weight:bold;margin-top: 10%;" > poster </span>
+    //         <span class="poster" id=${name} style="font-size:20px;font-weight:bold;margin-top: 10%;vertical-align: middle;"> ${name} - </span>
+    //         <span id="${name}-quantity" style="font-size:20px;font-weight:bold;margin-top: 10%;">${amount}</span>
+
+    //     <div class="poster-price" style="vertical-align: middle;margin-top: 10%;float: right;font-size:20px;font-weight:bold;">
+        
+    //       <span id="${name}-price" float: right;color: rgb(0, 0, 0);>${parseInt(price).toFixed(2)} DKK</span>
+    //       </div>
+    // <hr box-sizing: border-box;text-align: left;border: 0.6px solid #000000;margin-inline-start: 0%;width: 100%;>
+
+    // </div>`
