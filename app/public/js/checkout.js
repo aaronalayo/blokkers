@@ -196,7 +196,7 @@ function getInfo() {
       const customer = {
         shippingfullname: shippingfullname,
         email: email,
-        shippingphone: shippingcode+shippingphone,
+        shippingphone: shippingcode + shippingphone,
         shippingaddress: shippingaddress,
         shippingcity: shippingcity,
         shippingzip: shippingzip,
@@ -208,7 +208,7 @@ function getInfo() {
         newsletter: newsletter,
       };
 
-
+console.log(shippingcode + shippingphone)
 
       sessionStorage.setItem("customer", JSON.stringify(customer));
       let discountCode = JSON.parse(sessionStorage.getItem('discount'));
@@ -270,7 +270,7 @@ function storeOrder(paymentId){
   $.ajax({
     global: false,
     type: 'POST',
-    url: '/createorder',
+    // url: '/createorder',
     data: {
       posters:posters,
       customer:customer,
@@ -288,93 +288,7 @@ function storeOrder(paymentId){
     }
   });
 };
-// function getInfo() {
-//   let shippingfullname = $("#shippingfullname").val();
-//   let email = $("#shippingemail").val();
-//   let code =$('#code').val();
-//   let shippingphone = $("#shippingphone").val();
-//   let shippingaddress = $("#shippingaddress").val();
-//   let shippingcity = $("#shippingcity").val();
-//   let shippingzip = $("#shippingzip").val();
-//   let billingfullname = $("#billingfullname").val();
-//   let billingphone = $("#billingphone").val();
-//   let billingaddress = $("#billingaddress").val();
-//   let billingcity = $("#billingcity").val();
-//   let billingzip = $("#billingzip").val();
-//   let newsletter = $(".checknews")[0].checked;
 
-
-//   //Checks form attributes
-//   if (nameFilter.test(String(shippingfullname).toLowerCase()) == false) {
-//     alert("Enter a valid name");
-//   } else
-//     if (emailFilter.test(String(email).toLowerCase()) == false) {
-//       alert("Enter a valid email");
-//     } else if (phoneFilter.test(String(shippingphone).toLowerCase()) == false) {
-//       alert("Enter a valid phone number");
-//     } else if (addressFilter.test(String(shippingaddress).toLowerCase()) == false) {
-//       alert("Enter a valid address");
-//     } else if (cityFilter.test(String(shippingcity).toLowerCase()) == false) {
-//       alert("Enter a valid city");
-//     } else if (zipFilter.test(String(shippingzip).toLowerCase()) == false) {
-//       alert("Enter a valid zip code");
-//     } else {
-
-//       const customer = {
-//         shippingfullname: shippingfullname,
-//         email: email,
-//         shippingphone: code+shippingphone,
-//         shippingaddress: shippingaddress,
-//         shippingcity: shippingcity,
-//         shippingzip: shippingzip,
-//         billingfullname: billingfullname,
-//         billingphone: billingphone,
-//         billingaddress: billingaddress,
-//         billingcity: billingcity,
-//         billingzip: billingzip,
-//         newsletter: newsletter,
-//       };
-
-
-
-//       sessionStorage.setItem("customer", JSON.stringify(customer));
-//       let discountCode = JSON.parse(sessionStorage.getItem('discount'));
-//       let posters = JSON.parse(sessionStorage.getItem("posters"));
-//       //Ajax POST method to send to create order route
-//       if (shippingfullname, email, shippingphone, shippingaddress, shippingcity, shippingzip) {
-     
-
-//               storeOrder();
-            
-         
-//       }
-//     }
-// };
-// function storeOrder(){
-  
-//   let customer = JSON.parse(sessionStorage.getItem('customer'));
-//   let posters = JSON.parse(sessionStorage.getItem('posters'));
-
-//   $.ajax({
-//     global: false,
-//     type: 'POST',
-//     url: '/sendmail',
-//     data: {
-//       posters:posters,
-
-//     },
-//     ContentType: 'application/json',
-//     dataType: "json",
-//   }).done(function (data) {
-//     console.log('success', data);
-//   }).fail(function (jqXHR, textStatus, errorThrown) {
-//     var contentType = jqXHR.getResponseHeader("Content-Type");
-//     if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
-//       window.location.href = "/";
-//       console.log('FAILED! ERROR: ' + errorThrown);
-//     }
-//   });
-// };
 
 function suscribe(){
   
