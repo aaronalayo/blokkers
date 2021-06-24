@@ -110,22 +110,21 @@
     border: none;
   }
   #satisfiedtable img {
-    width: 10em;
+    width: 6vw;
     display: block;
   }
 
     #addbasket_button {
         margin-top: 3%;
         margin: auto;
-        font-size: 1.1em;
+        font-size: 1vw;
         font-family: "nunitoblack";
         text-decoration: none;
-        padding: 0.6em 2em;
+        padding: 0.6em 1em;
         border-radius: 8px;
         color: #fff;
         background-color: #57B0B1;
         border: 0;
-
         align-content: center;
         cursor: pointer;
         display: table;
@@ -133,7 +132,7 @@
 
     #cancel_button {
         margin: auto;
-        font-size: 1.1em;
+        font-size: 1vw;
         font-family: "nunitoblack";
         text-decoration: none;
         padding: 0.6em 2em;
@@ -151,109 +150,6 @@
         margin-top: 1%;
     }
 
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 1) {
-      
-        html {
-            -webkit-overflow-scrolling: touch !important;
-            -webkit-overflow-scrolling: auto !important;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            scroll-snap-stop: always
-        }
-        ::-webkit-scrollbar {
-            -webkit-appearance: none;
-            width: 7px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, .5);
-            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        }
-
-        .col {
-            width: 20%;
-            /* float: left; */
-        }
-
-        .col-25 {
-            width: 200px;
-            -ms-flex: 25%;
-            flex: 25%;
-
-        }
-
-
-        .row {
-            margin: 2%;
-        }
-
-        .container {
-            min-height: 70vh;
-
-        }
-
-        .centered {
-
-            padding-left: 30%;
-            padding-top: 15%;
-        }
-
-
-
-        .centered {
-
-            padding-left: 0%;
-            padding-top: 0%;
-        }
-
-        #satisfied {
-            font-family: "nunitoextrabold";
-            font-size: 35px;
-            margin: auto;
-            display: table;
-            padding-top: 3%;
-            padding-bottom: 2%;
-        }
-
-        #satisfiedtable img {
-            width: 6em;
-            display: block;
-        }
-
-        #addbasket_button {
-            font-size: 1.1em;
-            font-family: "nunitoblack";
-            text-decoration: none;
-            padding: 0.6em 1em;
-            border-radius: 8px;
-            color: #fff;
-            background-color: #57B0B1;
-            border: 0;
-            cursor: pointer;
-            align-content: center;
-
-        }
-
-        #cancel_button {
-            font-size: 1.0em;
-            font-family: "nunitoblack";
-            text-decoration: none;
-            padding: 0.6em 2em;
-            border-radius: 8px;
-            color: #fff;
-            background-color: #c0c0c0;
-            border: 0;
-            cursor: pointer;
-            align-content: center;
-            cursor: pointer;
-            display: table;
-        }
-
-        .basket {
-            margin-top: 1%;
-        }
-    }
 
     @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
         html {
@@ -268,7 +164,7 @@
         .container {
             background-color: transparent;
             padding: 0px 0px 0px 10px;
-            /* border: 1px solid rgb(255, 252, 252); */
+            border: 1px solid rgb(255, 252, 252);
             border-radius: 3px;
             min-height: 90vh;
         }
@@ -297,12 +193,12 @@
         }
 
         #satisfiedtable img {
-            width: 5.5em;
+            width: 5em;
             display: block;
         }
 
         #addbasket_button {
-            font-size: 1.1em;
+            font-size: 3vw;
             font-family: "nunitoblack";
             text-decoration: none;
             padding: 0.6em 1em;
@@ -316,7 +212,7 @@
         }
 
         #cancel_button {
-            font-size: 1.0em;
+            font-size: 3vw;
             font-family: "nunitoblack";
             text-decoration: none;
             padding: 0.6em 2em;
@@ -334,14 +230,22 @@
             margin-top: 1%;
         }
     }
-    @media only screen and  (min-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 1) {
 
-        #satisfiedtable img {
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+            #satisfiedtable img {
             width: 7em;
             display: block;
         }
+        #cancel_button {
 
+        font-size: 1em;
+        }
+        #addbasket_button {
+        font-size: 1em;
+        }
     }
+
+    
 </style>
 
 <body onload="displayPoster()">

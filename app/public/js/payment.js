@@ -37,7 +37,7 @@ function getData() {
           // console.log('setting payment status in LS')
           localStorage.setItem("paymentId", "true");
           sendFiles(paymentId);
-          sendMail(paymentDetails,paymentId,date);
+          sendMail(paymentDetails, date);
           // console.log( localStorage.paymentId)
         } else {
         
@@ -140,7 +140,7 @@ function sendFiles(paymentId) {
  
   let customer = JSON.parse(sessionStorage.getItem('customer'));
   let posters = JSON.parse(sessionStorage.getItem('posters'));
-  console.log(customer, posters,paymentId)
+  // console.log(customer, posters,paymentId)
   $.ajax({
     global: false,
     type: 'POST',
@@ -166,7 +166,8 @@ function sendFiles(paymentId) {
   });
 
 };
-function sendMail(paymentDetails, paymentId, date) {
+function sendMail(paymentDetails, date) {
+  let discount = JSON.parse(sessionStorage.getItem("discount"));
   let customer = JSON.parse(sessionStorage.getItem('customer'));  
   $.ajax({
     global: false,
@@ -175,9 +176,9 @@ function sendMail(paymentDetails, paymentId, date) {
     data: {
       // posters: posters,
       customer: customer,
-      paymentId: paymentId,
       paymentDetails: paymentDetails,
-      date:date
+      date:date,
+      discount: discount
     },
     ContentType: 'application/json',
     dataType: "json",
@@ -195,6 +196,5 @@ function sendMail(paymentDetails, paymentId, date) {
   });
 
 };
-// window.onbeforeunload = function() {
-//   localStorage.clear();
-// };
+
+

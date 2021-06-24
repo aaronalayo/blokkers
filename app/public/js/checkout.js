@@ -164,6 +164,7 @@ function getInfo() {
   let shippingfullname = $("#shippingfullname").val();
   let email = $("#shippingemail").val();
   let shippingcode =$('#shippingcode').val();
+  
   let billingcode =$('#billingcode').val();
   let shippingphone = $("#shippingphone").val();
   let shippingaddress = $("#shippingaddress").val();
@@ -207,8 +208,6 @@ function getInfo() {
         billingzip: billingzip,
         newsletter: newsletter,
       };
-
-console.log(shippingcode + shippingphone)
 
       sessionStorage.setItem("customer", JSON.stringify(customer));
       let discountCode = JSON.parse(sessionStorage.getItem('discount'));

@@ -355,6 +355,7 @@
     .col-25 {
       -ms-flex: 25%;
       flex: 25%;
+      padding: 0;
     }
     col-25, .col-50, .col-75 {
     padding: 0;
@@ -641,6 +642,12 @@
     vertical-align: middle;
   } 
 
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .basket-items {
+
+    width: 60%;
+}
 }
 /* @media only screen and (min-device-width: 1680px) and (max-device-width: 1919px) and (-webkit-min-device-pixel-ratio: 2) {
   html {

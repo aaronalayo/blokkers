@@ -127,7 +127,7 @@ route.post("/createpaymentorder", async (req, res) => {
               grossTotalAmount: -totalRate,
               netTotalAmount: -netRate,
             };
-            console.log(discountItem);
+            // console.log(discountItem);
             items.push(item, discountItem);
 
             subAmount =
@@ -236,7 +236,7 @@ route.post("/createorder", async (req, res) => {
   const billingAddress = setValueToNull(customer.billingaddress);
   const billingCity = setValueToNull(customer.billingcity);
   const billingZipCode = setValueToNull(customer.billingzip);
-
+console.log(shippingPhone)
   try {
     if (
       (newPosters,
@@ -379,7 +379,7 @@ route.post("/sendfiles", async (req, res) => {
     //Empty the output folder
     fsExtra.emptyDir("./public/output");
   const { customer, posters, paymentId } = req.body;
-  console.log(req.body)
+  // console.log(req.body)
   let orderSent = [];
   try {
     const order = await Order.query()
@@ -519,19 +519,33 @@ route.post("/sendfiles", async (req, res) => {
 });
 
 route.post("/sendmail", async (req, res) => {
-  const {paymentDetails, date, paymentId } = req.body;
-  console.log(paymentDetails)
+  const {paymentDetails, date, discount} = req.body;
+  let rate;
   try {
+    
+    const discounts = await Discount.query().select();
+   if(discount){
+     discounts.forEach(discountsData =>{
+       if(discount === discountsData.discount_code){
+          rate =  discountsData.discount_rate;
+          rate = rate.replace("%", "");
+          rate = parseInt(rate);
+       }else{
+         rate = "";
+       }
+     })
+   }
+   
     const order = await Order.query()
       .select()
-      .where({ payment_id: paymentId })
+      .where({ payment_id: paymentDetails.payment.paymentId })
       .withGraphJoined("customer");
       // console.log(order);
     const items = await Item.query()
       .select()
-      .where({payment_id: paymentId});
+      .where({payment_id: paymentDetails.payment.paymentId});
     // console.log(items);
-  sendMail(order, items, date)
+  sendMail(order, items, date,paymentDetails, rate)
   } catch (error) {
     console.log(error);
   }

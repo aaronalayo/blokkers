@@ -1,7 +1,7 @@
 <style>
   body {
     font-family: "nunitobold";
-    font-size: 2vmin;
+
   }
 
   ::-webkit-scrollbar {
@@ -196,19 +196,20 @@
 
   #total-amount-box {
     float: right;
-
-    width: 50%;
     margin-right: 0%;
     margin-left: auto;
     margin-top: 2%;
+    width: 100%;
   }
   #shippingCol{
     color: rgb(97, 97, 97);
+    margin-right: 10%;
   }
   #billingCol{
     float: right;
     width: 100%;
     color: rgb(97, 97, 97);
+    margin-left: 10%;
   }
   @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
     body {
@@ -218,25 +219,17 @@
     float: right;
     margin-left: 0%;
     width: 100%;
- 
-    color: rgb(97, 97, 97)"
+    text-align: center;
+    color: rgb(97, 97, 97);
   }
   #shippingCol{
-
-    color: rgb(97, 97, 97)"
+  text-align: center;
+  color: rgb(97, 97, 97);
+  margin-right: 0;
+    
   }
   }
 
-  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
-  /* @media (max-width: 800px) {
-    .row {
-      flex-direction: column-reverse;
-    }
-
-    .col-25 {
-      margin-bottom: 20px;
-    }
-  } */
 </style>
 
 <body onload="getData()">
@@ -278,6 +271,9 @@
                   </p>
                   <p><span style="color: rgb(97, 97, 97);">taxes</span>
                     <span style="float: right; color:rgb(97, 97, 97);" id="taxes-amount"></span>
+                  </p>
+                  <p><span style="color: rgb(97, 97, 97);">discount</span>
+                    <span style="float: right; color:rgb(97, 97, 97);" id="discount"></span>
                   </p>
                   <hr style="color: lightgrey;">
                   <p style="margin-bottom: 12%;"><span style="margin-bottom: 14%;">Total</span>

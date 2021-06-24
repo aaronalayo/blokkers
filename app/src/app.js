@@ -4,26 +4,15 @@ const session = require('express-session');
 const app = express();
 app.use(express.static('public'));
 const cookieParser = require('cookie-parser');
-// var MongoDBStore = require('connect-mongodb-session')(session);
 
 
 app.set('trust proxy', 1);
-// app.use(morgan('dev'));
-// app.use(cors());
 const request = require('request');
 const dotenv = require('dotenv');
 dotenv.config();
 
 
-// let store = new MongoDBStore({
-//   uri: `${process.env.DB_HOST}/${process.env.DB}`,
-//   touchAfter: 24 * 3600, // time period in seconds
-//   connectionOptions: {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     serverSelectionTimeoutMS: 10000
-//   }
-// });
+
 app.use(cookieParser());
 let middleSession = session({
       saveUninitialized: false, // don't create session until something stored

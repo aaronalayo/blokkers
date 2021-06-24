@@ -8,28 +8,26 @@ const parse = require('node-html-parser').parse;
 
 
 
-module.exports = async function sendMail(order,items,date){
+module.exports = async function sendMail(order,items,date,paymentDetails,rate){
   // console.log(order,items,date);
   await readFile("./public/emailTemplate/email.html", 'utf8', (err,html)=>{
     if(err){
        throw err;
     }
-
+  
 
   let billingName = order[0].customer.billing_full_name != null ? order[0].customer.billing_full_name : order[0].customer.shipping_full_name;
   let billingAddress = order[0].customer.billing_address != null ? order[0].customer.billing_address : order[0].customer.shipping_address;
   let billingZip = order[0].customer.billing_zip_code != null ? order[0].customer.billing_zip_code :  order[0].customer.shipping_zip_code;
   let billingCity = order[0].customer.billing_city != null ? order[0].customer.billing_city : order[0].customer.shipping_city;
 
-
+ 
 // console.log(items)
-let total = 0;
-let subTotal = 0;
+let total  = paymentDetails.payment.orderDetails.amount.substring(0, 3) + "." + paymentDetails.payment.orderDetails.amount.substring(3, paymentDetails.payment.orderDetails.amount.length);
 let taxes = 0;
 let subTaxes = 0;
 let price = 0;
 let sub = 0;
-  
 
     for(let i = 0; i < items.length; i++){
       price = items[i].price_per_item;
@@ -37,15 +35,25 @@ let sub = 0;
       subTaxes = (price * items[i].amount * 25) / 100;
       taxes += subTaxes;
       sub += subTotal;
-      total += subTotal;
+      
     }
+if(rate ==="" || rate === undefined){
+  html = html.replace(/{discount}/g, "-");
+} else{
+  let totalFloat = parseFloat(paymentDetails.payment.orderDetails.amount);
+  let discount = (totalFloat/(100-rate))*10;
+  discount = discount.toString();
+  discount = discount.substring(0, 2) + "." + discount.substring(2, discount.length);
+  html = html.replace(/{discount}/g, discount + " DKK");
+}
 
 
 
 html = html.replace(/{date}/g, date);
 html = html.replace(/{subtotal-amount}/g, sub.toFixed(2));
 html = html.replace(/{taxes-amount}/g, taxes.toFixed(2));
-html = html.replace(/{total-amount}/g, total.toFixed(2));
+
+html = html.replace(/{total-amount}/g, total);
 
   html = html.replace(/{orderNumber}/g, order[0].order_no);
   html = html.replace(/{shippingname}/g, order[0].customer.shipping_full_name);
@@ -110,15 +118,7 @@ html = html.replace(/{total-amount}/g, total.toFixed(2));
     </table>
     <hr box-sizing: border-box;text-align: left;border: 0.6px solid #000000;margin-inline-start: 0%;width: 100%;>`
   }
-   // <span id="${name}-price" margin-right: 5%;float: right;color: rgb(0, 0, 0);>${parseInt(price).toFixed(2)} DKK</span>
-  // console.log(htmlString)
   orderContainer.set_content(htmlString);
-    // <div class="size-poster" style="display: inline-block;vertical-align: middle;margin-left: 2%;margin-top: 5%;font-size:20px;font-weight:bold">
-    //         <span>${items[i].item_format}</span><span > poster </span><span class="poster" id=${name}>${name} - </span>
-    //     </div>   
-//     <div class="poster-price" style="vertical-align: middle;margin-top: 5%;float: right;font-size:20px;font-weight:bold;">
-//     <span id="${name}-price" float: right;color: rgb(0, 0, 0);>${parseInt(price).toFixed(2)} DKK</span>
-// </div> 
 
     const mailOptions = {
         from: 'Blokkers <hello@blokkers.dk>', 
@@ -146,17 +146,3 @@ html = html.replace(/{total-amount}/g, total.toFixed(2));
     
 }
 
-  // </div>
-    //     <div class="quantity" style="float: right;display: contents;vertical-align: middle;">
-    //         <span style="font-size:20px;font-weight:bold;margin-left: 5%;margin-top: 10%;" >${items[i].item_format}</span>
-    //         <span style="font-size:20px;font-weight:bold;margin-top: 10%;" > poster </span>
-    //         <span class="poster" id=${name} style="font-size:20px;font-weight:bold;margin-top: 10%;vertical-align: middle;"> ${name} - </span>
-    //         <span id="${name}-quantity" style="font-size:20px;font-weight:bold;margin-top: 10%;">${amount}</span>
-
-    //     <div class="poster-price" style="vertical-align: middle;margin-top: 10%;float: right;font-size:20px;font-weight:bold;">
-        
-    //       <span id="${name}-price" float: right;color: rgb(0, 0, 0);>${parseInt(price).toFixed(2)} DKK</span>
-    //       </div>
-    // <hr box-sizing: border-box;text-align: left;border: 0.6px solid #000000;margin-inline-start: 0%;width: 100%;>
-
-    // </div>`

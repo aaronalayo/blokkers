@@ -20,19 +20,13 @@ function displayPoster(){
         $(`#${`satisfied`+ (j + 1)}`).append(`<img src="${posterToEdit.paths[j]}">`);
       }   
       k = k + 3;
-    }
-    
-      // $("#addbasket_button").show(2000);
-      // $("#cancel_button").show();
-
-   
+    }  
   }
 };
 
 
 function editPoster(){
 $("#satisfiedtable").html('');
-
 };
 
 function addtobasket(){
