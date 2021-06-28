@@ -41,9 +41,9 @@ function getData() {
           // console.log( localStorage.paymentId)
         } else {
         
-          window.location.href = "/";
-          localStorage.clear();
-          sessionStorage.clear();
+          // window.location.href = "/";
+          // localStorage.clear();
+          // sessionStorage.clear();
         }
 
       } else {
@@ -91,18 +91,47 @@ function displayOrder(items) {
   
 };
 
-function setTotalPay(payment, items) {
+async function setTotalPay(payment, items) {
+  // console.log(items)
   if (payment === undefined || !payment) {
     // console.log("Waiting for data");
   } else {
     let totalPay = payment.orderDetails.amount / 100;
     let taxes = 0;
     let subTotal = 0;
+    let sub =0;
+    let subTaxes =0;
+    let rate;
     for (let i = 0; i < items.length; i++) {
-      let taxes = ((items[i].total_price * 25)/ 100 );
-    }
-    
-     totalPay;
+      subTaxes = ((items[i].total_price * 25)/ 100);
+      
+      sub = parseInt(items[i].total_price);
+      subTotal += sub;
+      taxes += subTaxes;
+        }
+        
+        
+        let discount = JSON.parse(sessionStorage.getItem("discount"));
+        if (discount === undefined || !discount) {
+          rate =0;
+        }else{
+          await getDiscounts().then((data) => {
+            if (data) {
+              for (let [key] of Object.entries(data.discounts)) {
+                if (discount === data.discounts[key].discount_code) {
+                  rate = data.discounts[key].discount_rate;
+                  // console.log(subTotal)
+                  rate = (subTotal * parseInt(data.discounts[key].discount_rate)) / 100;
+                  $("#discountSpan").show();
+                  $("#discount").show();
+
+                }
+              }
+            }
+          });
+        }
+   
+    $("#discount").text(rate.toFixed(2) + " DKK");
     $("#subtotal-amount").text(subTotal.toFixed(2) + " DKK");
     $("#taxes-amount").text(taxes.toFixed(2) + " DKK");
     $("#total-amount").text(totalPay.toFixed(2) + " DKK");
