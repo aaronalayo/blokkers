@@ -30,7 +30,7 @@ function getData() {
       $("#orderNumber").text("Order #" + orderDetails[0].order_no);
       let itemsDetails = data[0].items;
       displayOrder(itemsDetails);
-      setTotalPay(paymentDetails.payment);
+      setTotalPay(paymentDetails.payment,itemsDetails);
       setCustomerInfo(orderDetails);
       if (paymentId) {
         if (!localStorage.paymentId || localStorage.paymentId === 'undefined' ) {
@@ -91,14 +91,18 @@ function displayOrder(items) {
   
 };
 
-function setTotalPay(payment) {
+function setTotalPay(payment, items) {
   if (payment === undefined || !payment) {
     // console.log("Waiting for data");
   } else {
     let totalPay = payment.orderDetails.amount / 100;
-
-    let taxes = ((totalPay * 25)/ 100 );
-    let subTotal = totalPay;
+    let taxes = 0;
+    let subTotal = 0;
+    for (let i = 0; i < items.length; i++) {
+      let taxes = ((items[i].total_price * 25)/ 100 );
+    }
+    
+     totalPay;
     $("#subtotal-amount").text(subTotal.toFixed(2) + " DKK");
     $("#taxes-amount").text(taxes.toFixed(2) + " DKK");
     $("#total-amount").text(totalPay.toFixed(2) + " DKK");
