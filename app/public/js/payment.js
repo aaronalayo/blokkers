@@ -40,12 +40,11 @@ function getData() {
           sendMail(paymentDetails, date);
           // console.log( localStorage.paymentId)
         } else {
-        
-          // window.location.href = "/";
-          // localStorage.clear();
-          // sessionStorage.clear();
+          
+          localStorage.clear();
+          sessionStorage.clear();
+          window.location.href = "/";
         }
-
       } else {
         console.log("waiting for data");
       }
@@ -54,7 +53,6 @@ function getData() {
     // if there's an error, log it
     console.log(error);
   });
-
 };
 
 function displayOrder(items) {
@@ -88,7 +86,6 @@ function displayOrder(items) {
         `);
     $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
   }
-  
 };
 
 async function setTotalPay(payment, items) {
@@ -104,13 +101,10 @@ async function setTotalPay(payment, items) {
     let rate;
     for (let i = 0; i < items.length; i++) {
       subTaxes = ((items[i].total_price * 25)/ 100);
-      
       sub = parseInt(items[i].total_price);
       subTotal += sub;
       taxes += subTaxes;
         }
-        
-        
         let discount = JSON.parse(sessionStorage.getItem("discount"));
         if (discount === undefined || !discount) {
           rate =0;
@@ -130,7 +124,6 @@ async function setTotalPay(payment, items) {
             }
           });
         }
-   
     $("#discount").text(rate.toFixed(2) + " DKK");
     $("#subtotal-amount").text(subTotal.toFixed(2) + " DKK");
     $("#taxes-amount").text(taxes.toFixed(2) + " DKK");
@@ -154,7 +147,6 @@ function setCustomerInfo(order) {
   let billingCountry = order[0].customer.billing_country != null ? order[0].customer.billing_country : shippingCountry;
   let billingEmail = order[0].customer.email;
 
-  
   $("#shippingname").text(shippingName);
   $("#shippingaddress").text(shippingAddress);
   $("#shippingzip").text(shippingZip);
@@ -170,7 +162,6 @@ function setCustomerInfo(order) {
   $("#billingemail").text(billingEmail);
 }
 function sendFiles(paymentId) {
- 
   let customer = JSON.parse(sessionStorage.getItem('customer'));
   let posters = JSON.parse(sessionStorage.getItem('posters'));
   // console.log(customer, posters,paymentId)
@@ -192,12 +183,9 @@ function sendFiles(paymentId) {
     var contentType = jqXHR.getResponseHeader("Content-Type");
     if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
       window.location.href = "/";
-      console.log('FAILED! ERROR: ' + errorThrown);
-      
-    }
-    
+      console.log('FAILED! ERROR: ' + errorThrown);   
+    }   
   });
-
 };
 function sendMail(paymentDetails, date) {
   let discount = JSON.parse(sessionStorage.getItem("discount"));
@@ -222,12 +210,9 @@ function sendMail(paymentDetails, date) {
     var contentType = jqXHR.getResponseHeader("Content-Type");
     if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
       window.location.href = "/";
-      console.log('FAILED! ERROR: ' + errorThrown);
-      
+      console.log('FAILED! ERROR: ' + errorThrown);    
     }
-    
   });
-
 };
 
 

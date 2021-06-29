@@ -153,20 +153,19 @@ function getFormats() {
 
 //calculates the poster price based on the format and quantity
 async function calculatePosterPrice(poster) {
-  let posters = JSON.parse(sessionStorage.getItem("posters"));
-
-  // console.log(poster.size)
+  // let posters = JSON.parse(sessionStorage.getItem("posters"));
   let price = 0;
   let amount = 0;
   $("#" + poster.pname + "-price").text("...");
   await getFormats().then((data) => {
     for (let [key] of Object.entries(data.formats)) {
-      // console.log(data.formats)
+      console.log(data.formats)
       if (poster.size === data.formats[key].format_no) {
         price = data.formats[key].price;
-        // console.log(price);
         poster.price = price;
+        console.log(price)
         amount = poster.price * poster.quantity;
+        console.log(amount)
         update(price);
       }
     }
@@ -202,7 +201,7 @@ function calculateTotal() {
           if (poster.size === data.formats[key].format_no) {
             price = data.formats[key].price;
             subTotal = price * poster.quantity;
-            subTaxes = (price * poster.quantity * 25) / 100;
+            subTaxes = ((price * poster.quantity) / 1.25 - subTotal )* -1;
           }
         }
         taxes += subTaxes;

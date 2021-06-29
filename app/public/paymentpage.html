@@ -34,7 +34,7 @@
     display: flex;
     -ms-flex-wrap: wrap;
     /* IE10 */
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     /* margin: 0 -16px; */
   }
 
@@ -219,11 +219,11 @@
     float: right;
     margin-left: 0%;
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
     color: rgb(97, 97, 97);
   }
   #shippingCol{
-  text-align: center;
+  /* text-align: center; */
   color: rgb(97, 97, 97);
   margin-right: 0;
     
@@ -266,13 +266,13 @@
                   <p><span >Subtotal</span><span style="float: right;"
                       id="subtotal-amount"></span>
                   </p>
-                  <p><span style="color: rgb(97, 97, 97);">shipping</span>
+                  <p><span style="color: rgb(97, 97, 97);">Shipping</span>
                     <span style="float: right; color:rgb(97, 97, 97);" id="shipping">0 DKK</span>
                   </p>
-                  <p><span style="color: rgb(97, 97, 97);">taxes</span>
+                  <p><span style="color: rgb(97, 97, 97);">Taxes(incl.)</span>
                     <span style="float: right; color:rgb(97, 97, 97);" id="taxes-amount"></span>
                   </p>
-                  <p><span id="discountSpan" style="color: rgb(97, 97, 97);" hidden>discount</span>
+                  <p><span id="discountSpan" style="color: rgb(97, 97, 97);" hidden>Discount</span>
                     <span style="float: right; color:rgb(97, 97, 97);" id="discount" hidden></span>
                   </p>
                   <hr style="color: lightgrey;">

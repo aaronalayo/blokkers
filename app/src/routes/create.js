@@ -97,9 +97,9 @@ route.post("/createpaymentorder", async (req, res) => {
               // unitPrice: formats[i].price * 100 - 2500,
               unitPrice: formats[i].price * 100,
               taxRate: 2500,
-              taxAmount: ((formats[i].price * 25) / 100) * 100,
+              taxAmount: (((formats[i].price * poster.quantity * 100)/1.25) - (formats[i].price * poster.quantity * 100))* -1,
               grossTotalAmount: formats[i].price * poster.quantity * 100,
-              netTotalAmount: (formats[i].price * 100 - ((formats[i].price * 25) / 100) * 100) * poster.quantity,
+              netTotalAmount: (formats[i].price * 100 * poster.quantity - ((((formats[i].price * poster.quantity * 100)/1.25) - (formats[i].price * poster.quantity * 100))* -1)) ,
             };
 
             if (discount) {
@@ -174,7 +174,7 @@ route.post("/createpaymentorder", async (req, res) => {
    
         "url":"",
         "returnUrl":"${host}/payment",
-        "termsUrl":"${host}/toc",
+        "termsUrl":"${host}/termsandcontions",
         "appearance": {
           "displayOptions": {
             "showMerchantName": true,
@@ -236,7 +236,7 @@ route.post("/createorder", async (req, res) => {
   const billingAddress = setValueToNull(customer.billingaddress);
   const billingCity = setValueToNull(customer.billingcity);
   const billingZipCode = setValueToNull(customer.billingzip);
-console.log(shippingPhone)
+
   try {
     if (
       (newPosters,

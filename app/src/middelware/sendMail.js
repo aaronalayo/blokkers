@@ -42,8 +42,9 @@ if(rate ==="" || rate === undefined){
 } else{
   let totalFloat = parseFloat(paymentDetails.payment.orderDetails.amount);
   let discount = (totalFloat/(100-rate))*10;
-  discount = discount.toString();
-  discount = discount.substring(0, 2) + "." + discount.substring(2, discount.length);
+  discount = discount/100;
+  // discount = discount.substring(0, 2) + "." + discount.substring(2, discount.length);
+  discount = discount.toFixed(2);
   html = html.replace(/{discount}/g, discount + " DKK");
 }
 
