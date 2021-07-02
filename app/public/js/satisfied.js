@@ -7,7 +7,8 @@ function displayPoster(){
 
   if (posterToEdit === null) {
     // console.log(posterToEdit)
-    window.location.href = "http://localhost:8080/";
+    let origin = window.location.origin;
+    window.location.href = origin;
     $("#addbasket_button").hide();
     $("#cancel_button").hide();
   }else{

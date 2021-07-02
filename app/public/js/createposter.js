@@ -34,7 +34,7 @@ async function getSizeDetails(id) {
         }
       }
       $("#dimension").text(dimension);
-      $("#dimensionprise").text(~~price + " DKK");
+      $("#dimensionprice").text(~~price + " DKK");
     });
   };
 };
@@ -277,13 +277,18 @@ function getSrc() {
   }
   let pname = $("#name").val().toLowerCase();
   let size = $("input[name='size']:checked").val();
+  let posterPrice = $("#dimensionprice").text();
+  posterPrice = posterPrice.substr(0,3);
+  console.log(posterPrice)
+  posterPrice = parseInt(posterPrice).toFixed(2);
+  // posterPrice = posterPrice;
   let posterToEdit = {
     "id": Date.now(),
     "pname": pname,
     "paths": paths,
     "size": size.toUpperCase(),
     "quantity": 1,
-    "price": 0   
+    "price": posterPrice   
 };
 if(sessionStorage.getItem("posterToEdit") != null){
   sessionStorage.removeItem('posterToEdit');

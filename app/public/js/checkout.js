@@ -37,7 +37,7 @@ function displayCart(){
   };
 
   $("#totalItems").text(total);
-  $('#shippingprice').append(`<p id="shippingpricetext">Shipping<span class="price"><b>0 DKK</b></span></p>`);
+  $('#shippingprice').append(`<p id="shippingpricetext">Shipping(free)<span class="price"><b>0 DKK</b></span></p>`);
   $('#taxes').append(`<p id="taxesText">Taxes(incl.)<span id="totalTaxes" class="price"><b></b></span></p>`); 
   $('#discount').append(`<p id="discountText">Discount<span id="discountAmount" class="price"><b></b></span></p>`);
   $('#totalbasket').append(`<p>Total<span id="totalprice" class="price" style="color:black"><b></b></span></p>`);
@@ -117,7 +117,8 @@ async function setTotal() {
               totalOrder = total - rate;
               
             });
-            totalOrder = totalOrder.toFixed(Math.max(((totalOrder + '').split(".")[1] || "").length, 2))
+            totalOrder = totalOrder.toFixed(Math.max(((totalOrder + '').split(".")[1] || "").length, 2));
+            $('#discount').show();
             $("#discountAmount").text(rate.toFixed(2) + " DKK")
             $("#totalprice").text(totalOrder +" DKK");
           }

@@ -68,9 +68,7 @@ route.post("/createpaymentorder", async (req, res) => {
 
       let items = [];
       let amount = 0;
-
       // console.log(formats[i].price)
-
       let rate;
       let totalRate;
       let netRate;
@@ -423,7 +421,7 @@ route.post("/sendfiles", async (req, res) => {
         // const ftp_addr = "ftp://Import:h240svgw@94.231.99.28";
 
         let localPdf = output + pdfFileName + ext["pdf"];
-        console.log(localPdf)
+        // console.log(localPdf);
         let localXml = output + pdfFileName + ext["xml"];
 
         fs.writeFile(localPdf, itemName, function (err) {

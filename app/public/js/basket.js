@@ -71,7 +71,9 @@ function displayPosters() {
       );
       $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
       $("#size").text(poster.size);
-      calculatePosterPrice(poster);
+      $("#" + poster.pname + "-price").text(poster.price + " DKK");
+      // calculatePosterPrice(poster);
+      addToCart();
     });
   }
 }
@@ -84,15 +86,24 @@ function updateQuantity(poster, quantity) {
         p.quantity = quantity;
 
         let price = p.price * p.quantity;
-        sessionStorage.setItem("posters", JSON.stringify(posters));
+        
         $("#" + poster.pname + "-price").text(price.toFixed(2) + " DKK");
+        sessionStorage.setItem('posters', JSON.stringify(posters));
+        // let newQuantity =  (poster.quantity).toString();
+        // update({quantity: newQuantity});
         calculateTotal();
         updateCart();
       }
     });
   }
 }
-
+function update(value){
+  let prevData = JSON.parse(sessionStorage.getItem('posters'));
+  Object.keys(value).forEach(function(val, key){
+       prevData[val] = value[val];
+  })
+  sessionStorage.setItem('posters', JSON.stringify(prevData));
+}
 //increments the quantity of the poster
 function increment(poster) {
   let str = "#" + poster.pname + "-quantity";
@@ -131,57 +142,58 @@ function remove(poster) {
           sessionStorage.setItem("posters", JSON.stringify(posters));
 
           window.location.href = window.location.href;
+          
         }
       }
     });
   }
 }
 
-//gets the formats with their prices and returns them as Promise
-function getFormats() {
-  const fetchJson = async (url) => {
-    const response = await fetch(url);
-    return response.json();
-  };
-  return new Promise(function (resolve) {
-    const formats = fetchJson("/formats");
-    setTimeout(function () {
-      resolve(formats);
-    }, 200);
-  });
-}
+// gets the formats with their prices and returns them as Promise
+// function getFormats() {
+//   const fetchJson = async (url) => {
+//     const response = await fetch(url);
+//     return response.json();
+//   };
+//   return new Promise(function (resolve) {
+//     const formats = fetchJson("/formats");
+//     setTimeout(function () {
+//       resolve(formats);
+//     }, 200);
+//   });
+// }
 
 //calculates the poster price based on the format and quantity
-async function calculatePosterPrice(poster) {
-  // let posters = JSON.parse(sessionStorage.getItem("posters"));
-  let price = 0;
-  let amount = 0;
-  $("#" + poster.pname + "-price").text("...");
-  await getFormats().then((data) => {
-    for (let [key] of Object.entries(data.formats)) {
-      console.log(data.formats)
-      if (poster.size === data.formats[key].format_no) {
-        price = data.formats[key].price;
-        poster.price = price;
-        console.log(price)
-        amount = poster.price * poster.quantity;
-        console.log(amount)
-        update(price);
-      }
-    }
-    $("#" + poster.pname + "-price").text(amount.toFixed(2) + " DKK");
-  });
-  return price;
-}
+// async function calculatePosterPrice(poster) {
+//   // let posters = JSON.parse(sessionStorage.getItem("posters"));
+//   let price = 0;
+//   let amount = 0;
+//   $("#" + poster.pname + "-price").text("...");
+//   await getFormats().then((data) => {
+//     for (let [key] of Object.entries(data.formats)) {
+//       console.log(data.formats)
+//       if (poster.size === data.formats[key].format_no) {
+//         price = data.formats[key].price;
+//         poster.price = price;
+//         console.log(price)
+//         amount = poster.price * poster.quantity;
+//         console.log(amount)
+//         // update(price);
+//       }
+//     }
+//     $("#" + poster.pname + "-price").text(amount.toFixed(2) + " DKK");
+//   });
+//   return price;
+// }
 
-function update(price) {
-  let posters = JSON.parse(sessionStorage.getItem("posters"));
-  posters.forEach((p) => {
-    p.price = price;
-  });
-  sessionStorage.setItem("posters", JSON.stringify(posters));
-  addToCart();
-}
+// function update(price) {
+//   let posters = JSON.parse(sessionStorage.getItem("posters"));
+//   posters.forEach((p) => {
+//     p.price = price;
+//   });
+//   sessionStorage.setItem("posters", JSON.stringify(posters));
+//   addToCart();
+// }
 
 function calculateTotal() {
   let posters = JSON.parse(sessionStorage.getItem("posters"));

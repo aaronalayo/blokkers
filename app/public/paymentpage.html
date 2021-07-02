@@ -232,7 +232,7 @@
 
 </style>
 
-<body onload="getData()">
+<body onload="getData()"; onLoad="JavaScript:checkRefresh();" onUnload="JavaScript:prepareForRefresh();">
   <div id="payment">
     <div class="row">
       <div class="container">
@@ -266,7 +266,7 @@
                   <p><span >Subtotal</span><span style="float: right;"
                       id="subtotal-amount"></span>
                   </p>
-                  <p><span style="color: rgb(97, 97, 97);">Shipping</span>
+                  <p><span style="color: rgb(97, 97, 97);">Shipping(free)</span>
                     <span style="float: right; color:rgb(97, 97, 97);" id="shipping">0 DKK</span>
                   </p>
                   <p><span style="color: rgb(97, 97, 97);">Taxes(incl.)</span>

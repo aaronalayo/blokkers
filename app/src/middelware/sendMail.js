@@ -23,7 +23,11 @@ module.exports = async function sendMail(order,items,date,paymentDetails,rate){
 
  
 // console.log(items)
-let total  = paymentDetails.payment.orderDetails.amount.substring(0, 3) + "." + paymentDetails.payment.orderDetails.amount.substring(3, paymentDetails.payment.orderDetails.amount.length);
+let total  = paymentDetails.payment.orderDetails.amount;
+// .substring(0, 3) + "." + paymentDetails.payment.orderDetails.amount.substring(3, paymentDetails.payment.orderDetails.amount.length);
+
+total = parseFloat(total/100).toFixed(2);
+console.log(total)
 let taxes = 0;
 let subTaxes = 0;
 let price = 0;
@@ -32,17 +36,17 @@ let sub = 0;
     for(let i = 0; i < items.length; i++){
       price = items[i].price_per_item;
       subTotal = price * items[i].amount;
-      subTaxes = (price * items[i].amount * 25) / 100;
+      subTaxes = (price * items[i].amount / 1.25 - subTotal )* -1;
       taxes += subTaxes;
       sub += subTotal;
       
     }
-if(rate ==="" || rate === undefined){
+if(rate === "" || rate === undefined){
   html = html.replace(/{discount}/g, "-");
 } else{
-  let totalFloat = parseFloat(paymentDetails.payment.orderDetails.amount);
-  let discount = (totalFloat/(100-rate))*10;
-  discount = discount/100;
+  // let totalFloat = parseFloat(paymentDetails.payment.orderDetails.amount);
+  let discount = (subTotal- total);
+  // discount = discount;
   // discount = discount.substring(0, 2) + "." + discount.substring(2, discount.length);
   discount = discount.toFixed(2);
   html = html.replace(/{discount}/g, discount + " DKK");
