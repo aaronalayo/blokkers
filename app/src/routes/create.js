@@ -154,8 +154,8 @@ route.post("/createpaymentorder", async (req, res) => {
       let host = "http://www.blokkers.dk";
       let options = {
         host: host + "/createorder",
-        // uri: "https://test.api.dibspayment.eu/v1/payments", //test
-        uri: 'https://api.dibspayment.eu/v1/payments',//live
+        uri: "https://test.api.dibspayment.eu/v1/payments", //test
+        // uri: 'https://api.dibspayment.eu/v1/payments',//live
         method: "POST",
         body: `{
       "order": {
@@ -198,8 +198,8 @@ route.post("/createpaymentorder", async (req, res) => {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          // Authorization: "ef160d0b15ef4bf3b243c8f6a6183b85",
-          'Authorization': 'b7989e81d50b47228ac61d7763986548',
+          Authorization: "ef160d0b15ef4bf3b243c8f6a6183b85",
+          // 'Authorization': 'b7989e81d50b47228ac61d7763986548',
         },
       };
       console.log(options);

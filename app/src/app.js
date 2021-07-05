@@ -169,7 +169,7 @@ app.get(formats, async (req, res)=> {
 });
 app.get(discounts, async (req, res)=> {   
   const discounts = await Discount.query().select();
-  res.json({ 'discounts' : discounts});
+  res.json({'discounts' : discounts});
 });
 
 let data;
@@ -177,20 +177,20 @@ let paymentId;
 app.get(payment, async (req, res) => {
   paymentId = req.query.paymentid;
   if(paymentId){
-  console.log(paymentId);
+  // console.log(paymentId);
   let options = {
-    // uri: 'https://test.api.dibspayment.eu/v1/payments/'+paymentId,
-    uri: 'https://api.dibspayment.eu/v1/payments/' + paymentId,//live
+    uri: 'https://test.api.dibspayment.eu/v1/payments/'+paymentId,
+    // uri: 'https://api.dibspayment.eu/v1/payments/' + paymentId,//live
     method: 'GET',
     headers: {
-      // 'Authorization': 'ef160d0b15ef4bf3b243c8f6a6183b85'
-      'Authorization': 'b7989e81d50b47228ac61d7763986548'
+      'Authorization': 'ef160d0b15ef4bf3b243c8f6a6183b85'
+      // 'Authorization': 'b7989e81d50b47228ac61d7763986548'
     },
 }
 request(options, function (error, response, body) {
   console.log('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  console.log("body:", body);
+  // console.log("body:", body);
   data = body
 });
 return res.status(200).send(navbar + paymentPage + footerPage);
@@ -222,8 +222,6 @@ app.get("*", (req, res) => {
   res.status(404).send("<h1>Page doesnt exist<h1>");
 });
 
-
-
 const createRoute = require('./routes/create.js');
 const cartRoute = require('./routes/cart');
 
@@ -240,6 +238,5 @@ server.listen(port, port2, (error) => {
   if (error) {
     console.log("error running the server");
   }
-
   console.log("App listening on port: ", server.address().port)
 });

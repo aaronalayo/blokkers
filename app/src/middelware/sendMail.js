@@ -127,7 +127,7 @@ html = html.replace(/{total-amount}/g, total);
 
     const mailOptions = {
         from: 'Blokkers <hello@blokkers.dk>', 
-        to: `"${order[0].customer.shipping_full_name}" <${order[0].customer.email}>, "aaron.aa@me.com"`,
+        to: `"${order[0].customer.shipping_full_name}" <${order[0].customer.email}>`,
         // to:"najawachmann@gmail.com",
         subject: "Order confirmation #" + order[0].order_no,
         text: "Thanks for shopping with us",
