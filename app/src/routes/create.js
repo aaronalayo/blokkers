@@ -417,8 +417,8 @@ route.post("/sendfiles", async (req, res) => {
         const pdfFileName = orderNo + "_" + itemName + "_" + "Blokkers";
         const pricePerItem = item.price_per_item;
         const TotalPrice = item.total_price;
-        // const ftp_addr = "ftp://EksternTest:h242svgw@94.231.99.28";
-        const ftp_addr = "ftp://Import:h240svgw@94.231.99.28";
+        const ftp_addr = "ftp://EksternTest:h242svgw@94.231.99.28";
+        // const ftp_addr = "ftp://Import:h240svgw@94.231.99.28";
 
         let localPdf = output + pdfFileName + ext["pdf"];
         // console.log(localPdf);
