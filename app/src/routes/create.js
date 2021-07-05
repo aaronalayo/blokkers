@@ -151,7 +151,7 @@ route.post("/createpaymentorder", async (req, res) => {
         },
       };
       // console.log(consumer)
-      let host = "http://www.blokkers.dk";
+      let host = "https://blokkers.dk";
       let options = {
         host: host + "/createorder",
         uri: "https://test.api.dibspayment.eu/v1/payments", //test
