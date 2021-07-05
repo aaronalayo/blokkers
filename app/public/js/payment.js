@@ -12,11 +12,12 @@ function getData() {
   }).then(function (data) {
     // Log the data to the console
     // You would do something with both sets of data here
-    // console.log(data);
+    console.log(data);
     if (data === undefined || !data) {
       // console.log("Waiting for data");
     } else {
       let paymentDetails = data[0].data;
+      // console.log(paymentDetails);
       paymentDetails = JSON.parse(paymentDetails);
 
       let paymentId = paymentDetails.payment.paymentId;
@@ -48,7 +49,7 @@ function getData() {
           
         }
       } else {
-        console.log("waiting for data");
+        // console.log("waiting for data");
       }
     }
   }).catch(function (error) {

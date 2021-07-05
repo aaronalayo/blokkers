@@ -177,11 +177,10 @@ let paymentId;
 app.get(payment, async (req, res) => {
   paymentId = req.query.paymentid;
   if(paymentId){
-// console.log(paymentId)
+  console.log(paymentId);
   let options = {
-
     // uri: 'https://test.api.dibspayment.eu/v1/payments/'+paymentId,
-    uri: 'https://api.dibspayment.eu/v1/payments'+paymentId,//live
+    uri: 'https://api.dibspayment.eu/v1/payments/' + paymentId,//live
     method: 'GET',
     headers: {
       // 'Authorization': 'ef160d0b15ef4bf3b243c8f6a6183b85'
@@ -191,12 +190,10 @@ app.get(payment, async (req, res) => {
 request(options, function (error, response, body) {
   console.log('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  // console.log("body:", body);
+  console.log("body:", body);
   data = body
 });
-
 return res.status(200).send(navbar + paymentPage + footerPage);
-      
 }else {
   res.redirect('/')
 }
@@ -204,11 +201,10 @@ return res.status(200).send(navbar + paymentPage + footerPage);
 
 app.get('/data', async (req, res) => {
   const order = await Order.query().select().where({'payment_id':paymentId}).withGraphJoined('customer');
-  const items = await Item.query().select().where({'payment_id':paymentId,'customer_uuid':order[0].customer_uuid});
-  // console.log(items)
+  const items = await Item.query().select().where({'payment_id':paymentId,'customer_uuid': order[0].customer_uuid});
+  // console.log(data);
   res.clearCookie('cart', { path: '/' }).json({'order':order, 'items':items,'data':data});  
 });
-
 
 app.get(about, (req, res) => {
   return res.send(navbar + aboutPage + footerPage);
