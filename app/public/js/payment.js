@@ -33,17 +33,19 @@ function getData() {
       setTotalPay(paymentDetails.payment,itemsDetails);
       setCustomerInfo(orderDetails);
       if (paymentId) {
-        if (!localStorage.paymentId || localStorage.paymentId === 'undefined' ) {
+        if (!sessionStorage.paymentId || sessionStorage.paymentId === 'undefined' ) {
           // console.log('setting payment status in LS')
-          localStorage.setItem("paymentId", "true");
+          sessionStorage.setItem("paymentId", "true");
           sendFiles(paymentId);
           sendMail(paymentDetails, date);
           // console.log( localStorage.paymentId)
-        } else {         
-          localStorage.clear();
+        }  
+        else {   
+          window.location.href = "/";      
+          // localStorage.clear();
           sessionStorage.clear();
           // document.body.style.display == "none";
-          window.location.href = "/";
+          
         }
       } else {
         console.log("waiting for data");
@@ -216,87 +218,4 @@ function sendMail(paymentDetails, date) {
   });
 };
 
-function checkRefresh()
-{
-	// Get the time now and convert to UTC seconds
-	let today = new Date();
-	let now = today.getUTCSeconds();
 
-	// Get the cookie
-	let cookie = document.cookie;
-	let cookieArray = cookie.split('; ');
-
-	// Parse the cookies: get the stored time
-	for(let loop=0; loop < cookieArray.length; loop++)
-	{
-		let nameValue = cookieArray[loop].split('=');
-		// Get the cookie time stamp
-		if( nameValue[0].toString() == 'SHTS' )
-		{
-			var cookieTime = parseInt( nameValue[1] );
-		}
-		// Get the cookie page
-		else if( nameValue[0].toString() == 'SHTSP' )
-		{
-			var cookieName = nameValue[1];
-		}
-	}
-
-	if( cookieName &&
-		cookieTime &&
-		cookieName == escape(location.href) &&
-		Math.abs(now - cookieTime) < 5 )
-	{
-		// Refresh detected
-
-		// Insert code here representing what to do on
-		// a refresh
-    localStorage.clear();
-		// If you would like to toggle so this refresh code
-		// is executed on every OTHER refresh, then 
-		// uncomment the following line
-		// refresh_prepare = 0; 
-	}	
-
-	// You may want to add code in an else here special 
-	// for fresh page loads
-}
-
-function prepareForRefresh()
-{
-	if( refresh_prepare > 0 )
-	{
-		// Turn refresh detection on so that if this
-		// page gets quickly loaded, we know it's a refresh
-		let today = new Date();
-		let now = today.getUTCSeconds();
-		document.cookie = 'SHTS=' + now + ';';
-		document.cookie = 'SHTSP=' + escape(location.href) + ';';
-	}
-	else
-	{
-		// Refresh detection has been disabled
-		document.cookie = 'SHTS=;';
-		document.cookie = 'SHTSP=;';
-	}
-}
-
-function disableRefreshDetection()
-{
-	// The next page will look like a refresh but it actually
-	// won't be, so turn refresh detection off.
-	refresh_prepare = 0;
-
-	// Also return true so this can be placed in onSubmits
-	// without fear of any problems.
-	return true;
-} 
-
-// By default, turn refresh detection on
-let refresh_prepare = 1;
-
-
-window.onbeforeunload = function() {
-  localStorage.removeItem("paymentId");
- 
-};
