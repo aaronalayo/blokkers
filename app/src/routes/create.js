@@ -391,7 +391,8 @@ route.post("/sendfiles", async (req, res) => {
       .where({ payment_id: paymentId });
     // console.log("This are ites in sendfiles"+ items[0]);
     if (customer, posters) {
-      const output = "./public/output/";
+      // const output = "./public/output/";
+      const output = "/home/aaron/blokkers/app/public/output/";
 
     
 
