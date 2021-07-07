@@ -179,12 +179,12 @@ app.get(payment, async (req, res) => {
   if(paymentId){
   // console.log(paymentId);
   let options = {
-    // uri: 'https://test.api.dibspayment.eu/v1/payments/'+paymentId,
-    uri: 'https://api.dibspayment.eu/v1/payments/' + paymentId,//live
+    uri: 'https://test.api.dibspayment.eu/v1/payments/'+paymentId,
+    // uri: 'https://api.dibspayment.eu/v1/payments/' + paymentId,//live
     method: 'GET',
     headers: {
-      // 'Authorization': 'ef160d0b15ef4bf3b243c8f6a6183b85'
-      'Authorization': 'b7989e81d50b47228ac61d7763986548'
+      'Authorization': 'ef160d0b15ef4bf3b243c8f6a6183b85'
+      // 'Authorization': 'b7989e81d50b47228ac61d7763986548'
     },
 }
 request(options, function (error, response, body) {

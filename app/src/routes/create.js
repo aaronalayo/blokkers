@@ -155,8 +155,8 @@ route.post("/createpaymentorder", async (req, res) => {
       // let host = "http://localhost:8080";
       let options = {
         host: host + "/createorder",
-        // uri: "https://test.api.dibspayment.eu/v1/payments", //test
-        uri: 'https://api.dibspayment.eu/v1/payments',//live
+        uri: "https://test.api.dibspayment.eu/v1/payments", //test
+        // uri: 'https://api.dibspayment.eu/v1/payments',//live
         method: "POST",
         body: `{
       "order": {
@@ -199,8 +199,8 @@ route.post("/createpaymentorder", async (req, res) => {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          // Authorization: "ef160d0b15ef4bf3b243c8f6a6183b85",
-          'Authorization': 'b7989e81d50b47228ac61d7763986548',
+          Authorization: "ef160d0b15ef4bf3b243c8f6a6183b85",
+          // 'Authorization': 'b7989e81d50b47228ac61d7763986548',
         },
       };
       console.log(options);
@@ -421,8 +421,8 @@ route.post("/sendfiles", async (req, res) => {
         const pdfFileName = orderNo + "_" + itemName + "_" + "Blokkers";
         const pricePerItem = newPricePerItem;
         const TotalPrice = newTotalPrice;
-        // const ftp_addr = "ftp://EksternTest:h242svgw@94.231.99.28";
-        const ftp_addr = "ftp://Import:h240svgw@94.231.99.28";
+        const ftp_addr = "ftp://EksternTest:h242svgw@94.231.99.28";
+        // const ftp_addr = "ftp://Import:h240svgw@94.231.99.28";
 
         let localPdf = output + pdfFileName + ext["pdf"];
         // console.log(localPdf);
