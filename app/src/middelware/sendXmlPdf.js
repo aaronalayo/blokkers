@@ -10,8 +10,8 @@ let ftp = new EasyFtp();
 //Function to send PDL and XML files to FTP server
 module.exports =  async function sendPdfXml() {
  try {
-    // let output = "./output/";
-    let output = "/home/aaron/blokkers/app/output/";
+    let output = "./output/";
+    // let output = "/home/aaron/blokkers/app/output/";
     let localPdf = [];
     let localXml = [];
     let remotePdf = [];

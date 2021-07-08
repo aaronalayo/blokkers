@@ -377,8 +377,8 @@ route.post("/createorder", async (req, res) => {
 //Route to send the files to the FTP server
 route.post("/sendfiles", async (req, res) => {
     //Empty the output folder
-    // fsExtra.emptyDir("./output");
-    fsExtra.emptyDir("/home/aaron/blokkers/app/output/");
+    fsExtra.emptyDir("./output");
+    // fsExtra.emptyDir("/home/aaron/blokkers/app/output/");
   const { customer, posters, paymentId } = req.body;
   // console.log(req.body)
   let orderSent = [];
@@ -393,8 +393,8 @@ route.post("/sendfiles", async (req, res) => {
       .where({ payment_id: paymentId });
     // console.log("This are ites in sendfiles"+ items[0]);
     if (customer, posters) {
-      const output = "/home/aaron/blokkers/app/output/";
-      // const output = "./output/";
+      // const output = "/home/aaron/blokkers/app/output/";
+      const output = "./output/";
 
     
 
