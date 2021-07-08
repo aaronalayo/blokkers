@@ -403,7 +403,7 @@ route.post("/sendfiles", async (req, res) => {
       .where({ payment_id: paymentId });
     console.log( items);
     if (customer, posters) {
-      const output = "//home/aaron/blokkers/app/output/";
+      const output = "~/blokkers/app/output/";
       // const output = "./output/";
 
     
