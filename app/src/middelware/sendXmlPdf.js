@@ -1,8 +1,8 @@
 const fs = require("fs");
 let config = require("../ftp.js");
-const { promisify } = require("util");
-const readDirSync = promisify(fs.readdirSync);
-const Bluebird = require("Bluebird");
+// const { promisify } = require("util");
+// const readDirSync = promisify(fs.readdirSync);
+// const Bluebird = require("Bluebird");
 let EasyFtp = require("easy-ftp");
 let ftp = new EasyFtp();
 
