@@ -17,6 +17,7 @@ const checkParameter = require("../middelware/checkParameters.js");
 const setValueToNull = require("../middelware/setValueNull.js");
 const sendXmlPdf = require("../middelware/sendXmlPdf.js");
 const createPoster = require("../middelware/createPoster.js");
+const promiseCreatePoster = promisify(createPoster);
 const sendMail = require('../middelware/sendMail.js');
 const setValueNull = require("../middelware/setValueNull.js");
 
@@ -376,22 +377,30 @@ route.post("/createorder", async (req, res) => {
 
 //Route to send the files to the FTP server
 route.post("/sendfiles", async (req, res) => {
+  let localPdf = "";
+  let localXml = "";
     //Empty the output folder
-    fsExtra.emptyDir("./output");
+    fsExtra.emptyDir("./output" ,(err) => {
+    if(err){
+      console.log("error emptying folder" + err)
+       throw err;
+    }});
+  
     // fsExtra.emptyDir("/home/aaron/blokkers/app/output/");
   const { customer, posters, paymentId } = req.body;
-  // console.log(req.body)
+  // console.log("This is req body" + req.body);
+  console.log(posters)
   let orderSent = [];
   try {
     const order = await Order.query()
       .select()
       .where({ payment_id: paymentId })
       .withGraphJoined("customer");
-      // console.log(order)
+      // console.log("Order to send" + order)
     const items = await Item.query()
       .select()
       .where({ payment_id: paymentId });
-    // console.log("This are ites in sendfiles"+ items[0]);
+    console.log( items);
     if (customer, posters) {
       // const output = "/home/aaron/blokkers/app/output/";
       const output = "./output/";
@@ -427,9 +436,9 @@ route.post("/sendfiles", async (req, res) => {
         const ftp_addr = "ftp://EksternTest:h242svgw@94.231.99.28";
         // const ftp_addr = "ftp://Import:h240svgw@94.231.99.28";
 
-        let localPdf = output + pdfFileName + ext["pdf"];
+        localPdf = output + pdfFileName + ext["pdf"];
         // console.log(localPdf);
-        let localXml = output + pdfFileName + ext["xml"];
+        localXml = output + pdfFileName + ext["xml"];
 
         fs.writeFile(localPdf, itemName, function (err) {
           if (err) throw err;
@@ -459,7 +468,12 @@ route.post("/sendfiles", async (req, res) => {
           let poster = posters[i];
           poster.pdfLocal = localPdf;
           poster.pdfSize = pdfSize;
-          createPoster(poster);
+
+          promiseCreatePoster(poster, (err) => {
+            if(err){
+              throw err;
+           }
+          });
         }
 
         //Create the XML object
