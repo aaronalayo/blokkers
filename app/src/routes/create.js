@@ -3,6 +3,7 @@ const request = require("request");
 
 
 const fs = require("fs");
+const fsPromises = fs.promises;
 const builder = require("xmlbuilder", { encoding: "utf-8" });
 const fsExtra = require("fs-extra");
 const { promisify } = require('util');
@@ -380,8 +381,8 @@ route.post("/sendfiles", async (req, res) => {
   let localPdf = "";
   let localXml = "";
     //Empty the output folder
-    // fsExtra.emptyDir("./output" ,(err) => {
-    fsExtra.emptyDir("/aaron/blokkers/app/output/" ,(err) => {
+    fsExtra.emptyDir("./output" ,(err) => {
+    // fsExtra.emptyDir("/aaron/blokkers/app/output/" ,(err) => {
       if(err){
         console.log("error emptying folder" + err)
         throw err;
@@ -403,8 +404,8 @@ route.post("/sendfiles", async (req, res) => {
       .where({ payment_id: paymentId });
     console.log( items);
     if (customer, posters) {
-      const output = "/aaron/blokkers/app/output/";
-      // const output = "./output/";
+      // const output = "/aaron/blokkers/app/output/";
+      const output = "./output/";
 
     
 
@@ -413,7 +414,7 @@ route.post("/sendfiles", async (req, res) => {
         xml: ".xml",
       };
       
-      items.forEach((item) => {
+       items.forEach(async (item) => {
         
         const newPricePerItem = item.price_per_item.replace(".", ',');
         const newTotalPrice = item.total_price.replace(".", ',');
@@ -441,7 +442,7 @@ route.post("/sendfiles", async (req, res) => {
         // console.log(localPdf);
         localXml = output + pdfFileName + ext["xml"];
 
-        fs.writeFile(localPdf, itemName, function (err) {
+        await fsPromises.writeFile(localPdf, itemName, function (err) {
           if (err) throw err;
           console.log("File created!");
         });
