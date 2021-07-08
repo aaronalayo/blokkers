@@ -88,7 +88,7 @@ module.exports = function sendPdfXml() {
 };
 
 async function listDir() {
-  let output = path.join(__dirname, "./output");
+  let output = path.join(__dirname,".", "/output/");
   // let output = "/aaron/blokkers/app/output/";
   let localPdf = [];
   let localXml = [];
