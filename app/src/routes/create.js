@@ -381,7 +381,7 @@ route.post("/sendfiles", async (req, res) => {
   let localXml = "";
     //Empty the output folder
     // fsExtra.emptyDir("./output" ,(err) => {
-    fsExtra.emptyDir("//home/aaron/blokkers/app/output/" ,(err) => {
+    fsExtra.emptyDir("/aaron/blokkers/app/output/" ,(err) => {
       if(err){
         console.log("error emptying folder" + err)
         throw err;
@@ -403,7 +403,7 @@ route.post("/sendfiles", async (req, res) => {
       .where({ payment_id: paymentId });
     console.log( items);
     if (customer, posters) {
-      const output = "~/blokkers/app/output/";
+      const output = "/aaron/blokkers/app/output/";
       // const output = "./output/";
 
     
