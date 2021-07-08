@@ -1,6 +1,6 @@
 const route = require("express").Router();
 const request = require("request");
-
+const path = require('path');
 
 const fs = require("fs");
 const fsPromises = fs.promises;
@@ -380,8 +380,9 @@ route.post("/createorder", async (req, res) => {
 route.post("/sendfiles", async (req, res) => {
   let localPdf = "";
   let localXml = "";
+  let output = path.join(__dirname, "./output");
     //Empty the output folder
-    fsExtra.emptyDir("./output" ,(err) => {
+    fsExtra.emptyDir( output ,(err) => {
     // fsExtra.emptyDir("/aaron/blokkers/app/output/" ,(err) => {
       if(err){
         console.log("error emptying folder" + err)
@@ -405,7 +406,7 @@ route.post("/sendfiles", async (req, res) => {
     console.log( items);
     if (customer, posters) {
       // const output = "/aaron/blokkers/app/output/";
-      const output = "./output/";
+      // const output = "./output/";
 
     
 

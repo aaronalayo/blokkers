@@ -5,7 +5,7 @@ let config = require("../ftp.js");
 // const Bluebird = require("Bluebird");
 let EasyFtp = require("easy-ftp");
 let ftp = new EasyFtp();
-
+const path = require('path');
 const fsPromises = fs.promises;
 
 //Function to send PDL and XML files to FTP server
@@ -88,7 +88,7 @@ module.exports = function sendPdfXml() {
 };
 
 async function listDir() {
-  let output = "./output/";
+  let output = path.join(__dirname, "./output");
   // let output = "/aaron/blokkers/app/output/";
   let localPdf = [];
   let localXml = [];
