@@ -5,7 +5,8 @@ const request = require("request");
 const fs = require("fs");
 const builder = require("xmlbuilder", { encoding: "utf-8" });
 const fsExtra = require("fs-extra");
-
+const { promisify } = require('util');
+const writeFile = promisify(fs.writeFile);
 const Customer = require("../model/Customer.js");
 const Order = require("../model/Order.js");
 const Format = require("../model/Format.js");
@@ -151,8 +152,8 @@ route.post("/createpaymentorder", async (req, res) => {
         },
       };
       // console.log(consumer)
-      let host = "https://blokkers.dk";
-      // let host = "http://localhost:8080";
+      // let host = "https://blokkers.dk";
+      let host = "http://localhost:8080";
       let options = {
         host: host + "/createorder",
         uri: "https://test.api.dibspayment.eu/v1/payments", //test
