@@ -88,8 +88,8 @@ module.exports = function sendPdfXml() {
 };
 
 async function listDir() {
-  let output = "./output/";
-  // let output = "/home/aaron/blokkers/app/output/";
+  // let output = "./output/";
+  let output = "//home/aaron/blokkers/app/output/";
   let localPdf = [];
   let localXml = [];
   let remotePdf = [];

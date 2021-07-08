@@ -380,11 +380,12 @@ route.post("/sendfiles", async (req, res) => {
   let localPdf = "";
   let localXml = "";
     //Empty the output folder
-    fsExtra.emptyDir("./output" ,(err) => {
-    if(err){
-      console.log("error emptying folder" + err)
-       throw err;
-    }});
+    // fsExtra.emptyDir("./output" ,(err) => {
+    fsExtra.emptyDir("//home/aaron/blokkers/app/output/" ,(err) => {
+      if(err){
+        console.log("error emptying folder" + err)
+        throw err;
+      }});
   
     // fsExtra.emptyDir("/home/aaron/blokkers/app/output/");
   const { customer, posters, paymentId } = req.body;
@@ -402,8 +403,8 @@ route.post("/sendfiles", async (req, res) => {
       .where({ payment_id: paymentId });
     console.log( items);
     if (customer, posters) {
-      // const output = "/home/aaron/blokkers/app/output/";
-      const output = "./output/";
+      const output = "//home/aaron/blokkers/app/output/";
+      // const output = "./output/";
 
     
 
