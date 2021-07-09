@@ -515,11 +515,13 @@ route.post("/sendfiles", async (req, res) => {
             console.log(err);
           } else {
             console.log("XML saved!");
+            
           }
-        });
+        }).then(sendXmlPdf());
       
       });
-      sendXmlPdf();
+    
+      
     
       
 
