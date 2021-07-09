@@ -1,8 +1,9 @@
 const PDFDocument = require("pdfkit");
 const fs = require("fs");
+const fsPromises = fs.promises;
 
 //Function to create a PDF file from a poster
-module.exports = function createPoster(poster) {
+module.exports = async function createPoster(poster) {
   console.log(poster);
   let pathArr = [];
   for (let i = 0; i < poster.paths.length; i++) {
@@ -40,7 +41,7 @@ module.exports = function createPoster(poster) {
   //   k = k + 3;
   // }
   // doc.end();
-  savePdfToFile(doc, localPdf, pathArr, pdfSize);
+  await savePdfToFile(doc, localPdf, pathArr, pdfSize);
 };
 function savePdfToFile(pdf, fileName, paths, pdfSize) {
   return new Promise((resolve, reject) => {

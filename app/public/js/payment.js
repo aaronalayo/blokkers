@@ -180,16 +180,10 @@ function sendFiles(paymentId) {
     },
     ContentType: 'application/json',
     dataType: "json",
-  }).done(function (data) {
-    
-    console.log('success', data);
-  }).fail(function (jqXHR, textStatus, errorThrown) {
-    var contentType = jqXHR.getResponseHeader("Content-Type");
-    if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
-      window.location.href = "/";
-      console.log('FAILED! ERROR: ' + errorThrown);   
-    }   
-  });
+    success: function(response){
+      console.log(response)
+    }
+  })
 };
 function sendMail(paymentDetails, date) {
   let discount = JSON.parse(sessionStorage.getItem("discount"));
@@ -207,16 +201,11 @@ function sendMail(paymentDetails, date) {
     },
     ContentType: 'application/json',
     dataType: "json",
-  }).done(function (data) {
-    
-    console.log('success', data);
-  }).fail(function (jqXHR, textStatus, errorThrown) {
-    var contentType = jqXHR.getResponseHeader("Content-Type");
-    if (jqXHR.status === 200 && contentType.toLowerCase().indexOf("text/html") >= 0) {
-      window.location.href = "/";
-      console.log('FAILED! ERROR: ' + errorThrown);    
+    success: function(response){
+      console.log(response)
     }
-  });
+  })
+  
 };
 
 
