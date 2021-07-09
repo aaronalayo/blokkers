@@ -154,8 +154,8 @@ route.post("/createpaymentorder", async (req, res) => {
         },
       };
       // console.log(consumer)
-      let host = "https://blokkers.dk";
-      // let host = "http://localhost:8080";
+      // let host = "https://blokkers.dk";
+      let host = "http://localhost:8080";
       let options = {
         host: host + "/createorder",
         uri: "https://test.api.dibspayment.eu/v1/payments", //test
@@ -380,7 +380,8 @@ route.post("/createorder", async (req, res) => {
 route.post("/sendfiles", async (req, res) => {
   let localPdf = "";
   let localXml = "";
-  let output = path.join(__dirname, "/output/");
+  let output = path.join(__dirname, "../output/");
+  console.log(output)
     //Empty the output folder
     fsExtra.emptyDir( output ,(err) => {
     // fsExtra.emptyDir("/aaron/blokkers/app/output/" ,(err) => {
