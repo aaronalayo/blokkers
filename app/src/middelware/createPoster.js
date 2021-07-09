@@ -1,4 +1,5 @@
 const PDFDocument = require("pdfkit");
+const path = require('path');
 const fs = require("fs");
 const fsPromises = fs.promises;
 
@@ -67,10 +68,12 @@ function savePdfToFile(pdf, fileName, paths, pdfSize) {
     let x = 0;
     let y = 0;
     let k = 0;
+    let pathToPublic = path.resolve('./public');
+    console.log(pathToPublic)
     for (let i = 0; i <= 3; i++) {
       x = 0;
       for (let j = k; j <= k + 2; j++) {
-        pdf.image("./public" + paths[j], x, y, {
+        pdf.image(pathToPublic + paths[j], x, y, {
           fit: [pdfSize[0] / 3, pdfSize[1] / 4],
         });
         x += pdfSize[0] / 3;
