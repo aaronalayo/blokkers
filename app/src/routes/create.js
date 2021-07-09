@@ -16,7 +16,7 @@ const Discount = require("../model/Discount.js");
 
 const checkParameter = require("../middelware/checkParameters.js");
 const setValueToNull = require("../middelware/setValueNull.js");
-const sendXmlPdf = require("../middelware/sendXmlPdf.js");
+
 const createPoster = require("../middelware/createPoster.js");
 const promiseCreatePoster = promisify(createPoster);
 const sendMail = require('../middelware/sendMail.js');
@@ -515,16 +515,11 @@ route.post("/sendfiles", async (req, res) => {
             console.log(err);
           } else {
             console.log("XML saved!");
-            
+                    
           }
-        }).then(sendXmlPdf());
+        });
       
       });
-    
-      
-    
-      
-
       //Update the order after the files are sent to FTP server
       orderSent.forEach(async (sentOrder) => {
         await Order.query()
@@ -536,6 +531,7 @@ route.post("/sendfiles", async (req, res) => {
           })
           .where({ order_no: sentOrder });
       });
+    
       res.clearCookie('cart', { path: '/' });  
     }
   } catch (error) {

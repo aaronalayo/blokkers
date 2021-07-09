@@ -12,7 +12,7 @@ function getData() {
   }).then(function (data) {
     // Log the data to the console
     // You would do something with both sets of data here
-    console.log(data);
+    // console.log(data);
     if (data === undefined || !data) {
       // console.log("Waiting for data");
     } else {
@@ -37,13 +37,14 @@ function getData() {
         if (!sessionStorage.paymentId || sessionStorage.paymentId === 'undefined' ) {
           // console.log('setting payment status in LS')
           sessionStorage.setItem("paymentId", "true");
-          sendFiles(paymentId);
-          sendMail(paymentDetails, date);
+          sendFiles(paymentId, function() {
+            sendMail(paymentDetails, date);
+          });
           // console.log( localStorage.paymentId)
         }  
         else {   
           window.location.href = "/";      
-          // localStorage.clear();
+          // localStorage.clear();,
           sessionStorage.clear();
           // document.body.style.display == "none";
           
@@ -165,7 +166,7 @@ function setCustomerInfo(order) {
   $("#billingcountry").text(billingCountry);
   $("#billingemail").text(billingEmail);
 }
-function sendFiles(paymentId) {
+function sendFiles(paymentId, callback) {
   let customer = JSON.parse(sessionStorage.getItem('customer'));
   let posters = JSON.parse(sessionStorage.getItem('posters'));
   // console.log(customer, posters,paymentId)
@@ -184,6 +185,7 @@ function sendFiles(paymentId) {
       console.log(response)
     }
   })
+  callback();
 };
 function sendMail(paymentDetails, date) {
   let discount = JSON.parse(sessionStorage.getItem("discount"));

@@ -2,10 +2,11 @@ const PDFDocument = require("pdfkit");
 const path = require('path');
 const fs = require("fs");
 const fsPromises = fs.promises;
+const sendXmlPdf = require("../middelware/sendXmlPdf.js");
 
 //Function to create a PDF file from a poster
-module.exports = async function createPoster(poster) {
-  console.log(poster);
+module.exports = function createPoster(poster) {
+  // console.log(poster);
   let pathArr = [];
   for (let i = 0; i < poster.paths.length; i++) {
     pathArr.push(poster.paths[i]);
@@ -42,7 +43,7 @@ module.exports = async function createPoster(poster) {
   //   k = k + 3;
   // }
   // doc.end();
-  await savePdfToFile(doc, localPdf, pathArr, pdfSize);
+  savePdfToFile(doc, localPdf, pathArr, pdfSize);
 };
 function savePdfToFile(pdf, fileName, paths, pdfSize) {
   return new Promise((resolve, reject) => {
@@ -57,7 +58,8 @@ function savePdfToFile(pdf, fileName, paths, pdfSize) {
     const stepFinished = () => {
       if (--pendingStepCount == 0) {
         resolve();
-        console.log("pdf finished")
+        console.log("pdf finished");
+        sendXmlPdf();
       }
     };
 
