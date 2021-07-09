@@ -380,7 +380,7 @@ route.post("/createorder", async (req, res) => {
 route.post("/sendfiles", async (req, res) => {
   let localPdf = "";
   let localXml = "";
-  let output = path.join(__dirname,".", "/output/");
+  let output = path.join(__dirname, "/output/");
     //Empty the output folder
     fsExtra.emptyDir( output ,(err) => {
     // fsExtra.emptyDir("/aaron/blokkers/app/output/" ,(err) => {
