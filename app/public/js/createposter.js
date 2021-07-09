@@ -131,7 +131,7 @@ function getName() {
     }
   }
 
-  //clears the tables
+  //clears the tablesg
   // $('#posterfooter').html('');
   $('#tableposter').html('');
   $('#colourtable').html('');

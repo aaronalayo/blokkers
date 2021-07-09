@@ -57,6 +57,7 @@ function savePdfToFile(pdf, fileName, paths, pdfSize) {
     const stepFinished = () => {
       if (--pendingStepCount == 0) {
         resolve();
+        console.log("pdf finished")
       }
     };
 
@@ -69,10 +70,10 @@ function savePdfToFile(pdf, fileName, paths, pdfSize) {
     let y = 0;
     let k = 0;
     let pathToPublic = path.resolve('./public');
-    console.log(pathToPublic)
     for (let i = 0; i <= 3; i++) {
       x = 0;
       for (let j = k; j <= k + 2; j++) {
+        console.log("creating image" + i)
         pdf.image(pathToPublic + paths[j], x, y, {
           fit: [pdfSize[0] / 3, pdfSize[1] / 4],
         });
