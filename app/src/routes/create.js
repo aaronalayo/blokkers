@@ -510,7 +510,7 @@ route.post("/sendfiles", async (req, res) => {
           .end({ pretty: true });
 
         //Write the XML to file
-        fs.writeFile(localXml, xml, function (err) {
+        await fsPromises.writeFile(localXml, xml, function (err) {
           if (err) {
             console.log(err);
           } else {
