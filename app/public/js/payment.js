@@ -37,9 +37,7 @@ function getData() {
         if (!sessionStorage.paymentId || sessionStorage.paymentId === 'undefined' ) {
           // console.log('setting payment status in LS')
           sessionStorage.setItem("paymentId", "true");
-          sendFiles(paymentId, function() {
-            sendMail(paymentDetails, date);
-          });
+          sendFiles(paymentDetails, date);
           // console.log( localStorage.paymentId)
         }  
         else {   
@@ -166,7 +164,8 @@ function setCustomerInfo(order) {
   $("#billingcountry").text(billingCountry);
   $("#billingemail").text(billingEmail);
 }
-function sendFiles(paymentId, callback) {
+function sendFiles(paymentDetails,date) {
+  let discount = JSON.parse(sessionStorage.getItem("discount"));
   let customer = JSON.parse(sessionStorage.getItem('customer'));
   let posters = JSON.parse(sessionStorage.getItem('posters'));
   // console.log(customer, posters,paymentId)
@@ -177,27 +176,7 @@ function sendFiles(paymentId, callback) {
     data: {
       posters: posters,
       customer: customer,
-      paymentId: paymentId
-    },
-    ContentType: 'application/json',
-    dataType: "json",
-    success: function(response){
-      console.log(response)
-    }
-  })
-  callback();
-};
-function sendMail(paymentDetails, date) {
-  let discount = JSON.parse(sessionStorage.getItem("discount"));
-  let customer = JSON.parse(sessionStorage.getItem('customer'));  
-  $.ajax({
-    global: false,
-    type: 'POST',
-    url: '/sendmail',
-    data: {
-      // posters: posters,
-      customer: customer,
-      paymentDetails: paymentDetails,
+      paymentDetails:paymentDetails,
       date:date,
       discount: discount
     },
@@ -207,7 +186,29 @@ function sendMail(paymentDetails, date) {
       console.log(response)
     }
   })
-  
+  // callback();
 };
+// function sendMail(paymentDetails, date) {
+//   let discount = JSON.parse(sessionStorage.getItem("discount"));
+//   let customer = JSON.parse(sessionStorage.getItem('customer'));  
+//   $.ajax({
+//     global: false,
+//     type: 'POST',
+//     url: '/sendmail',
+//     data: {
+//       // posters: posters,
+//       customer: customer,
+//       paymentDetails: paymentDetails,
+//       date:date,
+//       discount: discount
+//     },
+//     ContentType: 'application/json',
+//     dataType: "json",
+//     success: function(response){
+//       console.log(response)
+//     }
+//   })
+  
+// };
 
 

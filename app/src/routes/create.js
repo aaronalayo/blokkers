@@ -19,7 +19,7 @@ const setValueToNull = require("../middelware/setValueNull.js");
 
 const createPoster = require("../middelware/createPoster.js");
 const promiseCreatePoster = promisify(createPoster);
-const sendMail = require('../middelware/sendMail.js');
+
 const setValueNull = require("../middelware/setValueNull.js");
 
 
@@ -154,8 +154,8 @@ route.post("/createpaymentorder", async (req, res) => {
         },
       };
       // console.log(consumer)
-      let host = "https://blokkers.dk";
-      // let host = "http://localhost:8080"; 
+      // let host = "https://blokkers.dk";
+      let host = "http://localhost:8080"; 
       let options = {
         host: host + "/createorder",
         uri: "https://test.api.dibspayment.eu/v1/payments", //test
@@ -381,7 +381,7 @@ route.post("/sendfiles", async (req, res) => {
   let localPdf = "";
   let localXml = "";
   let output = path.join(__dirname, "../output/");
-  console.log(output)
+  // console.log(output)
     //Empty the output folder
     fsExtra.emptyDir( output ,(err) => {
     // fsExtra.emptyDir("/aaron/blokkers/app/output/" ,(err) => {
@@ -391,25 +391,23 @@ route.post("/sendfiles", async (req, res) => {
       }});
   
     // fsExtra.emptyDir("/home/aaron/blokkers/app/output/");
-  const { customer, posters, paymentId } = req.body;
-  // console.log("This is req body" + req.body);
-  console.log(posters)
+  const { customer, posters, paymentDetails, date, discount } = req.body;
+  // console.log(req.body);
+  // console.log(posters)
   let orderSent = [];
   try {
     const order = await Order.query()
       .select()
-      .where({ payment_id: paymentId })
+      .where({ payment_id: paymentDetails.payment.paymentId })
       .withGraphJoined("customer");
       // console.log("Order to send" + order)
     const items = await Item.query()
       .select()
-      .where({ payment_id: paymentId });
-    console.log( items);
+      .where({ payment_id: paymentDetails.payment.paymentId });
+    // console.log( items);
     if (customer, posters) {
       // const output = "/aaron/blokkers/app/output/";
       // const output = "./output/";
-
-    
 
       const ext = {
         pdf: ".pdf",
@@ -448,7 +446,7 @@ route.post("/sendfiles", async (req, res) => {
           if (err) throw err;
           console.log("File created!");
         });
-
+  
         //Object containing all the
         //document sizes and dimesions
         let sizes = {
@@ -464,22 +462,21 @@ route.post("/sendfiles", async (req, res) => {
           A9: [104.88, 147.4],
           A10: [73.7, 104.88],
         };
-
+  
         let pdfSize = sizes[item.item_format];
-
+  
         for (let i = 0; i < posters.length; i++) {
           
           let poster = posters[i];
           poster.pdfLocal = localPdf;
           poster.pdfSize = pdfSize;
-
-          promiseCreatePoster(poster, (err) => {
+  
+          promiseCreatePoster(poster, order, items, paymentDetails, date, discount, (err) => {
             if(err){
               throw err;
            }
           });
         }
-
         //Create the XML object
         let xmlOrder = {
           PrintOrder: {
@@ -520,6 +517,7 @@ route.post("/sendfiles", async (req, res) => {
         });
       
       });
+ 
       //Update the order after the files are sent to FTP server
       orderSent.forEach(async (sentOrder) => {
         await Order.query()
@@ -539,38 +537,38 @@ route.post("/sendfiles", async (req, res) => {
   }
 });
 
-route.post("/sendmail", async (req, res) => {
-  const {paymentDetails, date, discount} = req.body;
-  let rate;
-  try {
+// route.post("/sendmail", async (req, res) => {
+//   const {paymentDetails, date, discount} = req.body;
+//   let rate;
+//   try {
     
-    const discounts = await Discount.query().select();
-   if(discount){
-     discounts.forEach(discountsData =>{
-       if(discount === discountsData.discount_code){
-          rate =  discountsData.discount_rate;
-          rate = rate.replace("%", "");
-          rate = parseInt(rate);
-       }else{
-         rate = "";
-       }
-     })
-   }
+//     const discounts = await Discount.query().select();
+//    if(discount){
+//      discounts.forEach(discountsData =>{
+//        if(discount === discountsData.discount_code){
+//           rate =  discountsData.discount_rate;
+//           rate = rate.replace("%", "");
+//           rate = parseInt(rate);
+//        }else{
+//          rate = "";
+//        }
+//      })
+//    }
    
-    const order = await Order.query()
-      .select()
-      .where({ payment_id: paymentDetails.payment.paymentId })
-      .withGraphJoined("customer");
-      // console.log(order);
-    const items = await Item.query()
-      .select()
-      .where({payment_id: paymentDetails.payment.paymentId});
-    // console.log(items);
-  sendMail(order, items, date,paymentDetails, rate)
-  } catch (error) {
-    console.log(error);
-  }
-});
+//     const order = await Order.query()
+//       .select()
+//       .where({ payment_id: paymentDetails.payment.paymentId })
+//       .withGraphJoined("customer");
+//       // console.log(order);
+//     const items = await Item.query()
+//       .select()
+//       .where({payment_id: paymentDetails.payment.paymentId});
+//     // console.log(items);
+//   sendMail(order, items, date,paymentDetails, rate)
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 
 

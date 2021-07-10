@@ -5,7 +5,7 @@ const fsPromises = fs.promises;
 const sendXmlPdf = require("../middelware/sendXmlPdf.js");
 
 //Function to create a PDF file from a poster
-module.exports = function createPoster(poster) {
+module.exports = function createPoster(poster, order, items, paymentDetails, date, discount) {
   // console.log(poster);
   let pathArr = [];
   for (let i = 0; i < poster.paths.length; i++) {
@@ -25,27 +25,9 @@ module.exports = function createPoster(poster) {
     },
   });
 
-  // let pdfPoster = fs.createWriteStream(localPdf)
-  // doc.pipe(pdfPoster);
-
-  // let x = 0;
-  // let y = 0;
-  // let k = 0;
-  // for (let i = 0; i <= 3; i++) {
-  //   x = 0;
-  //   for (let j = k; j <= k + 2; j++) {
-  //     doc.image("./public" + pathArr[j], x, y, {
-  //       fit: [pdfSize[0] / 3, pdfSize[1] / 4],
-  //     });
-  //     x += pdfSize[0] / 3;
-  //   }
-  //   y += pdfSize[1] / 4;
-  //   k = k + 3;
-  // }
-  // doc.end();
-  savePdfToFile(doc, localPdf, pathArr, pdfSize);
+  savePdfToFile(doc, localPdf, pathArr, pdfSize,order, items, paymentDetails, date, discount);
 };
-function savePdfToFile(pdf, fileName, paths, pdfSize) {
+function savePdfToFile(pdf, fileName, paths, pdfSize,order, items, paymentDetails, date, discount) {
   return new Promise((resolve, reject) => {
     // To determine when the PDF has finished being written successfully
     // we need to confirm the following 2 conditions:
@@ -59,7 +41,8 @@ function savePdfToFile(pdf, fileName, paths, pdfSize) {
       if (--pendingStepCount == 0) {
         resolve();
         console.log("pdf finished");
-        sendXmlPdf();
+        sendXmlPdf(order, items, paymentDetails, date, discount);
+        
       }
     };
 
@@ -75,7 +58,7 @@ function savePdfToFile(pdf, fileName, paths, pdfSize) {
     for (let i = 0; i <= 3; i++) {
       x = 0;
       for (let j = k; j <= k + 2; j++) {
-        console.log("creating image" + i)
+        // console.log("creating image" + i)
         pdf.image(pathToPublic + paths[j], x, y, {
           fit: [pdfSize[0] / 3, pdfSize[1] / 4],
         });
@@ -87,5 +70,6 @@ function savePdfToFile(pdf, fileName, paths, pdfSize) {
     pdf.end();
 
     stepFinished();
+    
   });
 }

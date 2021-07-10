@@ -3,12 +3,31 @@ const fs = require('fs');
 const { promisify } = require('util');
 const readFile = promisify(fs.readFile);
 const parse = require('node-html-parser').parse;
+const Discount = require("../model/Discount.js");
 
 
 
 
+module.exports = async function sendMail(order, items, paymentDetails, date, discount){
+  // console.log(order, items, paymentDetails, date, discount);
+  let rate;
+  try {
+    
+    const discounts = await Discount.query().select();
+   if(discount){
+     discounts.forEach(discountsData =>{
+       if(discount === discountsData.discount_code){
+          rate =  discountsData.discount_rate;
+          rate = rate.replace("%", "");
+          rate = parseInt(rate);
+       }else{
+         rate = "";
+       }
+     })
+   }
+   
+  
 
-module.exports = async function sendMail(order,items,date,paymentDetails,rate){
   // console.log(order,items,date);
   await readFile("./public/emailTemplate/email.html", 'utf8', (err,html)=>{
     if(err){
@@ -148,6 +167,9 @@ html = html.replace(/{total-amount}/g, total);
       });
    
     });   
+  } catch (error) {
+    console.log(error);
+  }
     
 }
 
