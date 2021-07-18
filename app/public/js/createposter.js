@@ -1,339 +1,539 @@
 
-$(document).ready(function () {
-
-  let id = document.getElementById('a2')
-  getSizeDetails(id);
+var _0x924f = [
+  "\x61\x32",
+  "\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64",
+  "\x72\x65\x61\x64\x79",
+  "\x6A\x73\x6F\x6E",
+  "\x2F\x66\x6F\x72\x6D\x61\x74\x73",
+  "\x74\x6F\x55\x70\x70\x65\x72\x43\x61\x73\x65",
+  "\x76\x61\x6C",
+  "\x66\x6F\x72\x6D\x61\x74\x73",
+  "\x65\x6E\x74\x72\x69\x65\x73",
+  "\x66\x6F\x72\x6D\x61\x74\x5F\x6E\x6F",
+  "\x70\x72\x69\x63\x65",
+  "\x64\x69\x6D\x65\x6E\x73\x69\x6F\x6E",
+  "\x74\x65\x78\x74",
+  "\x23\x64\x69\x6D\x65\x6E\x73\x69\x6F\x6E",
+  "\x20\x44\x4B\x4B",
+  "\x23\x64\x69\x6D\x65\x6E\x73\x69\x6F\x6E\x70\x72\x69\x63\x65",
+  "\x74\x68\x65\x6E",
+  "\x3A\x63\x68\x65\x63\x6B\x65\x64",
+  "\x69\x73",
+  "\x23\x61\x33",
+  "\x63\x68\x65\x63\x6B\x65\x64",
+  "\x70\x72\x6F\x70",
+  "\x23\x61\x32",
+  "\x23\x61\x31",
+  "\x23\x6E\x61\x6D\x65",
+  "",
+  "\x68\x74\x6D\x6C",
+  "\x23\x63\x6F\x6C\x6F\x75\x72\x74\x61\x62\x6C\x65",
+  "\x23\x63\x68\x6F\x6F\x73\x65\x6C\x65\x74\x74\x65\x72",
+  "\x23\x63\x68\x6F\x6F\x73\x65\x63\x6F\x6C\x6F\x72",
+  "\x68\x69\x64\x65",
+  "\x23\x64\x6F\x6E\x65\x5F\x62\x75\x74\x74\x6F\x6E",
+  "\x76\x61\x6C\x75\x65",
+  "\x6E\x61\x6D\x65",
+  "\x50\x6C\x65\x61\x73\x65\x20\x65\x6E\x74\x65\x72\x20\x6C\x65\x74\x74\x65\x72\x73",
+  "\x74\x6F\x4C\x6F\x77\x65\x72\x43\x61\x73\x65",
+  "\x74\x65\x73\x74",
+  "\x49\x6E\x76\x61\x6C\x69\x64\x20\x6C\x65\x74\x74\x65\x72\x73\x21",
+  "\x6C\x65\x6E\x67\x74\x68",
+  "\x59\x6F\x75\x72\x20\x6C\x65\x74\x74\x65\x72\x73\x20\x6D\x75\x73\x74\x20\x68\x61\x76\x65\x20\x62\x65\x74\x77\x65\x65\x6E\x20\x31\x20\x61\x6E\x64\x20\x31\x32\x20\x63\x68\x61\x72\x61\x63\x74\x65\x72\x73\x21",
+  "\x23\x74\x61\x62\x6C\x65\x70\x6F\x73\x74\x65\x72",
+  "\x23\x70\x6F\x73\x74\x65\x72\x66\x6F\x6F\x74\x65\x72",
+  "\x70\x72\x65\x76\x65\x6E\x74\x44\x65\x66\x61\x75\x6C\x74",
+  "\x6B\x65\x79\x70\x72\x65\x73\x73",
+  "\x63\x69\x72\x63\x6C\x65",
+  "\x72\x65\x6D\x6F\x76\x65\x43\x6C\x61\x73\x73",
+  "\x65\x61\x63\x68",
+  "\x2E\x63\x69\x72\x63\x6C\x65",
+  "\x63\x68\x61\x72\x41\x74",
+  "\x61\x64\x64\x43\x6C\x61\x73\x73",
+  "\x23",
+  "\x3C\x74\x72\x20\x69\x64\x3D",
+  "\x70\x6F\x73\x74\x65\x72\x52\x6F\x77",
+  "\x3E\x3C\x2F\x74\x72\x3E",
+  "\x61\x70\x70\x65\x6E\x64",
+  "\x3C\x74\x64\x20\x69\x64\x3D",
+  "\x20\x6F\x6E\x63\x6C\x69\x63\x6B\x3D\x73\x68\x6F\x77\x43\x6F\x6C\x6F\x72\x28\x74\x68\x69\x73\x2E\x69\x64\x29\x3E\x3C\x2F\x74\x64\x3E",
+  "\x73\x70\x6C\x69\x74",
+  "\x23\x63\x6F\x6C\x6F\x75\x72\x74\x61\x62\x6C\x65\x32",
+  "\x3C\x69\x6D\x67\x20\x20\x73\x72\x63\x3D\x22\x2F\x69\x6D\x61\x67\x65\x73\x2F\x61\x6C\x66\x61\x62\x65\x74\x2F\x61\x61\x2F\x61\x61\x31\x2E\x70\x6E\x67\x22\x3E",
+  "\xE5",
+  "\x3C\x69\x6D\x67\x20\x20\x73\x72\x63\x3D\x22\x2F\x69\x6D\x61\x67\x65\x73\x2F\x61\x6C\x66\x61\x62\x65\x74\x2F\x61\x65\x2F\x61\x65\x31\x2E\x70\x6E\x67\x22\x3E",
+  "\xE6",
+  "\x3C\x69\x6D\x67\x20\x20\x73\x72\x63\x3D\x22\x2F\x69\x6D\x61\x67\x65\x73\x2F\x61\x6C\x66\x61\x62\x65\x74\x2F\x6F\x65\x2F\x6F\x65\x31\x2E\x70\x6E\x67\x22\x3E",
+  "\xF8",
+  "\x3C\x69\x6D\x67\x20\x20\x73\x72\x63\x3D\x22\x2F\x69\x6D\x61\x67\x65\x73\x2F\x61\x6C\x66\x61\x62\x65\x74\x2F\x2D\x2F\x2D\x31\x2E\x70\x6E\x67\x22\x3E",
+  "\x2D",
+  "\x3C\x69\x6D\x67\x20\x20\x73\x72\x63\x3D\x22\x2F\x69\x6D\x61\x67\x65\x73\x2F\x61\x6C\x66\x61\x62\x65\x74\x2F",
+  "\x2F",
+  "\x31\x2E\x70\x6E\x67\x22\x3E",
+  "\x3C\x74\x66\x6F\x6F\x74\x20\x69\x64\x3D\x22\x70\x6F\x73\x74\x65\x72\x66\x6F\x6F\x74\x65\x72\x22\x3E",
+  "\x43\x6C\x69\x63\x6B\x20\x6F\x6E\x20\x61\x20\x6C\x65\x74\x74\x65\x72\x20\x74\x6F\x20\x63\x68\x61\x6E\x67\x65\x20\x74\x68\x65\x20\x63\x6F\x6C\x6F\x72",
+  "\x73\x68\x6F\x77",
+  "\x73\x72\x63",
+  "\x63\x68\x69\x6C\x64\x4E\x6F\x64\x65\x73",
+  "\x70\x6F\x70",
+  "\x3C\x63\x61\x70\x74\x69\x6F\x6E\x20\x69\x64\x3D\x22\x6F\x72\x69\x67\x69\x6E\x61\x6C\x22\x3E\x3C\x2F\x63\x61\x70\x74\x69\x6F\x6E\x3E",
+  "\x63\x6F\x6C\x6F\x75\x72\x52\x6F\x77\x31",
+  "\x3C\x74\x64\x20\x69\x64\x3D\x69\x6D\x67",
+  "\x20\x6F\x6E\x63\x6C\x69\x63\x6B\x3D\x63\x68\x61\x6E\x67\x65\x43\x6F\x6C\x6F\x72\x28\x74\x68\x69\x73\x2E\x69\x64\x29\x3E",
+  "\x2F\x61\x61",
+  "\x2E\x70\x6E\x67\x22\x20\x3E",
+  "\x3C\x2F\x74\x64\x3E",
+  "\x2F\x61\x65",
+  "\x2E\x70\x6E\x67\x22\x3E",
+  "\x2F\x6F\x65",
+  "\x2F\x2D",
+  "\x3C\x63\x61\x70\x74\x69\x6F\x6E\x20\x69\x64\x3D\x22\x73\x65\x61\x73\x6F\x6E\x61\x6C\x22\x3E\x3C\x2F\x63\x61\x70\x74\x69\x6F\x6E\x3E",
+  "\x63\x6F\x6C\x6F\x75\x72\x52\x6F\x77\x32",
+  "\x43\x6C\x69\x63\x6B\x20\x6F\x6E\x20\x74\x68\x65\x20\x6C\x65\x74\x74\x65\x72\x20\x74\x6F\x20\x63\x68\x6F\x6F\x73\x65\x20\x79\x6F\x75\x72\x20\x63\x6F\x6C\x6F\x72",
+  "\x4F\x72\x69\x67\x69\x6E\x61\x6C\x20\x66\x72\x69\x73\x6B\x79",
+  "\x23\x6F\x72\x69\x67\x69\x6E\x61\x6C",
+  "\x53\x65\x61\x73\x6F\x6E\x61\x6C\x20\x68\x61\x72\x6D\x6F\x6E\x79",
+  "\x23\x73\x65\x61\x73\x6F\x6E\x61\x6C",
+  "\x65\x6D\x70\x74\x79",
+  "\x3C\x69\x6D\x67\x20\x20\x73\x72\x63\x3D",
+  "\x3E",
+  "\x73\x75\x62\x73\x74\x72\x69\x6E\x67",
+  "\x69\x6D\x67",
+  "\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x54\x61\x67\x4E\x61\x6D\x65",
+  "\x74\x61\x62\x6C\x65\x70\x6F\x73\x74\x65\x72",
+  "\x6F\x72\x69\x67\x69\x6E",
+  "\x6C\x6F\x63\x61\x74\x69\x6F\x6E",
+  "\x73\x75\x62\x73\x74\x72",
+  "\x70\x75\x73\x68",
+  "\x69\x6E\x70\x75\x74\x5B\x6E\x61\x6D\x65\x3D\x27\x73\x69\x7A\x65\x27\x5D\x3A\x63\x68\x65\x63\x6B\x65\x64",
+  "\x6C\x6F\x67",
+  "\x74\x6F\x46\x69\x78\x65\x64",
+  "\x6E\x6F\x77",
+  "\x70\x6F\x73\x74\x65\x72\x54\x6F\x45\x64\x69\x74",
+  "\x67\x65\x74\x49\x74\x65\x6D",
+  "\x72\x65\x6D\x6F\x76\x65\x49\x74\x65\x6D",
+  "\x73\x74\x72\x69\x6E\x67\x69\x66\x79",
+  "\x73\x65\x74\x49\x74\x65\x6D",
+  "\x63\x6C\x69\x63\x6B",
+  "\x68\x61\x73\x68",
+  "\x5B\x6E\x61\x6D\x65\x3D",
+  "\x5D",
+  "\x74\x6F\x70",
+  "\x70\x6F\x73\x69\x74\x69\x6F\x6E",
+  "\x61\x6E\x69\x6D\x61\x74\x65",
+  "\x68\x74\x6D\x6C\x2C\x62\x6F\x64\x79",
+  "\x6F\x6E",
+  "\x61\x5B\x68\x72\x65\x66\x2A\x3D\x5C\x23\x5D\x3A\x6E\x6F\x74\x28\x5B\x68\x72\x65\x66\x3D\x5C\x23\x5D\x29",
+  "\x70\x61\x72\x73\x65",
+  "\x70\x6E\x61\x6D\x65",
+  "\x20\x3E\x3C\x2F\x74\x64\x3E",
+  "\x3C\x69\x6D\x67\x20\x73\x72\x63\x3D\x22",
+  "\x70\x61\x74\x68\x73",
+  "\x22\x3E",
+];
+$(document)[_0x924f[2]](function () {
+  let _0x2bf7x1 = document[_0x924f[1]](_0x924f[0]);
+  getSizeDetails(_0x2bf7x1);
   loadPosterEdit();
 });
-
-//gets the formats with their prices and returns them as Promise
 function getFormats() {
-  const fetchJson = async url => {
-    const response = await fetch(url)
-    return response.json()
-  }
-  return new Promise(function (resolve) {
-    const formats = fetchJson('/formats');
+  const _0x2bf7x3 = async (_0x2bf7x4) => {
+    const _0x2bf7x5 = await fetch(_0x2bf7x4);
+    return _0x2bf7x5[_0x924f[3]]();
+  };
+  return new Promise(function (_0x2bf7x6) {
+    const _0x2bf7x7 = _0x2bf7x3(_0x924f[4]);
     setTimeout(function () {
-      resolve(formats)
+      _0x2bf7x6(_0x2bf7x7);
     }, 50);
   });
-};
-async function getSizeDetails(id) {
-  let price = 0;
-  let dimension;
-  if (id) {
-
-
-    let size = $(id).val().toUpperCase();
-    await getFormats().then(data => {
-      for (let [key] of Object.entries(data.formats)) {
-        if (size === data.formats[key].format_no) {
-          price = data.formats[key].price;
-          dimension = data.formats[key].dimension;
+}
+async function getSizeDetails(_0x2bf7x1) {
+  let _0x2bf7x9 = 0;
+  let _0x2bf7xa;
+  if (_0x2bf7x1) {
+    let _0x2bf7xb = $(_0x2bf7x1)[_0x924f[6]]()[_0x924f[5]]();
+    await getFormats()[_0x924f[16]]((_0x2bf7xc) => {
+      for (let [key] of Object[_0x924f[8]](_0x2bf7xc[_0x924f[7]])) {
+        if (_0x2bf7xb === _0x2bf7xc[_0x924f[7]][key][_0x924f[9]]) {
+          _0x2bf7x9 = _0x2bf7xc[_0x924f[7]][key][_0x924f[10]];
+          _0x2bf7xa = _0x2bf7xc[_0x924f[7]][key][_0x924f[11]];
         }
       }
-      $("#dimension").text(dimension);
-      $("#dimensionprice").text(~~price + " DKK");
+      $(_0x924f[13])[_0x924f[12]](_0x2bf7xa);
+      $(_0x924f[15])[_0x924f[12]](~~_0x2bf7x9 + _0x924f[14]);
     });
-  };
-};
-//changes the size to the one the right
+  }
+}
 function changeSizeRight() {
-  if ($("#a3").is(':checked')) {
-    $("#a2").prop("checked", true);
-  }
-  else if ($("#a2").is(':checked')) {
-    $("#a1").prop("checked", true);
-  }
-};
-
-//changes the size to the one on the left
-function changeSizeLeft() {
-  if ($("#a1").is(':checked')) {
-    $("#a2").prop("checked", true);
-  }
-  else if ($("#a2").is(':checked')) {
-    $("#a3").prop("checked", true);
-  }
-};
-
-//appends a letter to the name 
-function addLetter(id) {
-  let letter = $(id).text();
-  $("#name").val($("#name").val() + letter);
-};
-
-//validates if the name is less than 12 characters
-function validateForm() {
-  $('#colourtable').html('');
-  $('#chooseletter').html('');
-  $('#choosecolor').html('');
-  // $("#posterdiv").hide();
-  $("#colourtable").hide();
-  $("#done_button").hide();
-  const nameFilter = /^[a-zA-Z \-\_\/!0-9æøåÆØÅ\.,!?():+\[\]\n\t\r]*$/;
-  let name = document.getElementById('name').value
-  if (name == "") {
-    alert("Please enter letters");
-  } else if (nameFilter.test(String(name).toLowerCase()) == false) {
-    alert("Invalid letters!");
-
-  } else if (name.length > 13) {
-    alert("Your letters must have between 1 and 12 characters!");
-    $("#name").val("");
-    $('#tableposter').html(''); //clear the table
-    $('#posterfooter').html('');
-    addCircles()
+  if ($(_0x924f[19])[_0x924f[18]](_0x924f[17])) {
+    $(_0x924f[22])[_0x924f[21]](_0x924f[20], true);
   } else {
-    addCircles(), getName()
+    if ($(_0x924f[22])[_0x924f[18]](_0x924f[17])) {
+      $(_0x924f[23])[_0x924f[21]](_0x924f[20], true);
+    }
   }
-};
+}
+function changeSizeLeft() {
+  if ($(_0x924f[23])[_0x924f[18]](_0x924f[17])) {
+    $(_0x924f[22])[_0x924f[21]](_0x924f[20], true);
+  } else {
+    if ($(_0x924f[22])[_0x924f[18]](_0x924f[17])) {
+      $(_0x924f[19])[_0x924f[21]](_0x924f[20], true);
+    }
+  }
+}
+function addLetter(_0x2bf7x1) {
+  let _0x2bf7x10 = $(_0x2bf7x1)[_0x924f[12]]();
+  $(_0x924f[24])[_0x924f[6]]($(_0x924f[24])[_0x924f[6]]() + _0x2bf7x10);
+}
+function validateForm() {
+  $(_0x924f[27])[_0x924f[26]](_0x924f[25]);
+  $(_0x924f[28])[_0x924f[26]](_0x924f[25]);
+  $(_0x924f[29])[_0x924f[26]](_0x924f[25]);
+  $(_0x924f[27])[_0x924f[30]]();
+  $(_0x924f[31])[_0x924f[30]]();
+  const _0x2bf7x12 = /^[a-zA-Z \-\_\/!0-9æøåÆØÅ\.,!?():+\[\]\n\t\r]*$/;
+  let _0x2bf7x13 = document[_0x924f[1]](_0x924f[33])[_0x924f[32]];
+  if (_0x2bf7x13 == _0x924f[25]) {
+    alert(_0x924f[34]);
+  } else {
+    if (_0x2bf7x12[_0x924f[36]](String(_0x2bf7x13)[_0x924f[35]]()) == false) {
+      alert(_0x924f[37]);
+    } else {
+      if (_0x2bf7x13[_0x924f[38]] > 13) {
+        alert(_0x924f[39]);
+        $(_0x924f[24])[_0x924f[6]](_0x924f[25]);
+        $(_0x924f[40])[_0x924f[26]](_0x924f[25]);
+        $(_0x924f[41])[_0x924f[26]](_0x924f[25]);
+        addCircles();
+      } else {
+        addCircles(), getName();
+      }
+    }
+  }
+}
 $(function () {
-  $('#name').keypress(function (event) {
-    event.preventDefault();
+  $(_0x924f[24])[_0x924f[43]](function (_0x2bf7x14) {
+    _0x2bf7x14[_0x924f[42]]();
     return false;
   });
 });
-//adds a circle around each letter present in the name
 function addCircles() {
-  $(".circle").each(function () {
-    $(this).removeClass("circle");
+  $(_0x924f[47])[_0x924f[46]](function () {
+    $(this)[_0x924f[45]](_0x924f[44]);
   });
-  const name = $("#name").val();
-  let id;
-  for (let i = 0; i < name.length; i++) {
-    id = name.charAt(i).toLowerCase();
-    $("#" + id).addClass("circle");
+  const _0x2bf7x13 = $(_0x924f[24])[_0x924f[6]]();
+  let _0x2bf7x1;
+  for (let _0x2bf7x16 = 0; _0x2bf7x16 < _0x2bf7x13[_0x924f[38]]; _0x2bf7x16++) {
+    _0x2bf7x1 = _0x2bf7x13[_0x924f[48]](_0x2bf7x16)[_0x924f[35]]();
+    $(_0x924f[50] + _0x2bf7x1)[_0x924f[49]](_0x924f[44]);
   }
-};
-
-//creates an empty table with 3 columns and 4 rows
-function createTable() {
-  let k = 0;
-  for (let i = 0; i <= 3; i++) {
-    $('#tableposter').append(`<tr id=${`posterRow`+i}></tr>`);
-    for (let j = k; j <= k + 2; j++) {
-      $(`#${`posterRow`+i}`).append(`<td id=${j + 1} onclick=showColor(this.id)></td>`);
-    }
-    k = k + 3;
-  }
-};
-
-//displays a poster with the name
-function getName() {
-  // $("#posterdiv").show();
-  let name = $("#name").val().toLowerCase();
-  const letters = name.split('');
-  while (name.length < 13) {
-    for (let i = 0; i <= letters.length - 1; i++) {
-      name += letters[i];
-    }
-  }
-
-  //clears the tablesg
-  // $('#posterfooter').html('');
-  $('#tableposter').html('');
-  $('#colourtable').html('');
-  $('#colourtable2').html('');
-  // $('#choosecolor').html('');
-  // $('#chooseletter').html('');
-  //creates a new table and fills it with the new name letters
-  createTable();
-  let k = 0;
-  for (let i = 0; i <= 3; i++) {
-
-    for (let j = k; j <= k + 2; j++) {
-      switch (name[j]) {
-        case 'å':
-          $("#" + (j + 1)).append(`<img  src="/images/alfabet/aa/aa1.png">`);
-          break;
-        case 'æ':
-          $("#" + (j + 1)).append(`<img  src="/images/alfabet/ae/ae1.png">`);
-          break;
-        case 'ø':
-          $("#" + (j + 1)).append(`<img  src="/images/alfabet/oe/oe1.png">`);
-          break;
-        case '-':
-          $("#" + (j + 1)).append(`<img  src="/images/alfabet/-/-1.png">`);
-          break;
-        default:
-          $("#" + (j + 1)).append(`<img  src="/images/alfabet/${name[j]}/${name[j]}1.png">`);
-      }
-    }
-    k = k + 3;
-  }
-  $('#tableposter').append('<tfoot id="posterfooter">');
-  $('#posterfooter').text("Click on a letter to change the color");
-};
-
-//displays the different letter design
-function showColor(id) {
- 
-  $("#colourtable").show();
-  $("#colourtable2").show();
-  $('#colourtable').html('');
-  $('#colourtable2').html('');
-  // $('#choosecolor').html('');
-  // $('#chooseletter').html('');
-  let src = document.getElementById(id).childNodes[0].src;
-  let parts = src.split('/');
-  let lastSegment = parts.pop();
-  
-  
-  $('#colourtable').append('<caption id="original"></caption>');
-
-  for (let i = 0; i < 1; i++) {
-    
-    $('#colourtable').append(`<tr id=${`colourRow1`+i}></tr>`);
-    for (let j = 0; j < 4; j++) {
-      let key = (j+1)+(i*4);
-      switch (parts[parts.length - 1]) {
-        case 'å':
-          $(`#${`colourRow1`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/aa${key}.png" >` + '</td>');
-          break;
-        case 'æ':
-          $(`#${`colourRow1`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/ae${key}.png">` + '</td>');
-          break;
-        case 'ø':
-          $(`#${`colourRow1`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/oe${key}.png">` + '</td>');
-          break;
-        case '-':
-          $(`#${`colourRow1`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/-${key}.png">` + '</td>');
-          break;
-        default:
-        
-          $(`#${`colourRow1`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${key}.png">` + '</td>');     
-      }     
-    } 
-  }
-  $('#colourtable2').append('<caption id="seasonal"></caption>')
-
-  for (let i = 0; i < 1; i++) {
-    
-    $('#colourtable2').append(`<tr id=${`colourRow2`+i}></tr>`);
-    for (let j = 4; j < 8; j++) {
-      let key = (j+1)+(i*4);
-      switch (parts[parts.length - 1]) {
-        case 'å':
-          $(`#${`colourRow2`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/aa${key}.png" >` + '</td>');
-          break;
-        case 'æ':
-          $(`#${`colourRow2`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/ae${key}.png">` + '</td>');
-          break;
-        case 'ø':
-          $(`#${`colourRow2`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/oe${key}.png">` + '</td>');
-          break;
-        case '-':
-          $(`#${`colourRow2`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/-${key}.png">` + '</td>');
-          break;
-        default:
-        
-          $(`#${`colourRow2`+i}`).append(`<td id=img${key}-${id} onclick=changeColor(this.id)>` + `<img  src="/images/alfabet/${parts[parts.length - 1]}/${(parts[parts.length - 1])}${key}.png">` + '</td>');     
-      }
-      
-    }
-    
-  }
-
-  
-  
-  $('#choosecolor').text("Click on the letter to choose your color");
-  $('#original').text("Original frisky");
-  $('#seasonal').text("Seasonal harmony");
-  $("#done_button").show();
-};
-
-
-//changes the letter colour on the poster
-function changeColor(id) {
-  let parts = id.split('-');
-  let lastSegment = parts.pop();
-  $("#" + lastSegment).empty();
-  let src = document.getElementById(id).childNodes[0].src;
-  $("#" + lastSegment).append(`<img  src=${src}>`);
-};
-
-function onPressBackspace() {
-  let name = document.getElementById('name').value;
-  document.getElementById('name').value = name.substring(0, name.length - 1);
-};
-
-//stores the poster name, size and letter paths to sessionStorage
-function getSrc() {
-  imgs = document.getElementById('tableposter').getElementsByTagName("img");
-  let imgSrcs = [];
-  let origin = window.location.origin;
-  for (var i = 0; i < imgs.length; i++) {
-  
-    imgSrcs.push(imgs[i].src.substr(origin.length));
-  }
-  const paths =[];
-
-
-  for (const key in imgSrcs) {
-    
-    paths.push(imgSrcs[key]);
-  }
-  let pname = $("#name").val().toLowerCase();
-  let size = $("input[name='size']:checked").val();
-  let posterPrice = $("#dimensionprice").text();
-  posterPrice = posterPrice.substr(0,3);
-  console.log(posterPrice)
-  posterPrice = parseInt(posterPrice).toFixed(2);
-  // posterPrice = posterPrice;
-  let posterToEdit = {
-    "id": Date.now(),
-    "pname": pname,
-    "paths": paths,
-    "size": size.toUpperCase(),
-    "quantity": 1,
-    "price": posterPrice   
-};
-if(sessionStorage.getItem("posterToEdit") != null){
-  sessionStorage.removeItem('posterToEdit');
-  sessionStorage.setItem('posterToEdit', JSON.stringify(posterToEdit));
-}else{
-  sessionStorage.setItem('posterToEdit', JSON.stringify(posterToEdit));
 }
-
-};
-
-$(function() {
-  $('a[href*=\\#]:not([href=\\#])').on('click', function() {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.substr(1) +']');   
-      if (target.length) {
-          $('html,body').animate({         
-              scrollTop: target.position().top,             
-          }, 200);    
-          return false;
-      }      
+function createTable() {
+  let _0x2bf7x18 = 0;
+  for (let _0x2bf7x16 = 0; _0x2bf7x16 <= 3; _0x2bf7x16++) {
+    $(_0x924f[40])[_0x924f[54]](
+      `${_0x924f[51]}${`${_0x924f[52]}` + _0x2bf7x16}${_0x924f[53]}`
+    );
+    for (
+      let _0x2bf7x19 = _0x2bf7x18;
+      _0x2bf7x19 <= _0x2bf7x18 + 2;
+      _0x2bf7x19++
+    ) {
+      $(`${_0x924f[50]}${`${_0x924f[52]}` + _0x2bf7x16}${_0x924f[25]}`)[
+        _0x924f[54]
+      ](`${_0x924f[55]}${_0x2bf7x19 + 1}${_0x924f[56]}`);
+    }
+    _0x2bf7x18 = _0x2bf7x18 + 3;
+  }
+}
+function getName() {
+  let _0x2bf7x13 = $(_0x924f[24])[_0x924f[6]]()[_0x924f[35]]();
+  const _0x2bf7x1b = _0x2bf7x13[_0x924f[57]](_0x924f[25]);
+  while (_0x2bf7x13[_0x924f[38]] < 13) {
+    for (
+      let _0x2bf7x16 = 0;
+      _0x2bf7x16 <= _0x2bf7x1b[_0x924f[38]] - 1;
+      _0x2bf7x16++
+    ) {
+      _0x2bf7x13 += _0x2bf7x1b[_0x2bf7x16];
+    }
+  }
+  $(_0x924f[40])[_0x924f[26]](_0x924f[25]);
+  $(_0x924f[27])[_0x924f[26]](_0x924f[25]);
+  $(_0x924f[58])[_0x924f[26]](_0x924f[25]);
+  createTable();
+  let _0x2bf7x18 = 0;
+  for (let _0x2bf7x16 = 0; _0x2bf7x16 <= 3; _0x2bf7x16++) {
+    for (
+      let _0x2bf7x19 = _0x2bf7x18;
+      _0x2bf7x19 <= _0x2bf7x18 + 2;
+      _0x2bf7x19++
+    ) {
+      switch (_0x2bf7x13[_0x2bf7x19]) {
+        case _0x924f[60]:
+          $(_0x924f[50] + (_0x2bf7x19 + 1))[_0x924f[54]](`${_0x924f[59]}`);
+          break;
+        case _0x924f[62]:
+          $(_0x924f[50] + (_0x2bf7x19 + 1))[_0x924f[54]](`${_0x924f[61]}`);
+          break;
+        case _0x924f[64]:
+          $(_0x924f[50] + (_0x2bf7x19 + 1))[_0x924f[54]](`${_0x924f[63]}`);
+          break;
+        case _0x924f[66]:
+          $(_0x924f[50] + (_0x2bf7x19 + 1))[_0x924f[54]](`${_0x924f[65]}`);
+          break;
+        default:
+          $(_0x924f[50] + (_0x2bf7x19 + 1))[_0x924f[54]](
+            `${_0x924f[67]}${_0x2bf7x13[_0x2bf7x19]}${_0x924f[68]}${_0x2bf7x13[_0x2bf7x19]}${_0x924f[69]}`
+          );
+      }
+    }
+    _0x2bf7x18 = _0x2bf7x18 + 3;
+  }
+  $(_0x924f[40])[_0x924f[54]](_0x924f[70]);
+  $(_0x924f[41])[_0x924f[12]](_0x924f[71]);
+}
+function showColor(_0x2bf7x1) {
+  $(_0x924f[27])[_0x924f[72]]();
+  $(_0x924f[58])[_0x924f[72]]();
+  $(_0x924f[27])[_0x924f[26]](_0x924f[25]);
+  $(_0x924f[58])[_0x924f[26]](_0x924f[25]);
+  let _0x2bf7x1d = document[_0x924f[1]](_0x2bf7x1)[_0x924f[74]][0][_0x924f[73]];
+  let _0x2bf7x1e = _0x2bf7x1d[_0x924f[57]](_0x924f[68]);
+  let _0x2bf7x1f = _0x2bf7x1e[_0x924f[75]]();
+  $(_0x924f[27])[_0x924f[54]](_0x924f[76]);
+  for (let _0x2bf7x16 = 0; _0x2bf7x16 < 1; _0x2bf7x16++) {
+    $(_0x924f[27])[_0x924f[54]](
+      `${_0x924f[51]}${`${_0x924f[77]}` + _0x2bf7x16}${_0x924f[53]}`
+    );
+    for (let _0x2bf7x19 = 0; _0x2bf7x19 < 4; _0x2bf7x19++) {
+      let _0x2bf7x20 = _0x2bf7x19 + 1 + _0x2bf7x16 * 4;
+      switch (_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]) {
+        case _0x924f[60]:
+          $(`${_0x924f[50]}${`${_0x924f[77]}` + _0x2bf7x16}${_0x924f[25]}`)[
+            _0x924f[54]
+          ](
+            `${_0x924f[78]}${_0x2bf7x20}${_0x924f[66]}${_0x2bf7x1}${_0x924f[79]}` +
+              `${_0x924f[67]}${_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]}${
+                _0x924f[80]
+              }${_0x2bf7x20}${_0x924f[81]}` +
+              _0x924f[82]
+          );
+          break;
+        case _0x924f[62]:
+          $(`${_0x924f[50]}${`${_0x924f[77]}` + _0x2bf7x16}${_0x924f[25]}`)[
+            _0x924f[54]
+          ](
+            `${_0x924f[78]}${_0x2bf7x20}${_0x924f[66]}${_0x2bf7x1}${_0x924f[79]}` +
+              `${_0x924f[67]}${_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]}${
+                _0x924f[83]
+              }${_0x2bf7x20}${_0x924f[84]}` +
+              _0x924f[82]
+          );
+          break;
+        case _0x924f[64]:
+          $(`${_0x924f[50]}${`${_0x924f[77]}` + _0x2bf7x16}${_0x924f[25]}`)[
+            _0x924f[54]
+          ](
+            `${_0x924f[78]}${_0x2bf7x20}${_0x924f[66]}${_0x2bf7x1}${_0x924f[79]}` +
+              `${_0x924f[67]}${_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]}${
+                _0x924f[85]
+              }${_0x2bf7x20}${_0x924f[84]}` +
+              _0x924f[82]
+          );
+          break;
+        case _0x924f[66]:
+          $(`${_0x924f[50]}${`${_0x924f[77]}` + _0x2bf7x16}${_0x924f[25]}`)[
+            _0x924f[54]
+          ](
+            `${_0x924f[78]}${_0x2bf7x20}${_0x924f[66]}${_0x2bf7x1}${_0x924f[79]}` +
+              `${_0x924f[67]}${_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]}${
+                _0x924f[86]
+              }${_0x2bf7x20}${_0x924f[84]}` +
+              _0x924f[82]
+          );
+          break;
+        default:
+          $(`${_0x924f[50]}${`${_0x924f[77]}` + _0x2bf7x16}${_0x924f[25]}`)[
+            _0x924f[54]
+          ](
+            `${_0x924f[78]}${_0x2bf7x20}${_0x924f[66]}${_0x2bf7x1}${_0x924f[79]}` +
+              `${_0x924f[67]}${_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]}${
+                _0x924f[68]
+              }${_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]}${
+                _0x924f[25]
+              }${_0x2bf7x20}${_0x924f[84]}` +
+              _0x924f[82]
+          );
+      }
+    }
+  }
+  $(_0x924f[58])[_0x924f[54]](_0x924f[87]);
+  for (let _0x2bf7x16 = 0; _0x2bf7x16 < 1; _0x2bf7x16++) {
+    $(_0x924f[58])[_0x924f[54]](
+      `${_0x924f[51]}${`${_0x924f[88]}` + _0x2bf7x16}${_0x924f[53]}`
+    );
+    for (let _0x2bf7x19 = 4; _0x2bf7x19 < 8; _0x2bf7x19++) {
+      let _0x2bf7x20 = _0x2bf7x19 + 1 + _0x2bf7x16 * 4;
+      switch (_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]) {
+        case _0x924f[60]:
+          $(`${_0x924f[50]}${`${_0x924f[88]}` + _0x2bf7x16}${_0x924f[25]}`)[
+            _0x924f[54]
+          ](
+            `${_0x924f[78]}${_0x2bf7x20}${_0x924f[66]}${_0x2bf7x1}${_0x924f[79]}` +
+              `${_0x924f[67]}${_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]}${
+                _0x924f[80]
+              }${_0x2bf7x20}${_0x924f[81]}` +
+              _0x924f[82]
+          );
+          break;
+        case _0x924f[62]:
+          $(`${_0x924f[50]}${`${_0x924f[88]}` + _0x2bf7x16}${_0x924f[25]}`)[
+            _0x924f[54]
+          ](
+            `${_0x924f[78]}${_0x2bf7x20}${_0x924f[66]}${_0x2bf7x1}${_0x924f[79]}` +
+              `${_0x924f[67]}${_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]}${
+                _0x924f[83]
+              }${_0x2bf7x20}${_0x924f[84]}` +
+              _0x924f[82]
+          );
+          break;
+        case _0x924f[64]:
+          $(`${_0x924f[50]}${`${_0x924f[88]}` + _0x2bf7x16}${_0x924f[25]}`)[
+            _0x924f[54]
+          ](
+            `${_0x924f[78]}${_0x2bf7x20}${_0x924f[66]}${_0x2bf7x1}${_0x924f[79]}` +
+              `${_0x924f[67]}${_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]}${
+                _0x924f[85]
+              }${_0x2bf7x20}${_0x924f[84]}` +
+              _0x924f[82]
+          );
+          break;
+        case _0x924f[66]:
+          $(`${_0x924f[50]}${`${_0x924f[88]}` + _0x2bf7x16}${_0x924f[25]}`)[
+            _0x924f[54]
+          ](
+            `${_0x924f[78]}${_0x2bf7x20}${_0x924f[66]}${_0x2bf7x1}${_0x924f[79]}` +
+              `${_0x924f[67]}${_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]}${
+                _0x924f[86]
+              }${_0x2bf7x20}${_0x924f[84]}` +
+              _0x924f[82]
+          );
+          break;
+        default:
+          $(`${_0x924f[50]}${`${_0x924f[88]}` + _0x2bf7x16}${_0x924f[25]}`)[
+            _0x924f[54]
+          ](
+            `${_0x924f[78]}${_0x2bf7x20}${_0x924f[66]}${_0x2bf7x1}${_0x924f[79]}` +
+              `${_0x924f[67]}${_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]}${
+                _0x924f[68]
+              }${_0x2bf7x1e[_0x2bf7x1e[_0x924f[38]] - 1]}${
+                _0x924f[25]
+              }${_0x2bf7x20}${_0x924f[84]}` +
+              _0x924f[82]
+          );
+      }
+    }
+  }
+  $(_0x924f[29])[_0x924f[12]](_0x924f[89]);
+  $(_0x924f[91])[_0x924f[12]](_0x924f[90]);
+  $(_0x924f[93])[_0x924f[12]](_0x924f[92]);
+  $(_0x924f[31])[_0x924f[72]]();
+}
+function changeColor(_0x2bf7x1) {
+  let _0x2bf7x1e = _0x2bf7x1[_0x924f[57]](_0x924f[66]);
+  let _0x2bf7x1f = _0x2bf7x1e[_0x924f[75]]();
+  $(_0x924f[50] + _0x2bf7x1f)[_0x924f[94]]();
+  let _0x2bf7x1d = document[_0x924f[1]](_0x2bf7x1)[_0x924f[74]][0][_0x924f[73]];
+  $(_0x924f[50] + _0x2bf7x1f)[_0x924f[54]](
+    `${_0x924f[95]}${_0x2bf7x1d}${_0x924f[96]}`
+  );
+}
+function onPressBackspace() {
+  let _0x2bf7x13 = document[_0x924f[1]](_0x924f[33])[_0x924f[32]];
+  document[_0x924f[1]](_0x924f[33])[_0x924f[32]] = _0x2bf7x13[_0x924f[97]](
+    0,
+    _0x2bf7x13[_0x924f[38]] - 1
+  );
+}
+function getSrc() {
+  imgs = document[_0x924f[1]](_0x924f[100])[_0x924f[99]](_0x924f[98]);
+  let _0x2bf7x24 = [];
+  let _0x2bf7x25 = window[_0x924f[102]][_0x924f[101]];
+  for (var _0x2bf7x16 = 0; _0x2bf7x16 < imgs[_0x924f[38]]; _0x2bf7x16++) {
+    _0x2bf7x24[_0x924f[104]](
+      imgs[_0x2bf7x16][_0x924f[73]][_0x924f[103]](_0x2bf7x25[_0x924f[38]])
+    );
+  }
+  const _0x2bf7x26 = [];
+  for (const _0x2bf7x20 in _0x2bf7x24) {
+    _0x2bf7x26[_0x924f[104]](_0x2bf7x24[_0x2bf7x20]);
+  }
+  let _0x2bf7x27 = $(_0x924f[24])[_0x924f[6]]()[_0x924f[35]]();
+  let _0x2bf7xb = $(_0x924f[105])[_0x924f[6]]();
+  let _0x2bf7x28 = $(_0x924f[15])[_0x924f[12]]();
+  _0x2bf7x28 = _0x2bf7x28[_0x924f[103]](0, 3);
+  console[_0x924f[106]](_0x2bf7x28);
+  _0x2bf7x28 = parseInt(_0x2bf7x28)[_0x924f[107]](2);
+  let _0x2bf7x29 = {
+    "\x69\x64": Date[_0x924f[108]](),
+    "\x70\x6E\x61\x6D\x65": _0x2bf7x27,
+    "\x70\x61\x74\x68\x73": _0x2bf7x26,
+    "\x73\x69\x7A\x65": _0x2bf7xb[_0x924f[5]](),
+    "\x71\x75\x61\x6E\x74\x69\x74\x79": 1,
+    "\x70\x72\x69\x63\x65": _0x2bf7x28,
+  };
+  if (sessionStorage[_0x924f[110]](_0x924f[109]) != null) {
+    sessionStorage[_0x924f[111]](_0x924f[109]);
+    sessionStorage[_0x924f[113]](_0x924f[109], JSON[_0x924f[112]](_0x2bf7x29));
+  } else {
+    sessionStorage[_0x924f[113]](_0x924f[109], JSON[_0x924f[112]](_0x2bf7x29));
+  }
+}
+$(function () {
+  $(_0x924f[123])[_0x924f[122]](_0x924f[114], function () {
+    var _0x2bf7x2a = $(this[_0x924f[115]]);
+    _0x2bf7x2a = _0x2bf7x2a[_0x924f[38]]
+      ? _0x2bf7x2a
+      : $(_0x924f[116] + this[_0x924f[115]][_0x924f[103]](1) + _0x924f[117]);
+    if (_0x2bf7x2a[_0x924f[38]]) {
+      $(_0x924f[121])[_0x924f[120]](
+        { scrollTop: _0x2bf7x2a[_0x924f[119]]()[_0x924f[118]] },
+        200
+      );
+      return false;
+    }
   });
 });
-
 function loadPosterEdit() {
-  // console.log('Loading poster first time');
-  $('#tableposter').html('');
+  $(_0x924f[40])[_0x924f[26]](_0x924f[25]);
   createTable();
-    let posterToEdit = JSON.parse(sessionStorage.getItem("posterToEdit"));
-    // console.log(posterToEdit)
-    if (posterToEdit) {
-      $('#name').val(posterToEdit.pname.toUpperCase());
-      let k = 0;
-      
-      for (let i = 0; i <= 3; i++) {
-       
-        for (let j = k; j <= k + 2; j++) {
-          $("#tableposter").append(`<td id=${j + 1} ></td>`);
-          $("#" + (j + 1)).append(`<img src="${posterToEdit.paths[j]}">`);
-        }
-
-        k = k + 3;
+  let _0x2bf7x29 = JSON[_0x924f[124]](
+    sessionStorage[_0x924f[110]](_0x924f[109])
+  );
+  if (_0x2bf7x29) {
+    $(_0x924f[24])[_0x924f[6]](_0x2bf7x29[_0x924f[125]][_0x924f[5]]());
+    let _0x2bf7x18 = 0;
+    for (let _0x2bf7x16 = 0; _0x2bf7x16 <= 3; _0x2bf7x16++) {
+      for (
+        let _0x2bf7x19 = _0x2bf7x18;
+        _0x2bf7x19 <= _0x2bf7x18 + 2;
+        _0x2bf7x19++
+      ) {
+        $(_0x924f[40])[_0x924f[54]](
+          `${_0x924f[55]}${_0x2bf7x19 + 1}${_0x924f[126]}`
+        );
+        $(_0x924f[50] + (_0x2bf7x19 + 1))[_0x924f[54]](
+          `${_0x924f[127]}${_0x2bf7x29[_0x924f[128]][_0x2bf7x19]}${
+            _0x924f[129]
+          }`
+        );
       }
- 
-      $('#tableposter').append('<tfoot id="posterfooter">');
-      $('#posterfooter').text("Click on a letter to change the color");
-
+      _0x2bf7x18 = _0x2bf7x18 + 3;
     }
-  };
+    $(_0x924f[40])[_0x924f[54]](_0x924f[70]);
+    $(_0x924f[41])[_0x924f[12]](_0x924f[71]);
+  }
+}

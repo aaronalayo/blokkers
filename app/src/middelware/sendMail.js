@@ -46,7 +46,7 @@ let total  = paymentDetails.payment.orderDetails.amount;
 // .substring(0, 3) + "." + paymentDetails.payment.orderDetails.amount.substring(3, paymentDetails.payment.orderDetails.amount.length);
 
 total = parseFloat(total/100).toFixed(2);
-console.log(total)
+// console.log(total)
 let taxes = 0;
 let subTaxes = 0;
 let price = 0;

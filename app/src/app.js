@@ -4,9 +4,17 @@ const session = require('express-session');
 const app = express();
 app.use(express.static('public'));
 const cookieParser = require('cookie-parser');
-
+const rateLimit = require("express-rate-limit");
 
 app.set('trust proxy', 1);
+app.use(
+  rateLimit({
+    windowMs: 2 * 60 * 60 * 1000, // 2 hour duration in milliseconds
+    max: 25,
+    message: "You exceeded 100 requests in 2 hour limit!",
+    headers: true,
+  })
+);
 const request = require('request');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -199,12 +207,12 @@ if(paymentId){
   let items = await Item.query().select().where({'payment_id':order[0].payment_id,'customer_uuid': order[0].customer_uuid});
   // console.log(items)
   let options = {
-    uri: 'https://test.api.dibspayment.eu/v1/payments/' + paymentId,
-    // uri: 'https://api.dibspayment.eu/v1/payments/' + paymentId,//live
+    // uri: 'https://test.api.dibspayment.eu/v1/payments/' + paymentId,
+    uri: 'https://api.dibspayment.eu/v1/payments/' + paymentId,//live
     method: 'GET',
     headers: {
-      'Authorization': 'ef160d0b15ef4bf3b243c8f6a6183b85'
-      // 'Authorization': 'b7989e81d50b47228ac61d7763986548'
+      // 'Authorization': 'ef160d0b15ef4bf3b243c8f6a6183b85'
+      'Authorization': 'b7989e81d50b47228ac61d7763986548'
     },
 }
 request(options, function (error, response, body) {

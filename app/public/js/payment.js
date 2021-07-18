@@ -1,192 +1,320 @@
 
 
+
+
+var _0x8916 = [
+  "\x6C\x6F\x67",
+  "\x63\x61\x74\x63\x68",
+  "\x64\x61\x74\x61",
+  "\x70\x61\x72\x73\x65",
+  "\x70\x61\x79\x6D\x65\x6E\x74\x49\x64",
+  "\x70\x61\x79\x6D\x65\x6E\x74",
+  "\x63\x72\x65\x61\x74\x65\x64",
+  "\x73\x75\x62\x73\x74\x72",
+  "\x74\x65\x78\x74",
+  "\x23\x64\x61\x74\x65",
+  "\x6F\x72\x64\x65\x72",
+  "\x4F\x72\x64\x65\x72\x20\x23",
+  "\x6F\x72\x64\x65\x72\x5F\x6E\x6F",
+  "\x23\x6F\x72\x64\x65\x72\x4E\x75\x6D\x62\x65\x72",
+  "\x69\x74\x65\x6D\x73",
+  "\x75\x6E\x64\x65\x66\x69\x6E\x65\x64",
+  "\x74\x72\x75\x65",
+  "\x73\x65\x74\x49\x74\x65\x6D",
+  "\x68\x72\x65\x66",
+  "\x6C\x6F\x63\x61\x74\x69\x6F\x6E",
+  "\x2F",
+  "\x63\x6C\x65\x61\x72",
+  "\x74\x68\x65\x6E",
+  "\x6A\x73\x6F\x6E",
+  "\x6D\x61\x70",
+  "\x61\x6C\x6C",
+  "\x2F\x64\x61\x74\x61",
+  "\x6C\x65\x6E\x67\x74\x68",
+  "",
+  "\x72\x65\x70\x6C\x61\x63\x65",
+  "\x69\x74\x65\x6D\x5F\x70\x61\x74\x68\x73",
+  "\x73\x74\x72\x69\x6E\x67\x69\x66\x79",
+  "\x2C",
+  "\x73\x70\x6C\x69\x74",
+  "\x69\x74\x65\x6D\x5F\x6E\x61\x6D\x65",
+  "\x3C\x64\x69\x76\x20\x69\x64\x3D\x22\x70\x6F\x73\x74\x65\x72\x2D\x64\x69\x73\x70\x6C\x61\x79\x2D",
+  "\x22\x3E\x3C\x2F\x64\x69\x76\x3E",
+  "\x61\x70\x70\x65\x6E\x64",
+  "\x2E\x6F\x72\x64\x65\x72\x2D\x63\x6F\x6E\x74\x61\x69\x6E\x65\x72",
+  "\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x6F\x72\x64\x65\x72\x2D\x74\x61\x62\x6C\x65\x22\x20\x69\x64\x3D",
+  "\x3E\x3C\x2F\x64\x69\x76\x3E",
+  "\x23\x70\x6F\x73\x74\x65\x72\x2D\x64\x69\x73\x70\x6C\x61\x79\x2D",
+  "\x3C\x74\x61\x62\x6C\x65\x20\x63\x6C\x61\x73\x73\x3D\x22\x6F\x72\x64\x65\x72\x2D\x74\x61\x62\x6C\x65\x22\x20\x69\x64\x3D\x22\x74\x61\x62\x6C\x65\x2D",
+  "\x22\x3E\x3C\x2F\x74\x61\x62\x6C\x65\x3E",
+  "\x23",
+  "\x3C\x74\x72\x20\x69\x64\x3D\x74\x72\x2D",
+  "\x2D",
+  "\x3E\x3C\x2F\x74\x72\x3E",
+  "\x23\x74\x61\x62\x6C\x65\x2D",
+  "\x3C\x74\x64\x20\x69\x64\x3D",
+  "\x3E\x3C\x2F\x74\x64\x3E",
+  "\x23\x74\x72\x2D",
+  "\x3C\x69\x6D\x67\x20\x73\x72\x63\x3D\x22",
+  "\x22\x3E",
+  "\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x73\x69\x7A\x65\x2D\x70\x6F\x73\x74\x65\x72\x22\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x73\x70\x61\x6E\x3E",
+  "\x69\x74\x65\x6D\x5F\x66\x6F\x72\x6D\x61\x74",
+  "\x3C\x2F\x73\x70\x61\x6E\x3E\x3C\x73\x70\x61\x6E\x3E\x20\x70\x6F\x73\x74\x65\x72\x20\x3C\x2F\x73\x70\x61\x6E\x3E\x3C\x73\x70\x61\x6E\x20\x63\x6C\x61\x73\x73\x3D\x22\x70\x6F\x73\x74\x65\x72\x22\x20\x69\x64\x3D",
+  "\x3E",
+  "\x20\x2D\x20\x3C\x2F\x73\x70\x61\x6E\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2F\x64\x69\x76\x3E\x20\x20\x20\x20\x20\x20\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x71\x75\x61\x6E\x74\x69\x74\x79\x22\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x73\x70\x61\x6E\x20\x69\x64\x3D\x22",
+  "\x2D\x71\x75\x61\x6E\x74\x69\x74\x79\x22\x3E",
+  "\x61\x6D\x6F\x75\x6E\x74",
+  "\x3C\x2F\x73\x70\x61\x6E\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2F\x64\x69\x76\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x70\x6F\x73\x74\x65\x72\x2D\x70\x72\x69\x63\x65\x22\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x73\x70\x61\x6E\x20\x69\x64\x3D\x22",
+  "\x2D\x70\x72\x69\x63\x65\x22\x3E",
+  "\x74\x6F\x74\x61\x6C\x5F\x70\x72\x69\x63\x65",
+  "\x20\x44\x4B\x4B",
+  "\x3C\x2F\x73\x70\x61\x6E\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2F\x64\x69\x76\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20",
+  "\x3C\x68\x72\x20\x63\x6C\x61\x73\x73\x3D\x22\x62\x61\x73\x6B\x65\x74\x2D\x64\x65\x76\x69\x64\x65\x72\x22\x3E",
+  "\x6F\x72\x64\x65\x72\x44\x65\x74\x61\x69\x6C\x73",
+  "\x64\x69\x73\x63\x6F\x75\x6E\x74",
+  "\x67\x65\x74\x49\x74\x65\x6D",
+  "\x64\x69\x73\x63\x6F\x75\x6E\x74\x73",
+  "\x65\x6E\x74\x72\x69\x65\x73",
+  "\x64\x69\x73\x63\x6F\x75\x6E\x74\x5F\x63\x6F\x64\x65",
+  "\x64\x69\x73\x63\x6F\x75\x6E\x74\x5F\x72\x61\x74\x65",
+  "\x73\x68\x6F\x77",
+  "\x23\x64\x69\x73\x63\x6F\x75\x6E\x74\x53\x70\x61\x6E",
+  "\x23\x64\x69\x73\x63\x6F\x75\x6E\x74",
+  "\x74\x6F\x46\x69\x78\x65\x64",
+  "\x23\x73\x75\x62\x74\x6F\x74\x61\x6C\x2D\x61\x6D\x6F\x75\x6E\x74",
+  "\x23\x74\x61\x78\x65\x73\x2D\x61\x6D\x6F\x75\x6E\x74",
+  "\x23\x74\x6F\x74\x61\x6C\x2D\x61\x6D\x6F\x75\x6E\x74",
+  "\x73\x68\x69\x70\x70\x69\x6E\x67\x5F\x66\x75\x6C\x6C\x5F\x6E\x61\x6D\x65",
+  "\x63\x75\x73\x74\x6F\x6D\x65\x72",
+  "\x73\x68\x69\x70\x70\x69\x6E\x67\x5F\x61\x64\x64\x72\x65\x73\x73",
+  "\x73\x68\x69\x70\x70\x69\x6E\x67\x5F\x7A\x69\x70\x5F\x63\x6F\x64\x65",
+  "\x73\x68\x69\x70\x70\x69\x6E\x67\x5F\x63\x69\x74\x79",
+  "\x44\x65\x6D\x6D\x61\x72\x6B",
+  "\x65\x6D\x61\x69\x6C",
+  "\x62\x69\x6C\x6C\x69\x6E\x67\x5F\x66\x75\x6C\x6C\x5F\x6E\x61\x6D\x65",
+  "\x62\x69\x6C\x6C\x69\x6E\x67\x5F\x61\x64\x64\x72\x65\x73\x73",
+  "\x62\x69\x6C\x6C\x69\x6E\x67\x5F\x7A\x69\x70\x5F\x63\x6F\x64\x65",
+  "\x62\x69\x6C\x6C\x69\x6E\x67\x5F\x63\x69\x74\x79",
+  "\x62\x69\x6C\x6C\x69\x6E\x67\x5F\x63\x6F\x75\x6E\x74\x72\x79",
+  "\x23\x73\x68\x69\x70\x70\x69\x6E\x67\x6E\x61\x6D\x65",
+  "\x23\x73\x68\x69\x70\x70\x69\x6E\x67\x61\x64\x64\x72\x65\x73\x73",
+  "\x23\x73\x68\x69\x70\x70\x69\x6E\x67\x7A\x69\x70",
+  "\x23\x73\x68\x69\x70\x70\x69\x6E\x67\x63\x69\x74\x79",
+  "\x23\x73\x68\x69\x70\x70\x69\x6E\x67\x63\x6F\x75\x6E\x74\x72\x79",
+  "\x23\x73\x68\x69\x70\x70\x69\x6E\x67\x65\x6D\x61\x69\x6C",
+  "\x23\x62\x69\x6C\x6C\x69\x6E\x67\x6E\x61\x6D\x65",
+  "\x23\x62\x69\x6C\x6C\x69\x6E\x67\x61\x64\x64\x72\x65\x73\x73",
+  "\x23\x62\x69\x6C\x6C\x69\x6E\x67\x7A\x69\x70",
+  "\x23\x62\x69\x6C\x6C\x69\x6E\x67\x63\x69\x74\x79",
+  "\x23\x62\x69\x6C\x6C\x69\x6E\x67\x63\x6F\x75\x6E\x74\x72\x79",
+  "\x23\x62\x69\x6C\x6C\x69\x6E\x67\x65\x6D\x61\x69\x6C",
+  "\x70\x6F\x73\x74\x65\x72\x73",
+  "\x50\x4F\x53\x54",
+  "\x2F\x73\x65\x6E\x64\x66\x69\x6C\x65\x73",
+  "\x61\x70\x70\x6C\x69\x63\x61\x74\x69\x6F\x6E\x2F\x6A\x73\x6F\x6E",
+  "\x61\x6A\x61\x78",
+];
 function getData() {
-  
-  Promise.all([
-    fetch('/data'),
-  ]).then(function (responses) {
-    // Get a JSON object from each of the responses
-    return Promise.all(responses.map(function (response) {
-      return response.json();
-    }));
-  }).then(function (data) {
-    // Log the data to the console
-    // You would do something with both sets of data here
-    // console.log(data);
-    if (data === undefined || !data) {
-      // console.log("Waiting for data");
-    } else {
-      let paymentDetails = data[0].data;
-      console.log(paymentDetails);
-      paymentDetails = JSON.parse(paymentDetails);
-
-      let paymentId = paymentDetails.payment.paymentId;
-      let date = new Date(paymentDetails.payment.created);
-      // console.log(paymentDetails.payment.created)
-      // date = date.toLocaleString("da-DK");
-      date = date.toString().substr(0, 21);
-      $("#date").text(date);
-      let orderDetails = data[0].order;
-      // console.log(orderDetails)
-      $("#orderNumber").text("Order #" + orderDetails[0].order_no);
-      let itemsDetails = data[0].items;
-      displayOrder(itemsDetails);
-      setTotalPay(paymentDetails.payment, itemsDetails);
-      setCustomerInfo(orderDetails);
-      if (paymentId) {
-        if (!sessionStorage.paymentId || sessionStorage.paymentId === 'undefined' ) {
-          // console.log('setting payment status in LS')
-          sessionStorage.setItem("paymentId", "true");
-          sendFiles(paymentDetails, date);
-          // console.log( localStorage.paymentId)
-        }  
-        else {   
-          window.location.href = "/";      
-          // localStorage.clear();,
-          sessionStorage.clear();
-          // document.body.style.display == "none";
-          
-        }
+  Promise[_0x8916[25]]([fetch(_0x8916[26])])
+    [_0x8916[22]](function (_0xf459x9) {
+      return Promise[_0x8916[25]](
+        _0xf459x9[_0x8916[24]](function (_0xf459xa) {
+          return _0xf459xa[_0x8916[23]]();
+        })
+      );
+    })
+    [_0x8916[22]](function (_0xf459x3) {
+      if (_0xf459x3 === undefined || !_0xf459x3) {
       } else {
-        // console.log("waiting for data");
-      }
-    }
-  }).catch(function (error) {
-    // if there's an error, log it
-    console.log(error);
-  });
-};
-
-function displayOrder(items) {
-  for (let i = 0; i < items.length; i++) {
-    let paths = JSON.stringify(items[i].item_paths).replace(/"/g, '').replace(/\\/g, '').replace(/[{}]/g, '');
-    paths = paths.split(",");
-    // console.log(paths)
-    let name = items[i].item_name;
-    $(".order-container").append(`<div id="poster-display-${name}"></div>`);
-    $(`#poster-display-${name}`).append(`<div class="order-table" id=${name}></div>`);
-    $(`#${name}`).append(`<table class="order-table" id="table-${name}"></table>`);
-    let k = 0;
-    for (let i = 0; i <= 3; i++) {
-      $(`#table-${name}`).append(`<tr id=tr-${i + 1}-${name}></tr>`)
-      for (let j = k; j <= k + 2; j++) {
-        $(`#tr-${i + 1}-${name}`).append(`<td id=${j + 1}-${name}></td>`);
-        $(`#${j + 1}-${name}`).append(`<img src="${paths[j]}">`);
-      }
-      k = k + 3;
-    }
-    $(`#poster-display-${name}`).append(`
-        <div class="size-poster">
-            <span>${items[i].item_format}</span><span> poster </span><span class="poster" id=${name}>${name} - </span>
-        </div>      
-        <div class="quantity">
-            <span id="${name}-quantity">${items[i].amount}</span>
-        </div>
-        <div class="poster-price">
-            <span id="${name}-price">${items[i].total_price + " DKK"}</span>
-        </div>
-        `);
-    $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
-  }
-};
-
-async function setTotalPay(payment, items) {
-  // console.log(items)
-  if (payment === undefined || !payment) {
-    // console.log("Waiting for data");
-  } else {
-    let totalPay = payment.orderDetails.amount / 100;
-    let taxes = 0;
-    let subTotal = 0;
-    let sub =0;
-    let subTaxes =0;
-    let rate;
-    for (let i = 0; i < items.length; i++) {
-      
-      sub = parseInt(items[i].total_price);
-      subTaxes =  (items[i].total_price / 1.25 - sub )* -1;
-      subTotal += sub;
-      taxes += subTaxes;
+        let _0xf459x4 = _0xf459x3[0][_0x8916[2]];
+        console[_0x8916[0]](_0xf459x4);
+        _0xf459x4 = JSON[_0x8916[3]](_0xf459x4);
+        let _0xf459x5 = _0xf459x4[_0x8916[5]][_0x8916[4]];
+        let _0xf459x6 = new Date(_0xf459x4[_0x8916[5]][_0x8916[6]]);
+        _0xf459x6 = _0xf459x6.toString()[_0x8916[7]](0, 21);
+        $(_0x8916[9])[_0x8916[8]](_0xf459x6);
+        let _0xf459x7 = _0xf459x3[0][_0x8916[10]];
+        $(_0x8916[13])[_0x8916[8]](_0x8916[11] + _0xf459x7[0][_0x8916[12]]);
+        let _0xf459x8 = _0xf459x3[0][_0x8916[14]];
+        displayOrder(_0xf459x8);
+        setTotalPay(_0xf459x4[_0x8916[5]], _0xf459x8);
+        setCustomerInfo(_0xf459x7);
+        if (_0xf459x5) {
+          if (
+            !sessionStorage[_0x8916[4]] ||
+            sessionStorage[_0x8916[4]] === _0x8916[15]
+          ) {
+            sessionStorage[_0x8916[17]](_0x8916[4], _0x8916[16]);
+            sendFiles(_0xf459x4, _0xf459x6);
+          } else {
+            window[_0x8916[19]][_0x8916[18]] = _0x8916[20];
+            sessionStorage[_0x8916[21]]();
+          }
+        } else {
         }
-        let discount = JSON.parse(sessionStorage.getItem("discount"));
-        if (discount === undefined || !discount) {
-          rate =0;
-        }else{
-          await getDiscounts().then((data) => {
-            if (data) {
-              for (let [key] of Object.entries(data.discounts)) {
-                if (discount === data.discounts[key].discount_code) {
-                  rate = data.discounts[key].discount_rate;
-                  // console.log(subTotal)
-                  rate = (subTotal * parseInt(data.discounts[key].discount_rate)) / 100;
-                  $("#discountSpan").show();
-                  $("#discount").show();
-
-                }
-              }
-            }
-          });
-        }
-    $("#discount").text(rate.toFixed(2) + " DKK");
-    $("#subtotal-amount").text(subTotal.toFixed(2) + " DKK");
-    $("#taxes-amount").text(taxes.toFixed(2) + " DKK");
-    $("#total-amount").text(totalPay.toFixed(2) + " DKK");
-
-  }
-};
-
-function setCustomerInfo(order) {
-  let shippingName = order[0].customer.shipping_full_name;
-  let shippingAddress = order[0].customer.shipping_address;
-  let shippingZip = order[0].customer.shipping_zip_code;
-  let shippingCity = order[0].customer.shipping_city
-  let shippingCountry = "Demmark";
-  let shippingEmail = order[0].customer.email;
-
-  let billingName = order[0].customer.billing_full_name != null ? order[0].customer.billing_full_name : shippingName;
-  let billingAddress = order[0].customer.billing_address != null ? order[0].customer.billing_address : shippingAddress;
-  let billingZip = order[0].customer.billing_zip_code != null ? order[0].customer.billing_zip_code : shippingZip;
-  let billingCity = order[0].customer.billing_city != null ? order[0].customer.billing_city : shippingCity;
-  let billingCountry = order[0].customer.billing_country != null ? order[0].customer.billing_country : shippingCountry;
-  let billingEmail = order[0].customer.email;
-
-  $("#shippingname").text(shippingName);
-  $("#shippingaddress").text(shippingAddress);
-  $("#shippingzip").text(shippingZip);
-  $("#shippingcity").text(shippingCity);
-  $("#shippingcountry").text(shippingCountry);
-  $("#shippingemail").text(shippingEmail);
-
-  $("#billingname").text(billingName);
-  $("#billingaddress").text(billingAddress);
-  $("#billingzip").text(billingZip);
-  $("#billingcity").text(billingCity);
-  $("#billingcountry").text(billingCountry);
-  $("#billingemail").text(billingEmail);
+      }
+    })
+    [_0x8916[1]](function (_0xf459x2) {
+      console[_0x8916[0]](_0xf459x2);
+    });
 }
-function sendFiles(paymentDetails,date) {
-  let discount = JSON.parse(sessionStorage.getItem("discount"));
-  let customer = JSON.parse(sessionStorage.getItem('customer'));
-  let posters = JSON.parse(sessionStorage.getItem('posters'));
-  // console.log(customer, posters,paymentId)
-  $.ajax({
-    global: false,
-    type: 'POST',
-    url: '/sendfiles',
-    data: {
-      posters: posters,
-      customer: customer,
-      paymentDetails:paymentDetails,
-      date:date,
-      discount: discount
-    },
-    ContentType: 'application/json',
-    dataType: "json",
-    success: function(response){
-      console.log(response)
+function displayOrder(_0xf459xc) {
+  for (let _0xf459xd = 0; _0xf459xd < _0xf459xc[_0x8916[27]]; _0xf459xd++) {
+    let _0xf459xe = JSON[_0x8916[31]](_0xf459xc[_0xf459xd][_0x8916[30]])
+      [_0x8916[29]](/"/g, _0x8916[28])
+      [_0x8916[29]](/\\/g, _0x8916[28])
+      [_0x8916[29]](/[{}]/g, _0x8916[28]);
+    _0xf459xe = _0xf459xe[_0x8916[33]](_0x8916[32]);
+    let _0xf459xf = _0xf459xc[_0xf459xd][_0x8916[34]];
+    $(_0x8916[38])[_0x8916[37]](`${_0x8916[35]}${_0xf459xf}${_0x8916[36]}`);
+    $(`${_0x8916[41]}${_0xf459xf}${_0x8916[28]}`)[_0x8916[37]](
+      `${_0x8916[39]}${_0xf459xf}${_0x8916[40]}`
+    );
+    $(`${_0x8916[44]}${_0xf459xf}${_0x8916[28]}`)[_0x8916[37]](
+      `${_0x8916[42]}${_0xf459xf}${_0x8916[43]}`
+    );
+    let _0xf459x10 = 0;
+    for (let _0xf459xd = 0; _0xf459xd <= 3; _0xf459xd++) {
+      $(`${_0x8916[48]}${_0xf459xf}${_0x8916[28]}`)[_0x8916[37]](
+        `${_0x8916[45]}${_0xf459xd + 1}${_0x8916[46]}${_0xf459xf}${_0x8916[47]}`
+      );
+      for (
+        let _0xf459x11 = _0xf459x10;
+        _0xf459x11 <= _0xf459x10 + 2;
+        _0xf459x11++
+      ) {
+        $(
+          `${_0x8916[51]}${_0xf459xd + 1}${_0x8916[46]}${_0xf459xf}${
+            _0x8916[28]
+          }`
+        )[_0x8916[37]](
+          `${_0x8916[49]}${_0xf459x11 + 1}${_0x8916[46]}${_0xf459xf}${
+            _0x8916[50]
+          }`
+        );
+        $(
+          `${_0x8916[44]}${_0xf459x11 + 1}${_0x8916[46]}${_0xf459xf}${
+            _0x8916[28]
+          }`
+        )[_0x8916[37]](`${_0x8916[52]}${_0xf459xe[_0xf459x11]}${_0x8916[53]}`);
+      }
+      _0xf459x10 = _0xf459x10 + 3;
     }
-  })
-};
-
-
-
+    $(`${_0x8916[41]}${_0xf459xf}${_0x8916[28]}`)[_0x8916[37]](
+      `${_0x8916[54]}${_0xf459xc[_0xf459xd][_0x8916[55]]}${
+        _0x8916[56]
+      }${_0xf459xf}${_0x8916[57]}${_0xf459xf}${_0x8916[58]}${_0xf459xf}${
+        _0x8916[59]
+      }${_0xf459xc[_0xf459xd][_0x8916[60]]}${_0x8916[61]}${_0xf459xf}${
+        _0x8916[62]
+      }${_0xf459xc[_0xf459xd][_0x8916[63]] + _0x8916[64]}${_0x8916[65]}`
+    );
+    $(`${_0x8916[41]}${_0xf459xf}${_0x8916[28]}`)[_0x8916[37]](
+      `${_0x8916[66]}`
+    );
+  }
+}
+async function setTotalPay(_0xf459x13, _0xf459xc) {
+  if (_0xf459x13 === undefined || !_0xf459x13) {
+  } else {
+    let _0xf459x14 = _0xf459x13[_0x8916[67]][_0x8916[60]] / 100;
+    let _0xf459x15 = 0;
+    let _0xf459x16 = 0;
+    let _0xf459x17 = 0;
+    let _0xf459x18 = 0;
+    let _0xf459x19;
+    for (let _0xf459xd = 0; _0xf459xd < _0xf459xc[_0x8916[27]]; _0xf459xd++) {
+      _0xf459x17 = parseInt(_0xf459xc[_0xf459xd][_0x8916[63]]);
+      _0xf459x18 = (_0xf459xc[_0xf459xd][_0x8916[63]] / 1.25 - _0xf459x17) * -1;
+      _0xf459x16 += _0xf459x17;
+      _0xf459x15 += _0xf459x18;
+    }
+    let _0xf459x1a = JSON[_0x8916[3]](sessionStorage[_0x8916[69]](_0x8916[68]));
+    if (_0xf459x1a === undefined || !_0xf459x1a) {
+      _0xf459x19 = 0;
+    } else {
+      await getDiscounts()[_0x8916[22]]((_0xf459x3) => {
+        if (_0xf459x3) {
+          for (let [key] of Object[_0x8916[71]](_0xf459x3[_0x8916[70]])) {
+            if (_0xf459x1a === _0xf459x3[_0x8916[70]][key][_0x8916[72]]) {
+              _0xf459x19 = _0xf459x3[_0x8916[70]][key][_0x8916[73]];
+              _0xf459x19 =
+                (_0xf459x16 *
+                  parseInt(_0xf459x3[_0x8916[70]][key][_0x8916[73]])) /
+                100;
+              $(_0x8916[75])[_0x8916[74]]();
+              $(_0x8916[76])[_0x8916[74]]();
+            }
+          }
+        }
+      });
+    }
+    $(_0x8916[76])[_0x8916[8]](_0xf459x19[_0x8916[77]](2) + _0x8916[64]);
+    $(_0x8916[78])[_0x8916[8]](_0xf459x16[_0x8916[77]](2) + _0x8916[64]);
+    $(_0x8916[79])[_0x8916[8]](_0xf459x15[_0x8916[77]](2) + _0x8916[64]);
+    $(_0x8916[80])[_0x8916[8]](_0xf459x14[_0x8916[77]](2) + _0x8916[64]);
+  }
+}
+function setCustomerInfo(_0xf459x1c) {
+  let _0xf459x1d = _0xf459x1c[0][_0x8916[82]][_0x8916[81]];
+  let _0xf459x1e = _0xf459x1c[0][_0x8916[82]][_0x8916[83]];
+  let _0xf459x1f = _0xf459x1c[0][_0x8916[82]][_0x8916[84]];
+  let _0xf459x20 = _0xf459x1c[0][_0x8916[82]][_0x8916[85]];
+  let _0xf459x21 = _0x8916[86];
+  let _0xf459x22 = _0xf459x1c[0][_0x8916[82]][_0x8916[87]];
+  let _0xf459x23 =
+    _0xf459x1c[0][_0x8916[82]][_0x8916[88]] != null
+      ? _0xf459x1c[0][_0x8916[82]][_0x8916[88]]
+      : _0xf459x1d;
+  let _0xf459x24 =
+    _0xf459x1c[0][_0x8916[82]][_0x8916[89]] != null
+      ? _0xf459x1c[0][_0x8916[82]][_0x8916[89]]
+      : _0xf459x1e;
+  let _0xf459x25 =
+    _0xf459x1c[0][_0x8916[82]][_0x8916[90]] != null
+      ? _0xf459x1c[0][_0x8916[82]][_0x8916[90]]
+      : _0xf459x1f;
+  let _0xf459x26 =
+    _0xf459x1c[0][_0x8916[82]][_0x8916[91]] != null
+      ? _0xf459x1c[0][_0x8916[82]][_0x8916[91]]
+      : _0xf459x20;
+  let _0xf459x27 =
+    _0xf459x1c[0][_0x8916[82]][_0x8916[92]] != null
+      ? _0xf459x1c[0][_0x8916[82]][_0x8916[92]]
+      : _0xf459x21;
+  let _0xf459x28 = _0xf459x1c[0][_0x8916[82]][_0x8916[87]];
+  $(_0x8916[93])[_0x8916[8]](_0xf459x1d);
+  $(_0x8916[94])[_0x8916[8]](_0xf459x1e);
+  $(_0x8916[95])[_0x8916[8]](_0xf459x1f);
+  $(_0x8916[96])[_0x8916[8]](_0xf459x20);
+  $(_0x8916[97])[_0x8916[8]](_0xf459x21);
+  $(_0x8916[98])[_0x8916[8]](_0xf459x22);
+  $(_0x8916[99])[_0x8916[8]](_0xf459x23);
+  $(_0x8916[100])[_0x8916[8]](_0xf459x24);
+  $(_0x8916[101])[_0x8916[8]](_0xf459x25);
+  $(_0x8916[102])[_0x8916[8]](_0xf459x26);
+  $(_0x8916[103])[_0x8916[8]](_0xf459x27);
+  $(_0x8916[104])[_0x8916[8]](_0xf459x28);
+}
+function sendFiles(_0xf459x4, _0xf459x6) {
+  let _0xf459x1a = JSON[_0x8916[3]](sessionStorage[_0x8916[69]](_0x8916[68]));
+  let _0xf459x2a = JSON[_0x8916[3]](sessionStorage[_0x8916[69]](_0x8916[82]));
+  let _0xf459x2b = JSON[_0x8916[3]](sessionStorage[_0x8916[69]](_0x8916[105]));
+  $[_0x8916[109]]({
+    global: false,
+    type: _0x8916[106],
+    url: _0x8916[107],
+    data: {
+      posters: _0xf459x2b,
+      customer: _0xf459x2a,
+      paymentDetails: _0xf459x4,
+      date: _0xf459x6,
+      discount: _0xf459x1a,
+    },
+    ContentType: _0x8916[108],
+    dataType: _0x8916[23],
+    success: function (_0xf459xa) {
+      console[_0x8916[0]](_0xf459xa);
+    },
+  });
+}
