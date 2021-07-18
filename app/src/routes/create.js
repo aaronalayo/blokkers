@@ -3,7 +3,6 @@ const request = require("request");
 const path = require('path');
 
 const fs = require("fs");
-const fsPromises = fs.promises;
 const builder = require("xmlbuilder", { encoding: "utf-8" });
 const fsExtra = require("fs-extra");
 const { promisify } = require('util');
@@ -19,8 +18,6 @@ const setValueToNull = require("../middelware/setValueNull.js");
 
 const createPoster = require("../middelware/createPoster.js");
 const promiseCreatePoster = promisify(createPoster);
-
-const setValueNull = require("../middelware/setValueNull.js");
 
 
 route.post("/createpaymentorder", async (req, res) => {
@@ -154,8 +151,8 @@ route.post("/createpaymentorder", async (req, res) => {
         },
       };
       // console.log(consumer)
-      let host = "https://blokkers.dk";
-      // let host = "http://localhost:8080"; 
+      // let host = "https://blokkers.dk";
+      let host = "http://localhost:8080"; 
       let options = {
         host: host + "/createorder",
         uri: "https://test.api.dibspayment.eu/v1/payments", //test
@@ -206,7 +203,7 @@ route.post("/createpaymentorder", async (req, res) => {
           // 'Authorization': 'b7989e81d50b47228ac61d7763986548',
         },
       };
-      console.log(options);
+      // console.log(options);
       request(options, function (error, response, body) {
         console.log("error:", error); // Print the error if one occurred
         console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
@@ -268,6 +265,7 @@ route.post("/createorder", async (req, res) => {
           // console.log(format)
           //Insert a new item in the database
           await Item.query().insert({
+            poster_id: poster.id,
             item_name: poster.pname,
             item_no: format[0].ext_no,
             item_format: format[0].format_no,
@@ -334,6 +332,7 @@ route.post("/createorder", async (req, res) => {
             .limit(1);
 
           await Item.query().insert({
+            poster_id: poster.id,
             item_name: poster.pname,
             item_no: format[0].ext_no,
             item_format: format[0].format_no,
@@ -393,7 +392,7 @@ route.post("/sendfiles", async (req, res) => {
     // fsExtra.emptyDir("/home/aaron/blokkers/app/output/");
   const { customer, posters, paymentDetails, date, discount } = req.body;
   // console.log(req.body);
-  // console.log(posters)
+  
   let orderSent = [];
   try {
     const order = await Order.query()
@@ -404,7 +403,7 @@ route.post("/sendfiles", async (req, res) => {
     const items = await Item.query()
       .select()
       .where({ payment_id: paymentDetails.payment.paymentId });
-    // console.log( items);
+      // console.log("Items to create from req.body "+ JSON.stringify(items));
     if (customer, posters) {
       // const output = "/aaron/blokkers/app/output/";
       // const output = "./output/";
@@ -413,12 +412,12 @@ route.post("/sendfiles", async (req, res) => {
         pdf: ".pdf",
         xml: ".xml",
       };
-      
+      orderSent.push(order[0].order_no);
        items.forEach(async (item) => {
         
         const newPricePerItem = item.price_per_item.replace(".", ',');
         const newTotalPrice = item.total_price.replace(".", ',');
-        orderSent.push(order[0].order_no);
+        
 
         const orderNo = order[0].order_no;
         const shopNo = "949452";
@@ -441,11 +440,13 @@ route.post("/sendfiles", async (req, res) => {
         localPdf = output + pdfFileName + ext["pdf"];
         // console.log(localPdf);
         localXml = output + pdfFileName + ext["xml"];
-
-        await fsPromises.writeFile(localPdf, itemName, function (err) {
+        // console.log(localPdf);
+  
+        fs.writeFile(localPdf, itemName, function (err) {
           if (err) throw err;
           console.log("File created!");
         });
+       
   
         //Object containing all the
         //document sizes and dimesions
@@ -464,19 +465,7 @@ route.post("/sendfiles", async (req, res) => {
         };
   
         let pdfSize = sizes[item.item_format];
-  
-        for (let i = 0; i < posters.length; i++) {
-          
-          let poster = posters[i];
-          poster.pdfLocal = localPdf;
-          poster.pdfSize = pdfSize;
-  
-          promiseCreatePoster(poster, order, items, paymentDetails, date, discount, (err) => {
-            if(err){
-              throw err;
-           }
-          });
-        }
+        // console.log(posters)
         //Create the XML object
         let xmlOrder = {
           PrintOrder: {
@@ -507,7 +496,7 @@ route.post("/sendfiles", async (req, res) => {
           .end({ pretty: true });
 
         //Write the XML to file
-        await fsPromises.writeFile(localXml, xml, function (err) {
+        fs.writeFile(localXml, xml, function (err) {
           if (err) {
             console.log(err);
           } else {
@@ -515,61 +504,22 @@ route.post("/sendfiles", async (req, res) => {
                     
           }
         });
+          posters.forEach((poster) => {
+            if(poster.id === item.poster_id){
+              poster.pdfLocal = localPdf;
+              poster.pdfSize = pdfSize;  
+            }
+          
+          }) 
+      });
+      createPoster(posters, orderSent, order, items, paymentDetails, date, discount);
       
-      });
- 
-      //Update the order after the files are sent to FTP server
-      orderSent.forEach(async (sentOrder) => {
-        await Order.query()
-          .select()
-          .update({
-            xml_sent: true,
-            pdf_sent: true,
-            order_confirmed: true,
-          })
-          .where({ order_no: sentOrder });
-      });
-    
       res.clearCookie('cart', { path: '/' });  
     }
   } catch (error) {
     console.log(error);
   }
 });
-
-// route.post("/sendmail", async (req, res) => {
-//   const {paymentDetails, date, discount} = req.body;
-//   let rate;
-//   try {
-    
-//     const discounts = await Discount.query().select();
-//    if(discount){
-//      discounts.forEach(discountsData =>{
-//        if(discount === discountsData.discount_code){
-//           rate =  discountsData.discount_rate;
-//           rate = rate.replace("%", "");
-//           rate = parseInt(rate);
-//        }else{
-//          rate = "";
-//        }
-//      })
-//    }
-   
-//     const order = await Order.query()
-//       .select()
-//       .where({ payment_id: paymentDetails.payment.paymentId })
-//       .withGraphJoined("customer");
-//       // console.log(order);
-//     const items = await Item.query()
-//       .select()
-//       .where({payment_id: paymentDetails.payment.paymentId});
-//     // console.log(items);
-//   sendMail(order, items, date,paymentDetails, rate)
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
 
 
 module.exports = route;

@@ -1,15 +1,12 @@
 const fs = require("fs");
 let config = require("../ftp.js");
-// const { promisify } = require("util");
-// const readDirSync = promisify(fs.readdirSync);
-// const Bluebird = require("Bluebird");
 let EasyFtp = require("easy-ftp");
 let ftp = new EasyFtp();
 const path = require('path');
 const fsPromises = fs.promises;
-const sendMail = require('../middelware/sendMail.js');
+
 //Function to send PDL and XML files to FTP server
-module.exports = function sendPdfXml(order, items, paymentDetails, date, discount) {
+module.exports = function sendPdfXml() {
 // console.log(order, items, paymentDetails, date, discount)
   try {
     listDir()
@@ -25,7 +22,7 @@ module.exports = function sendPdfXml(order, items, paymentDetails, date, discoun
           }
         });
         ftp.connect(config);
-      }).then(sendMail(order, items, paymentDetails, date, discount))
+      })
       .catch(function (err) {
         console.log(err);
       });
@@ -37,7 +34,7 @@ module.exports = function sendPdfXml(order, items, paymentDetails, date, discoun
 };
 
 async function listDir() {
-  let output = path.join(__dirname, "../output/");
+   let output = path.join(__dirname, "../output/");
   // let output = "/aaron/blokkers/app/output/";
   let localPdf = [];
   let localXml = [];
@@ -45,7 +42,7 @@ async function listDir() {
   let remoteXml = [];
   let arr = [];
   try {
-    return fsPromises.readdir(output, "utf-8").then((files) => {
+    return await fsPromises.readdir(output, "utf-8").then((files) => {
       files.forEach((file) => {
         if (file.split(".").pop() === "pdf") {
           localPdf.push(output + file);

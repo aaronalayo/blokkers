@@ -17,7 +17,7 @@ function getData() {
       // console.log("Waiting for data");
     } else {
       let paymentDetails = data[0].data;
-      // console.log(paymentDetails);
+      console.log(paymentDetails);
       paymentDetails = JSON.parse(paymentDetails);
 
       let paymentId = paymentDetails.payment.paymentId;
@@ -31,7 +31,7 @@ function getData() {
       $("#orderNumber").text("Order #" + orderDetails[0].order_no);
       let itemsDetails = data[0].items;
       displayOrder(itemsDetails);
-      setTotalPay(paymentDetails.payment,itemsDetails);
+      setTotalPay(paymentDetails.payment, itemsDetails);
       setCustomerInfo(orderDetails);
       if (paymentId) {
         if (!sessionStorage.paymentId || sessionStorage.paymentId === 'undefined' ) {
@@ -186,29 +186,7 @@ function sendFiles(paymentDetails,date) {
       console.log(response)
     }
   })
-  // callback();
 };
-// function sendMail(paymentDetails, date) {
-//   let discount = JSON.parse(sessionStorage.getItem("discount"));
-//   let customer = JSON.parse(sessionStorage.getItem('customer'));  
-//   $.ajax({
-//     global: false,
-//     type: 'POST',
-//     url: '/sendmail',
-//     data: {
-//       // posters: posters,
-//       customer: customer,
-//       paymentDetails: paymentDetails,
-//       date:date,
-//       discount: discount
-//     },
-//     ContentType: 'application/json',
-//     dataType: "json",
-//     success: function(response){
-//       console.log(response)
-//     }
-//   })
-  
-// };
+
 
 

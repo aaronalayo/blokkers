@@ -24,13 +24,16 @@ let middleSession = session({
       cookie: {
           maxAge: 1000 * 60 * 60 * 24 * 15, // 2 week
           httpOnly: false,
-          secure: true // TODO: Update this on production     
-         }
+          secure: true, // TODO: Update this on production     
+          paymentId: ""
+         },
+      
     });
 app.use(middleSession);
 
 app.use(function(req, res, next){
   res.locals.session = req.session;
+
   next();
 })
 
@@ -172,14 +175,31 @@ app.get(discounts, async (req, res)=> {
   res.json({'discounts' : discounts});
 });
 
-let data;
-let paymentId;
+
+// var paymentId = "";
+
 app.get(payment, async (req, res) => {
-  paymentId = req.query.paymentid;
-  if(paymentId){
-  // console.log(paymentId);
+   let paymentId = req.query.paymentid;
+  res.clearCookie("paymentId", { path: '/' });
+  res.cookie("paymentId",paymentId);
+
+ 
+return res.status(200).send(navbar + paymentPage + footerPage);
+
+});
+
+app.get('/data', async (req, res) => {
+  
+let paymentId = req.cookies.paymentId;
+let data;
+if(paymentId){
+  
+  let order = await Order.query().select().where({'payment_id':paymentId}).withGraphJoined('customer');
+  // console.log(order)
+  let items = await Item.query().select().where({'payment_id':order[0].payment_id,'customer_uuid': order[0].customer_uuid});
+  // console.log(items)
   let options = {
-    uri: 'https://test.api.dibspayment.eu/v1/payments/'+paymentId,
+    uri: 'https://test.api.dibspayment.eu/v1/payments/' + paymentId,
     // uri: 'https://api.dibspayment.eu/v1/payments/' + paymentId,//live
     method: 'GET',
     headers: {
@@ -191,19 +211,15 @@ request(options, function (error, response, body) {
   console.log('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
   // console.log("body:", body);
-  data = body
-});
-return res.status(200).send(navbar + paymentPage + footerPage);
-}else {
-  res.redirect('/')
+  data = body;
+  res.clearCookie('cart','paymentId', { path: '/' }).json({'order':order, 'items':items,'data':data});
+})
+  
 }
-});
 
-app.get('/data', async (req, res) => {
-  const order = await Order.query().select().where({'payment_id':paymentId}).withGraphJoined('customer');
-  const items = await Item.query().select().where({'payment_id':paymentId,'customer_uuid': order[0].customer_uuid});
   // console.log(data);
-  res.clearCookie('cart', { path: '/' }).json({'order':order, 'items':items,'data':data});  
+  
+  
 });
 
 app.get(about, (req, res) => {

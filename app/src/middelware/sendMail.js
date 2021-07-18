@@ -9,7 +9,7 @@ const Discount = require("../model/Discount.js");
 
 
 module.exports = async function sendMail(order, items, paymentDetails, date, discount){
-  // console.log(order, items, paymentDetails, date, discount);
+  
   let rate;
   try {
     

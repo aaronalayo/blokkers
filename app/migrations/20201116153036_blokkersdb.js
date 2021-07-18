@@ -48,6 +48,7 @@ exports.up = async function(knex) {
     //    })
        .createTable('items',(table)=>{ 
         table.uuid('item_uuid').primary().notNullable().defaultTo(knex.raw('uuid_generate_v4()'));
+        table.string('poster_id').notNullable();
         table.string('item_no').notNullable();
         table.string('item_format').notNullable(); 
         table.string('item_name').notNullable();
