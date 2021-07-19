@@ -9,9 +9,9 @@ const rateLimit = require("express-rate-limit");
 app.set('trust proxy', 1);
 app.use(
   rateLimit({
-    windowMs: 2 * 60 * 60 * 1000, // 2 hour duration in milliseconds
-    max: 25,
-    message: "You exceeded 100 requests in 2 hour limit!",
+    windowMs: 12 * 60 * 60 * 1000, // 2 hour duration in milliseconds
+    max: 500,
+    message: "You exceeded 100 requests in 12 hour limit!",
     headers: true,
   })
 );
