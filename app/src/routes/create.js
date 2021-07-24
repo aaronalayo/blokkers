@@ -17,7 +17,7 @@ const checkParameter = require("../middelware/checkParameters.js");
 const setValueToNull = require("../middelware/setValueNull.js");
 
 const createPoster = require("../middelware/createPoster.js");
-const promiseCreatePoster = promisify(createPoster);
+
 
 
 route.post("/createpaymentorder", async (req, res) => {
