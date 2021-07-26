@@ -5,8 +5,6 @@ const path = require('path');
 const fs = require("fs");
 const builder = require("xmlbuilder", { encoding: "utf-8" });
 const fsExtra = require("fs-extra");
-const { promisify } = require('util');
-const writeFile = promisify(fs.writeFile);
 const Customer = require("../model/Customer.js");
 const Order = require("../model/Order.js");
 const Format = require("../model/Format.js");
@@ -51,7 +49,7 @@ route.post("/createpaymentorder", async (req, res) => {
   const billingshippingAddress = setValueToNull(billingaddress);
   const billingCity = setValueToNull(billingcity);
   const billingZipCode = setValueToNull(billingzip);
-
+  // console.log(billingFullname)
   try {
     if (
       (discountCode,

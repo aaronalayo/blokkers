@@ -3,7 +3,7 @@
 const path = require('path');
 const dotenvPath = path.join(__dirname, '..', '.env');
 require('dotenv').config({path: dotenvPath});
-// console.log(process.env.FTPUSER)
+// console.log(process.env.FTPPASS)
 let config = {
   host: process.env.FTPHOST,
   port: process.env.FTPPORT,
