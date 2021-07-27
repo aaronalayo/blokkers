@@ -17,6 +17,7 @@ exports.up = async function(knex) {
         table.string('dimension').notNullable();
         table.decimal('price').unsigned().notNullable();
         table.string('ext_no').notNullable();
+        table.decimal('print_price').unsigned().notNullable();
 
   
     })
@@ -56,6 +57,8 @@ exports.up = async function(knex) {
         table.integer('amount').unsigned().notNullable();
         table.decimal('price_per_item').unsigned().notNullable();
         table.decimal('total_price').unsigned().notNullable();
+        table.decimal('print_price').unsigned().notNullable();
+        table.decimal('total_print_price').unsigned().notNullable();
         table.uuid('customer_uuid').notNullable();
         table.uuid('format_uuid').notNullable();
         table.string('payment_id').defaultTo(null);

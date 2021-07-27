@@ -1,9 +1,9 @@
 
 exports.seed = function(knex) {
     return knex('formats').insert([
-        {format_no: 'A1', size: '(2383.94, 3370.39)', dimension:'(594 x 841mm)', price: 600.00, ext_no:'extshop-594x841'},
-        {format_no: 'A2', size: '(1190.55, 1683.78)', dimension:'(420 x 594 mm)', price: 400.00, ext_no:'extshop-420x594'},
-        {format_no: 'A3', size: '(841.89, 1190.55)', dimension:'(297 x 420 mm)', price: 300.00, ext_no:'extshop-297x420'},
+        {format_no: 'A1', size: '(2383.94, 3370.39)', dimension:'(594 x 841mm)', price: 600.00, ext_no:'extshop-594x841', print_price: 110.00},
+        {format_no: 'A2', size: '(1190.55, 1683.78)', dimension:'(420 x 594 mm)', price: 400.00, ext_no:'extshop-420x594', print_price: 65.00},
+        {format_no: 'A3', size: '(841.89, 1190.55)', dimension:'(297 x 420 mm)', price: 300.00, ext_no:'extshop-297x420', print_price: 65.00},
    
     ]);
 };

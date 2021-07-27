@@ -149,8 +149,8 @@ route.post("/createpaymentorder", async (req, res) => {
         },
       };
       // console.log(consumer)
-      let host = "https://blokkers.dk";
-      // let host = "http://localhost:8080"; 
+      // let host = "https://blokkers.dk";
+      let host = "http://localhost:8080"; 
       let options = {
         host: host + "/createorder",
         // uri: "https://test.api.dibspayment.eu/v1/payments", //test
@@ -277,6 +277,14 @@ route.post("/createorder", async (req, res) => {
                 2
               )
             ),
+            print_price: format[0].print_price,
+            total_print_price: (format[0].print_price * poster.quantity).toFixed(
+              Math.max(
+                ((format[0].print_price * poster.quantity + "").split(".")[1] || "")
+                  .length,
+                2
+              )
+            ),
             customer_uuid: customerFound[0].customer_uuid,
             format_uuid: format[0].format_uuid,
             payment_id: paymentId,
@@ -344,15 +352,23 @@ route.post("/createorder", async (req, res) => {
                 2
               )
             ),
+            print_price: format[0].print_price,
+            total_print_price: (format[0].print_price * poster.quantity).toFixed(
+              Math.max(
+                ((format[0].print_price * poster.quantity + "").split(".")[1] || "")
+                  .length,
+                2
+              )
+            ),
             customer_uuid: newCustomer[0].customer_uuid,
             format_uuid: format[0].format_uuid,
             payment_id: paymentId,
           });
         });
-        const newItem = await Item.query()
-          .select()
-          .where({ customer_uuid: newCustomer[0].customer_uuid })
-          .limit(1);
+        // const newItem = await Item.query()
+        //   .select()
+        //   .where({ customer_uuid: newCustomer[0].customer_uuid })
+        //   .limit(1);
         await Order.query()
           .insert({
             customer_uuid: newCustomer[0].customer_uuid,
@@ -413,8 +429,8 @@ route.post("/sendfiles", async (req, res) => {
       orderSent.push(order[0].order_no);
        items.forEach(async (item) => {
         
-        const newPricePerItem = item.price_per_item.replace(".", ',');
-        const newTotalPrice = item.total_price.replace(".", ',');
+        const newPricePerItem = item.print_price.replace(".", ',');
+        const newTotalPrice = item.total_print_price.replace(".", ',');
         
 
         const orderNo = order[0].order_no;
