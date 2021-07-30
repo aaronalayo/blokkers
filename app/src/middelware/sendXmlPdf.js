@@ -11,7 +11,7 @@ module.exports = function sendPdfXml() {
   try {
     listDir()
       .then((arr) => {
-        console.log(arr);
+        // console.log(arr);
         ftp.upload(arr, function (err) {
           if (err) {
             console.log("This is ftp :" + err);

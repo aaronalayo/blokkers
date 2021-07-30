@@ -275,12 +275,11 @@
         border-collapse: collapse !important;
         margin-left: auto;
         margin-right: auto;
-     
+
     }
 
     #colourtable2 {
         border: 4px;
-
         border-collapse: collapse !important;
         margin-left: auto;
         margin-right: auto;
@@ -313,7 +312,6 @@
 
 
     #done_button {
-
         font-size: 1vw;
         font-family: "nunitoblack";
         text-decoration: none;
@@ -327,7 +325,6 @@
     }
 
     #next_button {
-
         font-size: 1vw;
         font-family: "nunitoblack";
         text-decoration: none;
@@ -343,7 +340,6 @@
 
     .fa.fa-angle-left:hover {
         color: rgb(136, 135, 135) !important;
-
     }
 
     .fa.fa-angle-right:hover {
@@ -351,14 +347,13 @@
     }
 
     .fa-animate {
-
         opacity: 1;
         transition: all 0.3s cubic-bezier(0.16, 0.08, 0.355, 1);
     }
     .fa-2x {
-            color: rgb(158, 158, 158);
-            font-size: 1.5vw;
-        }
+        color: rgb(158, 158, 158);
+        font-size: 1.5vw;
+    }
 
     .basket {
         margin: 4%;
@@ -377,6 +372,7 @@
         float: left;
         text-align: center;
     }
+   
 
     @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
         body {
@@ -1072,7 +1068,7 @@
                                         onclick="validateForm()">Next</a>
                                 </div>
                                 <div id='content-desktop' class="basket">
-                                    <button type="submit" name="next" value="Next" id="next_button"
+                                    <button title="Click to display the poster" type="submit" name="next" value="Next" id="next_button"
                                         onclick="validateForm()">Next</button>
                                 </div>
                             </div>
@@ -1083,17 +1079,17 @@
 
                             <div id='posterdiv'>
                                 <form id="imageForm" action="/satisfied">
-                                    <table id='tableposter'>
+                                    <table title="Click on a letter to change the color" id='tableposter'>
                                     </table>
                             </div>
                         </div>
                         <div class="col-25">
                             <div id="changecolour" hidden>
                                 <p id="choosecolor"></p>
-                                <table id="colourtable">
+                                <table title="Click on a letter to change the color" id="colourtable">
 
                                 </table>
-                                <table id="colourtable2">
+                                <table title="Click on a letter to change the color" id="colourtable2">
                                 </table>
                                 <div id="done_div">
                                     <button type="submit" id="done_button" onclick="getSrc()" hidden>Done</button>
