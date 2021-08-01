@@ -1,384 +1,311 @@
-
-var _0x1946 = [
-  "\x70\x6F\x73\x74\x65\x72\x73",
-  "\x67\x65\x74\x49\x74\x65\x6D",
-  "\x70\x61\x72\x73\x65",
-  "",
-  "\x6C\x65\x6E\x67\x74\x68",
-  "\x68\x69\x64\x65",
-  "\x23\x62\x61\x73\x6B\x65\x74\x2D\x68\x65\x61\x64\x65\x72",
-  "\x23\x74\x6F\x74\x61\x6C\x2D\x61\x6D\x6F\x75\x6E\x74\x2D\x62\x6F\x78",
-  "\x2E\x63\x6F\x75\x70\x6F\x6E",
-  "\x73\x68\x6F\x77",
-  "\x23\x65\x6D\x70\x74\x79\x2D\x62\x61\x73\x6B\x65\x74",
-  "\x23",
-  "\x70\x6E\x61\x6D\x65",
-  "\x73\x74\x72\x69\x6E\x67\x69\x66\x79",
-  "\x73\x65\x74\x49\x74\x65\x6D",
-  "\x3C\x64\x69\x76\x20\x69\x64\x3D\x22\x70\x6F\x73\x74\x65\x72\x2D\x64\x69\x73\x70\x6C\x61\x79\x2D",
-  "\x22\x3E\x3C\x2F\x64\x69\x76",
-  "\x61\x70\x70\x65\x6E\x64",
-  "\x2E\x62\x61\x73\x6B\x65\x74\x2D\x69\x74\x65\x6D\x73",
-  "\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x62\x61\x73\x6B\x65\x74\x2D\x74\x61\x62\x6C\x65\x22\x20\x69\x64\x3D",
-  "\x3E\x3C\x2F\x64\x69\x76\x3E",
-  "\x23\x70\x6F\x73\x74\x65\x72\x2D\x64\x69\x73\x70\x6C\x61\x79\x2D",
-  "\x3C\x74\x61\x62\x6C\x65\x20\x63\x6C\x61\x73\x73\x3D\x22\x62\x61\x73\x6B\x65\x74\x2D\x74\x61\x62\x6C\x65\x22\x20\x69\x64\x3D\x22\x74\x61\x62\x6C\x65\x2D",
-  "\x22\x3E\x3C\x2F\x74\x61\x62\x6C\x65\x3E",
-  "\x3C\x74\x72\x20\x69\x64\x3D\x74\x72\x2D",
-  "\x2D",
-  "\x3E\x3C\x2F\x74\x72\x3E",
-  "\x23\x74\x61\x62\x6C\x65\x2D",
-  "\x3C\x74\x64\x20\x69\x64\x3D",
-  "\x3E\x3C\x2F\x74\x64\x3E\x20",
-  "\x23\x74\x72\x2D",
-  "\x3C\x69\x6D\x67\x20\x73\x72\x63\x3D\x22",
-  "\x70\x61\x74\x68\x73",
-  "\x22\x3E",
-  "\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x73\x69\x7A\x65\x2D\x70\x6F\x73\x74\x65\x72\x22\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x73\x70\x61\x6E\x3E",
-  "\x73\x69\x7A\x65",
-  "\x3C\x2F\x73\x70\x61\x6E\x3E\x3C\x73\x70\x61\x6E\x3E\x20\x70\x6F\x73\x74\x65\x72\x3C\x2F\x73\x70\x61\x6E\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2F\x64\x69\x76\x3E\x0D\x0A\x20\x20\x20\x20\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x71\x75\x61\x6E\x74\x69\x74\x79\x22\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x73\x70\x61\x6E\x20\x63\x6C\x61\x73\x73\x3D\x22\x71\x75\x61\x6E\x74\x69\x74\x79\x6C\x65\x66\x74\x22\x3E\x3C\x62\x75\x74\x74\x6F\x6E\x20\x69\x64\x3D\x22",
-  "\x2D\x64\x65\x63\x72\x65\x61\x73\x65\x22\x20\x6F\x6E\x63\x6C\x69\x63\x6B\x3D\x22\x64\x65\x63\x72\x65\x6D\x65\x6E\x74\x28",
-  "\x26\x71\x75\x6F\x74\x3B",
-  "\x72\x65\x70\x6C\x61\x63\x65",
-  "\x29\x22\x3E\x3C\x3C\x2F\x62\x75\x74\x74\x6F\x6E\x3E\x3C\x2F\x73\x70\x61\x6E\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x73\x70\x61\x6E\x20\x63\x6C\x61\x73\x73\x3D\x22\x71\x75\x61\x6E\x74\x69\x74\x79\x6E\x75\x6D\x62\x65\x72\x22\x20\x69\x64\x3D\x22",
-  "\x2D\x71\x75\x61\x6E\x74\x69\x74\x79\x22\x3E",
-  "\x71\x75\x61\x6E\x74\x69\x74\x79",
-  "\x3C\x2F\x73\x70\x61\x6E\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x73\x70\x61\x6E\x20\x63\x6C\x61\x73\x73\x3D\x22\x71\x75\x61\x6E\x74\x69\x74\x79\x72\x69\x67\x68\x74\x22\x3E\x3C\x62\x75\x74\x74\x6F\x6E\x20\x6F\x6E\x63\x6C\x69\x63\x6B\x3D\x22\x69\x6E\x63\x72\x65\x6D\x65\x6E\x74\x28",
-  "\x29\x22\x3E\x3E\x3C\x2F\x62\x75\x74\x74\x6F\x6E\x3E\x3C\x2F\x73\x70\x61\x6E\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2F\x64\x69\x76\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x70\x6F\x73\x74\x65\x72\x2D\x70\x72\x69\x63\x65\x22\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x73\x70\x61\x6E\x20\x69\x64\x3D\x22",
-  "\x2D\x70\x72\x69\x63\x65\x22\x3E\x3C\x2F\x73\x70\x61\x6E\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2F\x64\x69\x76\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x74\x72\x61\x73\x68\x22\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x73\x70\x61\x6E\x20\x69\x64\x3D\x22\x74\x72\x61\x73\x68\x22\x20\x6F\x6E\x63\x6C\x69\x63\x6B\x3D\x22\x72\x65\x6D\x6F\x76\x65\x28",
-  "\x29\x22\x3E\x3C\x69\x20\x63\x6C\x61\x73\x73\x3D\x22\x66\x61\x20\x66\x61\x2D\x74\x72\x61\x73\x68\x2D\x6F\x22\x20\x73\x74\x79\x6C\x65\x3D\x22\x66\x6F\x6E\x74\x2D\x73\x69\x7A\x65\x3A\x31\x38\x70\x78\x22\x20\x61\x72\x69\x61\x2D\x68\x69\x64\x64\x65\x6E\x3D\x22\x74\x72\x75\x65\x22\x22\x3E\x3C\x2F\x69\x3E\x3C\x2F\x73\x70\x61\x6E\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2F\x64\x69\x76\x3E\x0D\x0A\x20\x20\x20\x20\x20\x20\x20\x20",
-  "\x3C\x68\x72\x20\x63\x6C\x61\x73\x73\x3D\x22\x62\x61\x73\x6B\x65\x74\x2D\x64\x65\x76\x69\x64\x65\x72\x22\x3E",
-  "\x74\x65\x78\x74",
-  "\x23\x73\x69\x7A\x65",
-  "\x70\x72\x69\x63\x65",
-  "\x20\x44\x4B\x4B",
-  "\x2D\x70\x72\x69\x63\x65",
-  "\x66\x6F\x72\x45\x61\x63\x68",
-  "\x74\x6F\x46\x69\x78\x65\x64",
-  "\x6B\x65\x79\x73",
-  "\x2D\x71\x75\x61\x6E\x74\x69\x74\x79",
-  "\x64\x69\x73\x61\x62\x6C\x65\x64",
-  "\x70\x72\x6F\x70",
-  "\x2D\x64\x65\x63\x72\x65\x61\x73\x65",
-  "\x69\x6E\x64\x65\x78\x4F\x66",
-  "\x73\x70\x6C\x69\x63\x65",
-  "\x68\x72\x65\x66",
-  "\x6C\x6F\x63\x61\x74\x69\x6F\x6E",
-  "\x2E\x2E\x2E",
-  "\x23\x73\x75\x62\x74\x6F\x74\x61\x6C\x2D\x61\x6D\x6F\x75\x6E\x74",
-  "\x23\x74\x61\x78\x65\x73\x2D\x61\x6D\x6F\x75\x6E\x74",
-  "\x23\x74\x6F\x74\x61\x6C\x2D\x61\x6D\x6F\x75\x6E\x74",
-  "\x66\x6F\x72\x6D\x61\x74\x73",
-  "\x65\x6E\x74\x72\x69\x65\x73",
-  "\x66\x6F\x72\x6D\x61\x74\x5F\x6E\x6F",
-  "\x74\x68\x65\x6E",
-  "\x6A\x73\x6F\x6E",
-  "\x2F\x64\x69\x73\x63\x6F\x75\x6E\x74\x73",
-  "\x74\x6F\x4C\x6F\x77\x65\x72\x43\x61\x73\x65",
-  "\x76\x61\x6C",
-  "\x23\x64\x69\x73\x63\x6F\x75\x6E\x74",
-  "\x73\x75\x62\x73\x74\x72",
-  "\x64\x69\x73\x63\x6F\x75\x6E\x74\x2D\x61\x6D\x6F\x75\x6E\x74",
-  "\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64",
-  "\x74\x65\x78\x74\x43\x6F\x6E\x74\x65\x6E\x74",
-  "\x69\x6E\x6E\x65\x72\x54\x65\x78\x74",
-  "\x64\x69\x73\x63\x6F\x75\x6E\x74\x73",
-  "\x64\x69\x73\x63\x6F\x75\x6E\x74\x5F\x72\x61\x74\x65",
-  "\x54\x68\x69\x73\x20\x64\x69\x73\x63\x6F\x75\x6E\x74\x20\x63\x6F\x64\x65\x20\x69\x73\x20\x61\x6C\x72\x65\x61\x64\x79\x20\x61\x70\x70\x6C\x69\x65\x64\x21",
-  "\x64\x69\x73\x63\x6F\x75\x6E\x74\x5F\x63\x6F\x64\x65",
-  "\x25",
-  "\x68\x65\x69\x67\x68\x74",
-  "\x32\x33\x30\x70\x78",
-  "\x63\x73\x73",
-  "\x23\x64\x69\x73\x63\x6F\x75\x6E\x74\x2D\x61\x6D\x6F\x75\x6E\x74",
-  "\x23\x64\x69\x73\x63\x6F\x75\x6E\x74\x2D\x72\x6F\x77",
-  "\x74\x6F\x74\x61\x6C",
-  "\x64\x69\x73\x63\x6F\x75\x6E\x74",
-  "\x54\x68\x65\x72\x65\x20\x69\x73\x20\x6E\x6F\x20\x64\x69\x73\x63\x6F\x75\x6E\x74\x20\x66\x6F\x72\x20\x74\x68\x69\x73\x20\x63\x6F\x64\x65\x21",
-  "\x50\x4F\x53\x54",
-  "\x2F\x73\x65\x74\x63\x61\x72\x74",
-  "\x61\x70\x70\x6C\x69\x63\x61\x74\x69\x6F\x6E\x2F\x6A\x73\x6F\x6E",
-  "\x6C\x6F\x67",
-  "\x61\x6A\x61\x78",
-  "\x2F\x75\x70\x64\x61\x74\x65\x63\x61\x72\x74",
-  "\x2F\x64\x65\x6C\x65\x74\x65\x63\x61\x72\x74",
-];
+//displays all posters that are added to basket
 function displayPosters() {
-  let _0x49b8x2 = JSON[_0x1946[2]](sessionStorage[_0x1946[1]](_0x1946[0]));
+  let posters = JSON.parse(sessionStorage.getItem("posters"));
+  //checks if there are posters added, if not it shows empty-basket div
   if (
-    typeof _0x49b8x2 === undefined ||
-    !_0x49b8x2 ||
-    _0x49b8x2 === _0x1946[3] ||
-    _0x49b8x2[_0x1946[4]] < 1
+    typeof posters === undefined ||
+    !posters ||
+    posters === "" ||
+    posters.length < 1
   ) {
-    $(_0x1946[6])[_0x1946[5]]();
-    $(_0x1946[7])[_0x1946[5]]();
-    $(_0x1946[8])[_0x1946[5]]();
-    $(_0x1946[10])[_0x1946[9]]();
-  } else {
-    if (_0x49b8x2[_0x1946[4]] > 0) {
-      _0x49b8x2[_0x1946[53]]((_0x49b8x3) => {
-        let _0x49b8x4;
-        if (!$(_0x1946[11] + _0x49b8x3[_0x1946[12]])[_0x1946[4]]) {
-          _0x49b8x4 = _0x49b8x3[_0x1946[12]];
-        } else {
-          _0x49b8x4 = _0x49b8x3[_0x1946[12]] + 1;
-          while ($(_0x1946[11] + _0x49b8x4)[_0x1946[4]]) {
-            _0x49b8x4 = _0x49b8x4 + 1;
-          }
-          _0x49b8x3[_0x1946[12]] = _0x49b8x4;
-          sessionStorage[_0x1946[14]](_0x1946[0], JSON[_0x1946[13]](_0x49b8x2));
+    $("#basket-header").hide();
+    $("#total-amount-box").hide();
+    $(".coupon").hide();
+    $("#empty-basket").show();
+  } else if (posters.length > 0) {
+    //goes through each poster and displays it with it's size, price and quantity
+    posters.forEach((poster) => {
+      let name;
+      //checks if element with id same as the poster name exist
+      //if yes it changes the name of the poster so a new row can be added for a poster with same name
+      if (!$("#" + poster.pname).length) {
+        name = poster.pname;
+      } else {
+        name = poster.pname + 1;
+        while ($("#" + name).length) {
+          name = name + 1;
         }
-        $(_0x1946[18])[_0x1946[17]](`${_0x1946[15]}${_0x49b8x4}${_0x1946[16]}`);
-        $(`${_0x1946[21]}${_0x49b8x4}${_0x1946[3]}`)[_0x1946[17]](
-          `${_0x1946[19]}${_0x49b8x4}${_0x1946[20]}`
-        );
-        $(`${_0x1946[11]}${_0x49b8x4}${_0x1946[3]}`)[_0x1946[17]](
-          `${_0x1946[22]}${_0x49b8x4}${_0x1946[23]}`
-        );
-        let _0x49b8x5 = 0;
-        for (let _0x49b8x6 = 0; _0x49b8x6 <= 3; _0x49b8x6++) {
-          $(`${_0x1946[27]}${_0x49b8x4}${_0x1946[3]}`)[_0x1946[17]](
-            `${_0x1946[24]}${_0x49b8x6 + 1}${_0x1946[25]}${_0x49b8x4}${
-              _0x1946[26]
-            }`
-          );
-          for (
-            let _0x49b8x7 = _0x49b8x5;
-            _0x49b8x7 <= _0x49b8x5 + 2;
-            _0x49b8x7++
-          ) {
-            $(
-              `${_0x1946[30]}${_0x49b8x6 + 1}${_0x1946[25]}${_0x49b8x4}${
-                _0x1946[3]
-              }`
-            )[_0x1946[17]](
-              `${_0x1946[28]}${_0x49b8x7 + 1}${_0x1946[25]}${_0x49b8x4}${
-                _0x1946[29]
-              }`
-            );
-            $(
-              `${_0x1946[11]}${_0x49b8x7 + 1}${_0x1946[25]}${_0x49b8x4}${
-                _0x1946[3]
-              }`
-            )[_0x1946[17]](
-              `${_0x1946[31]}${_0x49b8x3[_0x1946[32]][_0x49b8x7]}${_0x1946[33]}`
-            );
-          }
-          _0x49b8x5 = _0x49b8x5 + 3;
+        poster.pname = name;
+        sessionStorage.setItem("posters", JSON.stringify(posters));
+      }
+      $(".basket-items").append(`<div id="poster-display-${name}"></div`);
+      $(`#poster-display-${name}`).append(
+        `<div class="basket-table" id=${name}></div>`
+      );
+      $(`#${name}`).append(
+        `<table class="basket-table" id="table-${name}"></table>`
+      );
+      let k = 0;
+      for (let i = 0; i <= 3; i++) {
+        $(`#table-${name}`).append(`<tr id=tr-${i + 1}-${name}></tr>`);
+        for (let j = k; j <= k + 2; j++) {
+          $(`#tr-${i + 1}-${name}`).append(`<td id=${j + 1}-${name}></td> `);
+          $(`#${j + 1}-${name}`).append(`<img src="${poster.paths[j]}">`);
         }
-        $(`${_0x1946[21]}${_0x49b8x4}${_0x1946[3]}`)[_0x1946[17]](
-          `${_0x1946[34]}${_0x49b8x3[_0x1946[35]]}${_0x1946[36]}${_0x49b8x4}${
-            _0x1946[37]
-          }` +
-            JSON[_0x1946[13]](_0x49b8x3)[_0x1946[39]](/"/g, _0x1946[38]) +
-            `${_0x1946[40]}${_0x49b8x4}${_0x1946[41]}${_0x49b8x3[_0x1946[42]]}${
-              _0x1946[43]
-            }` +
-            JSON[_0x1946[13]](_0x49b8x3)[_0x1946[39]](/"/g, _0x1946[38]) +
-            `${_0x1946[44]}${_0x49b8x4}${_0x1946[45]}` +
-            JSON[_0x1946[13]](_0x49b8x3)[_0x1946[39]](/"/g, _0x1946[38]) +
-            `${_0x1946[46]}`
-        );
-        $(`${_0x1946[21]}${_0x49b8x4}${_0x1946[3]}`)[_0x1946[17]](
-          `${_0x1946[47]}`
-        );
-        $(_0x1946[49])[_0x1946[48]](_0x49b8x3[_0x1946[35]]);
-        $(_0x1946[11] + _0x49b8x3[_0x1946[12]] + _0x1946[52])[_0x1946[48]](
-          _0x49b8x3[_0x1946[50]] + _0x1946[51]
-        );
-        addToCart();
-      });
-    }
+        k = k + 3;
+      }
+      $(`#poster-display-${name}`).append(
+        `
+        <div class="size-poster">
+            <span>${poster.size}</span><span> poster</span>
+        </div>
+    
+        <div class="quantity">
+            <span class="quantityleft"><button id="${name}-decrease" onclick="decrement(` +
+          JSON.stringify(poster).replace(/"/g, "&quot;") +
+          `)"><</button></span>
+            <span class="quantitynumber" id="${name}-quantity">${poster.quantity}</span>
+            <span class="quantityright"><button onclick="increment(` +
+          JSON.stringify(poster).replace(/"/g, "&quot;") +
+          `)">></button></span>
+        </div>
+        <div class="poster-price">
+            <span id="${name}-price"></span>
+        </div>
+        <div class="trash">
+        <span id="trash" onclick="remove(` +
+          JSON.stringify(poster).replace(/"/g, "&quot;") +
+          `)"><i class="fa fa-trash-o" style="font-size:18px" aria-hidden="true""></i></span>
+        </div>
+        `
+      );
+      $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
+      $("#size").text(poster.size);
+      $("#" + poster.pname + "-price").text(poster.price + " DKK");
+      // calculatePosterPrice(poster);
+      addToCart();
+    });
   }
 }
-function updateQuantity(_0x49b8x3, _0x49b8x9) {
-  let _0x49b8x2 = JSON[_0x1946[2]](sessionStorage[_0x1946[1]](_0x1946[0]));
-  if (_0x49b8x2) {
-    _0x49b8x2[_0x1946[53]]((_0x49b8xa) => {
-      if (_0x49b8xa[_0x1946[12]] === _0x49b8x3[_0x1946[12]]) {
-        _0x49b8xa[_0x1946[42]] = _0x49b8x9;
-        let _0x49b8xb = _0x49b8xa[_0x1946[50]] * _0x49b8xa[_0x1946[42]];
-        $(_0x1946[11] + _0x49b8x3[_0x1946[12]] + _0x1946[52])[_0x1946[48]](
-          _0x49b8xb[_0x1946[54]](2) + _0x1946[51]
-        );
-        sessionStorage[_0x1946[14]](_0x1946[0], JSON[_0x1946[13]](_0x49b8x2));
+
+function updateQuantity(poster, quantity) {
+  let posters = JSON.parse(sessionStorage.getItem("posters"));
+  if (posters) {
+    posters.forEach((p) => {
+      if (p.pname === poster.pname) {
+        p.quantity = quantity;
+
+        let price = p.price * p.quantity;
+        
+        $("#" + poster.pname + "-price").text(price.toFixed(2) + " DKK");
+        sessionStorage.setItem('posters', JSON.stringify(posters));
+        // let newQuantity =  (poster.quantity).toString();
+        // update({quantity: newQuantity});
         calculateTotal();
         updateCart();
       }
     });
   }
 }
-function update(_0x49b8xd) {
-  let _0x49b8xe = JSON[_0x1946[2]](sessionStorage[_0x1946[1]](_0x1946[0]));
-  Object[_0x1946[55]](_0x49b8xd)[_0x1946[53]](function (_0x49b8xf, _0x49b8x10) {
-    _0x49b8xe[_0x49b8xf] = _0x49b8xd[_0x49b8xf];
-  });
-  sessionStorage[_0x1946[14]](_0x1946[0], JSON[_0x1946[13]](_0x49b8xe));
+function update(value){
+  let prevData = JSON.parse(sessionStorage.getItem('posters'));
+  Object.keys(value).forEach(function(val, key){
+       prevData[val] = value[val];
+  })
+  sessionStorage.setItem('posters', JSON.stringify(prevData));
 }
-function increment(_0x49b8x3) {
-  let _0x49b8x12 = _0x1946[11] + _0x49b8x3[_0x1946[12]] + _0x1946[56];
-  let _0x49b8x13 = $(_0x49b8x12)[_0x1946[48]]();
-  _0x49b8x13++;
-  if (_0x49b8x13 > 1) {
-    $(_0x1946[11] + _0x49b8x3[_0x1946[12]] + _0x1946[59])[_0x1946[58]](
-      _0x1946[57],
-      false
-    );
+//increments the quantity of the poster
+function increment(poster) {
+  let str = "#" + poster.pname + "-quantity";
+  let a = $(str).text();
+  a++;
+  if (a > 1) {
+    $("#" + poster.pname + "-decrease").prop("disabled", false);
   }
-  $(_0x49b8x12)[_0x1946[48]](_0x49b8x13);
-  updateQuantity(_0x49b8x3, _0x49b8x13);
+  $(str).text(a);
+  updateQuantity(poster, a);
 }
-function decrement(_0x49b8x3) {
-  let _0x49b8x12 = _0x1946[11] + _0x49b8x3[_0x1946[12]] + _0x1946[56];
-  let _0x49b8x13 = $(_0x49b8x12)[_0x1946[48]]();
-  if (_0x49b8x13 == 1) {
-    $(_0x1946[11] + _0x49b8x3[_0x1946[12]] + _0x1946[59])[_0x1946[58]](
-      _0x1946[57],
-      true
-    );
+
+//decrements the quantity of the poster
+function decrement(poster) {
+  let str = "#" + poster.pname + "-quantity";
+  let a = $(str).text();
+  if (a == 1) {
+    $("#" + poster.pname + "-decrease").prop("disabled", true);
   } else {
-    _0x49b8x13--;
-    $(_0x49b8x12)[_0x1946[48]](_0x49b8x13);
-    updateQuantity(_0x49b8x3, _0x49b8x13);
+    a--;
+    $(str).text(a);
+    updateQuantity(poster, a);
   }
 }
-function remove(_0x49b8x3) {
-  let _0x49b8x2 = JSON[_0x1946[2]](sessionStorage[_0x1946[1]](_0x1946[0]));
-  if (_0x49b8x2) {
-    _0x49b8x2[_0x1946[53]]((_0x49b8xa) => {
-      if (_0x49b8xa[_0x1946[12]] === _0x49b8x3[_0x1946[12]]) {
-        const _0x49b8x16 = _0x49b8x2[_0x1946[60]](_0x49b8xa);
-        if (_0x49b8x16 > -1) {
-          _0x49b8x2[_0x1946[61]](_0x49b8x16, 1);
+
+//removes a poster from the sessionStorage
+function remove(poster) {
+  let posters = JSON.parse(sessionStorage.getItem("posters"));
+  if (posters) {
+    posters.forEach((p) => {
+      if (p.pname === poster.pname) {
+        const index = posters.indexOf(p);
+        if (index > -1) {
+          posters.splice(index, 1);
           deleteCart();
-          sessionStorage[_0x1946[14]](_0x1946[0], JSON[_0x1946[13]](_0x49b8x2));
-          window[_0x1946[63]][_0x1946[62]] = window[_0x1946[63]][_0x1946[62]];
+          sessionStorage.setItem("posters", JSON.stringify(posters));
+
+          window.location.href = window.location.href;
+          
         }
       }
     });
   }
 }
+
+// gets the formats with their prices and returns them as Promise
+// function getFormats() {
+//   const fetchJson = async (url) => {
+//     const response = await fetch(url);
+//     return response.json();
+//   };
+//   return new Promise(function (resolve) {
+//     const formats = fetchJson("/formats");
+//     setTimeout(function () {
+//       resolve(formats);
+//     }, 200);
+//   });
+// }
+
+//calculates the poster price based on the format and quantity
+// async function calculatePosterPrice(poster) {
+//   // let posters = JSON.parse(sessionStorage.getItem("posters"));
+//   let price = 0;
+//   let amount = 0;
+//   $("#" + poster.pname + "-price").text("...");
+//   await getFormats().then((data) => {
+//     for (let [key] of Object.entries(data.formats)) {
+//       console.log(data.formats)
+//       if (poster.size === data.formats[key].format_no) {
+//         price = data.formats[key].price;
+//         poster.price = price;
+//         console.log(price)
+//         amount = poster.price * poster.quantity;
+//         console.log(amount)
+//         // update(price);
+//       }
+//     }
+//     $("#" + poster.pname + "-price").text(amount.toFixed(2) + " DKK");
+//   });
+//   return price;
+// }
+
+// function update(price) {
+//   let posters = JSON.parse(sessionStorage.getItem("posters"));
+//   posters.forEach((p) => {
+//     p.price = price;
+//   });
+//   sessionStorage.setItem("posters", JSON.stringify(posters));
+//   addToCart();
+// }
+
 function calculateTotal() {
-  let _0x49b8x2 = JSON[_0x1946[2]](sessionStorage[_0x1946[1]](_0x1946[0]));
-  let _0x49b8x18 = 0;
-  let _0x49b8x19 = 0;
-  let _0x49b8x1a = 0;
-  let _0x49b8x1b = 0;
-  let _0x49b8xb = 0;
-  let _0x49b8x1c = 0;
-  $(_0x1946[65])[_0x1946[48]](_0x1946[64]);
-  $(_0x1946[66])[_0x1946[48]](_0x1946[64]);
-  $(_0x1946[67])[_0x1946[48]](_0x1946[64]);
-  getFormats()[_0x1946[71]]((_0x49b8x1d) => {
-    if (_0x49b8x2) {
-      _0x49b8x2[_0x1946[53]]((_0x49b8x3) => {
-        for (let [key] of Object[_0x1946[69]](_0x49b8x1d[_0x1946[68]])) {
-          if (
-            _0x49b8x3[_0x1946[35]] === _0x49b8x1d[_0x1946[68]][key][_0x1946[70]]
-          ) {
-            _0x49b8xb = _0x49b8x1d[_0x1946[68]][key][_0x1946[50]];
-            _0x49b8x19 = _0x49b8xb * _0x49b8x3[_0x1946[42]];
-            _0x49b8x1b =
-              ((_0x49b8xb * _0x49b8x3[_0x1946[42]]) / 1.25 - _0x49b8x19) * -1;
+  let posters = JSON.parse(sessionStorage.getItem("posters"));
+  let total = 0;
+  let subTotal = 0;
+  let taxes = 0;
+  let subTaxes = 0;
+  let price = 0;
+  let sub = 0;
+  $("#subtotal-amount").text("...");
+  $("#taxes-amount").text("...");
+  $("#total-amount").text("...");
+  getFormats().then((data) => {
+    if (posters) {
+      posters.forEach((poster) => {
+        for (let [key] of Object.entries(data.formats)) {
+          if (poster.size === data.formats[key].format_no) {
+            price = data.formats[key].price;
+            subTotal = price * poster.quantity;
+            subTaxes = ((price * poster.quantity) / 1.25 - subTotal )* -1;
           }
         }
-        _0x49b8x1a += _0x49b8x1b;
-        _0x49b8x1c += _0x49b8x19;
-        _0x49b8x18 += _0x49b8x19;
+        taxes += subTaxes;
+        sub += subTotal;
+        total += subTotal;
       });
-      $(_0x1946[65])[_0x1946[48]](_0x49b8x1c[_0x1946[54]](2) + _0x1946[51]);
-      $(_0x1946[66])[_0x1946[48]](_0x49b8x1a[_0x1946[54]](2) + _0x1946[51]);
-      $(_0x1946[67])[_0x1946[48]](_0x49b8x18[_0x1946[54]](2) + _0x1946[51]);
+
+      $("#subtotal-amount").text(sub.toFixed(2) + " DKK");
+      $("#taxes-amount").text(taxes.toFixed(2) + " DKK");
+      $("#total-amount").text(total.toFixed(2) + " DKK");
       updateDiscount();
     }
   });
 }
 function getDiscounts() {
-  const _0x49b8x1f = async (_0x49b8x20) => {
-    const _0x49b8x21 = await fetch(_0x49b8x20);
-    return _0x49b8x21[_0x1946[72]]();
+  const fetchJson = async (url) => {
+    const response = await fetch(url);
+    return response.json();
   };
-  return new Promise(function (_0x49b8x22) {
-    const _0x49b8x23 = _0x49b8x1f(_0x1946[73]);
+  return new Promise(function (resolve) {
+    const formats = fetchJson("/discounts");
     setTimeout(function () {
-      _0x49b8x22(_0x49b8x23);
+      resolve(formats);
     }, 200);
   });
 }
 async function applyDiscount() {
-  let _0x49b8x25 = $(_0x1946[76])[_0x1946[75]]()[_0x1946[74]]();
-  let _0x49b8x18 = $(_0x1946[67])[_0x1946[48]]();
-  _0x49b8x18 = parseFloat(_0x49b8x18[_0x1946[77]](0, 6))[_0x1946[54]](2);
-  let _0x49b8x26 = document[_0x1946[79]](_0x1946[78]);
-  let _0x49b8x27 = _0x49b8x26[_0x1946[80]] || _0x49b8x26[_0x1946[81]];
-  await getDiscounts()[_0x1946[71]]((_0x49b8x1d) => {
-    if (_0x49b8x1d) {
-      for (let [key] of Object[_0x1946[69]](_0x49b8x1d[_0x1946[82]])) {
-        if (_0x49b8x27 === _0x49b8x1d[_0x1946[82]][key][_0x1946[83]]) {
-          $(_0x1946[76])[_0x1946[75]](_0x1946[3]);
-          alert(_0x1946[84]);
-        } else {
-          if (_0x49b8x25 === _0x49b8x1d[_0x1946[82]][key][_0x1946[85]]) {
-            let _0x49b8x28 = _0x49b8x1d[_0x1946[82]][key][_0x1946[83]];
-            _0x49b8x28 = _0x49b8x28[_0x1946[39]](_0x1946[86], _0x1946[3]);
-            _0x49b8x28 = parseInt(_0x49b8x28);
-            let _0x49b8x29 = (_0x49b8x18 * _0x49b8x28) / 100;
-            _0x49b8x18 = _0x49b8x18 - _0x49b8x29;
-            $(_0x1946[67])[_0x1946[48]](
-              _0x49b8x18[_0x1946[54]](2) + _0x1946[51]
-            );
-            $(_0x1946[76])[_0x1946[75]](_0x1946[3]);
-            $(_0x1946[7])[_0x1946[89]](_0x1946[87], _0x1946[88]);
-            $(_0x1946[90])[_0x1946[48]](
-              _0x1946[25] + _0x49b8x1d[_0x1946[82]][key][_0x1946[83]]
-            );
-            $(_0x1946[91])[_0x1946[9]]();
-            sessionStorage[_0x1946[14]](
-              _0x1946[92],
-              JSON[_0x1946[13]](_0x49b8x18)
-            );
-            sessionStorage[_0x1946[14]](
-              _0x1946[93],
-              JSON[_0x1946[13]](_0x49b8x25)
-            );
-          } else {
-            if (
-              _0x49b8x25 === _0x1946[3] ||
-              _0x49b8x25 !== _0x49b8x1d[_0x1946[82]][key][_0x1946[85]]
-            ) {
-              $(_0x1946[76])[_0x1946[75]](_0x1946[3]);
-              alert(_0x1946[94]);
-            }
-          }
+  let code = $("#discount").val().toLowerCase();
+  let total = $("#total-amount").text();
+
+  total = parseFloat(total.substr(0, 6)).toFixed(2);
+  let node = document.getElementById("discount-amount");
+  let discountText = node.textContent || node.innerText;
+  discountText = discountText.replace("-", "");
+  // console.log(discountText);
+  await getDiscounts().then((data) => {
+    if (data) {
+      for (let [key] of Object.entries(data.discounts)) {
+        // console.log("this is discount text: ", discountText)
+        // console.log("this is discount rate: ", data.discounts[key].discount_rate)
+        if (discountText === data.discounts[key].discount_rate) {
+          $("#discount").val("");
+          alert("This discount code is already applied!");
+        } else if (code === data.discounts[key].discount_code) {
+          let rate = data.discounts[key].discount_rate;
+
+          rate = rate.replace("%", "");
+
+          rate = parseInt(rate);
+
+          let discount = (total * rate) / 100;
+
+          total = total - discount;
+          $("#total-amount").text(total.toFixed(2) + " DKK");
+          $("#discount").val("");
+          $("#total-amount-box").css("height", "230px");
+          $("#discount-amount").text("-" + data.discounts[key].discount_rate);
+          $("#discount-row").show();
+
+          sessionStorage.setItem("total", JSON.stringify(total));
+          sessionStorage.setItem("discount", JSON.stringify(code));
+        } else if (code === "" || code !== data.discounts[key].discount_code) {
+          $("#discount").val("");
+          alert("There is no discount for this code!");
         }
       }
     }
   });
 }
 async function updateDiscount() {
-  let _0x49b8x27 = JSON[_0x1946[2]](sessionStorage[_0x1946[1]](_0x1946[93]));
-  let _0x49b8x18 = $(_0x1946[67])[_0x1946[48]]();
-  _0x49b8x18 = parseFloat(_0x49b8x18[_0x1946[77]](0, 6))[_0x1946[54]](2);
-  if (_0x49b8x27) {
-    await getDiscounts()[_0x1946[71]]((_0x49b8x1d) => {
-      if (_0x49b8x1d) {
-        for (let [key] of Object[_0x1946[69]](_0x49b8x1d[_0x1946[82]])) {
-          if (_0x49b8x27 === _0x49b8x1d[_0x1946[82]][key][_0x1946[85]]) {
-            let _0x49b8x28 = _0x49b8x1d[_0x1946[82]][key][_0x1946[83]];
-            _0x49b8x28 = _0x49b8x28[_0x1946[39]](_0x1946[86], _0x1946[3]);
-            _0x49b8x28 = parseInt(_0x49b8x28);
-            let _0x49b8x29 = (_0x49b8x18 * _0x49b8x28) / 100;
-            _0x49b8x18 = _0x49b8x18 - _0x49b8x29;
-            $(_0x1946[67])[_0x1946[48]](
-              _0x49b8x18[_0x1946[54]](2) + _0x1946[51]
-            );
-            $(_0x1946[76])[_0x1946[75]](_0x1946[3]);
-            $(_0x1946[7])[_0x1946[89]](_0x1946[87], _0x1946[88]);
-            $(_0x1946[90])[_0x1946[48]](
-              _0x1946[25] + _0x49b8x1d[_0x1946[82]][key][_0x1946[83]]
-            );
-            $(_0x1946[91])[_0x1946[9]]();
+  let discountText = JSON.parse(sessionStorage.getItem("discount"));
+  let total = $("#total-amount").text();
+  total = parseFloat(total.substr(0, 6)).toFixed(2);
+  if (discountText) {
+    await getDiscounts().then((data) => {
+      if (data) {
+        for (let [key] of Object.entries(data.discounts)) {
+          if (discountText === data.discounts[key].discount_code) {
+            let rate = data.discounts[key].discount_amount;
+
+            // rate = rate.replace("%", "");
+
+            rate = parseInt(rate);
+
+            let discount = (total * rate) / 100;
+
+            total = total - discount;
+            $("#total-amount").text(total.toFixed(2) + " DKK");
+            $("#discount").val("");
+            $("#total-amount-box").css("height", "230px");
+            $("#discount-amount").text("-" + data.discounts[key].discount_rate);
+            $("#discount-row").show();
           }
         }
       }
@@ -386,42 +313,53 @@ async function updateDiscount() {
   }
 }
 function addToCart() {
-  let _0x49b8x2 = JSON[_0x1946[2]](sessionStorage[_0x1946[1]](_0x1946[0]));
-  $[_0x1946[99]]({
+  let posters = JSON.parse(sessionStorage.getItem("posters"));
+  // console.log(posters);
+  $.ajax({
     global: false,
-    type: _0x1946[95],
-    url: _0x1946[96],
-    data: { posters: _0x49b8x2 },
-    ContentType: _0x1946[97],
-    dataType: _0x1946[72],
-    success: function (_0x49b8x21) {
-      console[_0x1946[98]](_0x49b8x21);
+    type: "POST",
+    url: "/setcart",
+    data: {
+      posters: posters,
     },
-  });
+    ContentType: "application/json",
+    dataType: "json",
+    success: function(response){
+      console.log(response)
+    }
+  })
+
 }
+
 function updateCart() {
-  let _0x49b8x2 = JSON[_0x1946[2]](sessionStorage[_0x1946[1]](_0x1946[0]));
-  $[_0x1946[99]]({
+  let posters = JSON.parse(sessionStorage.getItem("posters"));
+
+  $.ajax({
     global: false,
-    type: _0x1946[95],
-    url: _0x1946[100],
-    data: { posters: _0x49b8x2 },
-    ContentType: _0x1946[97],
-    dataType: _0x1946[72],
-    success: function (_0x49b8x21) {
-      console[_0x1946[98]](_0x49b8x21);
+    type: "POST",
+    url: "/updatecart",
+    data: {
+      posters: posters,
     },
-  });
+    ContentType: "application/json",
+    dataType: "json",
+    success: function(response){
+      console.log(response)
+    }
+  })
+  
 }
 function deleteCart() {
-  $[_0x1946[99]]({
+  // let posters = JSON.parse(sessionStorage.getItem('posters'));
+  $.ajax({
     global: false,
-    type: _0x1946[95],
-    url: _0x1946[101],
-    ContentType: _0x1946[97],
-    dataType: _0x1946[72],
-    success: function (_0x49b8x21) {
-      console[_0x1946[98]](_0x49b8x21);
-    },
-  });
+    type: "POST",
+    url: "/deletecart",
+    ContentType: "application/json",
+    dataType: "json",
+    success: function(response){
+      console.log(response)
+    }
+  })
+  
 }

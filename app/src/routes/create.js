@@ -77,7 +77,7 @@ route.post("/createpaymentorder", async (req, res) => {
       }
       if (discountCode) {
         discount = await Discount.query()
-          .select("amount")
+          .select("discount_amount")
           .where({ discount_code: discountCode })
           .skipUndefined();
       }
@@ -100,7 +100,7 @@ route.post("/createpaymentorder", async (req, res) => {
 
             if (discount) {
               rate =
-                ((formats[i].price) * discount[0].amount) ;
+                ((formats[i].price) * discount[0].discount_amount) ;
               totalRate =
                 (rate *
                   poster.quantity

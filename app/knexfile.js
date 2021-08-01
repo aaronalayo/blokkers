@@ -23,7 +23,7 @@ module.exports = {
       database: process.env.PGDATABASE,
       password: process.env.PGPASSWORD,
       port: process.env.PGPORT,
-      timezone: 'utc+1',
+      // timezone: 'utc+1',
       ssl: process.env.PGSSLMODE,
       ssl: {
         rejectUnauthorized: false,
@@ -32,6 +32,13 @@ module.exports = {
         cert: fs.readFileSync("../app/certificates/client-cert.pem", "utf8"),
       },
     },
+  },
+  pool: {
+    afterCreate: (conn, cb) => {
+      conn.query(`SET timezone = 'UTC+2'`, err => {
+        cb(err, conn);
+      });
+    }
   },
   ...knexSnakeCaseMappers(),
 };
