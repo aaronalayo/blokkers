@@ -16,7 +16,7 @@ EXPOSE 8080:8080
 ENV HOST 0.0.0.0
 
 RUN npm install
-RUN npm -g install npm@latest
+
 
 #RUN npm i dotenv
 ENV PORT=8080
