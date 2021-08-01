@@ -19,7 +19,7 @@ exports.up = async function (knex) {
       table.integer("discount_amount").unsigned().notNullable();
       table
         .timestamp("expires_at")
-        .defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 2.1]));
+        .defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 722]));
       table
         .timestamp("created_at")
         .notNullable()
