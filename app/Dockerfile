@@ -1,5 +1,5 @@
-FROM node:15.5.1-alpine3.12
-ENV NODE_VERSION 15.5.1
+FROM node:16.6.0-alpine3.14
+ENV NODE_VERSION 16.6.0
 
 
 WORKDIR /blokkers/app
@@ -15,8 +15,7 @@ COPY . .
 EXPOSE 8080:8080
 ENV HOST 0.0.0.0
 
-RUN npm install -g npm
-
+RUN npm -g install npm@latest
 
 #RUN npm i dotenv
 ENV PORT=8080
