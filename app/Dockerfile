@@ -15,7 +15,7 @@ COPY . .
 EXPOSE 8080:8080
 ENV HOST 0.0.0.0
 
-RUN npm install
+RUN npm install -g npm@7.20.3
 
 #RUN npm i dotenv
 ENV PORT=8080
