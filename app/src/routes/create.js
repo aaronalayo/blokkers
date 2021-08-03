@@ -28,11 +28,6 @@ route.post("/createpaymentorder", async (req, res) => {
     shippingaddress,
     shippingcity,
     shippingzip,
-    billingfullname,
-    billingphone,
-    billingaddress,
-    billingcity,
-    billingzip,
     newsletter,
   } = req.body;
 
@@ -43,13 +38,7 @@ route.post("/createpaymentorder", async (req, res) => {
   const shippingshippingAddress = checkParameter(shippingaddress);
   const shippingCity = checkParameter(shippingcity);
   const shippingZipCode = checkParameter(shippingzip);
-  //Check if values are empty, set them to null
-  const billingFullname = setValueToNull(billingfullname);
-  const billingPhone = setValueToNull(billingphone);
-  const billingshippingAddress = setValueToNull(billingaddress);
-  const billingCity = setValueToNull(billingcity);
-  const billingZipCode = setValueToNull(billingzip);
-  // console.log(billingFullname)
+
   try {
     if (
       (discountCode,
@@ -218,7 +207,6 @@ route.post("/createpaymentorder", async (req, res) => {
 
 route.post("/createorder", async (req, res) => {
   const { posters, customer, paymentId } = req.body;
-  // console.log("Creating order", customer)
   // //Check if values are empty or null
   const newPosters = checkParameter(posters);
   const shippingFullName = checkParameter(customer.shippingfullname);
@@ -290,6 +278,9 @@ route.post("/createorder", async (req, res) => {
             payment_id: paymentId,
           });
         });
+        
+
+         
         const newItem = await Item.query()
           .select()
           .where({ customer_uuid: customerFound[0].customer_uuid })
@@ -308,7 +299,22 @@ route.post("/createorder", async (req, res) => {
               // console.log(orders)
             }
           });
-      } else {
+      
+           if(billingFullname, billingPhone, billingAddress,billingCity, billingAddress, billingZipCode !== undefined){
+        // console.log('Updating customer')
+        await Customer.query()
+        .select()
+        .update({
+          billing_full_name: billingFullname,
+          billing_phone: billingPhone,
+          billing_address: billingAddress,
+          billing_zip_code:billingZipCode ,
+          billing_city:billingCity
+        })
+        .where({ customer_uuid: customerFound[0].customer_uuid });
+      }
+
+      }else {
         //Insert a new customer in the database
         await Customer.query().insert({
           email: customer.email,
@@ -365,10 +371,6 @@ route.post("/createorder", async (req, res) => {
             payment_id: paymentId,
           });
         });
-        // const newItem = await Item.query()
-        //   .select()
-        //   .where({ customer_uuid: newCustomer[0].customer_uuid })
-        //   .limit(1);
         await Order.query()
           .insert({
             customer_uuid: newCustomer[0].customer_uuid,
