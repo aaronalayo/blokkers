@@ -149,20 +149,6 @@ function remove(poster) {
   }
 }
 
-// gets the formats with their prices and returns them as Promise
-// function getFormats() {
-//   const fetchJson = async (url) => {
-//     const response = await fetch(url);
-//     return response.json();
-//   };
-//   return new Promise(function (resolve) {
-//     const formats = fetchJson("/formats");
-//     setTimeout(function () {
-//       resolve(formats);
-//     }, 200);
-//   });
-// }
-
 //calculates the poster price based on the format and quantity
 // async function calculatePosterPrice(poster) {
 //   // let posters = JSON.parse(sessionStorage.getItem("posters"));
