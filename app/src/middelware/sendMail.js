@@ -143,11 +143,11 @@ html = html.replace(/{total-amount}/g, total);
     <hr box-sizing: border-box;text-align: left;border: 0.6px solid #000000;margin-inline-start: 0%;width: 100%;>`
   }
   orderContainer.set_content(htmlString);
-
+    const adminList = "editoraaron@gmail.com, hello@blokkers.dk"
     const mailOptions = {
         from: 'BLOKKERS <hello@blokkers.dk>', 
         to: `"${order[0].customer.shipping_full_name}" <${order[0].customer.email}>`,
-        // to:"najawachmann@gmail.com",
+        bcc: adminList,
         subject: "Order confirmation #" + order[0].order_no,
         text: "Thanks for shopping with us",
         html:root.toString(),
