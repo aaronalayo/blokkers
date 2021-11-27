@@ -179,19 +179,36 @@ app.get(formats, async (req, res) => {
   const formats = await Format.query().select();
   res.json({ formats: formats });
 });
+// app.post(discounts, async (req, res) => {
+  
+//   console.log("this is the discount name: "+ discountName)
+//   // const discounts = await Discount.query().select().where({discount_code: discountName});
+//   // if(!discounts|| discounts === undefined){
+//   //   res.redirect(basket);
+//   // }else{
+//   //   res.json({ discounts: discounts });
+//   // }
+  
+// });
+
 app.get(discounts, async (req, res) => {
-  const discounts = await Discount.query().select();
-  res.json({ discounts: discounts });
+  const discountName = req.cookies.code;
+  const discounts = await Discount.query().select().where({discount_code: discountName});
+  // res.clearCookie("code", { path: "/" });
+  res.json({ discounts: discounts });  
 });
 
-// var paymentId = "";
 
 app.get(payment, async (req, res) => {
   let paymentId = req.query.paymentid;
   res.clearCookie("paymentId", { path: "/" });
   res.cookie("paymentId", paymentId);
-
-  return res.status(200).send(navbar + paymentPage + footerPage);
+  if(!paymentId || paymentId === undefined){
+    res.send(navbar + homePage + footerPage);
+  }else {
+    return res.status(200).send(navbar + paymentPage + footerPage);
+  }
+  
 });
 
 app.get("/data", async (req, res) => {

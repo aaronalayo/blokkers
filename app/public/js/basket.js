@@ -1,3 +1,5 @@
+
+
 //displays all posters that are added to basket
 function displayPosters() {
   let posters = JSON.parse(sessionStorage.getItem("posters"));
@@ -52,27 +54,27 @@ function displayPosters() {
     
         <div class="quantity">
             <span class="quantityleft"><button id="${name}-decrease" onclick="decrement(` +
-          JSON.stringify(poster).replace(/"/g, "&quot;") +
-          `)"><</button></span>
+        JSON.stringify(poster).replace(/"/g, "&quot;") +
+        `)"><</button></span>
             <span class="quantitynumber" id="${name}-quantity">${poster.quantity}</span>
             <span class="quantityright"><button onclick="increment(` +
-          JSON.stringify(poster).replace(/"/g, "&quot;") +
-          `)">></button></span>
+        JSON.stringify(poster).replace(/"/g, "&quot;") +
+        `)">></button></span>
         </div>
         <div class="poster-price">
             <span id="${name}-price"></span>
         </div>
         <div class="trash">
         <span id="trash" onclick="remove(` +
-          JSON.stringify(poster).replace(/"/g, "&quot;") +
-          `)"><i class="fa fa-trash-o" style="font-size:18px" aria-hidden="true""></i></span>
+        JSON.stringify(poster).replace(/"/g, "&quot;") +
+        `)"><i class="fa fa-trash-o" style="font-size:18px" aria-hidden="true""></i></span>
         </div>
         `
       );
       $(`#poster-display-${name}`).append(`<hr class="basket-devider">`);
       $("#size").text(poster.size);
       $("#" + poster.pname + "-price").text(poster.price + " DKK");
-      // calculatePosterPrice(poster);
+      calculatePosterPrice(poster);
       addToCart();
     });
   }
@@ -86,7 +88,7 @@ function updateQuantity(poster, quantity) {
         p.quantity = quantity;
 
         let price = p.price * p.quantity;
-        
+
         $("#" + poster.pname + "-price").text(price.toFixed(2) + " DKK");
         sessionStorage.setItem('posters', JSON.stringify(posters));
         // let newQuantity =  (poster.quantity).toString();
@@ -97,10 +99,10 @@ function updateQuantity(poster, quantity) {
     });
   }
 }
-function update(value){
+function update(value) {
   let prevData = JSON.parse(sessionStorage.getItem('posters'));
-  Object.keys(value).forEach(function(val, key){
-       prevData[val] = value[val];
+  Object.keys(value).forEach(function (val, key) {
+    prevData[val] = value[val];
   })
   sessionStorage.setItem('posters', JSON.stringify(prevData));
 }
@@ -142,7 +144,7 @@ function remove(poster) {
           sessionStorage.setItem("posters", JSON.stringify(posters));
 
           window.location.href = window.location.href;
-          
+
         }
       }
     });
@@ -150,27 +152,27 @@ function remove(poster) {
 }
 
 //calculates the poster price based on the format and quantity
-// async function calculatePosterPrice(poster) {
-//   // let posters = JSON.parse(sessionStorage.getItem("posters"));
-//   let price = 0;
-//   let amount = 0;
-//   $("#" + poster.pname + "-price").text("...");
-//   await getFormats().then((data) => {
-//     for (let [key] of Object.entries(data.formats)) {
-//       console.log(data.formats)
-//       if (poster.size === data.formats[key].format_no) {
-//         price = data.formats[key].price;
-//         poster.price = price;
-//         console.log(price)
-//         amount = poster.price * poster.quantity;
-//         console.log(amount)
-//         // update(price);
-//       }
-//     }
-//     $("#" + poster.pname + "-price").text(amount.toFixed(2) + " DKK");
-//   });
-//   return price;
-// }
+async function calculatePosterPrice(poster) {
+  // let posters = JSON.parse(sessionStorage.getItem("posters"));
+  let price = 0;
+  let amount = 0;
+  $("#" + poster.pname + "-price").text("...");
+  await getFormats().then((data) => {
+    for (let [key] of Object.entries(data.formats)) {
+      console.log(data.formats)
+      if (poster.size === data.formats[key].format_no) {
+        price = data.formats[key].price;
+        poster.price = price;
+        console.log(price)
+        amount = poster.price * poster.quantity;
+        console.log(amount)
+        // update(price);
+      }
+    }
+    $("#" + poster.pname + "-price").text(amount.toFixed(2) + " DKK");
+  });
+  return price;
+}
 
 // function update(price) {
 //   let posters = JSON.parse(sessionStorage.getItem("posters"));
@@ -199,7 +201,7 @@ function calculateTotal() {
           if (poster.size === data.formats[key].format_no) {
             price = data.formats[key].price;
             subTotal = price * poster.quantity;
-            subTaxes = ((price * poster.quantity) / 1.25 - subTotal )* -1;
+            subTaxes = ((price * poster.quantity) / 1.25 - subTotal) * -1;
           }
         }
         taxes += subTaxes;
@@ -214,39 +216,58 @@ function calculateTotal() {
     }
   });
 }
+
 function getDiscounts() {
   const fetchJson = async (url) => {
     const response = await fetch(url);
     return response.json();
   };
   return new Promise(function (resolve) {
-    const formats = fetchJson("/discounts");
+    const dis = fetchJson("/discounts");
     setTimeout(function () {
-      resolve(formats);
+      resolve(dis);
     }, 200);
   });
+}
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 async function applyDiscount() {
   let code = $("#discount").val().toLowerCase();
   let total = $("#total-amount").text();
-
+  $("#discount").val("");
+  if (code === "") {
+    alert("Please enter a discount code")
+  } else {
+    setCookie("code", code, 1);
+  } 
+  
   total = parseFloat(total.substr(0, 6)).toFixed(2);
   let node = document.getElementById("discount-amount");
-  let discountText = node.textContent || node.innerText;
-  discountText = discountText.replace("-", "");
+  let discountRate = node.textContent || node.innerText;
+  discountRate = discountRate.replace("-", "");
   // console.log(discountText);
+
   await getDiscounts().then((data) => {
     if (data) {
       for (let [key] of Object.entries(data.discounts)) {
-        // console.log("this is discount text: ", discountText)
-        // console.log("this is discount rate: ", data.discounts[key].discount_rate)
-        if (discountText === data.discounts[key].discount_rate) {
+     
+        if (code === "" || code !== data.discounts[key].discount_code) {
+          $("#discount").val("");
+          alert("There is no discount for this code!");
+        } else if (discountRate.length > 0){
+
+          alert("A discount code is already applied!");
+        } else if ( discountRate === data.discounts[key].discount_rate) {
           $("#discount").val("");
           alert("This discount code is already applied!");
-        } else if (code === data.discounts[key].discount_code) {
-          let rate = data.discounts[key].discount_rate;
+        } else {
+          let rate = data.discounts[key].discount_amount;
 
-          rate = rate.replace("%", "");
+          // rate = rate.replace("%", "");
 
           rate = parseInt(rate);
 
@@ -261,23 +282,24 @@ async function applyDiscount() {
 
           sessionStorage.setItem("total", JSON.stringify(total));
           sessionStorage.setItem("discount", JSON.stringify(code));
-        } else if (code === "" || code !== data.discounts[key].discount_code) {
-          $("#discount").val("");
-          alert("There is no discount for this code!");
         }
       }
     }
-  });
+  })
 }
+
+
 async function updateDiscount() {
-  let discountText = JSON.parse(sessionStorage.getItem("discount"));
+  let code = JSON.parse(sessionStorage.getItem("discount"));
   let total = $("#total-amount").text();
   total = parseFloat(total.substr(0, 6)).toFixed(2);
-  if (discountText) {
+  if (code === "" || code === undefined) {
+    $("#discount-row").hide();
+  } else {
     await getDiscounts().then((data) => {
       if (data) {
         for (let [key] of Object.entries(data.discounts)) {
-          if (discountText === data.discounts[key].discount_code) {
+          if (code === data.discounts[key].discount_code) {
             let rate = data.discounts[key].discount_amount;
 
             // rate = rate.replace("%", "");
@@ -298,6 +320,7 @@ async function updateDiscount() {
     });
   }
 }
+
 function addToCart() {
   let posters = JSON.parse(sessionStorage.getItem("posters"));
   // console.log(posters);
@@ -310,7 +333,7 @@ function addToCart() {
     },
     ContentType: "application/json",
     dataType: "json",
-    success: function(response){
+    success: function (response) {
       console.log(response)
     }
   })
@@ -329,11 +352,11 @@ function updateCart() {
     },
     ContentType: "application/json",
     dataType: "json",
-    success: function(response){
+    success: function (response) {
       console.log(response)
     }
   })
-  
+
 }
 function deleteCart() {
   // let posters = JSON.parse(sessionStorage.getItem('posters'));
@@ -343,9 +366,35 @@ function deleteCart() {
     url: "/deletecart",
     ContentType: "application/json",
     dataType: "json",
-    success: function(response){
+    success: function (response) {
       console.log(response)
     }
   })
-  
+
 }
+// $(document).ready(function() {
+//   $('#discount').on('keyup', function() {
+//     let empty = false;
+
+//     $('#discount').each(function() {
+//       empty = $(this).val().length == 0;
+//     });
+
+//     if (empty)
+//       $('.coupon input').attr('disabled', 'disabled');
+//     else
+//       $('.coupon input').attr('disabled', false);
+//   });
+// });
+
+
+
+$(document).ready(function(){
+  $('#add-button').attr('disabled',true);
+  $('#discount').keyup(function(){
+      if($(this).val().length !=0)
+          $('#add-button').attr('disabled', false);            
+      else
+          $('#add-button').attr('disabled',true);
+  })
+});
