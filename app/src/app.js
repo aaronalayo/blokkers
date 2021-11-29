@@ -198,7 +198,6 @@ app.get(discounts, async (req, res) => {
   res.json({ discounts: discounts });  
 });
 
-
 app.get(payment, async (req, res) => {
   let paymentId = req.query.paymentid;
   res.clearCookie("paymentId", { path: "/" });

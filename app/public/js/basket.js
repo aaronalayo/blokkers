@@ -1,5 +1,3 @@
-
-
 //displays all posters that are added to basket
 function displayPosters() {
   let posters = JSON.parse(sessionStorage.getItem("posters"));
@@ -54,20 +52,20 @@ function displayPosters() {
     
         <div class="quantity">
             <span class="quantityleft"><button id="${name}-decrease" onclick="decrement(` +
-        JSON.stringify(poster).replace(/"/g, "&quot;") +
-        `)"><</button></span>
+          JSON.stringify(poster).replace(/"/g, "&quot;") +
+          `)"><</button></span>
             <span class="quantitynumber" id="${name}-quantity">${poster.quantity}</span>
             <span class="quantityright"><button onclick="increment(` +
-        JSON.stringify(poster).replace(/"/g, "&quot;") +
-        `)">></button></span>
+          JSON.stringify(poster).replace(/"/g, "&quot;") +
+          `)">></button></span>
         </div>
         <div class="poster-price">
             <span id="${name}-price"></span>
         </div>
         <div class="trash">
         <span id="trash" onclick="remove(` +
-        JSON.stringify(poster).replace(/"/g, "&quot;") +
-        `)"><i class="fa fa-trash-o" style="font-size:18px" aria-hidden="true""></i></span>
+          JSON.stringify(poster).replace(/"/g, "&quot;") +
+          `)"><i class="fa fa-trash-o" style="font-size:18px" aria-hidden="true""></i></span>
         </div>
         `
       );
@@ -103,6 +101,32 @@ function update(value) {
   let prevData = JSON.parse(sessionStorage.getItem('posters'));
   Object.keys(value).forEach(function (val, key) {
     prevData[val] = value[val];
+  })
+  sessionStorage.setItem('posters', JSON.stringify(prevData));
+}
+function updateQuantity(poster, quantity) {
+  let posters = JSON.parse(sessionStorage.getItem("posters"));
+  if (posters) {
+    posters.forEach((p) => {
+      if (p.pname === poster.pname) {
+        p.quantity = quantity;
+
+        let price = p.price * p.quantity;
+        
+        $("#" + poster.pname + "-price").text(price.toFixed(2) + " DKK");
+        sessionStorage.setItem('posters', JSON.stringify(posters));
+        // let newQuantity =  (poster.quantity).toString();
+        // update({quantity: newQuantity});
+        calculateTotal();
+        updateCart();
+      }
+    });
+  }
+}
+function update(value){
+  let prevData = JSON.parse(sessionStorage.getItem('posters'));
+  Object.keys(value).forEach(function(val, key){
+       prevData[val] = value[val];
   })
   sessionStorage.setItem('posters', JSON.stringify(prevData));
 }
@@ -144,7 +168,7 @@ function remove(poster) {
           sessionStorage.setItem("posters", JSON.stringify(posters));
 
           window.location.href = window.location.href;
-
+          
         }
       }
     });
@@ -167,6 +191,7 @@ async function calculatePosterPrice(poster) {
         amount = poster.price * poster.quantity;
         console.log(amount)
         // update(price);
+        
       }
     }
     $("#" + poster.pname + "-price").text(amount.toFixed(2) + " DKK");
@@ -201,7 +226,7 @@ function calculateTotal() {
           if (poster.size === data.formats[key].format_no) {
             price = data.formats[key].price;
             subTotal = price * poster.quantity;
-            subTaxes = ((price * poster.quantity) / 1.25 - subTotal) * -1;
+            subTaxes = ((price * poster.quantity) / 1.25 - subTotal )* -1;
           }
         }
         taxes += subTaxes;
@@ -223,9 +248,9 @@ function getDiscounts() {
     return response.json();
   };
   return new Promise(function (resolve) {
-    const dis = fetchJson("/discounts");
+    const formats = fetchJson("/discounts");
     setTimeout(function () {
-      resolve(dis);
+      resolve(formats);
     }, 200);
   });
 }
@@ -333,7 +358,7 @@ function addToCart() {
     },
     ContentType: "application/json",
     dataType: "json",
-    success: function (response) {
+    success: function(response){
       console.log(response)
     }
   })
@@ -352,11 +377,11 @@ function updateCart() {
     },
     ContentType: "application/json",
     dataType: "json",
-    success: function (response) {
+    success: function(response){
       console.log(response)
     }
   })
-
+  
 }
 function deleteCart() {
   // let posters = JSON.parse(sessionStorage.getItem('posters'));
@@ -366,26 +391,12 @@ function deleteCart() {
     url: "/deletecart",
     ContentType: "application/json",
     dataType: "json",
-    success: function (response) {
+    success: function(response){
       console.log(response)
     }
   })
-
+  
 }
-// $(document).ready(function() {
-//   $('#discount').on('keyup', function() {
-//     let empty = false;
-
-//     $('#discount').each(function() {
-//       empty = $(this).val().length == 0;
-//     });
-
-//     if (empty)
-//       $('.coupon input').attr('disabled', 'disabled');
-//     else
-//       $('.coupon input').attr('disabled', false);
-//   });
-// });
 
 
 

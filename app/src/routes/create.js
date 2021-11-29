@@ -19,6 +19,7 @@ const createPoster = require("../middelware/createPoster.js");
 
 
 route.post("/createpaymentorder", async (req, res) => {
+  
   const {
     discountCode,
     posters,
@@ -137,11 +138,9 @@ route.post("/createpaymentorder", async (req, res) => {
           number: `${shippingPhone.substring(3)}`,
         },
       };
-      // console.log(consumer)
-      let host = "https://blokkers.dk";
-      // let host = "http://localhost:8080"; 
+      let hostName = req.protocol + "://" + req.headers.host
       let options = {
-        host: host + "/createorder",
+        host: hostName + "/createorder",
         // uri: "https://test.api.dibspayment.eu/v1/payments", //test
         uri: 'https://api.dibspayment.eu/v1/payments',//live
         method: "POST",
@@ -159,8 +158,8 @@ route.post("/createpaymentorder", async (req, res) => {
         "integrationType":"HostedPaymentPage",
    
         "url":"",
-        "returnUrl":"${host}/payment",
-        "termsUrl":"${host}/termsandcontions",
+        "returnUrl":"${hostName}/payment",
+        "termsUrl":"${hostName}/termsandcontions",
         "appearance": {
           "displayOptions": {
             "showMerchantName": true,
@@ -186,8 +185,8 @@ route.post("/createpaymentorder", async (req, res) => {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          // Authorization: "ef160d0b15ef4bf3b243c8f6a6183b85",
-          'Authorization': 'b7989e81d50b47228ac61d7763986548',
+          // Authorization: "ef160d0b15ef4bf3b243c8f6a6183b85",//test
+          'Authorization': 'b7989e81d50b47228ac61d7763986548',//live
         },
       };
       // console.log(options);
