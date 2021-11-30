@@ -179,23 +179,18 @@ app.get(formats, async (req, res) => {
   const formats = await Format.query().select();
   res.json({ formats: formats });
 });
-// app.post(discounts, async (req, res) => {
-  
-//   console.log("this is the discount name: "+ discountName)
-//   // const discounts = await Discount.query().select().where({discount_code: discountName});
-//   // if(!discounts|| discounts === undefined){
-//   //   res.redirect(basket);
-//   // }else{
-//   //   res.json({ discounts: discounts });
-//   // }
-  
-// });
+
 
 app.get(discounts, async (req, res) => {
   const discountName = req.cookies.code;
-  const discounts = await Discount.query().select().where({discount_code: discountName});
+  
+  const discount = await Discount.query().select().where({discount_code: discountName});
+
   // res.clearCookie("code", { path: "/" });
-  res.json({ discounts: discounts });  
+
+    res.json({ discount: discount }); 
+
+   
 });
 
 app.get(payment, async (req, res) => {

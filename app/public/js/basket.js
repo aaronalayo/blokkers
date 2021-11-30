@@ -254,43 +254,45 @@ function getDiscounts() {
     }, 200);
   });
 }
-function setCookie(cname, cvalue, exdays) {
+async function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   let expires = "expires="+ d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  
 }
 async function applyDiscount() {
   let code = $("#discount").val().toLowerCase();
+  code = code.trim();
   let total = $("#total-amount").text();
   $("#discount").val("");
-  if (code === "") {
-    alert("Please enter a discount code")
+  if (code === "" || code.length === 0) {
+    
+    alert("Please enter a discount code");
+    
   } else {
-    setCookie("code", code, 1);
-  } 
-  
-  total = parseFloat(total.substr(0, 6)).toFixed(2);
-  let node = document.getElementById("discount-amount");
-  let discountRate = node.textContent || node.innerText;
-  discountRate = discountRate.replace("-", "");
-  // console.log(discountText);
-
-  await getDiscounts().then((data) => {
-    if (data) {
-      for (let [key] of Object.entries(data.discounts)) {
+    total = parseFloat(total.substr(0, 6)).toFixed(2);
+    let node = document.getElementById("discount-amount");
+    let discountRate = node.textContent || node.innerText;
+    discountRate = discountRate.replace("-", "");
+    await setCookie("code", code, 1 ).then(
+      getDiscounts().then((data) => {
+    if (data.discount === undefined || data.discount.length == 0) {
+      alert("There is no discount for this code!");
+    }else if (data){
+      for (let [key] of Object.entries(data.discount)) {
      
-        if (code === "" || code !== data.discounts[key].discount_code) {
+        if (code === "" || code !== data.discount[key].discount_code) {
           $("#discount").val("");
           alert("There is no discount for this code!");
         } else if (discountRate.length > 0){
 
           alert("A discount code is already applied!");
-        } else if ( discountRate === data.discounts[key].discount_rate) {
+        } else if ( discountRate === data.discount[key].discount_rate) {
           $("#discount").val("");
           alert("This discount code is already applied!");
         } else {
-          let rate = data.discounts[key].discount_amount;
+          let rate = data.discount[key].discount_amount;
 
           // rate = rate.replace("%", "");
 
@@ -302,7 +304,7 @@ async function applyDiscount() {
           $("#total-amount").text(total.toFixed(2) + " DKK");
           $("#discount").val("");
           $("#total-amount-box").css("height", "230px");
-          $("#discount-amount").text("-" + data.discounts[key].discount_rate);
+          $("#discount-amount").text("-" + data.discount[key].discount_rate);
           $("#discount-row").show();
 
           sessionStorage.setItem("total", JSON.stringify(total));
@@ -311,6 +313,8 @@ async function applyDiscount() {
       }
     }
   })
+  
+    )} 
 }
 
 
@@ -323,9 +327,9 @@ async function updateDiscount() {
   } else {
     await getDiscounts().then((data) => {
       if (data) {
-        for (let [key] of Object.entries(data.discounts)) {
-          if (code === data.discounts[key].discount_code) {
-            let rate = data.discounts[key].discount_amount;
+        for (let [key] of Object.entries(data.discount)) {
+          if (code === data.discount[key].discount_code) {
+            let rate = data.discount[key].discount_amount;
 
             // rate = rate.replace("%", "");
 
@@ -337,7 +341,7 @@ async function updateDiscount() {
             $("#total-amount").text(total.toFixed(2) + " DKK");
             $("#discount").val("");
             $("#total-amount-box").css("height", "230px");
-            $("#discount-amount").text("-" + data.discounts[key].discount_rate);
+            $("#discount-amount").text("-" + data.discount[key].discount_rate);
             $("#discount-row").show();
           }
         }
@@ -402,6 +406,9 @@ function deleteCart() {
 
 $(document).ready(function(){
   $('#add-button').attr('disabled',true);
+  if ($("#discount").val().length =0) {
+    $('#add-button').attr('disabled',true);
+  };
   $('#discount').keyup(function(){
       if($(this).val().length !=0)
           $('#add-button').attr('disabled', false);            
@@ -409,3 +416,18 @@ $(document).ready(function(){
           $('#add-button').attr('disabled',true);
   })
 });
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
