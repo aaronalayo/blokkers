@@ -1,3 +1,5 @@
+
+
 //displays all posters that are added to basket
 function displayPosters() {
   let posters = JSON.parse(sessionStorage.getItem("posters"));
@@ -239,6 +241,7 @@ function calculateTotal() {
       $("#total-amount").text(total.toFixed(2) + " DKK");
       updateDiscount();
     }
+
   });
 }
 
@@ -248,75 +251,65 @@ function getDiscounts() {
     return response.json();
   };
   return new Promise(function (resolve) {
-    const formats = fetchJson("/discounts");
+    const discount = fetchJson("/discounts");
     setTimeout(function () {
-      resolve(formats);
+      resolve(discount);
     }, 200);
   });
 }
-async function setCookie(cname, cvalue, exdays) {
+async function setCookie(cname, cvalue, exdays, callback) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   let expires = "expires="+ d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  
+  callback()
 }
 async function applyDiscount() {
   let code = $("#discount").val().toLowerCase();
-  code = code.trim();
+  code = code.trim(); 
   let total = $("#total-amount").text();
   $("#discount").val("");
-  if (code === "" || code.length === 0) {
-    
-    alert("Please enter a discount code");
-    
+  if (code === "" || code.length === 0) { 
+    alert("Please enter a discount code");  
   } else {
     total = parseFloat(total.substr(0, 6)).toFixed(2);
     let node = document.getElementById("discount-amount");
     let discountRate = node.textContent || node.innerText;
     discountRate = discountRate.replace("-", "");
-    await setCookie("code", code, 1 ).then(
-      getDiscounts().then((data) => {
+    await setCookie("code", code, 1, function() {
+     getDiscounts().then((data) => {
     if (data.discount === undefined || data.discount.length == 0) {
       alert("There is no discount for this code!");
     }else if (data){
-      for (let [key] of Object.entries(data.discount)) {
-     
+      for (let [key] of Object.entries(data.discount)) {    
         if (code === "" || code !== data.discount[key].discount_code) {
           $("#discount").val("");
           alert("There is no discount for this code!");
         } else if (discountRate.length > 0){
-
           alert("A discount code is already applied!");
         } else if ( discountRate === data.discount[key].discount_rate) {
           $("#discount").val("");
           alert("This discount code is already applied!");
         } else {
           let rate = data.discount[key].discount_amount;
-
           // rate = rate.replace("%", "");
-
           rate = parseInt(rate);
-
           let discount = (total * rate) / 100;
-
           total = total - discount;
           $("#total-amount").text(total.toFixed(2) + " DKK");
           $("#discount").val("");
           $("#total-amount-box").css("height", "230px");
           $("#discount-amount").text("-" + data.discount[key].discount_rate);
           $("#discount-row").show();
-
           sessionStorage.setItem("total", JSON.stringify(total));
           sessionStorage.setItem("discount", JSON.stringify(code));
         }
       }
     }
   })
-  
-    )} 
+})
+  }
 }
-
 
 async function updateDiscount() {
   let code = JSON.parse(sessionStorage.getItem("discount"));
@@ -418,7 +411,7 @@ $(document).ready(function(){
 });
 function getCookie(cname) {
   let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
+  let decodedCookie = document.cookie;
   let ca = decodedCookie.split(';');
   for(let i = 0; i <ca.length; i++) {
     let c = ca[i];
@@ -426,6 +419,7 @@ function getCookie(cname) {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
+      
       return c.substring(name.length, c.length);
     }
   }

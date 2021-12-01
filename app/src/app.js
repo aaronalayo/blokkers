@@ -86,10 +86,7 @@ Model.knex(knex);
 //Read html files
 const navbar = fs.readFileSync("./public/navbar.html", "utf8");
 const homePage = fs.readFileSync("./public/homepage.html", "utf8");
-const inspirationPage = fs.readFileSync(
-  "./public/inspirationpage.html",
-  "utf8"
-);
+const inspirationPage = fs.readFileSync("./public/inspirationpage.html","utf8");
 const footerPage = fs.readFileSync("./public/footer.html", "utf8");
 const satisfiedPage = fs.readFileSync("./public/satisfied.html", "utf8");
 const basketPage = fs.readFileSync("./public/basket.html", "utf8");
@@ -97,17 +94,12 @@ const checkoutPage = fs.readFileSync("./public/checkoutpage.html", "utf8");
 const paymentPage = fs.readFileSync("./public/paymentpage.html", "utf8");
 const aboutPage = fs.readFileSync("./public/aboutpage.html", "utf8");
 const contactPage = fs.readFileSync("./public/contactpage.html", "utf8");
-const createPosterPage = fs.readFileSync(
-  "./public/createposterpage.html",
-  "utf8"
-);
+const createPosterPage = fs.readFileSync("./public/createposterpage.html","utf8");
 const howItWorksPage = fs.readFileSync("./public/howitworkspage.html", "utf8");
-const termsAndConditions = fs.readFileSync(
-  "./public/termsandconditions.html",
-  "utf8"
-);
+const termsAndConditions = fs.readFileSync("./public/termsandconditions.html","utf8");
 const privacyPolicy = fs.readFileSync("./public/privacypolicy.html", "utf8");
 const emailPage = fs.readFileSync("./public/emailTemplate/email.html", "utf8");
+
 const Format = require("./model/Format.js");
 const Order = require("./model/Order.js");
 const Item = require("./model/Item.js");
@@ -183,14 +175,15 @@ app.get(formats, async (req, res) => {
 
 app.get(discounts, async (req, res) => {
   const discountName = req.cookies.code;
-  
-  const discount = await Discount.query().select().where({discount_code: discountName});
-
-  // res.clearCookie("code", { path: "/" });
-
+  console.log(discountName) 
+  if(typeof discountName !== "undefined"){
+    const discount = await Discount.query().select().where({discount_code: discountName});
     res.json({ discount: discount }); 
-
-   
+  }else{
+    res.json({message: "There is no discount for this code!"});
+  }
+  
+  // res.clearCookie("code", { path: "/" });
 });
 
 app.get(payment, async (req, res) => {
