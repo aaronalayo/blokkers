@@ -139,6 +139,7 @@ route.post("/createpaymentorder", async (req, res) => {
         },
       };
       let hostName = req.protocol + "://" + req.headers.host
+      // console.log(hostName)
       let options = {
         host: hostName + "/createorder",
         // uri: "https://test.api.dibspayment.eu/v1/payments", //test
@@ -449,8 +450,8 @@ route.post("/sendfiles", async (req, res) => {
         const pdfFileName = orderNo + "_" + itemName + "_" + "Blokkers";
         const pricePerItem = newPricePerItem;
         const TotalPrice = newTotalPrice;
-        // const ftp_addr = "ftp://EksternTest:h242svgw@94.231.99.28";
-        const ftp_addr = "ftp://Import:h240svgw@94.231.99.28";
+        const ftp_addr = "ftp://EksternTest:h242svgw@94.231.99.28";
+        // const ftp_addr = "ftp://Import:h240svgw@94.231.99.28";
 
         localPdf = output + pdfFileName + ext["pdf"];
         // console.log(localPdf);

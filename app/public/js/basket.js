@@ -76,6 +76,7 @@ function displayPosters() {
       $("#" + poster.pname + "-price").text(poster.price + " DKK");
       calculatePosterPrice(poster);
       addToCart();
+      disableButton();
     });
   }
 }
@@ -185,13 +186,13 @@ async function calculatePosterPrice(poster) {
   $("#" + poster.pname + "-price").text("...");
   await getFormats().then((data) => {
     for (let [key] of Object.entries(data.formats)) {
-      console.log(data.formats)
+      // console.log(data.formats)
       if (poster.size === data.formats[key].format_no) {
         price = data.formats[key].price;
         poster.price = price;
-        console.log(price)
+        // console.log(price)
         amount = poster.price * poster.quantity;
-        console.log(amount)
+        // console.log(amount)
         // update(price);
         
       }
@@ -397,9 +398,9 @@ function deleteCart() {
 
 
 
-$(document).ready(function(){
+function disableButton(){
   $('#add-button').attr('disabled',true);
-  if ($("#discount").val().length =0) {
+  if ($("#discount").val().length = 0) {
     $('#add-button').attr('disabled',true);
   };
   $('#discount').keyup(function(){
@@ -408,7 +409,7 @@ $(document).ready(function(){
       else
           $('#add-button').attr('disabled',true);
   })
-});
+};
 function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = document.cookie;

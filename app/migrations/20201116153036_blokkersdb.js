@@ -6,7 +6,19 @@ exports.down = function (knex) {
 `);
 };
 exports.up = async function (knex) {
-  await knex.schema.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
+  await knex.schema.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"')
+  .raw(`
+	CREATE OR REPLACE FUNCTION update_timestamp() RETURNS TRIGGER
+	LANGUAGE plpgsql
+	AS
+	$$
+	BEGIN
+		NEW.created_at = CURRENT_TIMESTAMP;  
+		NEW.updated_at = CURRENT_TIMESTAMP;
+		RETURN NEW;
+	END;
+	$$;
+  `);
   return knex.schema
     .createTable("discounts", (table) => {
       table
@@ -20,11 +32,15 @@ exports.up = async function (knex) {
       table
         .timestamp("expires_at")
         .defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 722]));
-      table
-        .timestamp("created_at")
-        .notNullable()
-        .defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 2]));
-    })
+      table.timestamp("created_at").notNullable().defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 1]));
+      table.timestamp("updated_at").notNullable().defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 1]));
+    }).raw(`
+	  CREATE TRIGGER update_timestamp
+	  BEFORE UPDATE
+	  ON discounts
+	  FOR EACH ROW
+	  EXECUTE PROCEDURE update_timestamp();
+	`)
     .createTable("formats", (table) => {
       table
         .uuid("format_uuid")
@@ -37,7 +53,15 @@ exports.up = async function (knex) {
       table.decimal("price").unsigned().notNullable();
       table.string("ext_no").notNullable();
       table.decimal("print_price").unsigned().notNullable();
-    })
+      table.timestamp("created_at").notNullable().defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 1]));
+      table.timestamp("updated_at").notNullable().defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 1]));
+    }).raw(`
+	  CREATE TRIGGER update_timestamp
+	  BEFORE UPDATE
+	  ON formats
+	  FOR EACH ROW
+	  EXECUTE PROCEDURE update_timestamp();
+	`)
     .createTable("customers", (table) => {
       table
         .uuid("customer_uuid")
@@ -56,7 +80,15 @@ exports.up = async function (knex) {
       table.string("billing_city").defaultTo(null);
       table.string("email").notNullable();
       table.boolean("enable_newsletter").defaultTo(false);
-    })
+      table.timestamp("created_at").notNullable().defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 1]));
+      table.timestamp("updated_at").notNullable().defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 1]));
+    }).raw(`
+	  CREATE TRIGGER update_timestamp
+	  BEFORE UPDATE
+	  ON customers
+	  FOR EACH ROW
+	  EXECUTE PROCEDURE update_timestamp();
+	`)
     .createTable("items", (table) => {
       table
         .uuid("item_uuid")
@@ -78,7 +110,15 @@ exports.up = async function (knex) {
       table.string("payment_id").defaultTo(null);
       table.foreign("customer_uuid").references("customers.customer_uuid");
       table.foreign("format_uuid").references("formats.format_uuid");
-    })
+      table.timestamp("created_at").notNullable().defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 1]));
+      table.timestamp("updated_at").notNullable().defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 1]));
+    }).raw(`
+	  CREATE TRIGGER update_timestamp
+	  BEFORE UPDATE
+	  ON items
+	  FOR EACH ROW
+	  EXECUTE PROCEDURE update_timestamp();
+	`)
 
     .createTable("orders", (table) => {
       table
@@ -92,16 +132,8 @@ exports.up = async function (knex) {
       table.string("pdf_sent").defaultTo(false);
       table.string("order_confirmed").defaultTo(false);
       table.foreign("customer_uuid").references("customers.customer_uuid");
-      // table.timestamp('updated_at').defaultTo(knex.fn.now(),{ useTz: true });
-      // table.timestamp('created_at').notNullable().defaultTo(knex.raw('CURRENT_TIMESTAMP',{ useTz: true }));
-      table
-        .timestamp("updated_at")
-        .defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 2]));
-
-      table
-        .timestamp("created_at")
-        .notNullable()
-        .defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 2]));
+      table.timestamp("created_at").notNullable().defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 1]));
+      table.timestamp("updated_at").notNullable().defaultTo(knex.raw(`? + INTERVAL '? hour'`, [knex.fn.now(), 1]));
       table.unique(["order_uuid", "order_no"]);
     })
     .raw(`ALTER SEQUENCE orders_order_no_seq RESTART WITH 100`)
@@ -110,7 +142,7 @@ exports.up = async function (knex) {
     RETURNS TRIGGER
     AS $$
     BEGIN
-      DELETE FROM discounts WHERE expires_at < NOW() + INTERVAL '2 hour' - INTERVAL '1 minute';
+      DELETE FROM discounts WHERE expires_at < NOW() + INTERVAL '1 hour' - INTERVAL '1 minute';
       RETURN OLD;
     END;
     $$ language 'plpgsql';
@@ -118,6 +150,12 @@ exports.up = async function (knex) {
 CREATE TRIGGER delete
     AFTER INSERT ON discounts
     EXECUTE PROCEDURE delete_old_rows();
+`).raw(`
+CREATE TRIGGER update_timestamp
+BEFORE UPDATE
+ON orders
+FOR EACH ROW
+EXECUTE PROCEDURE update_timestamp();
 `);
 };
 

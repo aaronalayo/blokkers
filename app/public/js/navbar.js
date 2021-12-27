@@ -1,206 +1,160 @@
-
-
-var _0x7e54 = [
-  "\x6B\x65\x79\x64\x6F\x77\x6E",
-  "\x6B\x65\x79",
-  "\x45\x73\x63\x61\x70\x65",
-  "\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72",
-  "\x77\x69\x64\x74\x68",
-  "\x73\x74\x79\x6C\x65",
-  "\x6D\x79\x53\x69\x64\x65\x6E\x61\x76",
-  "\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64",
-  "\x32\x35\x30\x70\x78",
-  "\x30",
-  "\x6D\x6F\x75\x73\x65\x6C\x65\x61\x76\x65",
-  "\x2E\x6D\x65\x6E\x75\x2D\x74\x6F\x67\x67\x6C\x65",
-  "\x72\x65\x61\x64\x79",
-  "\x66\x61\x64\x65\x4F\x75\x74",
-  "\x68\x69\x64\x65",
-  "\x23\x6E\x61\x76\x2D\x68\x65\x61\x64\x65\x72",
-  "\x68\x74\x74\x70\x73\x3A\x2F\x2F\x70\x6F\x6C\x69\x63\x69\x65\x73\x2E\x67\x6F\x6F\x67\x6C\x65\x2E\x63\x6F\x6D\x2F\x74\x65\x63\x68\x6E\x6F\x6C\x6F\x67\x69\x65\x73\x2F\x70\x61\x72\x74\x6E\x65\x72\x2D\x73\x69\x74\x65\x73\x3F\x68\x6C\x3D\x65\x6E",
-  "\x65\x6E",
-  "\x2E\x2E\x2F\x63\x73\x73\x2F\x63\x6F\x6F\x6B\x69\x65\x63\x6F\x6E\x73\x65\x6E\x74\x2E\x63\x73\x73",
-  "\x61\x6E\x61\x6C\x79\x74\x69\x63\x73\x5F\x63\x6F\x6F\x6B\x69\x65\x73",
-  "\x61\x6C\x6C\x6F\x77\x65\x64\x43\x61\x74\x65\x67\x6F\x72\x79",
-  "\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x67\x6F\x6F\x67\x6C\x65\x74\x61\x67\x6D\x61\x6E\x61\x67\x65\x72\x2E\x63\x6F\x6D\x2F\x67\x74\x61\x67\x2F\x6A\x73\x3F\x69\x64\x3D\x47\x2D\x35\x5A\x38\x52\x47\x33\x57\x32\x36\x52",
-  "\x64\x61\x74\x61\x4C\x61\x79\x65\x72",
-  "\x70\x75\x73\x68",
-  "\x6A\x73",
-  "\x63\x6F\x6E\x66\x69\x67",
-  "\x47\x2D\x35\x5A\x38\x52\x47\x33\x57\x32\x36\x52",
-  "\x6C\x6F\x61\x64\x53\x63\x72\x69\x70\x74",
-  "\x3C\x69\x6D\x67\x20\x69\x64\x3D\x22\x6C\x6F\x67\x6F\x22\x20\x73\x72\x63\x3D\x22\x69\x6D\x61\x67\x65\x73\x2F\x42\x6C\x6F\x6B\x6B\x65\x72\x73\x5F\x6C\x6F\x67\x6F\x2E\x70\x6E\x67\x22\x3E",
-  "\x57\x65\x20\x76\x61\x6C\x75\x65\x20\x79\x6F\x75\x72\x20\x69\x6E\x74\x65\x67\x72\x69\x74\x79",
-  "\x57\x65\x20\x75\x73\x65\x20\x63\x6F\x6F\x6B\x69\x65\x73\x20\x74\x6F\x20\x65\x6E\x73\x75\x72\x65\x20\x62\x61\x73\x69\x63\x20\x66\x65\x61\x74\x75\x72\x65\x73\x20\x61\x6E\x64\x20\x66\x75\x6E\x63\x74\x69\x6F\x6E\x61\x6C\x69\x74\x69\x65\x73\x20\x6F\x6E\x20\x74\x68\x65\x20\x77\x65\x62\x73\x69\x74\x65\x20\x61\x6E\x64\x20\x74\x6F\x20\x65\x6E\x61\x62\x6C\x65\x20\x6F\x70\x74\x69\x6D\x69\x7A\x61\x74\x69\x6F\x6E\x20\x61\x6E\x64\x20\x74\x61\x72\x67\x65\x74\x69\x6E\x67\x20\x69\x6E\x20\x74\x68\x65\x20\x68\x6F\x70\x65\x73\x20\x6F\x66\x20\x65\x6E\x68\x61\x6E\x63\x69\x6E\x67\x20\x79\x6F\x75\x72\x20\x65\x78\x70\x65\x72\x69\x65\x6E\x63\x65\x20\x77\x69\x74\x68\x20\x6F\x75\x72\x20\x62\x72\x61\x6E\x64\x2E\x20\x59\x6F\x75\x20\x63\x61\x6E\x20\x63\x68\x6F\x6F\x73\x65\x20\x79\x6F\x75\x72\x20\x63\x6F\x6F\x6B\x69\x65\x20\x73\x65\x74\x74\x69\x6E\x67\x73\x20\x68\x65\x72\x65\x2E",
-  "\x41\x63\x63\x65\x70\x74",
-  "\x61\x63\x63\x65\x70\x74\x5F\x61\x6C\x6C",
-  "\x53\x65\x74\x74\x69\x6E\x67\x73",
-  "\x73\x65\x74\x74\x69\x6E\x67\x73",
-  "",
-  "\x53\x61\x76\x65\x20\x73\x65\x74\x74\x69\x6E\x67\x73",
-  "\x41\x63\x63\x65\x70\x74\x20\x61\x6C\x6C",
-  "\x4E\x61\x6D\x65",
-  "\x44\x6F\x6D\x61\x69\x6E",
-  "\x45\x78\x70\x69\x72\x61\x74\x69\x6F\x6E",
-  "\x44\x65\x73\x63\x72\x69\x70\x74\x69\x6F\x6E",
-  "\x54\x79\x70\x65",
-  "\x43\x6F\x6F\x6B\x69\x65\x20\x73\x65\x74\x74\x69\x6E\x67\x73",
-  "\x4E\x65\x63\x65\x73\x73\x61\x72\x79\x20\x63\x6F\x6F\x6B\x69\x65\x73",
-  "\x54\x68\x65\x73\x65\x20\x63\x6F\x6F\x6B\x69\x65\x73\x20\x61\x72\x65\x20\x6E\x65\x63\x65\x73\x73\x61\x72\x79\x20\x66\x6F\x72\x20\x74\x68\x65\x20\x70\x72\x6F\x70\x65\x72\x20\x66\x75\x6E\x63\x74\x69\x6F\x6E\x69\x6E\x67\x20\x6F\x66\x20\x74\x68\x65\x20\x77\x65\x62\x73\x69\x74\x65\x20\x61\x6E\x64\x20\x63\x61\x6E\u2019\x74\x20\x62\x65\x20\x74\x75\x72\x6E\x65\x64\x20\x6F\x66\x66\x2E\x20\x57\x69\x74\x68\x6F\x75\x74\x20\x74\x68\x65\x6D\x20\x74\x68\x65\x20\x77\x65\x62\x73\x69\x74\x65\x20\x77\x6F\x75\x6C\x64\x6E\x27\x74\x20\x66\x75\x6E\x63\x74\x69\x6F\x6E\x2E",
-  "\x6E\x65\x63\x65\x73\x73\x61\x72\x79\x5F\x63\x6F\x6F\x6B\x69\x65\x73",
-  "\x63\x61\x72\x74",
-  "\x62\x6C\x6F\x6B\x6B\x65\x72\x73\x2E\x64\x6B",
-  "\x33\x30\x20\x64\x61\x79\x73",
-  "\x53\x75\x70\x70\x6F\x72\x74\x73\x20\x74\x68\x65\x20\x74\x65\x63\x68\x6E\x69\x63\x61\x6C\x20\x66\x65\x61\x74\x75\x72\x65\x73\x20\x6F\x66\x20\x74\x68\x65\x20\x77\x65\x62\x73\x69\x74\x65\x20\x74\x6F\x20\x63\x72\x65\x61\x74\x65\x20\x61\x20\x73\x65\x61\x6D\x6C\x65\x73\x73\x20\x73\x68\x6F\x70\x70\x69\x6E\x67\x20\x65\x78\x70\x65\x72\x69\x65\x6E\x63\x65\x2E",
-  "\x50\x65\x72\x6D\x61\x6E\x65\x6E\x74\x20\x63\x6F\x6F\x6B\x69\x65",
-  "\x76\x69\x73\x69\x64\x5F\x69\x6E\x63\x61\x70\x5F",
-  "\x31\x20\x79\x65\x61\x72",
-  "\x73\x65\x73\x73\x69\x6F\x6E",
-  "\x54\x65\x6D\x70\x6F\x72\x61\x72\x79\x20\x63\x6F\x6F\x6B\x69\x65",
-  "\x63\x63\x5F\x63\x6F\x6F\x6B\x69\x65\x73",
-  "\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x20\x63\x6F\x6F\x6B\x69\x65\x73",
-  "\x54\x68\x65\x73\x65\x20\x63\x6F\x6F\x6B\x69\x65\x73\x20\x63\x6F\x6C\x6C\x65\x63\x74\x20\x61\x6E\x6F\x6E\x79\x6D\x69\x7A\x65\x64\x20\x69\x6E\x66\x6F\x72\x6D\x61\x74\x69\x6F\x6E\x20\x61\x62\x6F\x75\x74\x20\x79\x6F\x75\x20\x61\x6E\x64\x20\x68\x6F\x77\x20\x79\x6F\x75\x20\x75\x73\x65\x20\x74\x68\x65\x20\x77\x65\x62\x73\x69\x74\x65\x20\x66\x6F\x72\x20\x6F\x70\x74\x69\x6D\x69\x7A\x61\x74\x69\x6F\x6E\x20\x61\x6E\x64\x20\x6D\x61\x72\x6B\x65\x74\x69\x6E\x67\x20\x70\x75\x72\x70\x6F\x73\x65\x73\x2E\x20\x57\x65\x20\x76\x61\x6C\x75\x65\x20\x79\x6F\x75\x72\x20\x69\x6E\x74\x65\x67\x72\x69\x74\x79\x20\x61\x6E\x64\x20\x6D\x61\x6B\x65\x20\x73\x75\x72\x65\x20\x74\x68\x61\x74\x20\x74\x68\x65\x20\x63\x6F\x6C\x6C\x65\x63\x74\x65\x64\x20\x64\x61\x74\x61\x20\x63\x61\x6E\u2019\x74\x20\x62\x65\x20\x75\x73\x65\x64\x20\x74\x6F\x20\x69\x64\x65\x6E\x74\x69\x66\x79\x20\x79\x6F\x75\x2E",
-  "\x5F\x67\x61",
-  "\x67\x6F\x6F\x67\x6C\x65\x2E\x63\x6F\x6D",
-  "\x32\x20\x79\x65\x61\x72\x73",
-  "\x43\x6F\x6C\x6C\x65\x63\x74\x73\x20\x69\x6E\x66\x6F\x72\x6D\x61\x74\x69\x6F\x6E\x20\x61\x62\x6F\x75\x74\x20\x74\x68\x65\x20\x75\x73\x65\x72\x20\x61\x6E\x64\x20\x69\x74\u2019\x73\x20\x61\x63\x74\x69\x76\x69\x74\x79\x20\x6F\x6E\x20\x74\x68\x65\x20\x77\x65\x62\x73\x69\x74\x65\x20\x66\x6F\x72\x20\x61\x6E\x61\x6C\x79\x7A\x69\x6E\x67\x20\x61\x6E\x64\x20\x72\x65\x70\x6F\x72\x74\x69\x6E\x67\x20\x70\x75\x72\x70\x6F\x73\x65\x73\x2E\x20\x46\x6F\x72\x20\x6D\x6F\x72\x65\x20\x69\x6E\x66\x6F\x20\x61\x62\x6F\x75\x74\x20\x68\x6F\x77\x20\x47\x6F\x6F\x67\x6C\x65\x20\x75\x73\x65\x73\x20\x69\x6E\x66\x6F\x72\x6D\x61\x74\x69\x6F\x6E\x20\x66\x72\x6F\x6D\x20\x6F\x75\x72\x20\x77\x65\x62\x73\x69\x74\x65\x20\x72\x65\x61\x64\x20\x6F\x75\x72\x20\x50\x72\x69\x76\x61\x63\x79\x20\x50\x6F\x6C\x69\x63\x79\x2E",
-  "\x5F\x67\x61\x74",
-  "\x31\x20\x6D\x69\x6E\x75\x74\x65",
-  "\x5F\x67\x69\x64",
-  "\x31\x20\x64\x61\x79",
-  "\x4D\x6F\x72\x65\x20\x69\x6E\x66\x6F\x72\x6D\x61\x74\x69\x6F\x6E",
-  "\x46\x6F\x72\x20\x61\x6E\x79\x20\x71\x75\x65\x73\x74\x69\x6F\x6E\x73\x20\x69\x6E\x20\x72\x65\x6C\x61\x74\x69\x6F\x6E\x20\x74\x6F\x20\x6F\x75\x72\x20\x70\x72\x69\x76\x61\x63\x79\x20\x70\x6F\x6C\x69\x63\x79\x2C\x20\x75\x73\x65\x20\x6F\x66\x20\x63\x6F\x6F\x6B\x69\x65\x73\x20\x61\x6E\x64\x20\x79\x6F\x75\x72\x20\x72\x69\x67\x68\x74\x20\x61\x6E\x64\x20\x6F\x70\x74\x69\x6F\x6E\x73\x2C\x20\x70\x6C\x65\x61\x73\x65\x20\x72\x65\x61\x64\x20\x6F\x75\x72\x20\x3C\x61\x20\x63\x6C\x61\x73\x73\x3D\x22\x63\x63\x2D\x6C\x69\x6E\x6B\x22\x20\x68\x72\x65\x66\x3D\x22\x2F\x70\x72\x69\x76\x61\x63\x79\x70\x6F\x6C\x69\x63\x79\x22\x3E\x50\x72\x69\x76\x61\x63\x79\x20\x70\x6F\x6C\x69\x63\x79\x3C\x2F\x61\x3E\x2E",
-  "\x72\x75\x6E",
-];
-document[_0x7e54[3]](_0x7e54[0], (_0xbd1bx1) => {
-  if (_0xbd1bx1[_0x7e54[1]] === _0x7e54[2]) {
-    closeNav();
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+     // close modal here
+     closeNav();
   }
 });
+
 function openNav() {
-  document[_0x7e54[7]](_0x7e54[6])[_0x7e54[5]][_0x7e54[4]] = _0x7e54[8];
-}
+  document.getElementById("mySidenav").style.width = "250px";
+};
+
 function closeNav() {
-  document[_0x7e54[7]](_0x7e54[6])[_0x7e54[5]][_0x7e54[4]] = _0x7e54[9];
-}
-$(document)[_0x7e54[12]](function () {
-  $(_0x7e54[11])[_0x7e54[10]](function () {
+  document.getElementById("mySidenav").style.width = "0";
+};
+
+$(document).ready(function () {
+
+  $(".menu-toggle").mouseleave(function(){
     closeNav();
   });
 });
+
 function closeHeader() {
-  $(_0x7e54[15])[_0x7e54[14]](400)[_0x7e54[13]](400);
-}
+  $("#nav-header").hide(400).fadeOut(400)
+
+};
 let cookieconsent = initCookieConsent();
-let site = _0x7e54[16];
-cookieconsent[_0x7e54[69]]({
-  autorun: true,
-  delay: 0,
-  current_lang: _0x7e54[17],
-  theme_css: _0x7e54[18],
-  autoclear_cookies: true,
-  autoload_css: true,
-  cookie_expiration: 30,
-  onAccept: function (_0xbd1bx7) {
-    if (cookieconsent[_0x7e54[20]](_0x7e54[19])) {
-      cookieconsent[_0x7e54[27]](_0x7e54[21], function () {
-        window[_0x7e54[22]] = window[_0x7e54[22]] || [];
-        function _0xbd1bx8() {
-          dataLayer[_0x7e54[23]](arguments);
-        }
-        _0xbd1bx8(_0x7e54[24], new Date());
-        _0xbd1bx8(_0x7e54[25], _0x7e54[26]);
-      });
-    }
-  },
-  languages: {
-    en: {
-      consent_modal: {
-        logo: `${_0x7e54[28]}`,
-        title: _0x7e54[29],
-        description: _0x7e54[30],
-        primary_btn: { text: _0x7e54[31], role: _0x7e54[32] },
-        secondary_btn: { text: _0x7e54[33], role: _0x7e54[34] },
-      },
-      settings_modal: {
-        title: _0x7e54[35],
-        save_settings_btn: _0x7e54[36],
-        accept_all_btn: _0x7e54[37],
-        cookie_table_headers: [
-          { col1: _0x7e54[38] },
-          { col2: _0x7e54[39] },
-          { col3: _0x7e54[40] },
-          { col4: _0x7e54[41] },
-          { col5: _0x7e54[42] },
-        ],
-        blocks: [
-          { title: _0x7e54[43], description: _0x7e54[30] },
-          {
-            title: _0x7e54[44],
-            description: _0x7e54[45],
-            toggle: { value: _0x7e54[46], enabled: true, readonly: true },
-            cookie_table: [
-              {
-                col1: _0x7e54[47],
-                col2: _0x7e54[48],
-                col3: _0x7e54[49],
-                col4: _0x7e54[50],
-                col5: _0x7e54[51],
-              },
-              {
-                col1: _0x7e54[52],
-                col2: _0x7e54[48],
-                col3: _0x7e54[53],
-                col4: _0x7e54[50],
-                col5: _0x7e54[51],
-              },
-              {
-                col1: _0x7e54[52],
-                col2: _0x7e54[48],
-                col3: _0x7e54[54],
-                col4: _0x7e54[50],
-                col5: _0x7e54[55],
-              },
-              {
-                col1: _0x7e54[56],
-                col2: _0x7e54[48],
-                col3: _0x7e54[49],
-                col4: _0x7e54[50],
-                col5: _0x7e54[51],
-              },
-            ],
-          },
-          {
-            title: _0x7e54[57],
-            description: _0x7e54[58],
-            toggle: { value: _0x7e54[19], enabled: false, readonly: false },
-            cookie_table: [
-              {
-                col1: _0x7e54[59],
-                col2: _0x7e54[60],
-                col3: _0x7e54[61],
-                col4: _0x7e54[62],
-                col5: _0x7e54[51],
-              },
-              {
-                col1: _0x7e54[63],
-                col2: _0x7e54[60],
-                col3: _0x7e54[64],
-                col4: _0x7e54[62],
-                col5: _0x7e54[51],
-              },
-              {
-                col1: _0x7e54[65],
-                col2: _0x7e54[60],
-                col3: _0x7e54[66],
-                col4: _0x7e54[62],
-                col5: _0x7e54[51],
-              },
-            ],
-          },
-          { title: _0x7e54[67], description: _0x7e54[68] },
-        ],
-      },
-    },
-  },
+let site = 'https://policies.google.com/technologies/partner-sites?hl=en';
+
+
+cookieconsent.run({
+  autorun : true, 							
+  delay : 0,
+  current_lang : 'en',
+  theme_css : "../css/cookieconsent.css",		
+  autoclear_cookies : true,	
+  autoload_css : true, 
+  cookie_expiration : 30,
+     
+     onAccept: function(cookies){				
+         if(cookieconsent.allowedCategory('analytics_cookies')){
+           cookieconsent.loadScript('https://www.googletagmanager.com/gtag/js?id=G-5Z8RG3W26R', function(){		
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', 'G-5Z8RG3W26R');
+             });
+         }
+     },
+  
+
+   languages : {
+       en : {
+           consent_modal : {
+               logo: `<img id="logo" src="images/Blokkers_logo.png">`,
+               title :  "We value your integrity",
+               description :  'We use cookies to ensure basic features and functionalities on the website and to enable optimization and targeting in the hopes of enhancing your experience with our brand. You can choose your cookie settings here.',
+               primary_btn: {
+                   text: 'Accept',
+                   role: 'accept_all'  //'accept_selected' or 'accept_all'
+               },
+               secondary_btn: {
+                   text : 'Settings',
+                   role : 'settings'   //'settings' or 'accept_necessary'
+               }
+           },
+           settings_modal : {
+              title : '',
+              save_settings_btn : "Save settings",
+              accept_all_btn : "Accept all",
+              cookie_table_headers : [
+                  {col1: "Name" }, 
+                  {col2: "Domain" }, 
+                  {col3: "Expiration" }, 
+                  {col4: "Description" }, 
+                  {col5: "Type" }
+              ],
+              blocks : [
+                  {
+                      title : "Cookie settings",
+                      description: 'We use cookies to ensure basic features and functionalities on the website and to enable optimization and targeting in the hopes of enhancing your experience with our brand. You can choose your cookie settings here.'
+                  },{
+                      title : "Necessary cookies",
+                      description: "These cookies are necessary for the proper functioning of the website and can’t be turned off. Without them the website wouldn't function.",
+                      toggle : {
+                          value : 'necessary_cookies',
+                          enabled : true,
+                          readonly: true
+                      },
+                      cookie_table: [
+                       {
+                           col1: 'cart',
+                           col2: 'blokkers.dk',
+                           col3: '30 days',
+                           col4: 'Supports the technical features of the website to create a seamless shopping experience.' ,
+                           col5: 'Permanent cookie'
+                       },
+                       {
+                           col1: 'visid_incap_',
+                           col2: 'blokkers.dk',
+                           col3: '1 year',
+                           col4: 'Supports the technical features of the website to create a seamless shopping experience.' ,
+                           col5: 'Permanent cookie'
+                       },
+                       {
+                           col1: 'visid_incap_',
+                           col2: 'blokkers.dk',
+                           col3: 'session',
+                           col4: 'Supports the technical features of the website to create a seamless shopping experience.' ,
+                           col5: 'Temporary cookie'
+                       },
+                       {
+                           col1: 'cc_cookies',
+                           col2: 'blokkers.dk',
+                           col3: '30 days',
+                           col4: 'Supports the technical features of the website to create a seamless shopping experience.' ,
+                           col5: 'Permanent cookie'
+                       },
+                   ]
+                  },{
+                      title : "Statistics cookies",
+                      description: 'These cookies collect anonymized information about you and how you use the website for optimization and marketing purposes. We value your integrity and make sure that the collected data can’t be used to identify you.',
+                      toggle : {
+                          value : 'analytics_cookies',
+                          enabled : false,
+                          readonly: false
+                      },
+                      cookie_table: [
+                          {
+                              col1: '_ga',
+                              col2: 'google.com',
+                              col3: '2 years',
+                              col4: 'Collects information about the user and it’s activity on the website for analyzing and reporting purposes. For more info about how Google uses information from our website read our Privacy Policy.',
+                              col5: 'Permanent cookie'
+                          },
+                          {
+                              col1: '_gat',
+                              col2: 'google.com',
+                              col3: '1 minute',
+                              col4: 'Collects information about the user and it’s activity on the website for analyzing and reporting purposes. For more info about how Google uses information from our website read our Privacy Policy.',
+                              col5: 'Permanent cookie'
+                          },
+                          {
+                              col1: '_gid',
+                              col2: 'google.com',
+                              col3: '1 day',
+                              col4: 'Collects information about the user and it’s activity on the website for analyzing and reporting purposes. For more info about how Google uses information from our website read our Privacy Policy.',
+                              col5: 'Permanent cookie'
+                          }
+                      ]
+                  },{
+                      title : "More information",
+                      description: 'For any questions in relation to our privacy policy, use of cookies and your right and options, please read our <a class="cc-link" href="/privacypolicy">Privacy policy</a>.',
+                  }
+              ]
+          }
+      }
+  }
 });

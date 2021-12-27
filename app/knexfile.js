@@ -23,7 +23,7 @@ module.exports = {
       database: process.env.PGDATABASE,
       password: process.env.PGPASSWORD,
       port: process.env.PGPORT,
-      // timezone: 'utc+1',
+      timezone: "Europe/Copenhagen",
       ssl: process.env.PGSSLMODE,
       ssl: {
         rejectUnauthorized: false,
@@ -31,15 +31,16 @@ module.exports = {
         key: fs.readFileSync("../app/certificates/client-key.pem", "utf8"),
         cert: fs.readFileSync("../app/certificates/client-cert.pem", "utf8"),
       },
+     
+      },
+    //   pool: {
+    //     afterCreate: function(connection, callback) {
+    //       connection.query("SET timezone = 'Europe/Copenhagen';", function(err) {
+    //         callback(err, connection);
+    //       });
+    //     }
+    //  },
+      // ...knexSnakeCaseMappers(),
     },
-  },
-  pool: {
-    afterCreate: (conn, cb) => {
-      conn.query(`SET timezone = 'UTC+2'`, err => {
-        cb(err, conn);
-      });
-    }
-  },
-  ...knexSnakeCaseMappers(),
 };
 

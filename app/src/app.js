@@ -175,9 +175,10 @@ app.get(formats, async (req, res) => {
 
 app.get(discounts, async (req, res) => {
   const discountName = req.cookies.code;
-  console.log(discountName) 
+
   if(typeof discountName !== "undefined"){
     const discount = await Discount.query().select().where({discount_code: discountName});
+    // console.log(discount)
     res.json({ discount: discount }); 
   }else{
     res.json({message: "There is no discount for this code!"});
